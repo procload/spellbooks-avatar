@@ -4,7 +4,7 @@ A kid-friendly web application for creating personalized avatars for the Spellbo
 
 ## Overview
 
-The Spellbooks Avatar Generator is designed to provide a simple, engaging experience for children to create their own unique avatars. Built with Rails and integrated with modern AI tools, this application demonstrates best practices for AI-assisted development workflows.
+The Spellbooks Avatar Generator is designed to provide a simple, engaging experience for children to create their own unique avatars. Built with Rails 8 and integrated with modern AI tools, this application demonstrates best practices for AI-assisted development workflows.
 
 ## Features
 
@@ -16,20 +16,22 @@ The Spellbooks Avatar Generator is designed to provide a simple, engaging experi
 
 ## Tech Stack
 
-- **Backend**: Ruby on Rails
-- **Frontend**: Stimulus for interactivity
+- **Backend**: Ruby on Rails 8.0.3
+- **Database**: SQLite3
+- **Frontend**: Hotwire (Turbo + Stimulus)
 - **AI Integration**:
   - OpenAI Codex for code generation and automation
   - Claude Code for code review
   - Image generation model (e.g., Google Gemini 2.5) for avatar creation
 - **CI/CD**: GitHub Actions for automated workflows
+- **Deployment**: Kamal
 
 ## Development Roadmap
 
-### Week 1
-- Set up Rails application
+### Week 1 ✅
+- Set up Rails 8 application
 - Configure GitHub Actions
-- Integrate Codex and Claude Code
+- Implement basic avatar form UI
 
 ### Week 2
 - Implement UI components
@@ -63,9 +65,9 @@ To use these tools, simply mention them in an issue or pull request comment.
 
 ### Prerequisites
 
-- Ruby (version TBD)
-- Rails (version TBD)
-- Node.js 20+
+- Ruby 3.3+
+- Rails 8.0.3
+- SQLite3
 
 ### Installation
 
@@ -76,14 +78,15 @@ cd spellbooks-avatar
 
 # Install dependencies
 bundle install
-npm install
 
 # Set up the database
-rails db:create db:migrate
+bin/rails db:prepare
 
 # Start the development server
-rails server
+bin/rails s
 ```
+
+Visit http://localhost:3000 to see the avatar generator.
 
 ### Configuration
 

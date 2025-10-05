@@ -1,0 +1,44 @@
+<h1>Spellbooks Avatar Generator</h1>
+
+<p><%= image_tag "avatar-placeholder.svg", alt: "Avatar preview", width: 256, height: 256 %></p>
+
+<%= form_with url: avatars_path, scope: :avatar, method: :post do |f| %>
+  <div>
+    <%= f.label :name, "Name" %><br>
+    <%= f.text_field :name, required: true %>
+  </div>
+
+  <div style="margin-top: .5rem;">
+    <span>Gender</span><br>
+    <% (@genders || []).each do |g| %>
+      <label style="margin-right: 1rem;">
+        <%= f.radio_button :gender, g %> <%= g.humanize %>
+      </label>
+    <% end %>
+  </div>
+
+  <div style="margin-top: .5rem;">
+    <%= f.label :klass, "Class" %><br>
+    <%= f.select :klass, options_for_select(@classes), {}, { required: true } %>
+  </div>
+
+  <div style="margin-top: .5rem;">
+    <%= f.label :traits, "Fun traits" %><br>
+    <%= f.select :traits, options_for_select(@traits), {}, multiple: true, size: 5 %>
+  </div>
+
+  <div style="margin-top: .75rem;">
+    <%= f.submit "Generate", data: { turbo: false } %>
+  </div>
+<% end %>
+
+<% if defined?(@input) && @input.present? %>
+  <hr>
+  <h2>Submitted</h2>
+  <ul>
+    <li><strong>Name:</strong> <%= @input[:name] %></li>
+    <li><strong>Gender:</strong> <%= @input[:gender] %></li>
+    <li><strong>Class:</strong> <%= @input[:klass] %></li>
+    <li><strong>Traits:</strong> <%= Array(@input[:traits]).join(", ") %></li>
+  </ul>
+<% end %>

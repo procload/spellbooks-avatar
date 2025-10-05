@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "SlashCommand(/prime)",
+      "Bash(bin/rails:*)",
+      "Bash(curl:*)",
+      "Bash(lsof:*)",
+      "Bash(git add:*)",
+      "Bash(git rebase:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
