@@ -18,6 +18,7 @@ jobs:
       github.event_name == 'issue_comment' && contains(github.event.comment.body, '@codex')
       || (github.event_name == 'issues' && contains(github.event.issue.title, '[codex]'))
     runs-on: ubuntu-latest
+
     env:
       OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
       ISSUE_URL: ${{ github.event.issue.html_url }}
@@ -27,39 +28,46 @@ jobs:
       ACTOR: ${{ github.actor }}
 
     steps:
-      - name: Check secret
-        run: test -n "$OPENAI_API_KEY"
+      - name: Validate secrets
+        run: |
+          test -n "$OPENAI_API_KEY" || (echo "Missing OPENAI_API_KEY secret" && exit 1)
 
-      - name: Checkout repo
+      - name: Checkout repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Setup Node
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
 
-      - name: Install Codex Action
+      - name: Prepare codex home to avoid ENOENT
+        run: |
+          mkdir -p "$HOME/.codex"
+
+      - name: Run Codex (non-server, one-shot)
         uses: openai/codex-action@main
         id: codex
         with:
           openai_api_key: ${{ secrets.OPENAI_API_KEY }}
-          # Prompt includes the Issue context
+          # Make sure server mode is OFF so it doesn't look for ~/.codex/<id>.json
+          use_server: false
           prompt: |
             You are working in this repository.
-            The request comes from GitHub Issue #{ISSUE_NUMBER}: "{ISSUE_TITLE}".
+            The request comes from GitHub Issue #${{ env.ISSUE_NUMBER }}: "${{ env.ISSUE_TITLE }}".
             Details:
-            {ISSUE_BODY}
-            Read the repository, make minimal, surgical changes to address the Issue.
+            ${{ env.ISSUE_BODY }}
+            Read the repository. Make minimal, surgical changes to address the Issue.
             Implement only what's needed. Do not refactor unrelated code.
+          # Keep sandbox write to repo workspace only
           codex_args: '["--config","sandbox_mode=\"workspace-write\""]'
 
-      - name: Run tests
+      - name: Run tests (if present)
         run: |
           if [ -f package.json ]; then npm test --silent || true; fi
 
-      - name: Create PR with fixes
+      - name: Create PR with changes
         uses: peter-evans/create-pull-request@v6
         with:
           commit-message: "codex: address Issue #${{ env.ISSUE_NUMBER }}"
