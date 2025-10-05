@@ -1,0 +1,70 @@
+# .github/workflows/codex-issue.yml
+name: Codex from Issues
+
+on:
+  issue_comment:
+    types: [created]
+  issues:
+    types: [opened, edited, labeled]
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: read
+
+jobs:
+  codex-on-issue:
+    if: >
+      github.event_name == 'issue_comment' && contains(github.event.comment.body, '@codex')
+      || (github.event_name == 'issues' && contains(github.event.issue.title, '[codex]'))
+    runs-on: ubuntu-latest
+    env:
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      ISSUE_URL: ${{ github.event.issue.html_url }}
+      ISSUE_TITLE: ${{ github.event.issue.title }}
+      ISSUE_BODY: ${{ github.event.issue.body }}
+      ISSUE_NUMBER: ${{ github.event.issue.number }}
+      ACTOR: ${{ github.actor }}
+
+    steps:
+      - name: Check secret
+        run: test -n "$OPENAI_API_KEY"
+
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Codex Action
+        uses: openai/codex-action@main
+        id: codex
+        with:
+          openai_api_key: ${{ secrets.OPENAI_API_KEY }}
+          # Prompt includes the Issue context
+          prompt: |
+            You are working in this repository.
+            The request comes from GitHub Issue #{ISSUE_NUMBER}: "{ISSUE_TITLE}".
+            Details:
+            {ISSUE_BODY}
+            Read the repository, make minimal, surgical changes to address the Issue.
+            Implement only what's needed. Do not refactor unrelated code.
+          codex_args: '["--config","sandbox_mode=\"workspace-write\""]'
+
+      - name: Run tests
+        run: |
+          if [ -f package.json ]; then npm test --silent || true; fi
+
+      - name: Create PR with fixes
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: "codex: address Issue #${{ env.ISSUE_NUMBER }}"
+          branch: codex/issue-${{ env.ISSUE_NUMBER }}
+          title: "Codex: Address Issue #${{ env.ISSUE_NUMBER }}"
+          body: |
+            Triggered by @${{ env.ACTOR }} via Issue [#${{ env.ISSUE_NUMBER }}](${{ env.ISSUE_URL }}).
+            Codex generated minimal changes to address the Issue.
