@@ -1,0 +1,27 @@
+default: &default
+  provider: gemini
+  gemini: &gemini_defaults
+    api_key: <%= ENV.fetch("GEMINI_API_KEY", nil) %>
+    endpoint: https://generativelanguage.googleapis.com/v1beta/models
+    model: gemini-2.0-nano-banana
+    safety_settings:
+      - category: HARM_CATEGORY_HATE
+        threshold: BLOCK_NONE
+      - category: HARM_CATEGORY_VIOLENCE
+        threshold: BLOCK_NONE
+    generation_config:
+      temperature: 0.8
+      top_p: 0.95
+      top_k: 32
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+  gemini:
+    <<: *gemini_defaults
+    api_key: test-api-key
+
+production:
+  <<: *default

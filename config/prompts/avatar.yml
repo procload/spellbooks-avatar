@@ -1,0 +1,31 @@
+default: &default
+  system_prompt: >-
+    You are the Spellbooks avatar director. Maintain brand cohesion
+    by blending heroic fantasy costuming with modern, inclusive
+    styling and cinematic lighting.
+  user_prompt_template: |-
+    Generate a polished, production-ready Spellbooks avatar portrait.
+    Focus on portraying <%%= inputs[:persona] || "an enigmatic adventurer" %>.
+    Key traits for the subject:
+    <%% inputs.each do |key, value| %>
+    - <%%= key.to_s.humanize %>: <%%= value %>
+    <%% end %>
+    Compose the shot at chest-up framing with soft depth of field,
+    intricate magical sigils, and jewel-tone accents that match the
+    Spellbooks brand palette.
+  example_images:
+    - label: Arcane strategist
+      url: https://storage.googleapis.com/spellbooks-reference/avatars/arcane-strategist.png
+      notes: Teal edge lighting, brushed metal filigree, focused gaze.
+    - label: Celestial healer
+      url: https://storage.googleapis.com/spellbooks-reference/avatars/celestial-healer.png
+      notes: Warm gold palette, nebula particles, compassionate expression.
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+
+production:
+  <<: *default
