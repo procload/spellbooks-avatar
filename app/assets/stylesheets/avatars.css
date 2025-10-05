@@ -1,0 +1,46 @@
+.avatar-form {
+  margin-top: 1rem;
+}
+
+.avatar-form__field {
+  margin-top: 0.5rem;
+}
+
+.avatar-form__option-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 0.25rem;
+}
+
+.avatar-form__option {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.avatar-form__actions {
+  margin-top: 0.75rem;
+}
+
+.avatar-form__back-link {
+  margin-top: 1rem;
+}
+
+.form-errors {
+  border: 1px solid #e03131;
+  background-color: #fff5f5;
+  color: #c92a2a;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.form-errors h2 {
+  margin-top: 0;
+  font-size: 1rem;
+}
+
+.form-errors ul {
+  margin: 0.5rem 0 0;
+  padding-left: 1.25rem;
+}
