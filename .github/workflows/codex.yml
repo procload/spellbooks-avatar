@@ -68,7 +68,7 @@ jobs:
           if [ -f package.json ]; then npm test --silent || true; fi
 
       - name: Create PR with changes
-        uses: peter-evans/create-pull-request@v6
+        uses: peter-evans/create-pull-request@v7
         with:
           commit-message: "codex: address Issue #${{ env.ISSUE_NUMBER }}"
           branch: codex/issue-${{ env.ISSUE_NUMBER }}
