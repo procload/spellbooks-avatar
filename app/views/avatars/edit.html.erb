@@ -1,0 +1,11 @@
+<h1>Edit Avatar</h1>
+
+<p>Update your avatar's details and save the changes.</p>
+
+<%= render "form", form_url: avatar_path, form_method: :patch, submit_label: "Save Avatar", avatar: @form_avatar %>
+
+<p style="margin-top: 1rem;">
+  <%= link_to "Back to generator", new_avatar_path %>
+</p>
+
+<%= render "submission_summary", avatar: @submitted_avatar %>

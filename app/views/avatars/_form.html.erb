@@ -1,0 +1,32 @@
+<% avatar = avatar.respond_to?(:to_h) ? avatar.to_h : avatar %>
+<% avatar = (avatar || {}).deep_symbolize_keys %>
+
+<%= form_with url: form_url, scope: :avatar, method: form_method do |f| %>
+  <div>
+    <%= f.label :name, "Name" %><br>
+    <%= f.text_field :name, required: true, value: avatar[:name] %>
+  </div>
+
+  <div style="margin-top: .5rem;">
+    <span>Gender</span><br>
+    <% (@genders || []).each do |g| %>
+      <label style="margin-right: 1rem;">
+        <%= f.radio_button :gender, g, checked: avatar[:gender] == g %> <%= g.humanize %>
+      </label>
+    <% end %>
+  </div>
+
+  <div style="margin-top: .5rem;">
+    <%= f.label :klass, "Class" %><br>
+    <%= f.select :klass, options_for_select(@classes, avatar[:klass]), {}, { required: true } %>
+  </div>
+
+  <div style="margin-top: .5rem;">
+    <%= f.label :traits, "Fun traits" %><br>
+    <%= f.select :traits, options_for_select(@traits, Array(avatar[:traits])), {}, multiple: true, size: 5 %>
+  </div>
+
+  <div style="margin-top: .75rem;">
+    <%= f.submit submit_label, data: { turbo: false } %>
+  </div>
+<% end %>
