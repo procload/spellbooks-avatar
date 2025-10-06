@@ -1,7 +1,7 @@
 class AvatarsController < ApplicationController
-  CLASSES = ["Wizard", "Knight", "Ranger", "Scholar"].freeze
-  TRAITS  = ["Brave", "Clever", "Kind", "Sneaky", "Curious"].freeze
-  GENDERS = ["male", "female", "non-binary"].freeze
+  CLASSES = [ "Wizard", "Knight", "Ranger", "Scholar" ].freeze
+  TRAITS  = [ "Brave", "Clever", "Kind", "Sneaky", "Curious" ].freeze
+  GENDERS = [ "male", "female", "non-binary" ].freeze
 
   def new
     @classes = CLASSES
