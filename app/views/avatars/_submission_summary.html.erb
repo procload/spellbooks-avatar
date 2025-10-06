@@ -1,0 +1,13 @@
+<% if avatar.present? %>
+  <% details = avatar.respond_to?(:to_h) ? avatar.to_h : avatar %>
+  <% details = details.deep_symbolize_keys %>
+
+  <hr>
+  <h2>Submitted</h2>
+  <ul>
+    <li><strong>Name:</strong> <%= details[:name] %></li>
+    <li><strong>Gender:</strong> <%= details[:gender] %></li>
+    <li><strong>Class:</strong> <%= details[:klass] %></li>
+    <li><strong>Traits:</strong> <%= Array(details[:traits]).join(", ") %></li>
+  </ul>
+<% end %>

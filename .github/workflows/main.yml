@@ -1,0 +1,23 @@
+# .github/workflows/ai-codex.yml
+name: Codex on PRs
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+jobs:
+  codex:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+      - name: Run Codex (non-interactive)
+        uses: openai/codex-action@main
+        with:
+          openai-api-key: ${{ secrets.OPENAI_API_KEY }}
+          sandbox: workspace-write   # default safety mode
+          prompt: |
+            You are reviewing a Ruby on Rails PR. 
+            1) Run bin/rubocop, bin/brakeman --no-pager, and bin/rails test.
+            2) Summarize failures and propose minimal diffs.
+            3) Add inline review comments with specific code suggestions.

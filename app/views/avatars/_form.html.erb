@@ -1,0 +1,43 @@
+<%= form_with model: form_object, url: form_url, method: form_method, html: { class: "avatar-form" } do |f| %>
+  <% if form_object.errors.any? %>
+    <div class="form-errors" role="alert">
+      <h2><%= pluralize(form_object.errors.count, "error") %> prevented this avatar from being saved:</h2>
+      <ul>
+        <% form_object.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="avatar-form__field">
+    <%= f.label :name, "Name" %><br>
+    <%= f.text_field :name, required: true %>
+  </div>
+
+  <fieldset class="avatar-form__field">
+    <legend>Gender</legend>
+    <div class="avatar-form__option-group">
+      <% (@genders || []).each do |gender| %>
+        <label class="avatar-form__option">
+          <%= f.radio_button :gender, gender %>
+          <span><%= gender.humanize %></span>
+        </label>
+      <% end %>
+    </div>
+  </fieldset>
+
+  <div class="avatar-form__field">
+    <%= f.label :klass, "Class" %><br>
+    <%= f.select :klass, options_for_select(@classes, form_object.klass), {}, { required: true } %>
+  </div>
+
+  <div class="avatar-form__field">
+    <%= f.label :traits, "Fun traits" %><br>
+    <%= f.select :traits, options_for_select(@traits, Array(form_object.traits)), {}, multiple: true, size: 5 %>
+  </div>
+
+  <div class="avatar-form__actions">
+    <%= f.submit submit_label, data: { turbo: false } %>
+  </div>
+<% end %>
