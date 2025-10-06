@@ -113,7 +113,10 @@ This project uses AI-assisted development workflows. To contribute:
 
 ## Documentation
 
-For detailed product requirements, see [docs/prd.md](docs/prd.md).
+- **[Architecture Overview](docs/architecture.md)**: Comprehensive guide to the application's architecture, technology stack, and development practices
+- **[Product Requirements](docs/prd.md)**: Detailed product requirements and goals
+- **[Setup Guide](docs/setup.md)**: Step-by-step setup instructions
+- **[Image Generation Plan](docs/gemini_image_generation_plan.md)**: Technical details on AI image generation
 
 ## License
 
