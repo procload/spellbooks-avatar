@@ -16,6 +16,8 @@ class AvatarsControllerTest < ActionDispatch::IntegrationTest
       }
     }
 
+    assert_redirected_to new_avatar_path
+    follow_redirect!
     assert_response :success
     assert_match "Submitted", @response.body
   end
@@ -36,7 +38,7 @@ class AvatarsControllerTest < ActionDispatch::IntegrationTest
       }
     }
 
-    assert_response :success
+    assert_redirected_to edit_avatar_path
   end
 
   test "should prefill edit form with persisted avatar" do

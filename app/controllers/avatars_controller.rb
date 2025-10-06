@@ -3,7 +3,7 @@ class AvatarsController < ApplicationController
 
   def new
     @avatar_form = Avatar.new
-    @submitted_avatar = nil
+    @submitted_avatar = Avatar.new(current_avatar_attributes) if current_avatar_attributes
   end
 
   def create
@@ -11,8 +11,7 @@ class AvatarsController < ApplicationController
 
     if @avatar_form.valid?
       persist_avatar(@avatar_form)
-      @submitted_avatar = @avatar_form
-      render :new
+      redirect_to new_avatar_path
     else
       @submitted_avatar = nil
       render :new, status: :unprocessable_entity
@@ -21,7 +20,7 @@ class AvatarsController < ApplicationController
 
   def edit
     @avatar_form = Avatar.new(current_avatar_attributes || Avatar.defaults)
-    @submitted_avatar = nil
+    @submitted_avatar = Avatar.new(current_avatar_attributes) if current_avatar_attributes
   end
 
   def update
@@ -29,8 +28,7 @@ class AvatarsController < ApplicationController
 
     if @avatar_form.valid?
       persist_avatar(@avatar_form)
-      @submitted_avatar = @avatar_form
-      render :edit
+      redirect_to edit_avatar_path
     else
       @submitted_avatar = nil
       render :edit, status: :unprocessable_entity
@@ -54,6 +52,10 @@ class AvatarsController < ApplicationController
   end
 
   def current_avatar_attributes
-    session[:avatar]&.symbolize_keys
+    return nil unless session[:avatar].is_a?(Hash)
+
+    session[:avatar].symbolize_keys
+  rescue StandardError
+    nil
   end
 end

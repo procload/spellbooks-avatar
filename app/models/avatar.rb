@@ -11,9 +11,9 @@ class Avatar
   attribute :klass, :string
   attribute :traits, default: -> { [] }
 
-  validates :name, presence: true
-  validates :gender, inclusion: { in: GENDERS }
-  validates :klass, inclusion: { in: CLASSES }
+  validates :name, presence: true, length: { maximum: 50 }
+  validates :gender, inclusion: { in: GENDERS, message: "must be male, female, or non-binary" }
+  validates :klass, inclusion: { in: CLASSES, message: "must be one of: %{value}" }
   validate :traits_are_valid
 
   def traits=(value)
