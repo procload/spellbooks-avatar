@@ -2,6 +2,7 @@
 
 require "json"
 require "faraday"
+require "faraday/retry"
 
 module ImageGeneration
   module Providers
@@ -37,6 +38,8 @@ module ImageGeneration
 
       def build_connection
         Faraday.new(url: endpoint) do |faraday|
+          faraday.options.timeout = config[:timeout] || 30
+          faraday.options.open_timeout = config[:open_timeout] || 10
           faraday.request :retry, max: 2, interval: 0.25, interval_randomness: 0.5, backoff_factor: 2
           faraday.adapter :net_http
         end

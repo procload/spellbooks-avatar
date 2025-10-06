@@ -30,6 +30,8 @@ module ImageGeneration
 
     def find_blob(signed_id)
       ActiveStorage::Blob.find_signed(signed_id)
+    rescue ActiveSupport::MessageVerifier::InvalidSignature
+      nil
     end
 
     def validate!(blob)

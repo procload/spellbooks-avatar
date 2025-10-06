@@ -60,11 +60,32 @@ module ImageGeneration
       attr_reader :inputs
 
       def initialize(inputs)
-        @inputs = (inputs || {}).with_indifferent_access
+        @inputs = sanitize_inputs(inputs || {})
       end
 
       def get_binding
         binding
+      end
+
+      private
+
+      def sanitize_inputs(raw_inputs)
+        sanitized = raw_inputs.with_indifferent_access.transform_values do |value|
+          case value
+          when String
+            # Escape ERB delimiters and potential code injection
+            value.gsub(/<%/, "< %").gsub(/%>/, "% >")
+          when Numeric, TrueClass, FalseClass, NilClass
+            value
+          when Array
+            value.map { |v| v.is_a?(String) ? v.gsub(/<%/, "< %").gsub(/%>/, "% >") : v }
+          when Hash
+            sanitize_inputs(value)
+          else
+            value.to_s.gsub(/<%/, "< %").gsub(/%>/, "% >")
+          end
+        end
+        sanitized.with_indifferent_access
       end
     end
   end
