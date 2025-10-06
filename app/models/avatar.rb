@@ -13,7 +13,7 @@ class Avatar
 
   validates :name, presence: true, length: { maximum: 50 }
   validates :gender, inclusion: { in: GENDERS, message: "must be male, female, or non-binary" }
-  validates :klass, inclusion: { in: CLASSES, message: "must be one of: %{value}" }
+  validates :klass, inclusion: { in: CLASSES, message: "must be one of: #{CLASSES.join(', ')}" }
   validate :traits_are_valid
 
   def traits=(value)
