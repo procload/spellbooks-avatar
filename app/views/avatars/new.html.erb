@@ -1,9 +1,9 @@
 <h1>Spellbooks Avatar Generator</h1>
 
-<p><%= image_tag "avatar-placeholder.svg", alt: "Avatar preview", width: 256, height: 256 %></p>
+<%= render "avatar_image" %>
 
 <p><%= link_to "Edit an existing avatar", edit_avatar_path %></p>
 
 <%= render "form", form_object: @avatar_form, form_url: avatar_path, form_method: :post, submit_label: "Generate" %>
 
-<%= render "submission_summary", avatar: @submitted_avatar %>
+<%= render "submission_summary", avatar: @current_avatar %>

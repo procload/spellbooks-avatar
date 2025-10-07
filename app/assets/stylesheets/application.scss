@@ -1,0 +1,41 @@
+/*
+ * Spellbooks Avatar - Main Stylesheet
+ *
+ * This file is compiled by Dart Sass into app/assets/builds/application.css
+ * which is then served by Propshaft.
+ */
+
+// Import EldritchUI Design System
+// Load tokens first (CSS variables and foundations)
+@import "eldritch_ui/tokens/base";
+@import "eldritch_ui/tokens/foundations/primitives";
+@import "eldritch_ui/tokens/foundations/colors";
+@import "eldritch_ui/tokens/foundations/typography";
+@import "eldritch_ui/tokens/foundations/spacing";
+@import "eldritch_ui/tokens/foundations/borders";
+@import "eldritch_ui/tokens/foundations/shadows";
+@import "eldritch_ui/tokens/foundations/sizing";
+@import "eldritch_ui/tokens/foundations/layout";
+@import "eldritch_ui/tokens/foundations/motion";
+
+// Load semantic tokens
+@import "eldritch_ui/tokens/semantic/spacing";
+@import "eldritch_ui/tokens/semantic/component";
+
+// Load patterns
+@import "eldritch_ui/patterns/attached_field";
+
+// Load all components
+@import "eldritch_ui/components/button";
+@import "eldritch_ui/components/text_input";
+@import "eldritch_ui/components/select";
+@import "eldritch_ui/components/radio";
+@import "eldritch_ui/components/checkbox";
+@import "eldritch_ui/components/banner";
+@import "eldritch_ui/components/field";
+
+// Load main EldritchUI styles
+@import "eldritch_ui";
+
+// Application-specific styles
+@import "avatars";

@@ -7,19 +7,22 @@ class AvatarsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create avatar" do
-    post avatar_url, params: {
-      avatar: {
-        name: "Nova",
-        gender: "female",
-        klass: "Wizard",
-        traits: ["Brave"]
+    assert_difference("Avatar.count", 1) do
+      post avatar_url, params: {
+        avatar: {
+          name: "Nova",
+          gender: "female",
+          klass: "Wizard",
+          traits: ["Brave"]
+        }
       }
-    }
+    end
 
     assert_redirected_to new_avatar_path
     follow_redirect!
     assert_response :success
-    assert_match "Submitted", @response.body
+    assert_match "Current Avatar", @response.body
+    assert_match "Nova", @response.body
   end
 
   test "should get edit" do
@@ -42,7 +45,8 @@ class AvatarsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should prefill edit form with persisted avatar" do
-    patch avatar_url, params: {
+    # Create an avatar first
+    post avatar_url, params: {
       avatar: {
         name: "Lyra",
         gender: "female",
@@ -51,6 +55,7 @@ class AvatarsControllerTest < ActionDispatch::IntegrationTest
       }
     }
 
+    # Then access the edit page
     get edit_avatar_url
 
     assert_response :success
@@ -68,7 +73,7 @@ class AvatarsControllerTest < ActionDispatch::IntegrationTest
     }
 
     assert_response :unprocessable_entity
-    assert_select "div.form-errors"
+    assert_select "div.eld-banner-message"
   end
 
   test "should show errors when update params are invalid" do
@@ -82,6 +87,6 @@ class AvatarsControllerTest < ActionDispatch::IntegrationTest
     }
 
     assert_response :unprocessable_entity
-    assert_select "div.form-errors"
+    assert_select "div.eld-banner-message"
   end
 end

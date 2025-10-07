@@ -1,13 +1,13 @@
 default: &default
   provider: gemini
   gemini: &gemini_defaults
-    api_key: <%= ENV.fetch("GEMINI_API_KEY", nil) %>
+    api_key: <%= ENV.fetch("IMAGE_MODEL_API_KEY", nil) %>
     endpoint: https://generativelanguage.googleapis.com/v1beta/models
-    model: gemini-2.0-nano-banana
+    model: gemini-2.5-flash-image
     safety_settings:
-      - category: HARM_CATEGORY_HATE
+      - category: HARM_CATEGORY_HATE_SPEECH
         threshold: BLOCK_NONE
-      - category: HARM_CATEGORY_VIOLENCE
+      - category: HARM_CATEGORY_DANGEROUS_CONTENT
         threshold: BLOCK_NONE
     generation_config:
       temperature: 0.8

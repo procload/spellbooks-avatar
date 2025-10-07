@@ -1,0 +1,5 @@
+<%= turbo_frame_tag "avatar_preview", src: preview_avatar_path, loading: :lazy do %>
+  <div class="avatar-preview">
+    <%= image_tag "avatar-placeholder.svg", alt: "Loading...", width: 256, height: 256, class: "avatar-preview__placeholder" %>
+  </div>
+<% end %>

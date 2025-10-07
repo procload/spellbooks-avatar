@@ -20,7 +20,7 @@ module ImageGeneration
       def generate(prompt:, reference_images: [])
         raise Error, "Gemini API key is missing" if api_key.blank?
 
-        response = connection.post("#{model}:generateImages") do |request|
+        response = connection.post("#{model}:generateContent") do |request|
           request.params["key"] = api_key
           request.headers["Content-Type"] = "application/json"
           request.body = JSON.generate(build_request_body(prompt, reference_images))
@@ -76,22 +76,31 @@ module ImageGeneration
       end
 
       def build_images(payload)
-        Array(payload["generatedImages"]).map do |image|
-          inline = image["inlineData"]
-          inline_data = if inline
-            {
+        candidates = Array(payload["candidates"])
+        images = []
+
+        candidates.each do |candidate|
+          content = candidate["content"]
+          next unless content
+
+          parts = Array(content["parts"])
+          parts.each do |part|
+            inline = part["inlineData"]
+            next unless inline
+
+            inline_data = {
               data: inline["data"],
               mime_type: inline["mimeType"] || inline["mime_type"]
             }.compact
+
+            images << Image.new(
+              uri: nil,
+              inline_data: inline_data.presence
+            )
           end
-
-          inline_data = nil if inline_data.blank?
-
-          Image.new(
-            uri: image["imageUri"],
-            inline_data: inline_data
-          )
         end
+
+        images
       end
 
       def endpoint

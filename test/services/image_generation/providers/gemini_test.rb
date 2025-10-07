@@ -38,11 +38,22 @@ module ImageGeneration
           endpoint: "https://example.com/v1beta/models",
           model: "gemini-2.0-nano-banana",
           generation_config: { temperature: 0.2 },
-          safety_settings: [ { category: "HARM_CATEGORY_HATE", threshold: "BLOCK_NONE" } ]
+          safety_settings: [ { category: "HARM_CATEGORY_HATE_SPEECH", threshold: "BLOCK_NONE" } ]
         }
         response_payload = {
-          "generatedImages" => [
-            { "imageUri" => "gs://image-123" }
+          "candidates" => [
+            {
+              "content" => {
+                "parts" => [
+                  {
+                    "inlineData" => {
+                      "mimeType" => "image/png",
+                      "data" => "base64encodeddata"
+                    }
+                  }
+                ]
+              }
+            }
           ]
         }
         connection = StubConnection.new(StubResponse.new(status: 200, body: JSON.generate(response_payload)))
@@ -54,7 +65,7 @@ module ImageGeneration
           reference_images: [ { inlineData: { mimeType: "image/png", data: "abc" } } ]
         )
 
-        assert_equal "gemini-2.0-nano-banana:generateImages", connection.last_request[:path]
+        assert_equal "gemini-2.0-nano-banana:generateContent", connection.last_request[:path]
         assert_equal "secret", connection.last_request[:params]["key"]
         assert_equal "application/json", connection.last_request[:headers]["Content-Type"]
 
@@ -63,10 +74,11 @@ module ImageGeneration
         assert_equal "Describe avatar", body.dig("contents", 0, "parts", 0, "text")
         assert_equal "image/png", body.dig("contents", 0, "parts", 1, "inlineData", "mimeType")
         assert_equal 0.2, body.dig("generationConfig", "temperature")
-        assert_equal "HARM_CATEGORY_HATE", body.dig("safetySettings", 0, "category")
+        assert_equal "HARM_CATEGORY_HATE_SPEECH", body.dig("safetySettings", 0, "category")
 
         assert_equal 1, result.images.length
-        assert_equal "gs://image-123", result.images.first.uri
+        assert_equal "image/png", result.images.first.inline_data[:mime_type]
+        assert_equal "base64encodeddata", result.images.first.inline_data[:data]
       end
 
       def test_raises_when_api_key_missing

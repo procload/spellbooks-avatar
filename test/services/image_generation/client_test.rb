@@ -16,7 +16,7 @@ module ImageGeneration
       )
 
       mock_loader = Minitest::Mock.new
-      mock_loader.expect :load, mock_prompt, [ "avatar", { attributes: { persona: "mage" } } ]
+      mock_loader.expect :load, mock_prompt, [ "avatar" ], attributes: { persona: "mage" }
 
       mock_reference_images = [ { inlineData: { mimeType: "image/png", data: "base64data" } } ]
       mock_builder = Minitest::Mock.new
@@ -24,7 +24,7 @@ module ImageGeneration
 
       mock_response = Providers::Gemini::Response.new(images: [], raw: {})
       mock_provider = Minitest::Mock.new
-      mock_provider.expect :generate, mock_response, [ { prompt: mock_prompt, reference_images: mock_reference_images } ]
+      mock_provider.expect :generate, mock_response, [], prompt: mock_prompt, reference_images: mock_reference_images
 
       mock_registry = Minitest::Mock.new
       mock_registry.expect :resolve, mock_provider, [ :gemini ]
@@ -64,14 +64,14 @@ module ImageGeneration
       )
 
       mock_loader = Minitest::Mock.new
-      mock_loader.expect :load, mock_prompt, [ "avatar", { attributes: {} } ]
+      mock_loader.expect :load, mock_prompt, [ "avatar" ], attributes: {}
 
       mock_builder = Minitest::Mock.new
       mock_builder.expect :build, [], [ [] ]
 
       mock_response = Providers::Gemini::Response.new(images: [], raw: {})
       mock_provider = Minitest::Mock.new
-      mock_provider.expect :generate, mock_response, [ { prompt: mock_prompt, reference_images: [] } ]
+      mock_provider.expect :generate, mock_response, [], prompt: mock_prompt, reference_images: []
 
       mock_registry = Minitest::Mock.new
       mock_registry.expect :resolve, mock_provider, [ :custom_provider ]
