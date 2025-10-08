@@ -5,6 +5,9 @@ Rails.application.configure do
 
   # Make code changes take effect immediately without server restart.
   config.enable_reloading = true
+  # Always use the live load path in development rather than any stale precompiled manifest.
+  config.assets.output_path = Rails.root.join("tmp/dev-assets")
+  config.assets.manifest_path = config.assets.output_path.join(".manifest.json")
 
   # Do not eager load code on boot.
   config.eager_load = false

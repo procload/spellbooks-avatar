@@ -44,7 +44,7 @@ The Spellbooks Avatar Generator is a kid-friendly web application that allows us
 - **Solid Cable**: WebSocket connections for real-time features
 
 ### AI & External Services
-- **Image Generation**: Pluggable providers (Google Gemini 2.5 planned)
+- **Image Generation**: Pluggable providers (Google Gemini 2.5 + OpenAI GPT Image)
 - **Faraday**: HTTP client for API integrations
 - **OpenAI Codex**: Automated code generation via GitHub Actions
 - **Claude Code**: AI-powered code review via GitHub Actions
@@ -194,7 +194,7 @@ A **provider-agnostic architecture** for AI image generation with multiple compo
 
 #### Providers (`providers/`)
 - **Gemini Provider** (`providers/gemini.rb`): Google Gemini integration
-- Future: OpenAI DALL-E, Stability AI, etc.
+- **OpenAI Provider** (`providers/open_ai.rb`): GPT Image integration (`gpt-image-1-mini` default)
 
 **Usage Pattern:**
 ```ruby
@@ -322,9 +322,11 @@ bin/rails server
 ### Environment Variables
 
 Configure in Rails credentials or environment:
-- `OPENAI_API_KEY` - For Codex integration
+- `OPENAI_API_KEY` - For Codex integration and OpenAI image generation
 - `ANTHROPIC_API_KEY` - For Claude Code integration
-- `IMAGE_MODEL_API_KEY` - For avatar generation (Gemini)
+- `IMAGE_MODEL_API_KEY` - Default API key for avatar generation
+- `IMAGE_MODEL_PROVIDER` - Switch between `gemini` and `openai`
+- `IMAGE_MODEL_NAME` - Override the configured model identifier (e.g., `gpt-image-1-mini`)
 
 Edit credentials:
 ```bash

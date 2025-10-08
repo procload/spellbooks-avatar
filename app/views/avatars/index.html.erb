@@ -1,0 +1,52 @@
+<div class="avatars-index">
+  <%= turbo_stream_from "avatars" %>
+  <div id="flash"></div>
+
+  <!-- Hero Section -->
+  <div class="hero">
+    <div class="hero__content">
+      <h1 class="hero__title">✨ Spellbooks Avatar Generator</h1>
+      <p class="hero__subtitle">Create magical avatars for your adventure!</p>
+      <div class="hero__button">
+        <%= link_to new_avatar_path do %>
+          <%= render EldritchUi::ButtonComponent.new(
+            label: "Create New Avatar",
+            variant: :primary,
+            size: :large
+          ) %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <!-- Avatars Section -->
+  <% if @avatars.any? %>
+    <div class="avatars-section">
+      <div class="avatars-section__header">
+        <h2>My Avatar Collection</h2>
+        <span class="avatars-section__count"><%= pluralize(@avatars.count, "avatar") %></span>
+      </div>
+
+      <%= turbo_frame_tag "avatars" do %>
+        <div class="avatar-grid">
+          <%= render partial: "avatar_card", collection: @avatars, as: :avatar %>
+        </div>
+      <% end %>
+    </div>
+  <% else %>
+    <div class="avatars-index__empty">
+      <div class="empty-state">
+        <div class="empty-state__icon">🎨</div>
+        <h2 class="empty-state__title">No Avatars Yet</h2>
+        <p class="empty-state__text">Ready to create your first magical avatar? Choose your class, traits, and watch the magic happen!</p>
+        <%= link_to new_avatar_path do %>
+          <%= render EldritchUi::ButtonComponent.new(
+            label: "Create Your First Avatar",
+            variant: :primary,
+            size: :large
+          ) %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>

@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  root "avatars#new"
+  root "avatars#index"
 
-  resource :avatar, only: [:new, :create, :edit, :update] do
-    get :preview, on: :member
+  resources :avatars, only: [:index, :new, :create, :show, :edit, :update] do
+    get :preview, on: :collection
   end
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

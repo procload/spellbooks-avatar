@@ -1,9 +1,18 @@
 class AvatarsController < ApplicationController
-  before_action :assign_form_options
+  before_action :assign_form_options, except: [:index, :show]
+
+  def index
+    @avatars = Avatar.order(created_at: :desc)
+  end
+
+  def show
+    @avatar = Avatar.find(params[:id])
+  end
 
   def new
+    session[:current_avatar_id] = nil  # Clear old session for fresh start
     @avatar_form = Avatar.new
-    @current_avatar = find_current_avatar
+    @current_avatar = nil
   end
 
   def create
@@ -14,7 +23,11 @@ class AvatarsController < ApplicationController
       ImageGenerationJob.perform_later(
         avatar_id: @avatar_form.id
       )
-      redirect_to new_avatar_path
+
+      respond_to do |format|
+        format.html { redirect_to avatars_path, notice: "Avatar is being generated!" }
+        format.turbo_stream
+      end
     else
       @current_avatar = nil
       render :new, status: :unprocessable_entity
@@ -27,15 +40,15 @@ class AvatarsController < ApplicationController
   end
 
   def update
-    @avatar_form = find_current_avatar || Avatar.new
+    @avatar_form = Avatar.find(params[:id])
 
     if @avatar_form.update(avatar_params)
       ImageGenerationJob.perform_later(
         avatar_id: @avatar_form.id
       )
-      redirect_to edit_avatar_path
+      redirect_to avatar_path(@avatar_form), notice: "Avatar is being regenerated!"
     else
-      @current_avatar = @avatar_form.persisted? ? @avatar_form : nil
+      @current_avatar = @avatar_form
       render :edit, status: :unprocessable_entity
     end
   end

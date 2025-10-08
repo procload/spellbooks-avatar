@@ -1,0 +1,20 @@
+<%= turbo_frame_tag dom_id(avatar) do %>
+  <%= link_to avatar_path(avatar), class: "avatar-card" do %>
+    <div class="avatar-card__image-container">
+      <% if avatar.image_present? %>
+        <%= image_tag avatar.data_url, alt: avatar.name, class: "avatar-card__image" %>
+      <% else %>
+        <%= image_tag "placeholder.png", alt: "Generating...", class: "avatar-card__placeholder" %>
+        <% if avatar.processing? %>
+          <div class="avatar-card__status">Generating...</div>
+        <% elsif avatar.failed? %>
+          <div class="avatar-card__status avatar-card__status--error">Failed</div>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="avatar-card__info">
+      <h3 class="avatar-card__name"><%= avatar.name %></h3>
+      <p class="avatar-card__class"><%= avatar.klass %></p>
+    </div>
+  <% end %>
+<% end %>

@@ -5,6 +5,8 @@ class Avatar < ApplicationRecord
 
   STATUSES = %w[pending processing completed failed].freeze
 
+  broadcasts_refreshes
+
   serialize :traits, coder: JSON, type: Array
 
   enum :status, STATUSES.index_by(&:itself), default: :pending

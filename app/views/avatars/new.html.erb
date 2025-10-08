@@ -1,9 +1,13 @@
-<h1>Spellbooks Avatar Generator</h1>
+<div class="avatar-form-page">
+  <div class="avatar-form-page__header">
+    <%= link_to "← Back to all avatars", avatars_path, class: "avatar-show__back-link" %>
+  </div>
 
-<%= render "avatar_image" %>
+  <h1>Spellbooks Avatar Generator</h1>
 
-<p><%= link_to "Edit an existing avatar", edit_avatar_path %></p>
+  <%= render "avatar_image" %>
 
-<%= render "form", form_object: @avatar_form, form_url: avatar_path, form_method: :post, submit_label: "Generate" %>
+  <%= render "form", form_object: @avatar_form, form_url: avatars_path, form_method: :post, submit_label: "Generate" %>
 
-<%= render "submission_summary", avatar: @current_avatar %>
+  <%= render "submission_summary", avatar: @current_avatar %>
+</div>

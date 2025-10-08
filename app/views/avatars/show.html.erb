@@ -1,0 +1,62 @@
+<% if turbo_frame_request? %>
+  <%= render "avatar_card_details", avatar: @avatar %>
+<% else %>
+  <div class="avatar-show">
+    <div class="avatar-show__header">
+      <%= link_to "← Back to all avatars", avatars_path, class: "avatar-show__back-link" %>
+    </div>
+
+    <div class="avatar-show__content">
+      <div class="avatar-show__image-container">
+        <% if @avatar.image_present? %>
+          <%= image_tag @avatar.data_url, alt: @avatar.name, class: "avatar-show__image" %>
+        <% else %>
+          <%= image_tag "placeholder.png", alt: "Avatar placeholder", class: "avatar-show__placeholder" %>
+          <% if @avatar.processing? %>
+            <p class="avatar-show__status">Your avatar is being generated...</p>
+          <% elsif @avatar.failed? %>
+            <div class="avatar-show__error">
+              <p>Avatar generation failed</p>
+              <% if @avatar.error_message.present? %>
+                <p class="avatar-show__error-message"><%= @avatar.error_message %></p>
+              <% end %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+
+      <div class="avatar-show__details">
+        <h1 class="avatar-show__name"><%= @avatar.name %></h1>
+
+        <div class="avatar-show__info">
+          <div class="avatar-show__info-item">
+            <span class="avatar-show__label">Class:</span>
+            <span class="avatar-show__value"><%= @avatar.klass %></span>
+          </div>
+
+          <div class="avatar-show__info-item">
+            <span class="avatar-show__label">Gender:</span>
+            <span class="avatar-show__value"><%= @avatar.gender.capitalize %></span>
+          </div>
+
+          <% if @avatar.traits.any? %>
+            <div class="avatar-show__info-item">
+              <span class="avatar-show__label">Traits:</span>
+              <span class="avatar-show__value"><%= @avatar.traits.join(", ") %></span>
+            </div>
+          <% end %>
+        </div>
+
+        <div class="avatar-show__actions">
+          <%= link_to edit_avatar_path(@avatar) do %>
+            <%= render EldritchUi::ButtonComponent.new(
+              label: "Edit Avatar",
+              variant: :secondary,
+              size: :medium
+            ) %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

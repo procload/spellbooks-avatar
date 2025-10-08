@@ -1,0 +1,42 @@
+<%= turbo_frame_tag dom_id(avatar) do %>
+  <div class="avatar-card avatar-card--expanded">
+    <div class="avatar-card__image-container">
+      <% if avatar.image_present? %>
+        <%= image_tag avatar.data_url, alt: avatar.name, class: "avatar-card__image" %>
+      <% else %>
+        <%= image_tag "placeholder.png", alt: "Avatar placeholder", class: "avatar-card__placeholder" %>
+      <% end %>
+    </div>
+
+    <div class="avatar-card__info">
+      <h3 class="avatar-card__name"><%= avatar.name %></h3>
+      <p class="avatar-card__class"><%= avatar.klass %></p>
+
+      <div class="avatar-card__meta">
+        <div class="avatar-card__meta-item">
+          <span class="avatar-card__meta-label">Gender</span>
+          <div class="avatar-card__meta-value"><%= avatar.gender.capitalize %></div>
+        </div>
+
+        <div class="avatar-card__meta-item">
+          <span class="avatar-card__meta-label">Traits</span>
+          <div class="avatar-card__meta-value">
+            <% if avatar.traits.any? %>
+              <ul class="avatar-card__traits">
+                <% avatar.traits.each do |trait| %>
+                  <li class="avatar-card__trait"><%= trait %></li>
+                <% end %>
+              </ul>
+            <% else %>
+              <span class="avatar-card__traits-empty">No traits selected</span>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+      <div class="avatar-card__actions">
+        <%= link_to "View full profile", avatar_path(avatar), class: "avatar-card__link", data: { turbo_frame: "_top" } %>
+      </div>
+    </div>
+  </div>
+<% end %>

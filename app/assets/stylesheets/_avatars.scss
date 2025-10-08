@@ -1,0 +1,515 @@
+/* Avatar-specific styles */
+/* Form styles are now handled by EldritchUI components */
+
+/* Global parchment background */
+body {
+  background-color: var(--eld-foundation-color-parchment-neutral-100, #f0eee6) !important;
+}
+
+.avatar-form-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  min-height: 100vh;
+}
+
+.avatar-form-page h1 {
+  margin-bottom: 2rem;
+}
+
+.avatar-form-page form > * {
+  margin-bottom: 2rem;
+}
+
+.avatar-form-page__header {
+  margin-bottom: 1.5rem;
+}
+
+.avatar-preview {
+  margin: 1.5rem 0;
+  text-align: center;
+}
+
+.avatar-preview__image,
+.avatar-preview__placeholder {
+  max-width: 100%;
+  height: auto;
+  border: 2px solid #e9ecef;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.avatar-preview__image {
+  border-color: #4c6ef5;
+}
+
+.avatar-preview__error {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  background-color: #fff5f5;
+  border: 1px solid #e03131;
+  border-radius: 4px;
+  color: #c92a2a;
+}
+
+.avatar-preview__loading {
+  text-align: center;
+}
+
+.avatar-preview__loading p {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.loading-spinner {
+  display: inline-block;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Avatar Index Page */
+.avatars-index {
+  min-height: 100vh;
+}
+
+/* Hero Section */
+.hero {
+  background-color: var(--eld-foundation-color-ancient-oak-200, #e4ddd6);
+  color: var(--eld-semantic-color-text-primary, #141413);
+  text-align: center;
+  padding: 4rem 2rem;
+  margin-bottom: 3rem;
+  border: var(--eld-semantic-border-width-default, 2px) solid var(--eld-semantic-color-border-emboss, #533f33);
+  box-shadow: var(--eld-semantic-shadow-button, 1px 3px 0 1px #1a2805);
+}
+
+.hero__content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero__title {
+  font-size: 3rem;
+  margin: 0 0 1rem 0;
+  font-family: var(--eld-semantic-font-family-button, "Averia Libre", sans-serif);
+  font-weight: var(--eld-primitive-font-weight-bold, 700);
+  text-transform: uppercase;
+  color: var(--eld-semantic-color-text-primary, #141413);
+}
+
+.hero__subtitle {
+  font-size: 1.5rem;
+  margin: 0 0 2rem 0;
+  font-weight: var(--eld-primitive-font-weight-medium, 500);
+  color: var(--eld-semantic-color-text-secondary, #3d3d3a);
+}
+
+.hero__button {
+  display: inline-block;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 3rem 1.5rem;
+  }
+
+  .hero__title {
+    font-size: 2rem;
+  }
+
+  .hero__subtitle {
+    font-size: 1.125rem;
+  }
+}
+
+/* Avatars Section */
+.avatars-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem 3rem 2rem;
+}
+
+.avatars-section__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.avatars-section__header h2 {
+  margin: 0;
+  font-size: 1.75rem;
+  font-family: var(--eld-semantic-font-family-button, "Averia Libre", sans-serif);
+  font-weight: var(--eld-primitive-font-weight-bold, 700);
+  color: var(--eld-semantic-color-text-primary, #141413);
+}
+
+.avatars-section__count {
+  background: var(--eld-foundation-color-ancient-oak-200, #e4ddd6);
+  padding: 0.5rem 1rem;
+  border-radius: var(--eld-primitive-border-radius-full, 9999px);
+  font-size: 0.875rem;
+  font-weight: var(--eld-primitive-font-weight-semibold, 600);
+  color: var(--eld-semantic-color-text-primary, #141413);
+  border: var(--eld-semantic-border-width-default, 2px) solid var(--eld-semantic-color-border-emboss, #533f33);
+}
+
+/* Empty State */
+.avatars-index__empty {
+  padding: 4rem 2rem;
+}
+
+.empty-state {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 3rem;
+  background: var(--eld-foundation-color-parchment-neutral-50, #faf9f5);
+  border-radius: var(--eld-primitive-border-radius-lg, 0.5rem);
+  border: var(--eld-semantic-border-width-default, 2px) solid var(--eld-semantic-color-border-emboss, #533f33);
+  box-shadow: var(--eld-semantic-shadow-button, 1px 3px 0 1px #1a2805);
+}
+
+.empty-state__icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.empty-state__title {
+  font-size: 2rem;
+  margin: 0 0 1rem 0;
+  font-family: var(--eld-semantic-font-family-button, "Averia Libre", sans-serif);
+  font-weight: var(--eld-primitive-font-weight-bold, 700);
+  color: var(--eld-semantic-color-text-primary, #141413);
+}
+
+.empty-state__text {
+  font-size: 1.125rem;
+  color: var(--eld-semantic-color-text-secondary, #3d3d3a);
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+/* Avatar Grid */
+.avatar-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .avatar-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1rem;
+  }
+}
+
+/* Avatar Card */
+.avatar-card {
+  display: block;
+  background: var(--eld-foundation-color-parchment-neutral-50, #faf9f5);
+  border: var(--eld-semantic-border-width-default, 2px) solid var(--eld-semantic-color-border-emboss, #533f33);
+  border-radius: var(--eld-primitive-border-radius-lg, 0.5rem);
+  overflow: hidden;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: var(--eld-semantic-shadow-button, 1px 3px 0 1px #1a2805);
+  position: relative;
+  top: 0;
+}
+
+.avatar-card--expanded {
+  display: flex;
+  flex-direction: column;
+}
+
+.avatar-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--eld-semantic-shadow-button-hover, 2px 4px 0 1px #1a2805);
+}
+
+.avatar-card:active {
+  transform: translateY(1px);
+  box-shadow: var(--eld-semantic-shadow-button-pressed, 0 0 0 0 #1a2805);
+}
+
+.avatar-card__image-container {
+  position: relative;
+  width: 100%;
+  padding-top: 100%; /* 1:1 Aspect Ratio */
+  background: var(--eld-foundation-color-ancient-oak-100, #f2efeb);
+  overflow: hidden;
+  border-bottom: var(--eld-semantic-border-width-default, 2px) solid var(--eld-semantic-color-border-emboss, #533f33);
+}
+
+.avatar-card__image,
+.avatar-card__placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.avatar-card__status {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(76, 110, 245, 0.9);
+  color: white;
+  padding: 0.5rem;
+  text-align: center;
+  font-size: 0.875rem;
+}
+
+.avatar-card__status--error {
+  background: rgba(224, 49, 49, 0.9);
+}
+
+.avatar-card__info {
+  padding: 1rem;
+  background: var(--eld-foundation-color-parchment-neutral-50, #faf9f5);
+}
+
+.avatar-card__name {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.125rem;
+  font-weight: var(--eld-primitive-font-weight-bold, 700);
+  font-family: var(--eld-semantic-font-family-button, "Averia Libre", sans-serif);
+  color: var(--eld-semantic-color-text-primary, #141413);
+  text-transform: uppercase;
+}
+
+.avatar-card__class {
+  margin: 0;
+  font-size: 0.875rem;
+  font-weight: var(--eld-primitive-font-weight-semibold, 600);
+  color: var(--eld-semantic-color-text-secondary, #3d3d3a);
+}
+
+.avatar-card__meta {
+  margin: 1rem 0 0;
+  padding: 0;
+}
+
+.avatar-card__meta-item {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.75rem;
+}
+
+.avatar-card__meta-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-weight: var(--eld-primitive-font-weight-semibold, 600);
+  color: var(--eld-semantic-color-text-secondary, #3d3d3a);
+  margin-bottom: 0.25rem;
+}
+
+.avatar-card__meta-value {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--eld-semantic-color-text-primary, #141413);
+  display: block;
+}
+
+.avatar-card__traits {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.avatar-card__trait {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--eld-primitive-border-radius-full, 9999px);
+  background: var(--eld-foundation-color-ancient-oak-200, #e4ddd6);
+  border: var(--eld-semantic-border-width-default, 1px) solid var(--eld-semantic-color-border-emboss, #533f33);
+  font-size: 0.75rem;
+  font-weight: var(--eld-primitive-font-weight-semibold, 600);
+  color: var(--eld-semantic-color-text-primary, #141413);
+}
+
+.avatar-card__traits-empty {
+  font-size: 0.85rem;
+  color: var(--eld-semantic-color-text-secondary, #3d3d3a);
+}
+
+.avatar-card__actions {
+  margin-top: 1rem;
+}
+
+.avatar-card__link {
+  font-weight: var(--eld-primitive-font-weight-semibold, 600);
+  color: var(--eld-semantic-color-primary, #4c6ef5);
+  text-decoration: none;
+}
+
+.avatar-card__link:hover {
+  text-decoration: underline;
+}
+
+/* Avatar Show Page */
+.avatar-show {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.avatar-show__header {
+  margin-bottom: 2rem;
+}
+
+.avatar-show__back-link {
+  color: var(--eld-semantic-color-primary, #4c6ef5);
+  text-decoration: none;
+  font-weight: var(--eld-primitive-font-weight-semibold, 600);
+  font-family: var(--eld-semantic-font-family-button, "Averia Libre", sans-serif);
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border: var(--eld-semantic-border-width-default, 2px) solid var(--eld-semantic-color-border-emboss, #533f33);
+  border-radius: var(--eld-primitive-border-radius-lg, 0.5rem);
+  background: var(--eld-foundation-color-parchment-neutral-50, #faf9f5);
+  box-shadow: var(--eld-semantic-shadow-button, 1px 3px 0 1px #1a2805);
+  transition: all 0.2s ease;
+}
+
+.avatar-show__back-link:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--eld-semantic-shadow-button-hover, 2px 4px 0 1px #1a2805);
+}
+
+.avatar-show__back-link:active {
+  transform: translateY(1px);
+  box-shadow: var(--eld-semantic-shadow-button-pressed, 0 0 0 0 #1a2805);
+}
+
+.avatar-show__content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+@media (max-width: 768px) {
+  .avatar-show__content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+.avatar-show__image-container {
+  position: relative;
+}
+
+.avatar-show__image,
+.avatar-show__placeholder {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  border: 2px solid #e9ecef;
+}
+
+.avatar-show__status {
+  margin-top: 1rem;
+  text-align: center;
+  color: #666;
+  font-style: italic;
+}
+
+.avatar-show__error {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: #fff5f5;
+  border: 1px solid #e03131;
+  border-radius: 8px;
+  color: #c92a2a;
+}
+
+.avatar-show__error-message {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.avatar-show__details {
+  padding-top: 1rem;
+}
+
+.avatar-show__name {
+  margin: 0 0 1.5rem 0;
+  font-size: 2.5rem;
+  color: #333;
+}
+
+.avatar-show__info {
+  margin-bottom: 2rem;
+}
+
+.avatar-show__info-item {
+  margin-bottom: 1rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.avatar-show__label {
+  font-weight: 600;
+  color: #495057;
+}
+
+.avatar-show__value {
+  color: #666;
+}
+
+.avatar-show__actions {
+  display: flex;
+  gap: 1rem;
+}
+
+/* Flash Messages */
+.flash-notice {
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  background: #d3f9d8;
+  border: 1px solid #51cf66;
+  border-radius: 8px;
+  color: #2f9e44;
+  font-weight: 500;
+}
+
+/* Pill Toggle Group Styling */
+.pill-toggle-group {
+  margin-bottom: 2rem;
+}
+
+.pill-toggle-group__label {
+  display: block;
+  font-family: var(--eld-semantic-font-family-body, system-ui, sans-serif);
+  font-size: var(--eld-semantic-font-size-body-medium, 1rem);
+  font-weight: var(--eld-primitive-font-weight-semibold, 600);
+  color: var(--eld-semantic-color-text-primary, #141413);
+  margin-bottom: 1rem;
+}
+
+.pill-toggle-group__pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.pill-toggle-group__pills .eld-pill {
+  cursor: pointer;
+  user-select: none;
+}

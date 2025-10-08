@@ -1,13 +1,15 @@
-<h1>Edit Avatar</h1>
+<div class="avatar-form-page">
+  <div class="avatar-form-page__header">
+    <%= link_to "← Back to all avatars", avatars_path, class: "avatar-show__back-link" %>
+  </div>
 
-<p>Update your avatar's details and save the changes.</p>
+  <h1>Edit Avatar</h1>
 
-<%= render "avatar_image" %>
+  <p>Update your avatar's details and save the changes.</p>
 
-<%= render "form", form_object: @avatar_form, form_url: avatar_path, form_method: :patch, submit_label: "Save Avatar" %>
+  <%= render "avatar_image" %>
 
-<p style="margin-top: 1rem;">
-  <%= link_to "Back to generator", new_avatar_path %>
-</p>
+  <%= render "form", form_object: @avatar_form, form_url: avatar_path(@avatar_form), form_method: :patch, submit_label: "Save Avatar" %>
 
-<%= render "submission_summary", avatar: @current_avatar %>
+  <%= render "submission_summary", avatar: @current_avatar %>
+</div>

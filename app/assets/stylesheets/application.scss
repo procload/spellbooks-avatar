@@ -33,9 +33,7 @@
 @import "eldritch_ui/components/checkbox";
 @import "eldritch_ui/components/banner";
 @import "eldritch_ui/components/field";
+@import "eldritch_ui/components/pill";
 
-// Load main EldritchUI styles
-@import "eldritch_ui";
-
-// Application-specific styles
+// Application-specific styles - comes last to override Eldritch UI defaults
 @import "avatars";

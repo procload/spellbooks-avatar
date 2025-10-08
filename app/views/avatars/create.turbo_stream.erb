@@ -1,0 +1,7 @@
+<%= turbo_stream.prepend "avatars" do %>
+  <%= render partial: "avatar_card", locals: { avatar: @avatar_form } %>
+<% end %>
+
+<%= turbo_stream.update "flash" do %>
+  <div class="flash-notice">Avatar is being generated!</div>
+<% end %>

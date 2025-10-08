@@ -18,12 +18,24 @@
     error_message: form_object.errors[:name].first
   ) %>
 
-  <%= render EldritchUi::RadioGroupComponent.new(
-    legend: "Gender",
-    name: "avatar[gender]",
-    value: form_object.gender,
-    options: (@genders || []).map { |g| { label: g.humanize, value: g } }
-  ) %>
+  <div class="pill-toggle-group" data-controller="pill-toggle">
+    <label class="pill-toggle-group__label">Gender</label>
+    <div class="pill-toggle-group__pills">
+      <% (@genders || []).each do |gender| %>
+        <label class="eld-pill eld-pill--interactive <%= 'eld-pill--selected' if form_object.gender == gender %>"
+               data-pill-toggle-target="pill"
+               data-action="click->pill-toggle#toggle">
+          <input type="radio"
+                 name="avatar[gender]"
+                 value="<%= gender %>"
+                 <%= 'checked' if form_object.gender == gender %>
+                 data-pill-toggle-target="input"
+                 style="position: absolute; opacity: 0; pointer-events: none;">
+          <%= gender.humanize %>
+        </label>
+      <% end %>
+    </div>
+  </div>
 
   <%= render EldritchUi::SelectComponent.new(
     name: "avatar[klass]",
@@ -34,14 +46,25 @@
     error_message: form_object.errors[:klass].first
   ) %>
 
-  <%= render EldritchUi::SelectComponent.new(
-    name: "avatar[traits][]",
-    value: Array(form_object.traits),
-    options: @traits,
-    label: "Fun traits",
-    multiple: true,
-    error_message: form_object.errors[:traits].first
-  ) %>
+  <div class="pill-toggle-group" data-controller="pill-toggle">
+    <label class="pill-toggle-group__label">Fun traits</label>
+    <div class="pill-toggle-group__pills">
+      <% (@traits || []).each do |trait| %>
+        <% is_selected = Array(form_object.traits).include?(trait) %>
+        <label class="eld-pill eld-pill--interactive <%= 'eld-pill--selected' if is_selected %>"
+               data-pill-toggle-target="pill"
+               data-action="click->pill-toggle#toggle">
+          <input type="checkbox"
+                 name="avatar[traits][]"
+                 value="<%= trait %>"
+                 <%= 'checked' if is_selected %>
+                 data-pill-toggle-target="input"
+                 style="position: absolute; opacity: 0; pointer-events: none;">
+          <%= trait %>
+        </label>
+      <% end %>
+    </div>
+  </div>
 
   <%= render EldritchUi::ButtonComponent.new(
     label: submit_label,

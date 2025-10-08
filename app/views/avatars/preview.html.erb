@@ -1,17 +1,17 @@
 <%= turbo_frame_tag "avatar_preview" do %>
   <div class="avatar-preview">
     <% if @avatar.nil? %>
-      <%= image_tag "avatar-placeholder.svg", alt: "Avatar preview", width: 256, height: 256, class: "avatar-preview__placeholder" %>
+      <%= image_tag "placeholder.png", alt: "Avatar preview", width: 256, height: 256, class: "avatar-preview__placeholder" %>
     <% elsif @avatar.image_present? %>
       <%= image_tag @avatar.data_url, alt: "Generated Avatar", width: 256, height: 256, class: "avatar-preview__image" %>
     <% elsif @avatar.failed? %>
       <div class="avatar-preview__error">
-        <%= image_tag "avatar-placeholder.svg", alt: "Avatar preview", width: 256, height: 256, class: "avatar-preview__placeholder" %>
+        <%= image_tag "placeholder.png", alt: "Avatar preview", width: 256, height: 256, class: "avatar-preview__placeholder" %>
         <p><strong>Generation failed:</strong> <%= @avatar.error_message %></p>
       </div>
     <% else %>
       <div class="avatar-preview__loading">
-        <%= image_tag "avatar-placeholder.svg", alt: "Avatar preview", width: 256, height: 256, class: "avatar-preview__placeholder" %>
+        <%= image_tag "placeholder.png", alt: "Avatar preview", width: 256, height: 256, class: "avatar-preview__placeholder" %>
         <p>Generating your avatar... <span class="loading-spinner">⏳</span></p>
       </div>
       <% # Auto-refresh while processing %>

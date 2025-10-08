@@ -1,25 +1,89 @@
 default: &default
   system_prompt: >-
-    You are the Spellbooks avatar director. Maintain brand cohesion
-    by blending heroic fantasy costuming with modern, inclusive
-    styling and cinematic lighting.
+    You are a retro fantasy storybook illustrator specializing in mid-century
+    cartoon aesthetics with linocut/screen-print styling. Create artwork that
+    captures the warmth and whimsy of vintage children's books with modern
+    inclusive character design.
+
   user_prompt_template: |-
-    Generate a polished, production-ready Spellbooks avatar portrait.
-    Focus on portraying <%%= inputs[:persona] || "an enigmatic adventurer" %>.
-    Key traits for the subject:
+    Create a SINGLE retro fantasy storybook character portrait (profile picture style,
+    head and shoulders only) with these specifications:
+
+    CHARACTER DETAILS:
     <%% inputs.each do |key, value| %>
     - <%%= key.to_s.humanize %>: <%%= value %>
     <%% end %>
-    Compose the shot at chest-up framing with soft depth of field,
-    intricate magical sigils, and jewel-tone accents that match the
-    Spellbooks brand palette.
-  example_images:
-    - label: Arcane strategist
-      url: https://storage.googleapis.com/spellbooks-reference/avatars/arcane-strategist.png
-      notes: Teal edge lighting, brushed metal filigree, focused gaze.
-    - label: Celestial healer
-      url: https://storage.googleapis.com/spellbooks-reference/avatars/celestial-healer.png
-      notes: Warm gold palette, nebula particles, compassionate expression.
+
+    VISUAL STYLE (CRITICAL - Follow Exactly):
+
+    Linework:
+    - Thick, slightly rough inked contour lines
+    - Sparse interior hatching for minimal detail
+    - Chunky black outlines defining all shapes
+
+    Color Palette:
+    - 3-4 muted spot colors: rust red, olive green, slate/steel gray, cream parchment
+    - Very low saturation throughout
+    - NO gradients - flat spot colors only
+
+    Print Aesthetic:
+    - Risograph/screen-print look with slight off-registration
+    - Visible paper grain texture
+    - Halftone shadows and ink-bleed effects
+    - Soft vignette around edges
+
+    Character Proportions:
+    - Friendly chibi style: 3 to 3.5 heads tall
+    - Simple rounded forms with blocky hands and feet
+    - Dot eyes, tiny noses
+    - Big beards or friendly smiles
+
+    Lighting & Shading:
+    - Flat, cel-shade style lighting
+    - Shadows suggested by hatching or single darker spot color
+    - No dramatic lighting or highlights
+
+    Background:
+    - SIMPLE and CLEAN - solid color or very subtle texture only
+    - Minimal environmental details - no busy patterns or decorations
+    - Single muted spot color (cream parchment, soft olive, or muted slate)
+    - NO decorative elements, ornaments, borders, or detailed scenery
+    - Character must stand out clearly against plain background
+    - Background should not compete with character for attention
+
+    Setting & Mood:
+    - Cheerful and wholesome tone
+    - Whimsical and approachable
+    - Clean, uncluttered composition
+
+    Composition & Framing:
+    - SINGLE character portrait only - NOT a grid, turnaround, or multiple views
+    - Profile picture/avatar style framing
+    - Head and shoulders or bust shot (showing head, neck, upper torso)
+    - Character facing slightly toward viewer (3/4 or front view)
+    - Centered composition with character as focal point
+    - Simple background that doesn't distract from character
+    - Clear silhouette against background
+
+    STYLE SUMMARY:
+    Retro mid-century children's book illustration with linocut/screen-print
+    aesthetic. 4-color risograph palette (rust red, olive green, slate gray
+    on parchment). Chunky black outlines, flat spot colors, light cross-hatching,
+    subtle halftone shading, slight print misregistration, paper grain texture,
+    soft vignette. Friendly chibi proportions (3-3.5 heads tall), dot eyes,
+    simple shapes, no gradients. Cozy whimsical tone.
+
+    AVOID (Negative Prompt):
+    Photorealistic rendering, glossy surfaces, 3D render effects, high saturation
+    neon colors, complex gradients, anime shine, detailed realism, dramatic
+    lighting, perspective distortion, modern clothing, UI text, watermarks,
+    character turnarounds, model sheets, multiple views, 2x2 grids, multiple
+    characters, split screen, comparison views, reference sheets, ornate backgrounds,
+    detailed environments, busy patterns, decorative borders, intricate scenery,
+    multiple background elements, elaborate settings, tavern details, cave decorations,
+    forest backgrounds, architectural elements, furniture, props.
+
+  example_images: []
 
 development:
   <<: *default
