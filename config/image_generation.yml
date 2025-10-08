@@ -1,9 +1,9 @@
 default: &default
-  provider: gemini
+  provider: <%= ENV.fetch("IMAGE_MODEL_PROVIDER", "gemini") %>
   gemini: &gemini_defaults
     api_key: <%= ENV.fetch("IMAGE_MODEL_API_KEY", nil) %>
     endpoint: https://generativelanguage.googleapis.com/v1beta/models
-    model: gemini-2.5-flash-image
+    model: <%= ENV.fetch("GEMINI_IMAGE_MODEL", ENV.fetch("IMAGE_MODEL_NAME", "gemini-2.5-flash-image")) %>
     safety_settings:
       - category: HARM_CATEGORY_HATE_SPEECH
         threshold: BLOCK_NONE
@@ -13,6 +13,14 @@ default: &default
       temperature: 0.8
       top_p: 0.95
       top_k: 32
+
+  openai: &openai_defaults
+    api_key: <%= ENV.fetch("OPENAI_API_KEY", ENV.fetch("IMAGE_MODEL_API_KEY", nil)) %>
+    endpoint: https://api.openai.com/v1/images
+    model: <%= ENV.fetch("OPENAI_IMAGE_MODEL", ENV.fetch("IMAGE_MODEL_NAME", "gpt-image-1-mini")) %>
+    request_timeout: <%= ENV.fetch("OPENAI_IMAGE_TIMEOUT", 120).to_i %>
+    open_timeout: <%= ENV.fetch("OPENAI_IMAGE_OPEN_TIMEOUT", 15).to_i %>
+    size: <%= ENV.fetch("OPENAI_IMAGE_SIZE", "auto") %>
 
 development:
   <<: *default

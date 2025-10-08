@@ -7,7 +7,7 @@ require "faraday/retry"
 module ImageGeneration
   module Providers
     class Gemini
-      class Error < StandardError; end
+      class Error < ImageGeneration::ProviderError; end
 
       Response = Struct.new(:images, :raw, keyword_init: true)
       Image = Struct.new(:uri, :inline_data, keyword_init: true)
@@ -32,6 +32,10 @@ module ImageGeneration
         raise Error, "Gemini request failed: #{e.message}"
       end
 
+      def supports_reference_images?
+        true
+      end
+
       private
 
       attr_reader :config, :connection
@@ -52,7 +56,7 @@ module ImageGeneration
               role: "user",
               parts: [
                 { text: prompt.text },
-                *Array(reference_images)
+                *format_reference_images(reference_images)
               ]
             }
           ]
@@ -65,6 +69,24 @@ module ImageGeneration
         safety_settings = config[:safety_settings]
         body[:safetySettings] = safety_settings if safety_settings.present?
         body
+      end
+
+      def format_reference_images(reference_images)
+        Array(reference_images).filter_map do |image|
+          next if image.blank?
+
+          data = image.respond_to?(:data) ? image.data : image.dig(:inlineData, :data)
+          mime = image.respond_to?(:mime_type) ? image.mime_type : image.dig(:inlineData, :mimeType)
+
+          next if data.blank?
+
+          {
+            inlineData: {
+              mimeType: mime || "application/octet-stream",
+              data: data
+            }
+          }
+        end
       end
 
       def parse_response(response)

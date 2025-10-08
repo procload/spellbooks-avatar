@@ -16,6 +16,18 @@ module ImageGeneration
       mock_config.verify
     end
 
+    test "resolve returns openai provider for :openai" do
+      mock_config = Minitest::Mock.new
+      mock_config.expect :provider_config, { endpoint: "https://api.openai.com/v1/images", api_key: "test", model: "gpt-image-1-mini" }, [ :openai ]
+
+      registry = ProviderRegistry.new(configuration: mock_config)
+
+      provider = registry.resolve(:openai)
+
+      assert_instance_of Providers::OpenAi, provider
+      mock_config.verify
+    end
+
     test "resolve caches provider instances" do
       mock_config = Minitest::Mock.new
       mock_config.expect :provider_config, { endpoint: "https://api.example.com", api_key: "test", model: "gemini-1.5" }, [ :gemini ]

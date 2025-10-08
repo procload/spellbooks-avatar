@@ -19,9 +19,10 @@ gem "stimulus-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 gem "faraday"
+gem "faraday-multipart"
 gem "faraday-retry"
 gem "view_component"
-gem "eldritch_ui", path: "~/eldritch-ui-export"
+gem 'eldritch-ui-export', path: 'vendor/gems/eldritch-ui-export'
 
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 # gem "bcrypt", "~> 3.1.7"

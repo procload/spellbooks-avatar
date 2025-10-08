@@ -92,9 +92,16 @@ Visit http://localhost:3000 to see the avatar generator.
 
 Set the following environment variables:
 
-- `OPENAI_API_KEY`: For Codex integration
+- `OPENAI_API_KEY`: For Codex integration and OpenAI image generation
 - `ANTHROPIC_API_KEY`: For Claude Code integration
-- `IMAGE_MODEL_API_KEY`: For avatar generation
+- `IMAGE_MODEL_API_KEY`: Default API key for avatar generation (used by Gemini and as a fallback for OpenAI)
+- `IMAGE_MODEL_PROVIDER`: Selects the provider for image generation (`gemini` or `openai`, default: `gemini`)
+- `IMAGE_MODEL_NAME`: Overrides the active image model identifier for any provider
+- `GEMINI_IMAGE_MODEL`: Provider-specific override for Gemini (default: `gemini-2.5-flash-image`)
+- `OPENAI_IMAGE_MODEL`: Provider-specific override for OpenAI (default: `gpt-image-1-mini`)
+- `OPENAI_IMAGE_TIMEOUT`: Optional timeout override (seconds, default: 120) for OpenAI image requests
+- `OPENAI_IMAGE_OPEN_TIMEOUT`: Optional open-timeout override (seconds, default: 15) for OpenAI image requests
+- `OPENAI_IMAGE_SIZE`: Desired output size for OpenAI images (default: `auto`; other supported values: `1024x1024`, `1024x1536`, `1536x1024`)
 
 ## Contributing
 

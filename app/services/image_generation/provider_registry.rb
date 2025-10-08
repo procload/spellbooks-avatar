@@ -22,6 +22,8 @@ module ImageGeneration
       case name
       when :gemini
         Providers::Gemini.new(config: configuration.provider_config(:gemini))
+      when :openai
+        Providers::OpenAi.new(config: configuration.provider_config(:openai))
       else
         raise UnknownProviderError, "Image generation provider '#{name}' is not supported"
       end

@@ -18,7 +18,13 @@ module ImageGeneration
       mock_loader = Minitest::Mock.new
       mock_loader.expect :load, mock_prompt, [ "avatar" ], attributes: { persona: "mage" }
 
-      mock_reference_images = [ { inlineData: { mimeType: "image/png", data: "base64data" } } ]
+      mock_reference_images = [
+        ImageGeneration::ReferenceImage.new(
+          mime_type: "image/png",
+          data: "base64data",
+          filename: "reference.png"
+        )
+      ]
       mock_builder = Minitest::Mock.new
       mock_builder.expect :build, mock_reference_images, [ [ "signed_id_1" ] ]
 
@@ -88,6 +94,52 @@ module ImageGeneration
         attributes: {},
         reference_image_signed_ids: [],
         provider: :custom_provider
+      )
+
+      assert_equal mock_response, result
+      mock_loader.verify
+      mock_builder.verify
+      mock_provider.verify
+      mock_registry.verify
+    end
+
+    test "generate drops reference images when provider does not support them" do
+      mock_config = Minitest::Mock.new
+
+      mock_prompt = PromptLoader::Prompt.new(
+        system_prompt: "System",
+        text: "User prompt",
+        example_images: []
+      )
+
+      mock_loader = Minitest::Mock.new
+      mock_loader.expect :load, mock_prompt, [ "avatar" ], attributes: {}
+
+      mock_builder = Minitest::Mock.new
+      mock_builder.expect :build, [ :reference_image ], [ [] ]
+
+      mock_provider = Minitest::Mock.new
+      def mock_provider.supports_reference_images?
+        false
+      end
+      mock_response = Providers::OpenAi::Response.new(images: [], raw: {})
+      mock_provider.expect :generate, mock_response, [], prompt: mock_prompt, reference_images: []
+
+      mock_registry = Minitest::Mock.new
+      mock_registry.expect :resolve, mock_provider, [ :openai ]
+
+      client = Client.new(
+        configuration: mock_config,
+        prompt_loader: mock_loader,
+        reference_image_builder: mock_builder,
+        provider_registry: mock_registry
+      )
+
+      result = client.generate(
+        template: "avatar",
+        attributes: {},
+        reference_image_signed_ids: [],
+        provider: :openai
       )
 
       assert_equal mock_response, result
