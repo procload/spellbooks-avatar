@@ -1,0 +1,14 @@
+/* Layout Foundation Tokens */
+/* Breakpoints and responsive design values */
+
+:root {
+  /* ===== BREAKPOINT PRIMITIVES ===== */
+  
+  /* Screen breakpoints for responsive design */
+  --eldritch-breakpoint-xs: 480px;
+  --eldritch-breakpoint-sm: 640px;
+  --eldritch-breakpoint-md: 768px;
+  --eldritch-breakpoint-lg: 1024px;
+  --eldritch-breakpoint-xl: 1280px;
+  --eldritch-breakpoint-2xl: 1536px;
+}

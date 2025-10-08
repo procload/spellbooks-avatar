@@ -1,0 +1,18 @@
+/* Arcane Blue Palette */
+/* Sophisticated muted blue-gray inspired by Anthropic's aesthetic - barely reads as blue */
+/* References foundation layer for single source of truth */
+
+:root {
+  /* Arcane Blue - 50 to 950 scale centered on muted blue-gray (#34495e inspired) */
+  --eldritch-arcane-blue-50: var(--eld-foundation-color-arcane-blue-50);
+  --eldritch-arcane-blue-100: var(--eld-foundation-color-arcane-blue-100);
+  --eldritch-arcane-blue-200: var(--eld-foundation-color-arcane-blue-200);
+  --eldritch-arcane-blue-300: var(--eld-foundation-color-arcane-blue-300);
+  --eldritch-arcane-blue-400: var(--eld-foundation-color-arcane-blue-400);
+  --eldritch-arcane-blue-500: var(--eld-foundation-color-arcane-blue-500);
+  --eldritch-arcane-blue-600: var(--eld-foundation-color-arcane-blue-600);
+  --eldritch-arcane-blue-700: var(--eld-foundation-color-arcane-blue-700);
+  --eldritch-arcane-blue-800: var(--eld-foundation-color-arcane-blue-800);
+  --eldritch-arcane-blue-900: var(--eld-foundation-color-arcane-blue-900);
+  --eldritch-arcane-blue-950: var(--eld-foundation-color-arcane-blue-950);
+} 

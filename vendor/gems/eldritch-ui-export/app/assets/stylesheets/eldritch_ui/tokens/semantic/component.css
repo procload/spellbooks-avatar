@@ -1,0 +1,300 @@
+/* Semantic Design Tokens - Tier 2 */
+/* Maps primitive tokens to semantic usage patterns for components */
+/* These tokens reference primitive tokens and provide meaning */
+
+:root {
+  /* ===== COLOR SEMANTICS ===== */
+  
+  /* Primary Colors (Arcane Blue theme) */
+  --eld-semantic-color-primary: var(--eld-primitive-color-blue-700);
+  --eld-semantic-color-primary-hover: var(--eld-primitive-color-blue-600);
+  --eld-semantic-color-primary-active: var(--eld-primitive-color-blue-800);
+  --eld-semantic-color-primary-light: var(--eld-primitive-color-blue-100);
+  --eld-semantic-color-primary-dark: var(--eld-primitive-color-blue-900);
+  --eld-semantic-color-primary-text: var(--eld-primitive-color-blue-50);
+
+  /* Secondary Colors (Mystical Gold theme) */
+  --eld-semantic-color-secondary: var(--eld-primitive-color-gold-600);
+  --eld-semantic-color-secondary-hover: var(--eld-primitive-color-gold-500);
+  --eld-semantic-color-secondary-active: var(--eld-primitive-color-gold-700);
+  --eld-semantic-color-secondary-light: var(--eld-primitive-color-gold-100);
+  --eld-semantic-color-secondary-dark: var(--eld-primitive-color-gold-800);
+  --eld-semantic-color-secondary-text: var(--eld-primitive-color-gold-50);
+
+  /* Success Colors (Enchanted Green theme) */
+  --eld-semantic-color-success: var(--eld-foundation-color-enchanted-green-600);
+  --eld-semantic-color-success-hover: var(--eld-foundation-color-enchanted-green-500);
+  --eld-semantic-color-success-active: var(--eld-foundation-color-enchanted-green-700);
+  --eld-semantic-color-success-light: var(--eld-foundation-color-enchanted-green-100);
+  --eld-semantic-color-success-dark: var(--eld-foundation-color-enchanted-green-800);
+  --eld-semantic-color-success-text: var(--eld-foundation-color-enchanted-green-50);
+
+  /* Progress Indicator Colors - Muted green for better harmony */
+  --eld-semantic-color-progress-success: #14924a; /* Muted from #16a34a */
+  --eld-semantic-color-progress-success-dark: #13753d; /* Muted from #15803d */
+
+  /* Warning/Error Colors (Phoenix Red theme) */
+  --eld-semantic-color-warning: var(--eld-primitive-color-red-500);
+  --eld-semantic-color-warning-hover: var(--eld-primitive-color-red-400);
+  --eld-semantic-color-warning-active: var(--eld-primitive-color-red-600);
+  --eld-semantic-color-warning-light: var(--eld-primitive-color-red-100);
+  --eld-semantic-color-warning-dark: var(--eld-primitive-color-red-800);
+  --eld-semantic-color-warning-text: var(--eld-primitive-color-red-50);
+
+  --eld-semantic-color-error: var(--eld-primitive-color-red-600);
+  --eld-semantic-color-error-hover: var(--eld-primitive-color-red-500);
+  --eld-semantic-color-error-active: var(--eld-primitive-color-red-700);
+  --eld-semantic-color-error-light: var(--eld-primitive-color-red-100);
+  --eld-semantic-color-error-dark: var(--eld-primitive-color-red-800);
+  --eld-semantic-color-error-text: var(--eld-primitive-color-red-50);
+
+  /* Background & Surface Colors - Anthropic-inspired sophisticated grays */
+  --eld-semantic-color-background: #faf9f5;   /* Anthropic ivory-light */
+  --eld-semantic-color-surface: #f0eee6;      /* Anthropic ivory-medium */
+  --eld-semantic-color-surface-hover: #e8e6dc; /* Anthropic ivory-dark */
+  --eld-semantic-color-surface-active: #d1cfc5; /* Anthropic cloud-light */
+  --eld-semantic-color-surface-elevated: #faf9f5; /* Anthropic ivory-light */
+  --eld-semantic-color-surface-subtle: #f0eee6; /* Subtle surface variation */
+  --eld-semantic-color-white: #ffffff; /* Pure white for high contrast needs */
+  /* Alias for components expecting a secondary background token */
+  --eld-semantic-color-background-secondary: var(--eld-semantic-color-surface);
+
+  /* Border Colors - Refined grays for sophisticated appearance */
+  --eld-semantic-color-border: #0f0f0e;      /* Anthropic dark for strong borders */
+  --eld-semantic-color-border-hover: #141413; /* Anthropic slate-dark */
+  --eld-semantic-color-border-focus: var(--eld-semantic-color-primary);
+  --eld-semantic-color-border-strong: #0a0a09; /* Even darker for emphasis */
+  --eld-semantic-color-border-emboss: #0f0f0e; /* Anthropic dark */
+  --eld-semantic-color-border-default: #0f0f0e; /* Default border for components */
+  /* Alias for components expecting a secondary border token */
+  --eld-semantic-color-border-secondary: var(--eld-semantic-color-border);
+
+  /* Text Colors - Anthropic-inspired for optimal readability */
+  --eld-semantic-color-text-primary: #0f0f0e;    /* Anthropic dark - high contrast */
+  --eld-semantic-color-text-secondary: #3d3d3a;  /* Anthropic slate-medium - medium contrast */
+  --eld-semantic-color-text-muted: #5e5d59;      /* Anthropic slate-light - subtle text */
+  --eld-semantic-color-text-disabled: #87867f;   /* Anthropic cloud-dark - disabled state */
+  --eld-semantic-color-text-on-primary: #faf9f5; /* Anthropic ivory-light on colored backgrounds */
+  --eld-semantic-color-text-on-secondary: #faf9f5; /* Anthropic ivory-light on colored backgrounds */
+  --eld-semantic-color-text-on-success: #faf9f5; /* Anthropic ivory-light on colored backgrounds */
+  --eld-semantic-color-text-on-warning: #faf9f5; /* Anthropic ivory-light on colored backgrounds */
+  --eld-semantic-color-text-on-error: #faf9f5;   /* Anthropic ivory-light on colored backgrounds */
+  --eld-semantic-color-text-on-background: #0f0f0e; /* Anthropic dark on light backgrounds */
+  --eld-semantic-color-text-on-surface: #141413; /* Anthropic slate-dark on surface */
+  --eld-semantic-color-text-tertiary: #87867f; /* Tertiary text for subtle elements */
+
+  /* Info Colors (Celestial Sky - Muted Blues for charts, subtle states) */
+  --eld-semantic-color-info: var(--eld-primitive-color-sky-600);
+  --eld-semantic-color-info-hover: var(--eld-primitive-color-sky-500);
+  --eld-semantic-color-info-active: var(--eld-primitive-color-sky-700);
+  --eld-semantic-color-info-light: var(--eld-primitive-color-sky-100);
+  --eld-semantic-color-info-dark: var(--eld-primitive-color-sky-800);
+  --eld-semantic-color-info-text: var(--eld-primitive-color-sky-50);
+
+  /* Accent Colors (Mystic Heather - Purple-Gray for secondary highlights) */
+  --eld-semantic-color-accent: var(--eld-primitive-color-heather-600);
+  --eld-semantic-color-accent-hover: var(--eld-primitive-color-heather-500);
+  --eld-semantic-color-accent-active: var(--eld-primitive-color-heather-700);
+  --eld-semantic-color-accent-light: var(--eld-primitive-color-heather-100);
+  --eld-semantic-color-accent-dark: var(--eld-primitive-color-heather-800);
+  --eld-semantic-color-accent-text: var(--eld-primitive-color-heather-50);
+
+  /* Chart and Data Visualization Colors */
+  --eld-semantic-color-chart-primary: var(--eld-semantic-color-primary);
+  --eld-semantic-color-chart-secondary: var(--eld-semantic-color-success);
+  --eld-semantic-color-chart-tertiary: var(--eld-semantic-color-info);
+  --eld-semantic-color-chart-quaternary: var(--eld-semantic-color-accent);
+  --eld-semantic-color-chart-quinary: var(--eld-semantic-color-secondary);
+
+  /* Link Colors */
+  --eld-semantic-color-link: var(--eld-semantic-color-primary);
+  --eld-semantic-color-link-hover: var(--eld-semantic-color-primary-hover);
+  --eld-semantic-color-link-visited: var(--eld-semantic-color-accent);
+  --eld-semantic-color-link-active: var(--eld-semantic-color-primary-active);
+
+  /* Focus and Interaction States */
+  --eld-semantic-color-focus: var(--eld-semantic-color-primary);
+  --eld-semantic-color-focus-ring: var(--eld-semantic-color-primary-light);
+
+  /* ===== SPACING SEMANTICS ===== */
+  
+  /* Component Padding */
+  --eld-semantic-space-component-padding-xs: var(--eld-primitive-space-2);
+  --eld-semantic-space-component-padding-sm: var(--eld-primitive-space-4);
+  --eld-semantic-space-component-padding-md: var(--eld-primitive-space-8);
+  --eld-semantic-space-component-padding-lg: var(--eld-primitive-space-12);
+  --eld-semantic-space-component-padding-xl: var(--eld-primitive-space-16);
+
+  /* Component Gaps */
+  --eld-semantic-space-component-gap-xs: var(--eld-primitive-space-2);
+  --eld-semantic-space-component-gap-sm: var(--eld-primitive-space-4);
+  --eld-semantic-space-component-gap-md: var(--eld-primitive-space-8);
+  --eld-semantic-space-component-gap-lg: var(--eld-primitive-space-12);
+  --eld-semantic-space-component-gap-xl: var(--eld-primitive-space-16);
+
+  /* Layout Spacing */
+  --eld-semantic-space-layout-section: var(--eld-primitive-space-24);
+  --eld-semantic-space-layout-container: var(--eld-primitive-space-16);
+  --eld-semantic-space-layout-stack: var(--eld-primitive-space-8);
+
+  /* ===== TYPOGRAPHY SEMANTICS ===== */
+  
+  /* Semantic Font Families */
+  --eld-semantic-font-family-heading: var(--eld-primitive-font-family-winky-sans);
+  --eld-semantic-font-family-body: var(--eld-primitive-font-family-winky-sans);
+  --eld-semantic-font-family-label: var(--eld-primitive-font-family-winky-sans);
+  --eld-semantic-font-family-input: var(--eld-primitive-font-family-base);
+  --eld-semantic-font-family-button: var(--eld-primitive-font-family-base);
+  --eld-semantic-font-family-code: var(--eld-primitive-font-family-system);
+
+  /* Semantic Font Sizes */
+  --eld-semantic-font-size-heading-large: var(--eld-primitive-font-size-4xl);
+  --eld-semantic-font-size-heading-medium: var(--eld-primitive-font-size-2xl);
+  --eld-semantic-font-size-heading-small: var(--eld-primitive-font-size-xl);
+  --eld-semantic-font-size-body-large: var(--eld-primitive-font-size-lg);
+  --eld-semantic-font-size-body-medium: var(--eld-primitive-font-size-base);
+  --eld-semantic-font-size-body-small: var(--eld-primitive-font-size-sm);
+  --eld-semantic-font-size-label: var(--eld-primitive-font-size-sm);
+  --eld-semantic-font-size-caption: var(--eld-primitive-font-size-xs);
+  /* Alias for extra-small body size used in some components */
+  --eld-semantic-font-size-body-xs: var(--eld-semantic-font-size-caption);
+
+  /* ===== BORDER SEMANTICS ===== */
+  
+  /* Component Border Widths */
+  --eld-semantic-border-width-default: var(--eld-primitive-border-width-1);
+  --eld-semantic-border-width-focus: var(--eld-primitive-border-width-2);
+  --eld-semantic-border-width-strong: var(--eld-primitive-border-width-4);
+
+  /* Component Border Radius */
+  --eld-semantic-border-radius-small: var(--eld-primitive-border-radius-sm);
+  --eld-semantic-border-radius-button: var(--eld-primitive-border-radius-md);
+  --eld-semantic-border-radius-input: var(--eld-primitive-border-radius-md);
+  --eld-semantic-border-radius-card: var(--eld-primitive-border-radius-lg);
+  --eld-semantic-border-radius-modal: var(--eld-primitive-border-radius-xl);
+  --eld-semantic-border-radius-pill: var(--eld-primitive-border-radius-full);
+
+  /* ===== ELEVATION SEMANTICS ===== */
+  
+  /* Component Shadows - Updated for Anthropic-inspired palette */
+  --eld-semantic-shadow-button: 1px 3px 0 1px #0f0f0e;       /* Anthropic dark */
+  --eld-semantic-shadow-button-secondary: 1px 3px 0 1px #9d9987; /* Sophisticated darker shadow for secondary buttons */
+  --eld-semantic-shadow-button-hover: 1px 2px 0 0.5px #141413; /* Anthropic slate-dark */
+  --eld-semantic-shadow-button-pressed: 0 0 0 0 transparent;
+  --eld-semantic-shadow-input: 1px 3px 0 1px #0f0f0e;        /* Anthropic dark */
+  --eld-semantic-shadow-input-focus: var(--eld-primitive-shadow-md);
+  --eld-semantic-shadow-card: 1px 3px 0 1px #0f0f0e;         /* Anthropic dark */
+  --eld-semantic-shadow-card-subtle: 1px 2px 0 1px #141413;   /* Anthropic slate-dark */
+  --eld-semantic-shadow-card-hover: 1px 4px 0 1px #0f0f0e;    /* Anthropic dark */
+  --eld-semantic-shadow-modal: var(--eld-primitive-shadow-xl);
+  --eld-semantic-shadow-dropdown: var(--eld-primitive-shadow-lg);
+
+  /* Focus Ring */
+  --eld-semantic-shadow-focus-ring: 0 0 0 3px var(--eld-semantic-color-primary-light);
+
+  /* ===== INTERACTION SEMANTICS ===== */
+  
+  /* Transition Durations */
+  --eld-semantic-duration-interaction: var(--eld-primitive-duration-fast);
+  --eld-semantic-duration-animation: var(--eld-primitive-duration-normal);
+  --eld-semantic-duration-page-transition: var(--eld-primitive-duration-slow);
+
+  /* Transition Easings */
+  --eld-semantic-ease-interaction: var(--eld-primitive-ease-out);
+  --eld-semantic-ease-animation: var(--eld-primitive-ease-in-out);
+
+  /* ===== SIZE SEMANTICS ===== */
+  
+  /* Component Heights */
+  --eld-semantic-size-button-height-sm: var(--eld-primitive-size-8);
+  --eld-semantic-size-button-height-md: var(--eld-primitive-size-10);
+  --eld-semantic-size-button-height-lg: var(--eld-primitive-size-12);
+
+  --eld-semantic-size-input-height-sm: var(--eld-primitive-size-8);
+  --eld-semantic-size-input-height-md: var(--eld-primitive-size-10);
+  --eld-semantic-size-input-height-lg: var(--eld-primitive-size-12);
+
+  /* Icon Sizes */
+  --eld-semantic-size-icon-xs: var(--eld-primitive-size-3);    /* 12px */
+  --eld-semantic-size-icon-sm: var(--eld-primitive-size-4);    /* 16px */
+  --eld-semantic-size-icon-md: var(--eld-primitive-size-5);    /* 20px */
+  --eld-semantic-size-icon-lg: var(--eld-primitive-size-6);    /* 24px */
+  --eld-semantic-size-icon-xl: var(--eld-primitive-size-8);    /* 32px */
+  --eld-semantic-size-icon-2xl: var(--eld-primitive-size-11);  /* 44px */
+
+  /* Icon Sizes - Alternative naming for tile component compatibility */
+  --eld-semantic-icon-size-xs: var(--eld-primitive-size-3);          /* 12px */
+  --eld-semantic-icon-size-small: var(--eld-primitive-size-8);        /* 32px */
+  --eld-semantic-icon-size-medium: var(--eld-primitive-size-12);      /* 48px */
+  --eld-semantic-icon-size-large: var(--eld-primitive-size-14);       /* 56px */
+  --eld-semantic-icon-size-xl: var(--eld-primitive-size-16);          /* 64px */
+  --eld-semantic-icon-size-2xl: var(--eld-primitive-size-20);         /* 80px */
+
+  /* ===== MISSING COLOR TOKENS ===== */
+  
+  /* Border Colors */
+  --eld-semantic-color-border-muted: var(--eld-primitive-color-neutral-300);
+  --eld-semantic-color-border-muted-dark: var(--eld-primitive-color-neutral-400);
+  --eld-semantic-color-border-primary: var(--eld-semantic-color-primary);
+
+  /* Overlay Colors */
+  --eld-semantic-color-overlay: rgba(0, 0, 0, 0.5);
+  --eld-semantic-color-overlay-dark: rgba(0, 0, 0, 0.7);
+
+  /* Alpha and Background Colors */
+  --eld-semantic-color-primary-alpha: rgba(52, 73, 94, 0.1);  /* primary with alpha */
+  --eld-semantic-color-primary-background: var(--eld-semantic-color-primary-light);
+  --eld-semantic-color-error-alpha: rgba(213, 57, 60, 0.1);   /* error with alpha */
+  --eld-semantic-color-error-background: var(--eld-semantic-color-error-light);
+  --eld-semantic-color-success-background: var(--eld-semantic-color-success-light);
+  --eld-semantic-color-success-surface: var(--eld-semantic-color-success-light);
+  --eld-semantic-color-warning-surface: var(--eld-semantic-color-warning-light);
+
+  /* Surface Colors */
+  --eld-semantic-color-surface-dark: var(--eld-primitive-color-neutral-200);
+  --eld-semantic-color-surface-muted: var(--eld-primitive-color-neutral-100);
+
+  /* Text Colors */
+  --eld-semantic-color-text-primary-dark: var(--eld-primitive-color-neutral-900);
+
+  /* Brand Colors */
+  --eld-semantic-color-brand-gold-600: var(--eld-primitive-color-gold-600);
+
+  /* Input and Label Colors (from legacy semantic.css) */
+  --eld-semantic-color-input-background: var(--eld-semantic-color-surface);
+  --eld-semantic-color-label-background: var(--eld-primitive-color-neutral-400);
+  --eld-semantic-color-label-text: var(--eld-primitive-color-neutral-800);
+
+  /* ===== MISSING TYPOGRAPHY TOKENS ===== */
+  
+  /* Font Weights (from docs/global.json) */
+  --eld-semantic-font-weight-bold: 700;
+  --eld-semantic-font-weight-semibold: 600;
+
+  /* Font Sizes */
+  --eld-semantic-font-size-small: 14px;  /* sm from docs/global.json */
+
+  /* Progress Indicator Typography */
+  --eld-semantic-font-family-progress-label: "Rubik", var(--eld-primitive-font-family-base);
+  --eld-semantic-font-size-progress-label: 13px;
+
+  /* ===== MISSING SPACING TOKENS ===== */
+  
+  /* Duplicate naming for compatibility */
+  --eld-semantic-space-component-gap-small: var(--eld-semantic-space-component-gap-sm);
+  --eld-semantic-space-component-padding-small: var(--eld-semantic-space-component-padding-sm);
+
+  /* ===== MISSING SHADOW TOKENS ===== */
+  
+  /* Input Shadows */
+  --eld-semantic-shadow-input-hover: var(--eld-semantic-shadow-input-focus);
+
+  /* Emboss Shadows */
+  --eld-semantic-shadow-medium-emboss: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+  --eld-semantic-shadow-strong-emboss: inset 0 2px 4px rgba(0, 0, 0, 0.15);
+
+  /* ===== MISSING TRANSITION TOKENS ===== */
+  
+  /* Fast Transition */
+  --eld-semantic-transition-fast: var(--eld-semantic-duration-interaction) var(--eld-semantic-ease-interaction);
+}

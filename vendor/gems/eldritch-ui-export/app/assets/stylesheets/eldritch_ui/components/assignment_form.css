@@ -1,0 +1,328 @@
+/* Eldritch UI Assignment Form Component */
+/* Chunky form container styles with embossed effect matching the Spellbooks theme */
+
+/* Ensure body doesn't constrain our burst effects */
+body {
+  overflow-x: hidden !important; /* Prevent horizontal scroll from burst effects */
+}
+
+/* Assignment form page layout */
+.eld-assignment-form-page {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0;
+  margin-top: var(--eld-semantic-space-layout-lg);
+  overflow: visible; /* Let content extend naturally at this level */
+  position: relative; /* For background positioning */
+}
+
+.eld-assignment-form-layout {
+  display: flex;
+  flex-direction: column;
+  gap: var(--eld-semantic-space-layout-lg);
+  overflow-x: visible; /* Allow content to extend beyond bounds */
+  overflow-y: visible;
+}
+
+/* Form header section */
+.eld-assignment-form-header {
+  margin-bottom: var(--eld-semantic-space-component-gap-lg);
+}
+
+.eld-assignment-form-header h1 {
+  font-weight: var(--eld-primitive-font-weight-semibold);
+  font-size: var(--eld-semantic-font-size-heading-large);
+  margin-bottom: var(--eld-semantic-space-component-gap-sm);
+  line-height: 1.2;
+  font-family: var(--eld-semantic-font-family-heading);
+  color: var(--eld-semantic-color-text-primary);
+}
+
+.eld-assignment-form-subtitle {
+  font-weight: var(--eld-primitive-font-weight-light);
+  font-size: var(--eld-semantic-font-size-body-medium);
+  font-family: var(--eld-semantic-font-family-body);
+  color: var(--eld-semantic-color-text-secondary);
+  font-style: italic;
+  margin: 0;
+}
+
+/* Assignment form sidebar (right rail) */
+.eld-assignment-form-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--eld-semantic-space-component-gap-lg);
+}
+
+/* Templates section */
+.eld-assignment-form-templates {
+  display: flex;
+  flex-direction: column;
+  gap: var(--eld-semantic-space-component-gap-md);
+}
+
+.eld-assignment-form-templates h3 {
+  font-family: var(--eld-semantic-font-family-heading);
+  font-size: var(--eld-semantic-font-size-heading-small);
+  font-weight: var(--eld-primitive-font-weight-semibold);
+  color: var(--eld-semantic-color-text-primary);
+  margin: 0;
+  margin-bottom: var(--eld-semantic-space-component-gap-sm);
+}
+
+.eld-assignment-form-templates__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--eld-semantic-space-component-gap-sm);
+}
+
+/* Background image positioning */
+.eld-assignment-form-background {
+  /* Pin illustration to the viewport bottom-right for the entire page */
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  pointer-events: none;
+  z-index: -1; /* Keep illustration behind all interactive UI */
+  opacity: 0.6;
+}
+
+.eld-assignment-form-background__image {
+  display: block;
+  height: auto;
+  /* Scale up significantly but stay responsive */
+  width: clamp(360px, 32vw, 820px);
+}
+
+/* Form container */
+.eld-assignment-form-container {
+  position: relative;
+  z-index: 20;
+}
+
+/* Error message styling */
+.eld-assignment-form-errors {
+  background-color: var(--eld-semantic-color-error-light); /* Light red background */
+  border: var(--eld-semantic-border-width-strong) solid var(--eld-semantic-color-error); /* Dark border like other components */
+  border-radius: var(--eld-semantic-border-radius-modal);
+  box-shadow: var(--eld-semantic-shadow-card);
+  padding: var(--eld-semantic-space-component-padding-md);
+  margin-bottom: var(--eld-semantic-space-component-gap-lg);
+  position: relative;
+  z-index: 1;
+}
+
+.eld-assignment-form-errors h2 {
+  font-family: var(--eld-semantic-font-family-button);
+  font-size: var(--eld-semantic-font-size-body-large);
+  font-weight: var(--eld-primitive-font-weight-semibold);
+  color: var(--eld-semantic-color-error); /* Red text */
+  margin: 0 0 var(--eld-semantic-space-component-gap-sm) 0;
+}
+
+.eld-assignment-form-errors ul {
+  margin: 0;
+  padding-left: var(--eld-semantic-space-component-padding-md);
+  color: var(--eld-semantic-color-error); /* Red text */
+  font-family: var(--eld-semantic-font-family-button);
+  font-size: var(--eld-semantic-font-size-body-medium);
+}
+
+.eld-assignment-form-errors li {
+  margin-bottom: var(--eld-semantic-space-component-gap-xs);
+}
+
+/* Tablet layout - stacked with better spacing */
+@media (min-width: 768px) and (max-width: 923px) {
+  .eld-assignment-form-layout {
+    gap: var(--eld-semantic-space-layout-lg);
+  }
+
+  .eld-assignment-form-templates__grid {
+    /* Full width single column on desktop as well */
+    grid-template-columns: 1fr;
+    gap: var(--eld-semantic-space-component-gap-md);
+  }
+
+  .eld-assignment-form-background__image {
+    width: clamp(420px, 34vw, 880px);
+  }
+}
+
+/* Desktop layout - two columns */
+@media (min-width: 924px) {
+  .eld-assignment-form-layout {
+    flex-direction: row;
+    gap: var(--eld-semantic-space-layout-xl);
+    align-items: flex-start;
+  }
+
+  .eld-assignment-form-container {
+    flex: 1;
+    max-width: 60%;
+  }
+
+  .eld-assignment-form-sidebar {
+    flex: 0 0 380px; /* Fixed width for spacious template area */
+    min-width: 380px;
+  }
+
+  .eld-assignment-form-templates__grid {
+    /* Keep single column on wider screens */
+    grid-template-columns: 1fr;
+    gap: var(--eld-semantic-space-component-gap-md);
+  }
+
+  /* Make background image larger on desktop */
+  .eld-assignment-form-background__image {
+    width: clamp(520px, 36vw, 920px);
+  }
+}
+
+/* Large desktop - even more space for templates */
+@media (min-width: 1200px) {
+  .eld-assignment-form-sidebar {
+    flex: 0 0 420px;
+    min-width: 420px;
+  }
+
+  .eld-assignment-form-background__image {
+    width: clamp(620px, 38vw, 980px);
+  }
+}
+
+.eld-assignment-form {
+  position: relative;
+  
+  /* Ensure content is properly positioned */
+  z-index: 1;
+}
+
+/* Add parchment texture background similar to assignment cards */
+.eld-assignment-form::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('/assets/parchment.png');
+  background-repeat: repeat;
+  background-size: 200px 200px;
+  opacity: 0.04;
+  z-index: -1;
+}
+
+/* Form header section */
+.eld-assignment-form__header {
+  margin-bottom: var(--eld-semantic-space-component-gap-lg);
+  padding-bottom: var(--eld-semantic-space-component-gap-md);
+  border-bottom: var(--eld-semantic-border-width-focus) solid var(--eld-semantic-color-border-primary);
+}
+
+.eld-assignment-form__title {
+  font-family: var(--eld-semantic-font-family-heading);
+  font-size: var(--eld-semantic-font-size-heading-large);
+  font-weight: var(--eld-primitive-font-weight-semibold);
+  color: var(--eld-semantic-color-text-primary);
+  margin: 0 0 var(--eld-semantic-space-component-gap-sm) 0;
+}
+
+.eld-assignment-form__subtitle {
+  font-family: var(--eld-semantic-font-family-body);
+  font-size: var(--eld-semantic-font-size-body-medium);
+  color: var(--eld-semantic-color-text-secondary);
+  margin: 0;
+  font-style: italic;
+}
+
+/* Form content area */
+.eld-assignment-form__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--eld-semantic-space-layout-md);
+}
+
+/* Form fields wrapper */
+.eld-assignment-form__fields,
+.eld-assignment-form-fields {
+  display: flex;
+  flex-direction: column;
+  gap: var(--eld-semantic-space-layout-md);
+}
+
+.eld-assignment-form__row--split {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--eld-semantic-space-component-gap-md);
+}
+
+.eld-assignment-form__row--split > * {
+  flex: 1 1 260px;
+}
+
+.eld-pill-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--eld-semantic-space-component-gap-sm);
+  margin: var(--eld-semantic-space-component-gap-sm) 0;
+}
+
+.eld-pill-input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Form actions (buttons) */
+.eld-assignment-form__actions {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: var(--eld-semantic-space-component-md);
+  padding-top: var(--eld-semantic-space-component-lg);
+  border-top: var(--eld-semantic-border-width-strong) solid var(--eld-semantic-color-border-primary);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .eld-assignment-form {
+    padding: var(--eld-semantic-space-component-lg) 0 0 0;
+    border-radius: var(--eld-semantic-border-radius-card);
+  }
+  
+  .eld-assignment-form__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .eld-assignment-form__row--split {
+    flex-direction: column;
+    gap: var(--eld-semantic-space-component-gap-md);
+  }
+
+  .eld-assignment-form__actions .eld-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Oversized burst-out image styling - now handled in media queries above */
+
+/* Accessibility enhancements */
+@media (prefers-reduced-motion: reduce) {
+  .eld-assignment-form {
+    transition: none;
+  }
+}
+
+@media (prefers-contrast: high) {
+  .eld-assignment-form {
+    border-width: 4px;
+  }
+  
+  .eld-assignment-form__header,
+  .eld-assignment-form__actions {
+    border-width: 3px;
+  }
+} 

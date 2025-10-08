@@ -1,0 +1,18 @@
+/* Mystic Heather Palette */
+/* Subtle purple-gray tones for secondary highlights, data visualization, and magical mists */
+/* References foundation layer for single source of truth */
+
+:root {
+  /* Mystic Heather - 50 to 950 scale (muted, sophisticated pastels) */
+  --eldritch-mystic-heather-50: var(--eld-foundation-color-mystic-heather-50);
+  --eldritch-mystic-heather-100: var(--eld-foundation-color-mystic-heather-100);
+  --eldritch-mystic-heather-200: var(--eld-foundation-color-mystic-heather-200);
+  --eldritch-mystic-heather-300: var(--eld-foundation-color-mystic-heather-300);
+  --eldritch-mystic-heather-400: var(--eld-foundation-color-mystic-heather-400);
+  --eldritch-mystic-heather-500: var(--eld-foundation-color-mystic-heather-500);
+  --eldritch-mystic-heather-600: var(--eld-foundation-color-mystic-heather-600);
+  --eldritch-mystic-heather-700: var(--eld-foundation-color-mystic-heather-700);
+  --eldritch-mystic-heather-800: var(--eld-foundation-color-mystic-heather-800);
+  --eldritch-mystic-heather-900: var(--eld-foundation-color-mystic-heather-900);
+  --eldritch-mystic-heather-950: var(--eld-foundation-color-mystic-heather-950);
+}

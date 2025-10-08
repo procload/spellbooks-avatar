@@ -1,0 +1,18 @@
+/* Phoenix Red Palette */
+/* Fiery reds and oranges for phoenix flames, warnings, and destructive magic */
+/* References foundation layer for single source of truth */
+
+:root {
+  /* Phoenix Red - 50 to 950 scale */
+  --eldritch-phoenix-red-50: var(--eld-foundation-color-phoenix-red-50);
+  --eldritch-phoenix-red-100: var(--eld-foundation-color-phoenix-red-100);
+  --eldritch-phoenix-red-200: var(--eld-foundation-color-phoenix-red-200);
+  --eldritch-phoenix-red-300: var(--eld-foundation-color-phoenix-red-300);
+  --eldritch-phoenix-red-400: var(--eld-foundation-color-phoenix-red-400);
+  --eldritch-phoenix-red-500: var(--eld-foundation-color-phoenix-red-500);
+  --eldritch-phoenix-red-600: var(--eld-foundation-color-phoenix-red-600);
+  --eldritch-phoenix-red-700: var(--eld-foundation-color-phoenix-red-700);
+  --eldritch-phoenix-red-800: var(--eld-foundation-color-phoenix-red-800);
+  --eldritch-phoenix-red-900: var(--eld-foundation-color-phoenix-red-900);
+  --eldritch-phoenix-red-950: var(--eld-foundation-color-phoenix-red-950);
+}

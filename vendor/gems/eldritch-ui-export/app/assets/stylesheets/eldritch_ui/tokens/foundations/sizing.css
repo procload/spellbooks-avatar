@@ -1,0 +1,30 @@
+/* Sizing Foundation Tokens */
+/* Width, height, and size values */
+
+:root {
+  /* ===== SIZING PRIMITIVES ===== */
+  
+  /* Systematic sizing scale */
+  --eldritch-size-0: 0;
+  --eldritch-size-1: 0.25rem;      /* 4px */
+  --eldritch-size-2: 0.5rem;       /* 8px */
+  --eldritch-size-3: 0.75rem;      /* 12px */
+  --eldritch-size-4: 1rem;         /* 16px */
+  --eldritch-size-5: 1.25rem;      /* 20px */
+  --eldritch-size-6: 1.5rem;       /* 24px */
+  --eldritch-size-7: 1.75rem;      /* 28px */
+  --eldritch-size-8: 2rem;         /* 32px */
+  --eldritch-size-9: 2.25rem;      /* 36px */
+  --eldritch-size-10: 2.5rem;      /* 40px */
+  --eldritch-size-11: 2.75rem;     /* 44px */
+  --eldritch-size-12: 3rem;        /* 48px */
+  --eldritch-size-14: 3.5rem;      /* 56px */
+  --eldritch-size-16: 4rem;        /* 64px */
+  --eldritch-size-20: 5rem;        /* 80px */
+  --eldritch-size-24: 6rem;        /* 96px */
+  --eldritch-size-32: 8rem;        /* 128px */
+  --eldritch-size-40: 10rem;       /* 160px */
+  --eldritch-size-48: 12rem;       /* 192px */
+  --eldritch-size-56: 14rem;       /* 224px */
+  --eldritch-size-64: 16rem;       /* 256px */
+}

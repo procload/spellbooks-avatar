@@ -1,0 +1,43 @@
+<div <%= tag.attributes(component_attributes) %>>
+  <div class="eld-empty-state__content">
+    <% if show_icon? %>
+      <div class="eld-empty-state__icon-container">
+        <%= render EldritchUi::IconComponent.new(
+          name: icon_name,
+          class: icon_classes,
+          "aria-hidden": true
+        ) %>
+      </div>
+    <% end %>
+
+    <div class="eld-empty-state__text">
+      <h2 id="<%= title_id %>" class="<%= title_classes %>">
+        <%= title %>
+      </h2>
+
+      <% if show_description? %>
+        <p class="<%= description_classes %>">
+          <%= description %>
+        </p>
+      <% end %>
+    </div>
+
+    <% if show_custom_content? %>
+      <div class="eld-empty-state__custom-content">
+        <%= custom_content %>
+      </div>
+    <% end %>
+
+    <% if show_actions? %>
+      <div class="<%= actions_classes %>">
+        <% if primary_action.present? %>
+          <%= primary_action %>
+        <% end %>
+
+        <% secondary_actions.each do |action_item| %>
+          <%= action_item %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div> 

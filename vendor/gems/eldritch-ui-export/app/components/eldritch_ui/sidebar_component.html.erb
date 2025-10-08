@@ -1,0 +1,64 @@
+<aside <%= tag.attributes(component_tag_attributes) %>>
+  <!-- Desktop Sidebar -->
+  <div class="eld-sidebar__desktop">
+    <nav class="eld-sidebar__nav">
+      <div class="eld-sidebar__nav-item">
+        <%= link_to root_path, class: "eld-sidebar__link #{current_page?(root_path) ? 'eld-sidebar__link--active' : ''}" do %>
+          <%= helpers.svg_icon("book", class: "eld-sidebar__icon") %>
+        <% end %>
+      </div>
+
+      <% if show_create_assignment_link? %>
+        <div class="eld-sidebar__nav-item">
+          <%= link_to new_assignment_path, class: "eld-sidebar__link #{current_controller_is?('assignments') && action_name == 'new' ? 'eld-sidebar__link--active' : ''}" do %>
+            <%= helpers.svg_icon("scroll", class: "eld-sidebar__icon") %>
+          <% end %>
+        </div>
+      <% end %>
+
+      <% if show_students_link? %>
+        <div class="eld-sidebar__nav-item">
+          <%= link_to students_path, class: "eld-sidebar__link #{current_controller_is?('students') ? 'eld-sidebar__link--active' : ''}" do %>
+            <%= helpers.svg_icon("hat", class: "eld-sidebar__icon") %>
+          <% end %>
+        </div>
+      <% end %>
+    </nav>
+  </div>
+
+  <!-- Mobile Menu Button -->
+  <div class="eld-sidebar__mobile" data-controller="eldritch-ui--mobile-menu">
+    <button class="eld-sidebar__mobile-button" data-action="eldritch-ui--mobile-menu#toggle">
+      <svg xmlns="http://www.w3.org/2000/svg" class="eld-sidebar__mobile-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+    </button>
+    
+    <!-- Mobile menu overlay -->
+    <div data-eldritch-ui--mobile-menu-target="overlay" class="eld-sidebar__mobile-overlay eld-sidebar__mobile-overlay--hidden" data-action="click->eldritch-ui--mobile-menu#close"></div>
+    
+    <!-- Mobile menu panel -->
+    <div data-eldritch-ui--mobile-menu-target="menu" class="eld-sidebar__mobile-menu eld-sidebar__mobile-menu--hidden">
+      <nav class="eld-sidebar__mobile-nav">
+        <%= link_to root_path, class: "eld-sidebar__mobile-link" do %>
+          <%= helpers.svg_icon("book", class: "eld-sidebar__mobile-link-icon", width: 20, height: 20) %>
+          Home
+        <% end %>
+
+        <% if show_create_assignment_link? %>
+          <%= link_to new_assignment_path, class: "eld-sidebar__mobile-link" do %>
+            <%= helpers.svg_icon("scroll", class: "eld-sidebar__mobile-link-icon", width: 20, height: 20) %>
+            Create Assignment
+          <% end %>
+        <% end %>
+
+        <% if show_students_link? %>
+          <%= link_to students_path, class: "eld-sidebar__mobile-link" do %>
+            <%= helpers.svg_icon("hat", class: "eld-sidebar__mobile-link-icon", width: 20, height: 20) %>
+            Students
+          <% end %>
+        <% end %>
+      </nav>
+    </div>
+  </div>
+</aside> 

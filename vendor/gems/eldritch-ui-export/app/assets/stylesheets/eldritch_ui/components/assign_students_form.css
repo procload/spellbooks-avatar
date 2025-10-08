@@ -1,0 +1,479 @@
+/* Assign Students Form Component Styles */
+
+.eld-assign-students-form {
+  background-color: var(--eld-semantic-color-surface);
+  border-radius: var(--eld-semantic-border-radius-card);
+  overflow: hidden;
+}
+
+/* Warning Note */
+
+.eld-assign-students-form__warning-note {
+  background-color: var(--eld-semantic-color-warning-light);
+  border: var(--eld-semantic-border-width-default) solid var(--eld-semantic-color-warning);
+  border-radius: var(--eld-semantic-border-radius-button);
+  padding: var(--eld-semantic-space-component-padding-md);
+  margin-bottom: var(--eld-semantic-space-component-gap-xl);
+  display: flex;
+  align-items: flex-start;
+  gap: var(--eld-semantic-space-component-gap-sm);
+}
+
+.eld-assign-students-form__warning-icon {
+  flex-shrink: 0;
+}
+
+.eld-assign-students-form__warning-svg {
+  width: var(--eld-semantic-size-icon-md);
+  height: var(--eld-semantic-size-icon-md);
+  color: var(--eld-semantic-color-warning);
+}
+
+.eld-assign-students-form__warning-content {
+  flex: 1;
+}
+
+.eld-assign-students-form__warning-title {
+  font-size: var(--eld-semantic-font-size-body-small);
+  font-weight: var(--eld-primitive-font-weight-semibold);
+  color: var(--eld-semantic-color-warning-dark);
+  margin: 0 0 var(--eld-semantic-space-component-gap-xs) 0;
+}
+
+.eld-assign-students-form__warning-text {
+  font-size: var(--eld-semantic-font-size-body-small);
+  color: var(--eld-semantic-color-warning-dark);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Form Structure */
+
+.eld-assign-students-form__form {
+  /* Form container */
+}
+
+.eld-assign-students-form__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--eld-semantic-space-component-gap-xl);
+}
+
+/* Header with Search and Controls */
+
+.eld-assign-students-form__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--eld-semantic-space-component-gap-md);
+  padding: var(--eld-semantic-space-component-padding-md) 0;
+  border-bottom: var(--eld-semantic-border-width-default) solid var(--eld-semantic-color-border);
+}
+
+.eld-assign-students-form__search-container {
+  flex: 1;
+  max-width: 320px;
+}
+
+.eld-assign-students-form__search-input {
+  width: 100%;
+  padding: var(--eld-semantic-space-component-padding-sm) var(--eld-semantic-space-component-padding-sm);
+  font-family: var(--eld-semantic-font-family-input);
+  font-size: var(--eld-semantic-font-size-heading-small);
+  font-weight: var(--eld-primitive-font-weight-medium);
+  border: var(--eld-semantic-border-width-default) solid var(--eld-semantic-color-border);
+  border-radius: var(--eld-semantic-border-radius-input);
+  outline: none;
+  transition: border-color var(--eld-semantic-duration-interaction) ease, box-shadow var(--eld-semantic-duration-interaction) ease;
+}
+
+.eld-assign-students-form__search-input:focus {
+  border-color: var(--eld-semantic-color-border-focus);
+  box-shadow: var(--eld-semantic-shadow-focus-ring);
+}
+
+.eld-assign-students-form__controls {
+  display: flex;
+  align-items: center;
+  gap: var(--eld-semantic-space-component-gap-md);
+}
+
+.eld-assign-students-form__select-all-label {
+  display: flex;
+  align-items: center;
+  gap: var(--eld-semantic-space-component-gap-sm);
+  cursor: pointer;
+}
+
+.eld-assign-students-form__select-all-checkbox {
+  width: var(--eld-semantic-space-component-padding-md);
+  height: var(--eld-semantic-space-component-padding-md);
+  accent-color: var(--eld-semantic-color-primary);
+  cursor: pointer;
+}
+
+.eld-assign-students-form__select-all-text {
+  font-size: var(--eld-semantic-font-size-body-small);
+  color: var(--eld-semantic-color-text-secondary);
+}
+
+.eld-assign-students-form__clear-button {
+  font-size: 14px;
+  color: #dc2626;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.eld-assign-students-form__clear-button:hover {
+  background-color: #fef2f2;
+  color: #b91c1c;
+}
+
+.eld-assign-students-form__counter {
+  font-size: 14px;
+  color: var(--eld-semantic-color-text-secondary);
+}
+
+/* Student List */
+
+.eld-assign-students-form__list-container {
+  border: var(--eld-semantic-border-width-default) solid var(--eld-semantic-color-border);
+  border-radius: var(--eld-semantic-border-radius-card);
+  overflow: hidden;
+}
+
+.eld-assign-students-form__student-row {
+  border-bottom: var(--eld-semantic-border-width-default) solid var(--eld-semantic-color-border);
+  cursor: pointer;
+  transition: background-color var(--eld-semantic-duration-interaction) ease;
+}
+
+.eld-assign-students-form__student-row:last-child {
+  border-bottom: none;
+}
+
+.eld-assign-students-form__student-row:hover {
+  background-color: var(--eld-semantic-color-surface-hover);
+}
+
+.eld-assign-students-form__student-row--started {
+  background-color: #f9fafb;
+}
+
+.eld-assign-students-form__student-content {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--eld-semantic-space-component-gap-md);
+  padding: var(--eld-semantic-space-component-padding-md);
+}
+
+.eld-assign-students-form__checkbox-container {
+  flex-shrink: 0;
+  padding-top: var(--eld-semantic-space-component-gap-xs);
+}
+
+.eld-assign-students-form__checkbox {
+  width: var(--eld-semantic-space-component-padding-md);
+  height: var(--eld-semantic-space-component-padding-md);
+  accent-color: var(--eld-semantic-color-primary);
+  cursor: pointer;
+}
+
+.eld-assign-students-form__checkbox:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Student Info */
+
+.eld-assign-students-form__student-info {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.eld-assign-students-form__student-details {
+  flex: 1;
+}
+
+.eld-assign-students-form__student-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--eld-semantic-color-text-primary);
+  margin: 0 0 4px 0;
+  line-height: 1.4;
+}
+
+.eld-assign-students-form__student-email {
+  font-size: 14px;
+  color: var(--eld-semantic-color-text-secondary);
+  margin: 0 0 8px 0;
+  word-break: break-all;
+}
+
+.eld-assign-students-form__locked-indicator {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.eld-assign-students-form__lock-icon {
+  width: 16px;
+  height: 16px;
+  color: #f59e0b;
+}
+
+.eld-assign-students-form__locked-text {
+  font-size: 12px;
+  color: #f59e0b;
+  font-weight: 500;
+}
+
+/* Progress Section */
+
+.eld-assign-students-form__progress-section {
+  min-width: 200px;
+  text-align: right;
+}
+
+.eld-assign-students-form__status-container {
+  margin-bottom: 8px;
+}
+
+.eld-assign-students-form__status-badge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: var(--eldritch-border-radius-lg);
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.eld-assign-students-form__status-badge--completed {
+  background-color: #dcfce7;
+  color: #166534;
+}
+
+.eld-assign-students-form__status-badge--in-progress {
+  background-color: #dbeafe;
+  color: #1e40af;
+}
+
+.eld-assign-students-form__status-badge--not-started {
+  background-color: #f3f4f6;
+  color: #374151;
+}
+
+.eld-assign-students-form__progress-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: flex-end;
+  margin-bottom: 4px;
+}
+
+.eld-assign-students-form__progress-bar-container {
+  width: 96px;
+}
+
+.eld-assign-students-form__progress-bar {
+  width: 100%;
+  height: 8px;
+  background-color: #e5e7eb;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.eld-assign-students-form__progress-fill {
+  height: 100%;
+  background-color: #3b82f6;
+  transition: width 0.3s ease;
+}
+
+.eld-assign-students-form__progress-text {
+  font-size: 12px;
+  color: var(--eld-semantic-color-text-secondary);
+  margin: 0;
+  white-space: nowrap;
+}
+
+.eld-assign-students-form__correct-answers {
+  font-size: 11px;
+  color: var(--eld-semantic-color-text-tertiary);
+  margin: 0;
+}
+
+/* Empty State */
+
+.eld-assign-students-form__empty-state {
+  padding: 48px 24px;
+  text-align: center;
+}
+
+.eld-assign-students-form__empty-message {
+  font-size: 16px;
+  color: var(--eld-semantic-color-text-secondary);
+  margin: 0;
+}
+
+/* Form Actions */
+
+.eld-assign-students-form__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  padding-top: 16px;
+  border-top: 1px solid var(--eld-semantic-color-border);
+}
+
+.eld-assign-students-form__cancel-button {
+  padding: 8px 16px;
+  border: 1px solid var(--eld-semantic-color-border);
+  border-radius: 6px;
+  background-color: var(--eld-semantic-color-surface);
+  color: var(--eld-semantic-color-text-primary);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.eld-assign-students-form__cancel-button:hover {
+  background-color: var(--eld-semantic-color-surface-subtle);
+  border-color: var(--eld-semantic-color-border-strong);
+}
+
+.eld-assign-students-form__submit-button {
+  padding: 8px 16px;
+  border: 1px solid var(--eld-semantic-color-primary);
+  border-radius: 6px;
+  background-color: var(--eld-semantic-color-primary);
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.eld-assign-students-form__submit-button:hover {
+  background-color: var(--eld-semantic-color-primary-dark);
+  border-color: var(--eld-semantic-color-primary-dark);
+}
+
+.eld-assign-students-form__submit-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Responsive Design */
+
+@media (max-width: 768px) {
+  .eld-assign-students-form__header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .eld-assign-students-form__search-container {
+    max-width: none;
+  }
+
+  .eld-assign-students-form__controls {
+    justify-content: space-between;
+  }
+
+  .eld-assign-students-form__student-content {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .eld-assign-students-form__student-info {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .eld-assign-students-form__progress-section {
+    min-width: 0;
+    text-align: left;
+  }
+
+  .eld-assign-students-form__progress-container {
+    justify-content: flex-start;
+  }
+
+  .eld-assign-students-form__actions {
+    flex-direction: column-reverse;
+  }
+
+  .eld-assign-students-form__cancel-button,
+  .eld-assign-students-form__submit-button {
+    text-align: center;
+  }
+}
+
+/* Print Styles */
+
+@media print {
+  .eld-assign-students-form__search-input,
+  .eld-assign-students-form__clear-button,
+  .eld-assign-students-form__actions {
+    display: none;
+  }
+
+  .eld-assign-students-form__student-row {
+    break-inside: avoid;
+  }
+}
+
+/* High Contrast Mode */
+
+@media (prefers-contrast: high) {
+  .eld-assign-students-form__warning-note {
+    border-width: 2px;
+  }
+
+  .eld-assign-students-form__student-row {
+    border-bottom-width: 2px;
+  }
+}
+
+/* Reduced Motion */
+
+@media (prefers-reduced-motion: reduce) {
+  .eld-assign-students-form__search-input,
+  .eld-assign-students-form__student-row,
+  .eld-assign-students-form__progress-fill,
+  .eld-assign-students-form__cancel-button,
+  .eld-assign-students-form__submit-button,
+  .eld-assign-students-form__clear-button {
+    transition: none;
+  }
+}
+
+/* Focus States */
+
+.eld-assign-students-form__checkbox:focus {
+  outline: 2px solid var(--eld-semantic-color-primary);
+  outline-offset: 2px;
+}
+
+.eld-assign-students-form__clear-button:focus,
+.eld-assign-students-form__cancel-button:focus,
+.eld-assign-students-form__submit-button:focus {
+  outline: 2px solid var(--eld-semantic-color-primary);
+  outline-offset: 2px;
+}
+
+/* Utility Classes */
+
+.hidden {
+  display: none !important;
+} 

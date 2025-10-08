@@ -1,0 +1,214 @@
+/* Text Input Component - EldritchUi Design System */
+
+.eld-text-input {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--eld-foundation-font-family-base);
+  position: relative;
+}
+
+/* Label styling - Parchment scroll style with label tab attached to input */
+.eld-text-input__label {
+  display: inline-block;
+  
+  /* Label tab styling - using design system colors */
+  background: var(--eld-semantic-color-label-background);
+  color: var(--eld-semantic-color-label-text);
+  
+  /* Typography using semantic label tokens */
+  font-family: var(--eld-semantic-font-family-label);
+  font-size: var(--eld-semantic-font-size-label);
+  font-weight: var(--eld-primitive-font-weight-medium);
+  text-transform: uppercase;
+  
+  /* Pill shape */
+  padding: var(--eld-semantic-space-element-xs) var(--eld-semantic-space-component-padding-md);
+  border-radius: var(--eld-semantic-border-radius-input) var(--eld-semantic-border-radius-input) 0 0;
+  
+  /* Complete border all around like button */
+  border: var(--eldritch-border-width-lg) solid var(--eld-semantic-color-border-default);
+  border-bottom: none;
+  
+  /* Chunky emboss effect */
+  box-shadow: var(--eldritch-component-button-spellbooks-primary-box-shadow);
+}
+
+/* Input wrapper */
+.eld-text-input__wrapper {
+  position: relative;
+  z-index: 2;
+  background: var(--eld-semantic-color-surface-hover);
+  border: var(--eldritch-border-width-lg) solid var(--eld-semantic-color-border-strong);
+  border-radius: 0 0 var(--eld-semantic-border-radius-input) var(--eld-semantic-border-radius-input);
+  box-shadow: var(--eldritch-component-button-spellbooks-primary-box-shadow);
+}
+
+/* Input field styling */
+.eld-text-input__field {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  background: transparent;
+  border: none;
+  padding: 9px 16px;
+  font-family: var(--eld-semantic-font-family-body);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.6;
+  color: var(--eld-semantic-color-text-primary);
+  outline: none;
+  box-shadow: none;
+  transition: border-color 0.15s ease;
+  border-radius: 0 0 var(--eld-semantic-border-radius-input) var(--eld-semantic-border-radius-input);
+}
+
+.eld-text-input__field::placeholder {
+  color: var(--eld-semantic-color-text-secondary);
+  font-style: italic;
+}
+
+.eld-text-input__field:focus {
+  outline-offset: -2px;
+  border-radius: 0 0 var(--eld-semantic-border-radius-input) var(--eld-semantic-border-radius-input);
+}
+
+/* Description text */
+.eld-text-input__description {
+  color: var(--eld-semantic-color-text-on-surface);
+  font-size: var(--eldritch-font-size-small);
+  line-height: 1.4;
+}
+
+/* Error message */
+.eld-text-input__error {
+  color: var(--eld-semantic-color-error);
+  font-size: var(--eldritch-font-size-small);
+  font-weight: var(--eldritch-font-weight-medium);
+}
+
+/* Hover state */
+.eld-text-input__wrapper:hover:not(.eld-text-input--disabled) {
+  background: #ffffff;
+}
+
+/* Focus state */
+.eld-text-input__wrapper:focus-within {
+  background: #ffffff;
+}
+
+/* Active state */
+.eld-text-input__wrapper:active {
+  background: #ffffff;
+}
+
+/* Standalone variant - for inputs without attached labels */
+.eld-text-input--standalone .eld-text-input__wrapper {
+  margin-top: 0;
+  border-radius: var(--eldritch-border-radius-lg);
+  border: var(--eldritch-border-width-lg) solid var(--eld-semantic-color-border-default);
+  box-shadow: var(--eldritch-component-button-spellbooks-primary-box-shadow);
+}
+
+.eld-text-input--standalone .eld-text-input__field {
+  border-radius: var(--eldritch-border-radius-lg);
+}
+
+.eld-text-input--standalone .eld-text-input__field:focus {
+  outline-offset: -2px;
+  border-radius: var(--eldritch-border-radius-lg);
+}
+
+.eld-text-input--standalone .eld-text-input__label {
+  display: block;
+  font-family: var(--eldritch-label-font-family);
+  font-size: var(--eldritch-label-font-size);
+  font-weight: var(--eldritch-label-font-weight);
+  text-transform: uppercase;
+  margin-bottom: var(--eldritch-margin-small);
+  background: none;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* Disabled state */
+.eld-text-input--disabled {
+  opacity: 0.6;
+}
+
+.eld-text-input--disabled .eld-text-input__label {
+  cursor: not-allowed;
+}
+
+.eld-text-input--disabled .eld-text-input__field {
+  background-color: var(--eld-semantic-color-surface);
+  border-color: var(--eld-semantic-color-border-default);
+  cursor: not-allowed;
+  box-shadow: none;
+  opacity: 0.5;
+}
+
+/* Readonly state */
+.eld-text-input--readonly .eld-text-input__field {
+  background-color: var(--eld-semantic-color-surface);
+  cursor: default;
+}
+
+/* Error state */
+.eld-text-input--error .eld-text-input__field {
+  border-color: var(--eld-semantic-color-error);
+}
+
+.eld-text-input--error .eld-text-input__field:focus {
+  outline-color: var(--eld-semantic-color-error);
+  outline-offset: -2px;
+  border-radius: 0 0 var(--eld-semantic-border-radius-input) var(--eld-semantic-border-radius-input);
+}
+
+/* Size variants */
+.eld-text-input__field--small {
+  padding: var(--eldritch-padding-xxs) var(--eldritch-padding-small);
+  font-size: var(--eldritch-font-size-small);
+}
+
+.eld-text-input__field--large {
+  padding: var(--eldritch-padding-medium) var(--eldritch-padding-large);
+  font-size: var(--eldritch-font-size-large);
+}
+
+/* Required indicator */
+.eld-text-input--required .eld-text-input__label::after {
+  content: " *";
+  color: var(--eld-semantic-color-error);
+}
+
+/* Variant styles */
+.eld-text-input--primary .eld-text-input__field:focus {
+  border-color: var(--eld-semantic-color-primary);
+}
+
+.eld-text-input--secondary .eld-text-input__field:focus {
+  border-color: var(--eld-primitive-color-blue-500);
+}
+
+/* Input type specific styling */
+.eld-text-input__field[type="search"] {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.eld-text-input__field[type="search"]::-webkit-search-decoration,
+.eld-text-input__field[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.eld-text-input__field[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.eld-text-input__field[type="number"]::-webkit-outer-spin-button,
+.eld-text-input__field[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+} 

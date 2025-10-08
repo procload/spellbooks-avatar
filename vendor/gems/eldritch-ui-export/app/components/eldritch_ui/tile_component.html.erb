@@ -1,0 +1,33 @@
+<%# Eldritch UI Tile Component %>
+<%# Interactive tile component supporting selection, navigation, and form integration %>
+
+<%= content_tag :div, wrapper_attributes do %>
+  <div class="eld-tile__inner">
+    <% if has_icon? %>
+      <%= content_tag :div, icon_container_attributes do %>
+        <%= icon %>
+      <% end %>
+    <% end %>
+    
+    <%= content_tag :div, tile_content_attributes do %>
+      <%= content_tag :div, text_attributes do %>
+        <%= content %>
+      <% end %>
+      
+      <% if has_subtitle? %>
+        <%= content_tag :div, subtitle_attributes do %>
+          <%= subtitle %>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+  
+  <%# Hidden input for Rails form compatibility %>
+  <% if hidden_input_name.present? %>
+    <%= hidden_field_tag hidden_input_name, hidden_input_value, 
+        id: nil,
+        data: { 
+          "eldritch-ui--tile-target": "hiddenInput"
+        } %>
+  <% end %>
+<% end %> 

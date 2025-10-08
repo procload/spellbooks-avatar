@@ -1,0 +1,393 @@
+/* Eldritch UI Empty State Component */
+/* Component for displaying empty states with icon, title, description, and actions */
+
+.eld-empty-state {
+  /* Base container styling */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  padding: var(--eld-semantic-space-component-padding-lg);
+  text-align: center;
+}
+
+.eld-empty-state__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--eld-semantic-space-component-gap-md);
+  max-width: 480px;
+  width: 100%;
+}
+
+/* Icon Section */
+.eld-empty-state__icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--eld-semantic-space-component-gap-sm);
+}
+
+.eld-empty-state__icon {
+  color: var(--eld-semantic-color-text-secondary);
+  width: var(--eld-semantic-icon-size-large);
+  height: var(--eld-semantic-icon-size-large);
+}
+
+.eld-empty-state__icon--small {
+  width: var(--eld-semantic-icon-size-medium);
+  height: var(--eld-semantic-icon-size-medium);
+}
+
+.eld-empty-state__icon--large {
+  width: var(--eld-semantic-icon-size-xl);
+  height: var(--eld-semantic-icon-size-xl);
+}
+
+/* Text Section */
+.eld-empty-state__text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--eld-semantic-space-component-gap-sm);
+}
+
+.eld-empty-state__title {
+  font-size: var(--eld-semantic-font-size-heading-medium);
+  font-weight: var(--eld-primitive-font-weight-bold);
+  color: var(--eld-semantic-color-text-primary);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.eld-empty-state__description {
+  font-size: var(--eld-semantic-font-size-body-medium);
+  font-weight: var(--eld-primitive-font-weight-regular);
+  color: var(--eld-semantic-color-text-secondary);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Custom Content Section */
+.eld-empty-state__custom-content {
+  width: 100%;
+}
+
+/* Actions Section */
+.eld-empty-state__actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--eld-semantic-space-component-gap-sm);
+  margin-top: var(--eld-semantic-space-component-gap-sm);
+}
+
+/* Teacher Hero Empty State Variant */
+.eld-empty-state__teacher-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 42rem;
+  margin: 0 auto 3rem auto;
+  gap: 1.5rem;
+}
+
+.eld-empty-state__teacher-hero-image {
+  width: 100%;
+  max-width: 32rem;
+}
+
+.eld-empty-state__teacher-illustration {
+  width: 100%;
+  max-width: 32rem;
+  height: auto;
+  display: block;
+  border: var(--eld-semantic-border-width-strong) solid var(--eld-semantic-color-border);
+  border-radius: var(--eld-semantic-border-radius-card);
+  box-shadow: var(--eld-semantic-shadow-card);
+  background-color: var(--eld-semantic-color-surface);
+  overflow: hidden;
+}
+
+.eld-empty-state__teacher-hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  max-width: 36rem;
+}
+
+.eld-empty-state__teacher-hero-title {
+  font-family: var(--eld-semantic-font-family-heading);
+  font-size: var(--eld-semantic-font-size-heading-large);
+  font-weight: var(--eld-primitive-font-weight-bold);
+  line-height: 1.2;
+  color: var(--eld-semantic-color-text-primary);
+  margin: 0;
+}
+
+.eld-empty-state__teacher-hero-description {
+  font-family: var(--eld-semantic-font-family-body);
+  font-size: var(--eld-semantic-font-size-body-large);
+  line-height: 1.6;
+  color: var(--eld-semantic-color-text-secondary);
+  margin: 0;
+  max-width: 32rem;
+}
+
+.eld-empty-state__teacher-hero-cta {
+  margin-top: 0.5rem;
+}
+
+
+.eld-empty-state__teacher-hero-tip {
+  margin-top: 1rem;
+  padding: 1rem 1.5rem;
+  background-color: var(--eld-semantic-color-surface-elevated);
+  border: 1px solid var(--eld-semantic-color-border-subtle);
+  border-radius: var(--eld-semantic-border-radius-card);
+  max-width: 32rem;
+}
+
+.eld-empty-state__teacher-hero-tip p {
+  font-size: 0.95rem;
+  color: var(--eld-semantic-color-text-secondary);
+  margin: 0;
+  font-style: italic;
+}
+
+/* Student Empty State Variant */
+.eld-empty-state__student {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 36rem;
+  margin: 0 auto;
+  gap: 0.75rem;
+}
+
+.eld-empty-state__student-illustration {
+  width: 100%;
+  max-width: 32rem;
+  height: auto;
+  margin-bottom: 0.75rem;
+  display: block;
+  border: var(--eld-semantic-border-width-strong) solid var(--eld-semantic-color-border);
+  border-radius: var(--eld-semantic-border-radius-card);
+  box-shadow: var(--eld-semantic-shadow-card);
+  background-color: var(--eld-semantic-color-surface);
+  overflow: hidden;
+}
+
+.eld-empty-state__student-title {
+  font-family: 'Averia Libre', var(--eldritch-font-family-winky-rough), sans-serif;
+  font-size: 1.75rem;
+  line-height: 1.2;
+  color: var(--eld-semantic-color-text-primary);
+  margin: 0;
+}
+
+.eld-empty-state__student-text {
+  font-family: 'Rubik', var(--eldritch-font-family-headline), sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--eld-semantic-color-text-secondary);
+  margin: 0;
+}
+
+.eld-empty-state__student-text + .eld-empty-state__student-text {
+  margin-top: 0.25rem;
+}
+
+@media (max-width: 640px) {
+  .eld-empty-state__teacher-hero {
+    max-width: 100%;
+    padding: 0 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .eld-empty-state__teacher-hero-title {
+    font-size: 1.875rem;
+  }
+
+  .eld-empty-state__teacher-hero-description {
+    font-size: 1rem;
+  }
+
+  .eld-empty-state__teacher-illustration {
+    max-width: min(100%, 20rem);
+  }
+
+
+  .eld-empty-state__student {
+    max-width: 100%;
+    padding: 0 1rem;
+  }
+
+  .eld-empty-state__student-illustration {
+    max-width: min(100%, 22rem);
+  }
+}
+
+.eld-empty-state__link {
+  display: inline-flex;
+  align-items: center;
+  font-size: var(--eld-semantic-font-size-body-medium);
+  font-weight: var(--eld-primitive-font-weight-medium);
+  color: var(--eld-semantic-color-primary);
+  text-decoration: none;
+  padding: var(--eld-semantic-space-component-padding-sm) var(--eld-semantic-space-component-padding-md);
+  border-radius: var(--eld-semantic-border-radius-button);
+  transition: background-color 0.2s ease-in-out;
+}
+
+.eld-empty-state__link:hover {
+  background-color: var(--eld-semantic-color-surface-hover);
+  text-decoration: underline;
+}
+
+.eld-empty-state__link:focus-visible {
+  outline: 2px solid var(--eld-semantic-color-accent);
+  outline-offset: 2px;
+}
+
+/* Large Size Variant */
+.eld-empty-state--large {
+  min-height: 300px;
+  padding: calc(var(--eld-semantic-space-component-padding-lg) * 1.5);
+}
+
+.eld-empty-state--large .eld-empty-state__content {
+  gap: calc(var(--eld-semantic-space-component-gap-md) * 1.25);
+  max-width: 600px;
+}
+
+.eld-empty-state--large .eld-empty-state__title {
+  font-size: calc(var(--eld-semantic-font-size-heading-medium) * 1.25);
+}
+
+.eld-empty-state--large .eld-empty-state__description {
+  font-size: var(--eld-semantic-font-size-body-large);
+}
+
+.eld-empty-state--large .eld-empty-state__icon {
+  width: var(--eld-semantic-icon-size-xl);
+  height: var(--eld-semantic-icon-size-xl);
+}
+
+.eld-empty-state--large .eld-empty-state__icon--small {
+  width: var(--eld-semantic-icon-size-large);
+  height: var(--eld-semantic-icon-size-large);
+}
+
+.eld-empty-state--large .eld-empty-state__icon--large {
+  width: var(--eld-semantic-icon-size-2xl);
+  height: var(--eld-semantic-icon-size-2xl);
+}
+
+.eld-empty-state--large .eld-empty-state__actions {
+  gap: var(--eld-semantic-space-component-gap-md);
+  margin-top: var(--eld-semantic-space-component-gap-md);
+}
+
+/* Responsive Design */
+@media (min-width: 640px) {
+  .eld-empty-state__actions {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .eld-empty-state {
+    padding: var(--eld-semantic-space-component-padding-md);
+    min-height: 160px;
+  }
+
+  .eld-empty-state__content {
+    max-width: 100%;
+  }
+
+  .eld-empty-state__title {
+    font-size: var(--eld-semantic-font-size-body-large);
+  }
+
+  .eld-empty-state__description {
+    font-size: var(--eld-semantic-font-size-body-small);
+  }
+
+  .eld-empty-state__icon {
+    width: var(--eld-semantic-icon-size-medium);
+    height: var(--eld-semantic-icon-size-medium);
+  }
+
+  .eld-empty-state__icon--small {
+    width: var(--eld-semantic-icon-size-small);
+    height: var(--eld-semantic-icon-size-small);
+  }
+
+  .eld-empty-state__icon--large {
+    width: var(--eld-semantic-icon-size-large);
+    height: var(--eld-semantic-icon-size-large);
+  }
+}
+
+/* Template Header */
+.eld-template-header {
+  margin-bottom: var(--eld-semantic-space-component-gap-lg);
+}
+
+.eld-template-header__title {
+  font-family: var(--eld-foundation-font-family-winky-rough);
+  font-size: var(--eld-foundation-font-size-2xl); /* 24px */
+  font-weight: var(--eld-foundation-font-weight-semibold);
+  color: var(--eld-semantic-color-text-primary);
+  margin: 0;
+  line-height: var(--eld-foundation-line-height-tight);
+}
+
+/* Template Row Layout */
+.eld-template-row {
+  display: flex;
+  flex-direction: column;
+  gap: var(--eld-semantic-space-component-gap-md);
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .eld-template-row {
+    flex-direction: row;
+  }
+}
+
+/* Ensure template cards take equal width in row layout */
+.eld-template-row > div {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .eld-empty-state__link {
+    transition: none;
+  }
+}
+
+@media (prefers-contrast: high) {
+  .eld-empty-state__title {
+    color: var(--eld-semantic-color-text-primary);
+  }
+
+  .eld-empty-state__description {
+    color: var(--eld-semantic-color-text-primary);
+  }
+
+  .eld-empty-state__icon {
+    color: var(--eld-semantic-color-text-primary);
+  }
+
+  .eld-empty-state__link {
+    border: 1px solid var(--eld-semantic-color-border);
+  }
+} 

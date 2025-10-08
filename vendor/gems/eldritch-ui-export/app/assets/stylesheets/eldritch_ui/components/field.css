@@ -1,0 +1,111 @@
+/* Field Component - Spellbooks Theme */
+/* Using semantic design tokens for consistent theming */
+
+.eld-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--eld-semantic-space-component-gap-sm);
+}
+
+.eld-field__label {
+  display: flex;
+  align-items: center;
+}
+
+.eld-field__label label {
+  font-family: var(--eld-semantic-font-family-label);
+  font-size: var(--eld-semantic-font-size-body-medium);
+  font-weight: var(--eld-primitive-font-weight-semibold);
+  color: var(--eld-semantic-color-text-primary);
+  margin: 0;
+  cursor: pointer;
+}
+
+.eld-field__input {
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.eld-field__message {
+  display: flex;
+  align-items: center;
+  min-height: 1.5em; /* Reserve space to prevent layout shift */
+  font-family: var(--eld-semantic-font-family-body);
+  font-size: var(--eld-semantic-font-size-body-small);
+  font-weight: var(--eld-primitive-font-weight-regular);
+  line-height: 1.4;
+}
+
+/* Required field indicator */
+.eld-field--required .eld-field__label label::after {
+  content: " *";
+  color: var(--eld-semantic-color-error);
+  font-weight: var(--eld-primitive-font-weight-bold);
+}
+
+/* Status message colors */
+.eld-field__message--error {
+  color: var(--eld-semantic-color-error);
+}
+
+.eld-field__message--success {
+  color: var(--eld-semantic-color-success);
+}
+
+.eld-field__message--warning {
+  color: var(--eld-semantic-color-warning);
+}
+
+.eld-field__message--info {
+  color: var(--eld-semantic-color-primary);
+}
+
+/* Error state styling for the field */
+.eld-field--error .eld-field__input input,
+.eld-field--error .eld-field__input select,
+.eld-field--error .eld-field__input textarea {
+  border-color: var(--eld-semantic-color-error) !important;
+  box-shadow: 
+    var(--eld-semantic-shadow-input),
+    0 0 0 2px var(--eld-semantic-color-error) !important;
+}
+
+/* Success state styling for the field */
+.eld-field--success .eld-field__input input,
+.eld-field--success .eld-field__input select,
+.eld-field--success .eld-field__input textarea {
+  border-color: var(--eld-semantic-color-success) !important;
+  box-shadow: 
+    var(--eld-semantic-shadow-input),
+    0 0 0 2px var(--eld-semantic-color-success) !important;
+}
+
+/* Warning state styling for the field */
+.eld-field--warning .eld-field__input input,
+.eld-field--warning .eld-field__input select,
+.eld-field--warning .eld-field__input textarea {
+  border-color: var(--eld-semantic-color-warning) !important;
+  box-shadow: 
+    var(--eld-semantic-shadow-input),
+    0 0 0 2px var(--eld-semantic-color-warning) !important;
+}
+
+/* Ensure input components take full width */
+.eld-field__input > * {
+  width: 100%;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .eld-field__message {
+    font-weight: var(--eld-primitive-font-weight-semibold);
+  }
+  
+  .eld-field--error .eld-field__input input,
+  .eld-field--error .eld-field__input select,
+  .eld-field--error .eld-field__input textarea {
+    outline: 2px solid var(--eld-semantic-color-error);
+    outline-offset: 2px;
+  }
+} 

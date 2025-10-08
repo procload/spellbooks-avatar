@@ -1,0 +1,18 @@
+/* Celestial Sky Palette */
+/* Subtle muted sky blues for chart accents, icons, and ethereal highlights */
+/* References foundation layer for single source of truth */
+
+:root {
+  /* Celestial Sky - 50 to 950 scale (muted, sophisticated pastels) */
+  --eldritch-celestial-sky-50: var(--eld-foundation-color-celestial-sky-50);
+  --eldritch-celestial-sky-100: var(--eld-foundation-color-celestial-sky-100);
+  --eldritch-celestial-sky-200: var(--eld-foundation-color-celestial-sky-200);
+  --eldritch-celestial-sky-300: var(--eld-foundation-color-celestial-sky-300);
+  --eldritch-celestial-sky-400: var(--eld-foundation-color-celestial-sky-400);
+  --eldritch-celestial-sky-500: var(--eld-foundation-color-celestial-sky-500);
+  --eldritch-celestial-sky-600: var(--eld-foundation-color-celestial-sky-600);
+  --eldritch-celestial-sky-700: var(--eld-foundation-color-celestial-sky-700);
+  --eldritch-celestial-sky-800: var(--eld-foundation-color-celestial-sky-800);
+  --eldritch-celestial-sky-900: var(--eld-foundation-color-celestial-sky-900);
+  --eldritch-celestial-sky-950: var(--eld-foundation-color-celestial-sky-950);
+}

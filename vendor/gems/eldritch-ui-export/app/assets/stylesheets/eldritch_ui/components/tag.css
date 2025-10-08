@@ -1,0 +1,349 @@
+/* Eldritch UI Tag Component */
+/* Chunky tag styles inspired by button component but smaller and more angular */
+
+.eld-tag {
+  /* Base tag styles - chunky Spellbooks styling using semantic tokens */
+  font-family: var(--eld-semantic-font-family-button);
+  font-weight: var(--eld-primitive-font-weight-semibold);
+  text-transform: uppercase;
+  line-height: 1;
+  border-radius: var(--eld-primitive-border-radius-full); /* Fully rounded like pill */
+  border-style: solid;
+  border-width: var(--eld-semantic-border-width-default);
+  transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out,
+    box-shadow 0.2s ease-in-out, transform 0.1s ease-in-out;
+  position: relative;
+  top: 0;
+  left: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  text-decoration: none;
+  
+  /* Default size and appearance - using Ancient Oak earthy brown styling */
+  font-size: var(--eld-semantic-font-size-caption); /* Use design token instead of hardcoded 12px */
+  padding: var(--eld-semantic-space-component-padding-xs) var(--eld-semantic-space-component-padding-sm);
+  background-color: var(--eldritch-ancient-oak-200);
+  color: var(--eldritch-ancient-oak-900);
+  border-color: var(--eldritch-ancient-oak-900);
+  box-shadow: var(--eld-semantic-shadow-button); /* Chunky emboss effect */
+
+}
+
+/* Interactive tag (clickable) */
+.eld-tag--interactive {
+  cursor: pointer;
+}
+
+.eld-tag--interactive:hover:not(:disabled):not(.eld-tag--disabled) {
+  background-color: var(--eldritch-ancient-oak-500);
+  color: var(--eldritch-ancient-oak-100);
+}
+
+.eld-tag--interactive:active:not(:disabled):not(.eld-tag--disabled) {
+  background-color: var(--eldritch-ancient-oak-500);
+  color: var(--eldritch-ancient-oak-100);
+  box-shadow: var(--eld-semantic-shadow-button-pressed); /* Flat when pressed */
+  border-width: var(--eld-semantic-border-width-strong);
+  transform: translateY(1px) translateX(0.5px); /* Smaller movement than button */
+}
+
+/* Focus styles for interactive tags */
+.eld-tag--interactive:focus-visible {
+  outline-style: solid;
+  outline-color: var(--eld-semantic-color-primary);
+  outline-width: 2px;
+  outline-offset: 2px;
+}
+
+/* Dismissible tags reserve space for the close button */
+.eld-tag--dismissible {
+  padding-right: calc(
+    var(--eld-semantic-space-component-padding-sm) +
+    var(--eld-semantic-icon-size-xs) +
+    var(--eld-semantic-space-component-padding-xs)
+  );
+}
+
+/* Size Variants */
+.eld-tag--small {
+  font-size: 0.625rem; /* 10px - keeping extra small for tags */
+  padding: calc(var(--eld-semantic-space-component-padding-xs) / 2) var(--eld-semantic-space-component-padding-xs);
+  border-radius: var(--eld-primitive-border-radius-full); /* Fully rounded like pill */
+}
+
+.eld-tag--large {
+  font-size: var(--eld-semantic-font-size-body-small);
+  padding: var(--eld-semantic-space-component-padding-xs)
+           var(--eld-semantic-space-component-padding-sm);
+  border-radius: var(--eld-primitive-border-radius-full); /* Fully rounded like pill */
+}
+
+/* Variant Styles */
+
+/* Primary variant */
+.eld-tag--primary {
+  background-color: var(--eld-semantic-color-primary);
+  color: var(--eld-semantic-color-text-on-primary);
+  border-color: var(--eld-semantic-color-border-emboss);
+  box-shadow: var(--eld-semantic-shadow-button);
+}
+
+.eld-tag--primary.eld-tag--interactive:hover:not(:disabled):not(.eld-tag--disabled) {
+  background-color: var(--eld-semantic-color-primary-hover);
+}
+
+.eld-tag--primary.eld-tag--interactive:active:not(:disabled):not(.eld-tag--disabled) {
+  background-color: var(--eld-semantic-color-primary-hover);
+  box-shadow: var(--eld-semantic-shadow-button-pressed);
+  border-width: var(--eld-semantic-border-width-strong);
+  transform: translateY(1px) translateX(0.5px);
+}
+
+/* Secondary variant */
+.eld-tag--secondary {
+  background-color: var(--eld-semantic-color-surface);
+  color: var(--eld-semantic-color-text-primary);
+  border-color: var(--eld-semantic-color-border-emboss);
+  box-shadow: var(--eld-semantic-shadow-button);
+}
+
+.eld-tag--secondary.eld-tag--interactive:hover:not(:disabled):not(.eld-tag--disabled) {
+  background-color: var(--eld-semantic-color-surface-hover);
+}
+
+.eld-tag--secondary.eld-tag--interactive:active:not(:disabled):not(.eld-tag--disabled) {
+  background-color: var(--eld-semantic-color-surface-hover);
+  box-shadow: var(--eld-semantic-shadow-button-pressed);
+  border-width: var(--eld-semantic-border-width-strong);
+  transform: translateY(1px) translateX(0.5px);
+}
+
+/* Dark variant */
+.eld-tag--dark {
+  background-color: var(--eld-semantic-color-text-primary);
+  color: var(--eld-semantic-color-text-on-primary);
+  border-color: var(--eld-semantic-color-border-emboss);
+  box-shadow: var(--eld-semantic-shadow-button);
+}
+
+.eld-tag--dark.eld-tag--interactive:hover:not(:disabled):not(.eld-tag--disabled) {
+  background-color: var(--eld-semantic-color-text-secondary);
+}
+
+.eld-tag--dark.eld-tag--interactive:active:not(:disabled):not(.eld-tag--disabled) {
+  background-color: var(--eld-semantic-color-text-secondary);
+  box-shadow: var(--eld-semantic-shadow-button-pressed);
+  border-width: var(--eld-semantic-border-width-strong);
+  transform: translateY(1px) translateX(0.5px);
+}
+
+/* Outline variant */
+.eld-tag--outline {
+  background-color: transparent;
+  color: var(--eld-semantic-color-text-primary);
+  border-color: var(--eld-semantic-color-border-emboss);
+  box-shadow: var(--eld-semantic-shadow-button);
+}
+
+.eld-tag--outline.eld-tag--interactive:hover:not(:disabled):not(.eld-tag--disabled) {
+  background-color: var(--eld-semantic-color-surface-hover);
+  color: var(--eld-semantic-color-text-on-primary);
+}
+
+.eld-tag--outline.eld-tag--interactive:active:not(:disabled):not(.eld-tag--disabled) {
+  background-color: var(--eld-semantic-color-surface-hover);
+  color: var(--eld-semantic-color-text-on-primary);
+  box-shadow: var(--eld-semantic-shadow-button-pressed);
+  border-width: var(--eld-semantic-border-width-strong);
+  transform: translateY(1px) translateX(0.5px);
+}
+
+/* Success variant */
+.eld-tag--success {
+  background-color: var(--eld-semantic-color-success);
+  color: var(--eld-semantic-color-text-on-primary);
+  border-color: var(--eld-semantic-color-border-emboss);
+  box-shadow: var(--eld-semantic-shadow-button);
+}
+
+.eld-tag--success.eld-tag--interactive:hover:not(:disabled):not(.eld-tag--disabled) {
+  background-color: var(--eld-semantic-color-success-hover);
+  color: var(--eld-semantic-color-text-on-primary);
+}
+
+.eld-tag--success.eld-tag--interactive:active:not(:disabled):not(.eld-tag--disabled) {
+  background-color: var(--eld-semantic-color-success-hover);
+  color: var(--eld-semantic-color-text-on-primary);
+  box-shadow: var(--eld-semantic-shadow-button-pressed);
+  border-width: var(--eld-semantic-border-width-strong);
+  transform: translateY(1px) translateX(0.5px);
+}
+
+/* Warning variant */
+.eld-tag--warning {
+  background-color: var(--eld-semantic-color-warning);
+  color: var(--eld-semantic-color-text-on-primary);
+  border-color: var(--eld-semantic-color-border-emboss);
+  box-shadow: var(--eld-semantic-shadow-button);
+}
+
+.eld-tag--warning.eld-tag--interactive:hover:not(:disabled):not(.eld-tag--disabled) {
+  background-color: var(--eld-semantic-color-warning-hover);
+  color: var(--eld-semantic-color-text-on-primary);
+}
+
+.eld-tag--warning.eld-tag--interactive:active:not(:disabled):not(.eld-tag--disabled) {
+  background-color: var(--eld-semantic-color-warning-hover);
+  color: var(--eld-semantic-color-text-on-primary);
+  box-shadow: var(--eld-semantic-shadow-button-pressed);
+  border-width: var(--eld-semantic-border-width-strong);
+  transform: translateY(1px) translateX(0.5px);
+}
+
+/* Error variant */
+.eld-tag--error {
+  background-color: var(--eld-semantic-color-error);
+  color: var(--eld-semantic-color-text-on-primary);
+  border-color: var(--eld-semantic-color-border-emboss);
+  box-shadow: var(--eld-semantic-shadow-button);
+}
+
+.eld-tag--error.eld-tag--interactive:hover:not(:disabled):not(.eld-tag--disabled) {
+  background-color: var(--eld-semantic-color-error-hover);
+  color: var(--eld-semantic-color-text-on-primary);
+}
+
+.eld-tag--error.eld-tag--interactive:active:not(:disabled):not(.eld-tag--disabled) {
+  background-color: var(--eld-semantic-color-error-hover);
+  color: var(--eld-semantic-color-text-on-primary);
+  box-shadow: var(--eld-semantic-shadow-button-pressed);
+  border-width: var(--eld-semantic-border-width-strong);
+  transform: translateY(1px) translateX(0.5px);
+}
+
+/* Disabled State */
+.eld-tag--disabled,
+.eld-tag:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
+  background-color: var(--eld-semantic-color-surface);
+  color: var(--eld-semantic-color-text-muted);
+  border-color: var(--eld-semantic-color-border);
+  transform: none;
+}
+
+.eld-tag--disabled:hover,
+.eld-tag--disabled:active,
+.eld-tag:disabled:hover,
+.eld-tag:disabled:active {
+  background-color: var(--eld-semantic-color-surface);
+  transform: none;
+}
+
+/* Accessibility enhancements */
+@media (prefers-reduced-motion: reduce) {
+  .eld-tag {
+    transition: none;
+  }
+  
+  .eld-tag:hover,
+  .eld-tag:active {
+    transform: none;
+  }
+}
+
+@media (prefers-contrast: high) {
+  .eld-tag {
+    border-width: 2px;
+  }
+  
+  .eld-tag--interactive:focus-visible {
+    outline-width: 3px;
+  }
+}
+
+/* Tag with icon support */
+.eld-tag__icon {
+  display: inline-flex;
+  align-items: center;
+}
+
+.eld-tag__icon--start {
+  margin-right: 0.25rem;
+}
+
+.eld-tag__icon--end {
+  margin-left: 0.25rem;
+}
+
+/* New dismiss button styling (×), aligned with token input usage */
+.eld-tag__dismiss {
+  position: absolute;
+  top: 50%;
+  right: var(--eld-semantic-space-component-padding-xs);
+  width: var(--eld-semantic-icon-size-xs);
+  height: var(--eld-semantic-icon-size-xs);
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transform: translateY(-50%);
+  font-size: var(--eld-semantic-font-size-caption);
+  color: var(--eld-semantic-color-text-secondary);
+  border-radius: var(--eld-semantic-border-radius-small);
+}
+
+.eld-tag__dismiss:hover {
+  background-color: var(--eld-semantic-color-surface-hover);
+}
+
+/* Removable tag variant */
+.eld-tag--removable {
+  padding-right: 0.25rem;
+}
+
+.eld-tag__remove {
+  margin-left: 0.25rem;
+  padding: 0.125rem;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.1);
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 0.875rem;
+  height: 0.875rem;
+  font-size: 0.625rem;
+}
+
+.eld-tag__remove:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+/* Selected state for toggle tags */
+.eld-tag--selected {
+  background-color: var(--eld-semantic-color-primary);
+  color: var(--eld-semantic-color-text-on-primary);
+  border-color: var(--eld-semantic-color-border-emboss);
+  box-shadow: var(--eld-semantic-shadow-button);
+}
+
+.eld-tag--selected.eld-tag--interactive:hover:not(:disabled):not(.eld-tag--disabled) {
+  background-color: var(--eld-semantic-color-primary-hover);
+}
+
+/* Dot indicator for status tags */
+.eld-tag__dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  margin-right: 0.25rem;
+  background-color: currentColor;
+}

@@ -1,0 +1,131 @@
+/* Select Component - Using Attached Field Pattern */
+
+.eld-select__field {
+  display: block;
+  width: 100%;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  position: relative;
+  
+  /* Reset default styling - container handles borders and background */
+  background: transparent;
+  border: none;
+  outline: none;
+  
+  /* Typography */
+  font-family: var(--eld-semantic-font-family-input);
+  font-size: var(--eld-semantic-font-size-body-medium);
+  font-weight: var(--eld-primitive-font-weight-medium);
+  color: var(--eld-semantic-color-text-primary);
+  line-height: 1.6;
+  
+  /* Spacing */
+  padding: 9px 16px;
+  padding-right: 40px; /* Space for dropdown arrow */
+  
+  /* Interaction */
+  transition: all 0.15s ease-in-out;
+  cursor: pointer;
+  
+  /* Custom dropdown arrow */
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231a2504' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 16px;
+}
+
+/* Size variants */
+.eld-select__field--small {
+  font-size: var(--eld-semantic-font-size-body-small);
+  padding: calc(var(--eld-semantic-space-component-padding-xs) / 2) var(--eld-semantic-space-component-padding-md);
+  padding-right: calc(var(--eld-semantic-space-component-padding-md) + 20px);
+  background-size: 14px;
+}
+
+.eld-select__field--large {
+  font-size: var(--eld-semantic-font-size-body-large);
+  padding: var(--eld-semantic-space-component-padding-sm) var(--eld-semantic-space-component-padding-lg);
+  padding-right: calc(var(--eld-semantic-space-component-padding-lg) + 28px);
+  background-size: 18px;
+}
+
+/* Disabled state */
+.eld-select__field:disabled,
+.eld-attached-field--disabled .eld-select__field {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Multiple select styling */
+.eld-select__field--multiple {
+  /* Remove dropdown arrow for multiple select */
+  background-image: none;
+  padding-right: var(--eld-semantic-space-component-padding-lg);
+  min-height: 80px;
+  resize: vertical;
+}
+
+.eld-select__field--multiple.eld-select__field--small {
+  padding-right: var(--eld-semantic-space-component-padding-md);
+  min-height: 60px;
+}
+
+.eld-select__field--multiple.eld-select__field--large {
+  padding-right: var(--eld-semantic-space-component-padding-lg);
+  min-height: 100px;
+}
+
+/* Option styling (limited browser support) */
+.eld-select__field option {
+  padding: 0.5rem;
+  background-color: var(--eld-semantic-color-surface);
+  color: var(--eld-semantic-color-text-primary);
+}
+
+.eld-select__field option:checked {
+  background-color: var(--eld-semantic-color-primary);
+  color: var(--eld-semantic-color-text-on-primary);
+}
+
+.eld-select__field option:disabled {
+  opacity: 0.5;
+  color: var(--eld-semantic-color-text-secondary);
+}
+
+/* Placeholder option styling */
+.eld-select__field option[disabled]:first-child {
+  color: var(--eld-semantic-color-text-secondary);
+  font-style: italic;
+}
+
+/* Description text */
+.eld-attached-field__description {
+  color: var(--eld-semantic-color-text-secondary);
+  font-size: var(--eld-semantic-font-size-body-small);
+  line-height: 1.4;
+  margin-top: var(--eld-semantic-space-component-gap-sm);
+}
+
+/* Error message */
+.eld-attached-field__error {
+  color: var(--eld-semantic-color-error);
+  font-size: var(--eld-semantic-font-size-body-small);
+  font-weight: var(--eld-primitive-font-weight-medium);
+  margin-top: var(--eld-semantic-space-component-gap-sm);
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .eld-select__field:focus {
+    outline: 2px solid;
+    outline-offset: 2px;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .eld-select__field {
+    transition: none;
+  }
+} 

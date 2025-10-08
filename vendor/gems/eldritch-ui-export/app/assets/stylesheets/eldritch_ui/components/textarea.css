@@ -1,0 +1,226 @@
+/* Textarea Component - EldritchUi Design System */
+
+.eld-textarea {
+  display: flex;
+  flex-direction: column;
+  /* No internal gap so attached label meets the field flush */
+  gap: 0;
+  font-family: var(--eld-semantic-font-family-input);
+  position: relative;
+}
+
+/* Label styling - Parchment scroll style with label tab attached to textarea */
+.eld-textarea__label {
+  position: relative;
+  z-index: 3;
+  display: inline-block;
+  margin-left: var(--eld-semantic-space-component-padding-lg);
+  margin-bottom: -8px; /* Significant overlap to create true attachment */
+  
+  /* Label tab styling - using design system colors */
+  background: var(--eld-semantic-color-surface);
+  color: var(--eld-semantic-color-text-primary);
+  
+  /* Typography using semantic label tokens */
+  font-family: var(--eld-semantic-font-family-label);
+  font-size: var(--eld-semantic-font-size-label);
+  font-weight: var(--eld-primitive-font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  
+  /* Pill shape */
+  padding: var(--eld-semantic-space-component-padding-xs) var(--eld-semantic-space-component-padding-md);
+  border-radius: var(--eld-semantic-border-radius-input);
+  
+  /* Complete border all around like button */
+  border: var(--eld-semantic-border-width-default) solid var(--eld-semantic-color-border);
+  
+  /* Chunky emboss effect */
+  box-shadow: var(--eld-semantic-shadow-button);
+}
+
+/* Textarea wrapper (attached-field variant) */
+.eld-attached-field .eld-attached-field__input textarea.eld-textarea__field {
+  /* ensure the field itself has no top radius to meet the label flush */
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+/* Gap handled by flex container above; no margin trickery needed */
+
+/* Legacy wrapper (kept for backwards compatibility) */
+.eld-textarea__wrapper {
+  position: relative;
+  z-index: 2;
+  background: var(--eld-semantic-color-surface);
+  border: 3.5px solid var(--eld-semantic-color-border);
+  border-radius: var(--eld-semantic-border-radius-input);
+  box-shadow: var(--eld-semantic-shadow-input);
+}
+
+/* Textarea field styling */
+.eld-textarea__field {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  min-height: 6rem;
+  background: transparent;
+  border: none;
+  padding: 9px 16px;
+  resize: vertical;
+  font-family: var(--eld-semantic-font-family-input);
+  font-size: var(--eld-semantic-font-size-body-medium);
+  font-weight: var(--eld-primitive-font-weight-medium);
+  line-height: 1.6;
+  color: var(--eld-semantic-color-text-primary);
+  outline: none;
+  box-shadow: none;
+  transition: border-color 0.15s ease;
+}
+
+.eld-textarea__field::placeholder {
+  color: var(--eld-semantic-color-text-secondary);
+  font-style: italic;
+}
+
+/* Description text */
+.eld-textarea__description {
+  color: var(--eld-semantic-color-text-secondary);
+  font-size: var(--eld-semantic-font-size-body-small);
+  line-height: 1.4;
+}
+
+/* Error message */
+.eld-textarea__error {
+  color: var(--eld-semantic-color-error);
+  font-size: var(--eld-semantic-font-size-body-small);
+  font-weight: var(--eld-primitive-font-weight-medium);
+}
+
+/* Hover state */
+.eld-textarea__wrapper:hover:not(.eld-textarea--disabled) {
+  background: var(--eld-semantic-color-surface-hover);
+}
+
+/* Focus state */
+.eld-textarea__wrapper:focus-within {
+  background: var(--eld-semantic-color-surface-hover);
+}
+
+/* Active state */
+.eld-textarea__wrapper:active {
+  background: var(--eld-semantic-color-surface-hover);
+}
+
+/* Standalone variant - for textareas without attached labels */
+.eld-textarea--standalone .eld-textarea__wrapper {
+  margin-top: 0;
+}
+
+.eld-textarea--standalone .eld-textarea__label {
+  margin-bottom: 10px; /* Original spacing */
+}
+
+/* Disabled state */
+.eld-textarea--disabled {
+  opacity: 0.6;
+}
+
+.eld-textarea--disabled .eld-textarea__label {
+  cursor: not-allowed;
+}
+
+.eld-textarea--disabled .eld-textarea__field {
+  background-color: var(--eld-semantic-color-surface);
+  border-color: var(--eld-semantic-color-border);
+  cursor: not-allowed;
+  box-shadow: none;
+  opacity: 0.5;
+}
+
+/* Readonly state */
+.eld-textarea--readonly .eld-textarea__field {
+  background-color: var(--eld-semantic-color-surface);
+  cursor: default;
+}
+
+/* Error state */
+.eld-textarea--error .eld-textarea__field {
+  border-color: var(--eld-semantic-color-error);
+}
+
+.eld-textarea--error .eld-textarea__field:focus {
+  outline-color: var(--eld-semantic-color-error);
+}
+
+/* Size variants */
+.eld-textarea--small .eld-textarea__field {
+  min-height: 4rem;
+  padding: var(--eld-semantic-space-component-padding-xs) var(--eld-semantic-space-component-padding-sm);
+  font-size: var(--eld-semantic-font-size-body-small);
+}
+
+.eld-textarea--small .eld-textarea__label {
+  font-size: var(--eld-semantic-font-size-body-small);
+}
+
+.eld-textarea--large .eld-textarea__field {
+  min-height: 8rem;
+  padding: var(--eld-semantic-space-component-padding-md) var(--eld-semantic-space-component-padding-lg);
+  font-size: var(--eld-semantic-font-size-body-large);
+}
+
+.eld-textarea--large .eld-textarea__label {
+  font-size: var(--eld-semantic-font-size-body-large);
+}
+
+/* Required indicator */
+.eld-textarea--required .eld-textarea__label::after {
+  content: " *";
+  color: var(--eld-semantic-color-error);
+}
+
+/* Resize variants */
+.eld-textarea__field--resize-none {
+  resize: none;
+}
+
+.eld-textarea__field--resize-both {
+  resize: both;
+}
+
+.eld-textarea__field--resize-horizontal {
+  resize: horizontal;
+}
+
+.eld-textarea__field--resize-vertical {
+  resize: vertical;
+}
+
+/* Variant styles */
+.eld-textarea--primary .eld-textarea__field:focus {
+  border-color: var(--eld-semantic-color-primary);
+}
+
+.eld-textarea--secondary .eld-textarea__field:focus {
+  border-color: var(--eld-semantic-color-secondary);
+}
+
+/* Auto-resize functionality (when JavaScript is used) */
+.eld-textarea__field[data-auto-resize] {
+  resize: none;
+  overflow-y: hidden;
+}
+
+/* Character count */
+.eld-textarea__count {
+  font-size: var(--eld-semantic-font-size-body-small);
+  color: var(--eld-semantic-color-text-secondary);
+  text-align: right;
+  margin-top: var(--eld-semantic-space-component-gap-xs);
+}
+
+.eld-textarea__count--over-limit {
+  color: var(--eld-semantic-color-error);
+  font-weight: var(--eld-primitive-font-weight-medium);
+} 

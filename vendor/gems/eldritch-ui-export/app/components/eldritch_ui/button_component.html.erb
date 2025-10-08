@@ -1,0 +1,10 @@
+<%# Eldritch UI Button Component %>
+<%# Renders as either a button or anchor tag based on presence of href %>
+
+<%= content_tag element_tag, element_attributes do %>
+  <% if content.present? %>
+    <%= content %>
+  <% else %>
+    <%= label %>
+  <% end %>
+<% end %>

@@ -1,0 +1,57 @@
+/*
+ * EldritchUI Components - Rails 8 Propshaft Compatible
+ * Main entry point for all component styles
+ */
+
+/* Component CSS imports */
+@import url('components/answer_choice.css');
+@import url('components/answer_edit.css');
+@import url('components/assign_students_form.css');
+@import url('components/assignment_card.css');
+@import url('components/assignment_form.css');
+@import url('components/authentication.css');
+@import url('components/assignment_image.css');
+@import url('components/assignment_item.css');
+@import url('components/banner.css');
+@import url('components/button.css');
+@import url('components/checkbox.css');
+@import url('components/empty_state.css');
+@import url('components/field.css');
+@import url('components/grade_level_selector.css');
+@import url('components/grade_level_pills.css');
+@import url('components/hand_drawn_border.css');
+@import url('components/icon.css');
+@import url('components/inspiration_card.css');
+@import url('components/link.css');
+@import url('components/loading_overlay.css');
+@import url('components/number_input.css');
+@import url('components/pill.css');
+@import url('components/question_stepper.css');
+@import url('components/popular_tags.css');
+@import url('components/progress_bar.css');
+@import url('components/progress_indicator.css');
+@import url('components/profile.css');
+@import url('components/radio.css');
+@import url('components/range_input.css');
+@import url('components/reading_passage.css');
+@import url('components/scroll_field.css');
+@import url('components/segmented_control.css');
+@import url('components/subject_display.css');
+@import url('components/select.css');
+@import url('components/sidebar.css');
+@import url('components/student_assignments_container.css');
+@import url('components/student_detail.css');
+@import url('components/student_section.css');
+@import url('components/tag.css');
+@import url('components/template_card.css');
+@import url('components/text_input.css');
+@import url('components/textarea.css');
+@import url('components/tile.css');
+@import url('components/token_input.css');
+@import url('components/tooltip.css');
+
+/* Layout and pattern imports */
+@import url('layout/responsive.css');
+@import url('patterns/attached_field.css');
+
+/* Component styles loaded via @import statements above */ 

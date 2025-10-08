@@ -1,0 +1,26 @@
+<%# Eldritch UI RadioGroup Component %>
+<%# Renders a fieldset with legend and radio buttons %>
+
+<fieldset <%= tag.attributes(fieldset_attributes) %>>
+  <legend <%= tag.attributes(legend_attributes) %>>
+    <%= legend.present? ? legend.to_s.html_safe : "Radio Group" %>
+  </legend>
+  
+  <div class="eld-radio-group__options">
+    <% if radio_options.any? %>
+      <%# Generate radio buttons from options array %>
+      <% radio_options.each do |option| %>
+        <%= render EldritchUi::RadioComponent.new(
+          label: option[:label],
+          name: name,
+          value: option[:value],
+          checked: option[:checked],
+          disabled: option[:disabled]
+        ) %>
+      <% end %>
+    <% else %>
+      <%# Use provided content (radio buttons) %>
+      <%= content %>
+    <% end %>
+  </div>
+</fieldset>

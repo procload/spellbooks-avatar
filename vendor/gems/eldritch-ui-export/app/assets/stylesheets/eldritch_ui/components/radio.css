@@ -1,0 +1,178 @@
+/* Eldritch UI Radio Component */
+/* Radio button styles using semantic tokens and BEM methodology */
+
+.eld-radio {
+  /* Base radio field wrapper styles */
+  display: block;
+  position: relative;
+  margin-bottom: var(--eld-semantic-space-component-gap-sm);
+}
+
+.eld-radio:last-child {
+  margin-bottom: 0;
+}
+
+/* Radio input styles */
+.eld-radio__input {
+  /* Hide the default radio button but keep it clickable */
+  position: absolute;
+  opacity: 0;
+  width: 1.25rem;
+  height: 1.25rem;
+  cursor: pointer;
+  z-index: 1;
+}
+
+/* Focus styles - applied to custom radio when input is focused */
+.eld-radio__input:focus-visible + .eld-radio__custom {
+  outline: 2px solid var(--eld-semantic-color-primary);
+  outline-offset: 2px;
+}
+
+/* Checked state */
+.eld-radio__input:checked + .eld-radio__custom {
+  border-color: var(--eld-semantic-color-primary);
+  background-color: var(--eld-semantic-color-surface); /* Keep original background */
+}
+
+.eld-radio__input:checked + .eld-radio__custom::after {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* Disabled state */
+.eld-radio__input:disabled + .eld-radio__custom {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background-color: var(--eld-semantic-color-surface);
+  border-color: var(--eld-semantic-color-border);
+}
+
+.eld-radio__input:disabled + .eld-radio__custom::after {
+  background-color: var(--eld-semantic-color-text-secondary);
+}
+
+.eld-radio__input:disabled ~ .eld-radio__label {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Custom radio button visual */
+.eld-radio__custom {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 50%;
+  border: var(--eld-semantic-border-width-default) solid var(--eld-semantic-color-border);
+  background-color: var(--eld-semantic-color-surface);
+  cursor: pointer;
+  transition: border-color 0.2s ease-in-out, background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  box-shadow: var(--eld-semantic-shadow-input); /* Chunky emboss effect */
+}
+
+/* Inner dot for checked state */
+.eld-radio__custom::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background-color: var(--eld-semantic-color-primary);
+  transform: translate(-50%, -50%) scale(0);
+  transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+  opacity: 0;
+}
+
+/* Hover state */
+.eld-radio__custom:hover {
+  border-color: var(--eld-semantic-color-primary);
+}
+
+/* Label styles */
+.eld-radio__label {
+  display: block;
+  padding-left: calc(1.25rem + var(--eld-semantic-space-component-gap-sm));
+  font-family: var(--eld-semantic-font-family-input);
+  font-size: var(--eld-semantic-font-size-body-medium);
+  font-weight: var(--eld-primitive-font-weight-medium);
+  color: var(--eld-semantic-color-text-primary);
+  line-height: var(--eld-primitive-line-height-normal);
+  cursor: pointer;
+  min-height: 1.25rem;
+  display: flex;
+  align-items: center;
+}
+
+/* Radio Group Component */
+
+.eld-radio-group {
+  display: block;
+}
+
+.eld-radio-group__fieldset {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+.eld-radio-group__legend {
+  font-family: var(--eld-semantic-font-family-label);
+  font-size: var(--eld-semantic-font-size-body-medium);
+  font-weight: var(--eld-primitive-font-weight-semibold);
+  color: var(--eld-semantic-color-text-primary);
+  margin-bottom: var(--eld-semantic-space-component-gap-md);
+  padding: 0;
+}
+
+.eld-radio-group__options {
+  display: flex;
+  flex-direction: column;
+  gap: var(--eld-semantic-space-component-gap-sm);
+}
+
+/* Horizontal layout variant */
+.eld-radio-group--horizontal .eld-radio-group__options {
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: var(--eld-semantic-space-component-gap-md);
+}
+
+/* Compact variant - reduced spacing */
+.eld-radio-group--compact .eld-radio-group__legend {
+  margin-bottom: var(--eld-semantic-space-component-gap-sm);
+}
+
+.eld-radio-group--compact .eld-radio-group__options {
+  gap: calc(var(--eld-semantic-space-component-gap-sm) * 0.5);
+}
+
+/* Error state for radio groups */
+.eld-radio-group--error .eld-radio__custom {
+  border-color: var(--eld-semantic-color-error);
+}
+
+.eld-radio-group--error .eld-radio__input:checked + .eld-radio__custom {
+  border-color: var(--eld-semantic-color-error);
+}
+
+/* Accessibility enhancements */
+@media (prefers-reduced-motion: reduce) {
+  .eld-radio__custom,
+  .eld-radio__custom::after {
+    transition: none;
+  }
+}
+
+@media (prefers-contrast: high) {
+  .eld-radio__custom {
+    border-width: 2px;
+  }
+  
+  .eld-radio__custom:focus-visible {
+    outline-width: 3px;
+  }
+}

@@ -1,0 +1,19 @@
+/* Motion Foundation Tokens */
+/* Animation timing, duration, and easing */
+
+:root {
+  /* ===== TIMING PRIMITIVES ===== */
+  
+  /* Animation/transition durations */
+  --eldritch-duration-instant: 0ms;
+  --eldritch-duration-fast: 150ms;
+  --eldritch-duration-normal: 300ms;
+  --eldritch-duration-slow: 500ms;
+  --eldritch-duration-slower: 700ms;
+
+  /* Animation/transition easing */
+  --eldritch-ease-linear: linear;
+  --eldritch-ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --eldritch-ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --eldritch-ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+}

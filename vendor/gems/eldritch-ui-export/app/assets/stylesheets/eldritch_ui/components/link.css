@@ -1,0 +1,175 @@
+/* Eldritch UI Link Component */
+/* Link styles using semantic tokens and BEM methodology */
+
+.eld-link {
+  /* Base link styles - semantic text links */
+  color: var(--eld-semantic-color-primary);
+  text-decoration: underline;
+  font-weight: var(--eld-primitive-font-weight-medium);
+  transition: color 0.2s ease-in-out, text-decoration 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.eld-link:hover {
+  color: var(--eld-semantic-color-primary-hover);
+  text-decoration: underline;
+}
+
+.eld-link:visited {
+  color: var(--eld-semantic-color-primary);
+}
+
+.eld-link:active {
+  color: var(--eld-semantic-color-primary-hover);
+}
+
+.eld-link:focus-visible {
+  outline: 2px solid var(--eld-semantic-color-primary);
+  outline-offset: 2px;
+}
+
+/* Muted link variant */
+.eld-link--muted {
+  color: var(--eld-semantic-color-text-secondary);
+  text-decoration: none;
+}
+
+.eld-link--muted:hover {
+  color: var(--eld-semantic-color-text-primary);
+  text-decoration: underline;
+}
+
+/* Button-styled link variant */
+.eld-link--button {
+  /* Reset default link styles */
+  text-decoration: none;
+  color: inherit;
+  
+  /* Apply button-like styling using semantic tokens */
+  font-family: var(--eld-semantic-font-family-button);
+  font-weight: var(--eld-primitive-font-weight-medium);
+  text-transform: uppercase;
+  line-height: var(--eld-primitive-line-height-normal);
+  border-radius: var(--eld-semantic-border-radius-button);
+  border-style: solid;
+  border-width: var(--eld-semantic-border-width-default);
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out,
+    box-shadow 0.2s ease-in-out, transform 0.1s ease-in-out;
+  position: relative;
+  top: 0;
+  left: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  
+  /* Default to primary styling */
+  font-size: var(--eld-semantic-font-size-body-medium);
+  padding: var(--eld-semantic-space-component-padding-sm)
+    var(--eld-semantic-space-component-padding-md);
+  background-color: var(--eld-semantic-color-primary);
+  color: var(--eld-semantic-color-text-on-primary);
+  border-color: var(--eld-semantic-color-primary);
+  box-shadow: var(--eld-semantic-shadow-button);
+}
+
+.eld-link--button:hover {
+  background-color: var(--eld-semantic-color-primary-hover);
+}
+
+.eld-link--button:active {
+  background-color: var(--eld-semantic-color-primary-hover);
+  box-shadow: var(--eld-semantic-shadow-button-pressed);
+  border-width: var(--eld-semantic-border-width-strong);
+  transform: translateY(2px) translateX(1px);
+}
+
+/* Button link variants */
+.eld-link--button.eld-link--secondary {
+  background-color: var(--eldritch-component-button-spellbooks-secondary-background-color);
+  color: var(--eldritch-component-button-spellbooks-secondary-text-color);
+  border-color: var(--eldritch-component-button-spellbooks-secondary-border-color);
+  box-shadow: var(--eldritch-component-button-spellbooks-secondary-box-shadow);
+}
+
+.eld-link--button.eld-link--secondary:hover {
+  background-color: var(--eldritch-component-button-spellbooks-secondary-background-color-hover);
+}
+
+.eld-link--button.eld-link--secondary:active {
+  background-color: var(--eldritch-component-button-spellbooks-secondary-background-color-hover);
+  box-shadow: var(--eldritch-component-button-spellbooks-secondary-box-shadow-active);
+  border-width: var(--eldritch-component-button-spellbooks-border-width-active);
+  transform: translateY(2px) translateX(1px);
+}
+
+.eld-link--button.eld-link--dark {
+  background-color: var(--eldritch-component-button-spellbooks-dark-background-color);
+  color: var(--eldritch-component-button-spellbooks-dark-text-color);
+  border-color: var(--eldritch-component-button-spellbooks-dark-border-color);
+  box-shadow: var(--eldritch-component-button-spellbooks-dark-box-shadow);
+}
+
+.eld-link--button.eld-link--dark:hover {
+  background-color: var(--eldritch-component-button-spellbooks-dark-background-color-hover);
+}
+
+.eld-link--button.eld-link--dark:active {
+  background-color: var(--eldritch-component-button-spellbooks-dark-background-color-hover);
+  box-shadow: var(--eldritch-component-button-spellbooks-dark-box-shadow-active);
+  border-width: var(--eldritch-component-button-spellbooks-border-width-active);
+  transform: translateY(2px) translateX(1px);
+}
+
+/* Size variants for button links */
+.eld-link--button.eld-link--small {
+  font-size: var(--eldritch-component-button-spellbooks-small-font-size);
+  padding: var(--eldritch-component-button-spellbooks-small-padding-y)
+    var(--eldritch-component-button-spellbooks-small-padding-x);
+  border-width: var(--eldritch-component-button-spellbooks-small-border-width);
+  box-shadow: var(--eldritch-component-button-spellbooks-small-box-shadow);
+}
+
+.eld-link--button.eld-link--small:active {
+  box-shadow: var(--eldritch-component-button-spellbooks-small-box-shadow-active);
+  border-width: var(--eldritch-component-button-spellbooks-small-border-width-active);
+  transform: translateY(1px) translateX(0.5px);
+}
+
+.eld-link--button.eld-link--large {
+  font-size: var(--eldritch-component-button-spellbooks-large-font-size);
+  padding: var(--eldritch-component-button-spellbooks-large-padding-y)
+    var(--eldritch-component-button-spellbooks-large-padding-x);
+}
+
+/* Disabled state */
+.eld-link--disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Accessibility enhancements */
+@media (prefers-reduced-motion: reduce) {
+  .eld-link,
+  .eld-link--button {
+    transition: none;
+  }
+  
+  .eld-link--button:hover,
+  .eld-link--button:active {
+    transform: none;
+  }
+}
+
+@media (prefers-contrast: high) {
+  .eld-link--button {
+    border-width: 3px;
+  }
+  
+  .eld-link:focus-visible,
+  .eld-link--button:focus-visible {
+    outline-width: 3px;
+  }
+} 

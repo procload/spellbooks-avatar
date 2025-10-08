@@ -1,0 +1,42 @@
+/* Spacing Foundation Tokens */
+/* Systematic spacing scale for margins, padding, gaps, etc. */
+
+:root {
+  /* ===== SPACING FOUNDATION TOKENS ===== */
+  
+  /* Systematic 8px grid-based spacing scale */
+  --eld-foundation-space-0: 0;
+  --eld-foundation-space-1: 0.125rem;    /* 2px */
+  --eld-foundation-space-2: 0.25rem;     /* 4px */
+  --eld-foundation-space-3: 0.375rem;    /* 6px */
+  --eld-foundation-space-4: 0.5rem;      /* 8px */
+  --eld-foundation-space-5: 0.625rem;    /* 10px */
+  --eld-foundation-space-6: 0.75rem;     /* 12px */
+  --eld-foundation-space-8: 1rem;        /* 16px */
+  --eld-foundation-space-10: 1.25rem;    /* 20px */
+  --eld-foundation-space-12: 1.5rem;     /* 24px */
+  --eld-foundation-space-16: 2rem;       /* 32px */
+  --eld-foundation-space-20: 2.5rem;     /* 40px */
+  --eld-foundation-space-24: 3rem;       /* 48px */
+  --eld-foundation-space-32: 4rem;       /* 64px */
+  --eld-foundation-space-40: 5rem;       /* 80px */
+  --eld-foundation-space-48: 6rem;       /* 96px */
+  
+  /* Legacy compatibility aliases */
+  --eldritch-space-0: var(--eld-foundation-space-0);
+  --eldritch-space-1: var(--eld-foundation-space-1);
+  --eldritch-space-2: var(--eld-foundation-space-2);
+  --eldritch-space-3: var(--eld-foundation-space-3);
+  --eldritch-space-4: var(--eld-foundation-space-4);
+  --eldritch-space-5: var(--eld-foundation-space-5);
+  --eldritch-space-6: var(--eld-foundation-space-6);
+  --eldritch-space-8: var(--eld-foundation-space-8);
+  --eldritch-space-10: var(--eld-foundation-space-10);
+  --eldritch-space-12: var(--eld-foundation-space-12);
+  --eldritch-space-16: var(--eld-foundation-space-16);
+  --eldritch-space-20: var(--eld-foundation-space-20);
+  --eldritch-space-24: var(--eld-foundation-space-24);
+  --eldritch-space-32: var(--eld-foundation-space-32);
+  --eldritch-space-40: var(--eld-foundation-space-40);
+  --eldritch-space-48: var(--eld-foundation-space-48);
+}

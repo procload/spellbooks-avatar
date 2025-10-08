@@ -1,0 +1,253 @@
+/* Eldritch UI Tooltip Component */
+/* Accessible tooltip with positioning and animations */
+
+.eld-tooltip-container {
+  position: relative;
+  display: inline-block;
+}
+
+.eld-tooltip-trigger {
+  display: inline-flex;
+  align-items: center;
+  cursor: help;
+}
+
+.eld-tooltip-trigger--icon {
+  background: none;
+  border: none;
+  padding: var(--eld-semantic-space-component-padding-xs);
+  color: var(--eld-semantic-color-text-secondary);
+  border-radius: var(--eld-semantic-border-radius-button);
+  transition: all var(--eld-semantic-motion-duration-fast) var(--eld-semantic-motion-easing-standard);
+}
+
+.eld-tooltip-trigger--icon:hover {
+  color: var(--eld-semantic-color-text-primary);
+  background-color: var(--eld-semantic-color-background-hover);
+}
+
+.eld-tooltip-trigger--icon:focus {
+  outline: var(--eld-semantic-border-width-focus) solid var(--eld-semantic-color-focus);
+  outline-offset: 1px;
+}
+
+/* Tooltip content */
+.eld-tooltip {
+  position: absolute;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: scale(0.95);
+  transition: all var(--eld-semantic-motion-duration-fast) var(--eld-semantic-motion-easing-standard);
+}
+
+.eld-tooltip--visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: scale(1);
+}
+
+.eld-tooltip__content {
+  /* Inverted to light parchment with dark text */
+  background-color: var(--eld-semantic-color-surface);
+  color: var(--eld-semantic-color-text-primary);
+  border: var(--eld-semantic-border-width-default) solid var(--eld-semantic-color-border-emboss);
+  border-radius: var(--eld-semantic-border-radius-button);
+  /* Embossed effect to match buttons/pills */
+  box-shadow: var(--eld-semantic-shadow-button);
+  padding: var(--eld-semantic-space-component-padding-sm) var(--eld-semantic-space-component-padding-md);
+  font-family: var(--eld-semantic-font-family-body);
+  font-size: var(--eld-semantic-font-size-body-small);
+  line-height: 1.4;
+  /* Sizing: ensure ample readable width while remaining responsive */
+  min-inline-size: 19.6875rem; /* ~= 315px */
+  max-inline-size: min(90vw, 42rem);
+  word-wrap: break-word;
+  white-space: normal;
+}
+
+.eld-tooltip__arrow {
+  position: absolute;
+  width: var(--eld-primitive-space-4);
+  height: var(--eld-primitive-space-4);
+  /* Match the light parchment surface */
+  background-color: var(--eld-semantic-color-surface);
+  border: var(--eld-semantic-border-width-default) solid var(--eld-semantic-color-border-emboss);
+  transform: rotate(45deg);
+}
+
+/* Size variants */
+.eld-tooltip--small .eld-tooltip__content {
+  padding: var(--eld-semantic-space-component-padding-xs) var(--eld-semantic-space-component-padding-sm);
+  font-size: var(--eld-semantic-font-size-body-xs);
+  max-width: 200px;
+}
+
+.eld-tooltip--large .eld-tooltip__content {
+  padding: var(--eld-semantic-space-component-padding-md) var(--eld-semantic-space-component-padding-lg);
+  font-size: var(--eld-semantic-font-size-body-medium);
+  max-width: 300px;
+}
+
+/* Position variants */
+
+/* Top positioning */
+.eld-tooltip--top {
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%) scale(0.95);
+  margin-bottom: var(--eld-semantic-space-component-gap-sm);
+}
+
+.eld-tooltip--top.eld-tooltip--visible {
+  transform: translateX(-50%) scale(1);
+}
+
+.eld-tooltip--top .eld-tooltip__arrow {
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  margin-top: calc(var(--eld-semantic-space-component-gap-sm) * -0.5);
+  border-top: none;
+  border-left: none;
+}
+
+/* Bottom positioning */
+.eld-tooltip--bottom {
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) scale(0.95);
+  margin-top: var(--eld-semantic-space-component-gap-sm);
+}
+
+.eld-tooltip--bottom.eld-tooltip--visible {
+  transform: translateX(-50%) scale(1);
+}
+
+.eld-tooltip--bottom .eld-tooltip__arrow {
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  margin-bottom: calc(var(--eld-semantic-space-component-gap-sm) * -0.5);
+  border-bottom: none;
+  border-right: none;
+}
+
+/* Left positioning */
+.eld-tooltip--left {
+  right: 100%;
+  top: 50%;
+  transform: translateY(-50%) scale(0.95);
+  margin-right: var(--eld-semantic-space-component-gap-sm);
+}
+
+.eld-tooltip--left.eld-tooltip--visible {
+  transform: translateY(-50%) scale(1);
+}
+
+.eld-tooltip--left .eld-tooltip__arrow {
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+  margin-left: calc(var(--eld-semantic-space-component-gap-sm) * -0.5);
+  border-left: none;
+  border-bottom: none;
+}
+
+/* Right positioning */
+.eld-tooltip--right {
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%) scale(0.95);
+  margin-left: var(--eld-semantic-space-component-gap-sm);
+}
+
+.eld-tooltip--right.eld-tooltip--visible {
+  transform: translateY(-50%) scale(1);
+}
+
+.eld-tooltip--right .eld-tooltip__arrow {
+  right: 100%;
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+  margin-right: calc(var(--eld-semantic-space-component-gap-sm) * -0.5);
+  border-right: none;
+  border-top: none;
+}
+
+/* Responsive behavior */
+@media (max-width: 768px) {
+  .eld-tooltip__content {
+    /* Maintain minimum readable width on mobile while respecting viewport */
+    min-inline-size: 19.6875rem;
+    max-inline-size: 90vw;
+    font-size: var(--eld-semantic-font-size-body-xs);
+    padding: var(--eld-semantic-space-component-padding-xs) var(--eld-semantic-space-component-padding-sm);
+  }
+
+  .eld-tooltip--large .eld-tooltip__content {
+    max-inline-size: 90vw;
+    font-size: var(--eld-semantic-font-size-body-small);
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .eld-tooltip__content {
+    border-width: 3px;
+  }
+
+  .eld-tooltip__arrow {
+    border-width: 3px;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .eld-tooltip {
+    transition: opacity var(--eld-semantic-motion-duration-fast) var(--eld-semantic-motion-easing-standard);
+    transform: none !important;
+  }
+
+  .eld-tooltip--visible {
+    transform: none !important;
+  }
+
+  .eld-tooltip--top.eld-tooltip--visible,
+  .eld-tooltip--bottom.eld-tooltip--visible,
+  .eld-tooltip--left.eld-tooltip--visible,
+  .eld-tooltip--right.eld-tooltip--visible {
+    transform: none !important;
+  }
+}
+
+/* Focus and keyboard navigation */
+.eld-tooltip-trigger:focus + .eld-tooltip,
+.eld-tooltip-trigger:focus-within + .eld-tooltip {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: scale(1);
+}
+
+.eld-tooltip-trigger:focus + .eld-tooltip--top,
+.eld-tooltip-trigger:focus-within + .eld-tooltip--top {
+  transform: translateX(-50%) scale(1);
+}
+
+.eld-tooltip-trigger:focus + .eld-tooltip--bottom,
+.eld-tooltip-trigger:focus-within + .eld-tooltip--bottom {
+  transform: translateX(-50%) scale(1);
+}
+
+.eld-tooltip-trigger:focus + .eld-tooltip--left,
+.eld-tooltip-trigger:focus-within + .eld-tooltip--left {
+  transform: translateY(-50%) scale(1);
+}
+
+.eld-tooltip-trigger:focus + .eld-tooltip--right,
+.eld-tooltip-trigger:focus-within + .eld-tooltip--right {
+  transform: translateY(-50%) scale(1);
+}

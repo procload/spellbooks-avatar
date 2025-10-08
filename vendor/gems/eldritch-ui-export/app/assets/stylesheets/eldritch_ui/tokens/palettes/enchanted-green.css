@@ -1,0 +1,18 @@
+/* Enchanted Green Palette */
+/* Natural green tones for success states, positive feedback, and nature-themed elements */
+/* References foundation layer for single source of truth */
+
+:root {
+  /* Enchanted Green - 50 to 950 scale centered on #22c55e (emerald green) */
+  --eldritch-enchanted-green-50: var(--eld-foundation-color-enchanted-green-50);
+  --eldritch-enchanted-green-100: var(--eld-foundation-color-enchanted-green-100);
+  --eldritch-enchanted-green-200: var(--eld-foundation-color-enchanted-green-200);
+  --eldritch-enchanted-green-300: var(--eld-foundation-color-enchanted-green-300);
+  --eldritch-enchanted-green-400: var(--eld-foundation-color-enchanted-green-400);
+  --eldritch-enchanted-green-500: var(--eld-foundation-color-enchanted-green-500);
+  --eldritch-enchanted-green-600: var(--eld-foundation-color-enchanted-green-600);
+  --eldritch-enchanted-green-700: var(--eld-foundation-color-enchanted-green-700);
+  --eldritch-enchanted-green-800: var(--eld-foundation-color-enchanted-green-800);
+  --eldritch-enchanted-green-900: var(--eld-foundation-color-enchanted-green-900);
+  --eldritch-enchanted-green-950: var(--eld-foundation-color-enchanted-green-950);
+}

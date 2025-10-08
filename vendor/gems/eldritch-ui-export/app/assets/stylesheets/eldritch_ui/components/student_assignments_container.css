@@ -1,0 +1,182 @@
+/* Student Assignments Container Component Styles */
+
+.eld-student-assignments-container {
+  background-color: var(--eld-semantic-color-surface);
+  border-radius: var(--eldritch-border-radius-card);
+  overflow: hidden;
+}
+
+/* Content Layout */
+
+.eld-student-assignments-container__content {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Student Section */
+
+.eld-student-assignments-container__student-section {
+  border-bottom: 1px solid var(--eld-semantic-color-border);
+  padding: 24px;
+}
+
+.eld-student-assignments-container__student-section:last-child {
+  border-bottom: none;
+}
+
+/* Student Header */
+
+.eld-student-assignments-container__student-header {
+  margin-bottom: 20px;
+}
+
+.eld-student-assignments-container__student-name {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--eld-semantic-color-text-primary);
+  margin: 0 0 4px 0;
+  word-wrap: break-word;
+}
+
+.eld-student-assignments-container__student-email {
+  font-size: 14px;
+  color: var(--eld-semantic-color-text-secondary);
+  margin: 0;
+  word-break: break-all;
+}
+
+/* Assignments Section */
+
+.eld-student-assignments-container__assignments-section {
+  /* Assignments container */
+}
+
+.eld-student-assignments-container__assignments-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.eld-student-assignments-container__assignment-item {
+  /* Individual assignment items inherit their own styling */
+}
+
+/* Empty Assignments State */
+
+.eld-student-assignments-container__empty-assignments {
+  padding: 16px 0;
+}
+
+.eld-student-assignments-container__empty-message {
+  font-size: 14px;
+  color: var(--eld-semantic-color-text-secondary);
+  margin: 0;
+  font-style: italic;
+}
+
+/* Empty State (No Students) */
+
+.eld-student-assignments-container__empty-state {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 64px 24px;
+  text-align: center;
+}
+
+.eld-student-assignments-container__empty-content {
+  max-width: 320px;
+}
+
+.eld-student-assignments-container__empty-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--eld-semantic-color-text-primary);
+  margin: 0 0 8px 0;
+}
+
+.eld-student-assignments-container__empty-description {
+  font-size: 14px;
+  color: var(--eld-semantic-color-text-secondary);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Responsive Design */
+
+@media (max-width: 640px) {
+  .eld-student-assignments-container__student-section {
+    padding: 20px 16px;
+  }
+
+  .eld-student-assignments-container__student-name {
+    font-size: 16px;
+  }
+
+  .eld-student-assignments-container__student-email {
+    font-size: 13px;
+  }
+
+  .eld-student-assignments-container__empty-state {
+    padding: 48px 16px;
+  }
+
+  .eld-student-assignments-container__empty-title {
+    font-size: 16px;
+  }
+
+  .eld-student-assignments-container__empty-description {
+    font-size: 13px;
+  }
+}
+
+/* Focus States */
+
+.eld-student-assignments-container__student-section:focus-within {
+  background-color: var(--eld-semantic-color-surface-subtle);
+}
+
+/* Hover States */
+
+@media (hover: hover) {
+  .eld-student-assignments-container__student-section:hover {
+    background-color: var(--eld-semantic-color-surface-subtle);
+    transition: background-color 0.2s ease;
+  }
+}
+
+/* Print Styles */
+
+@media print {
+  .eld-student-assignments-container {
+    border: 1px solid #ccc;
+    border-radius: 0;
+  }
+
+  .eld-student-assignments-container__student-section {
+    break-inside: avoid;
+    padding: 16px;
+    border-bottom-color: #ccc;
+  }
+
+  .eld-student-assignments-container__empty-state {
+    padding: 32px 16px;
+  }
+}
+
+/* High Contrast Mode */
+
+@media (prefers-contrast: high) {
+  .eld-student-assignments-container__student-section {
+    border-bottom-width: 2px;
+  }
+}
+
+/* Reduced Motion */
+
+@media (prefers-reduced-motion: reduce) {
+  .eld-student-assignments-container__student-section:hover {
+    transition: none;
+  }
+} 

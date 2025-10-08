@@ -1,0 +1,60 @@
+<article <%= tag.attributes(container_attributes) %>>
+  <% if has_title? %>
+    <header class="eld-reading-passage__header">
+      <h1 class="eld-reading-passage__title"><%= title %></h1>
+      <div class="eld-reading-passage__actions no-print">
+        <% if editable? && !hide_edit_buttons %>
+          <%= render EldritchUi::IconButtonComponent.new(
+                icon_name: 'document-text',
+                title: 'Edit passage',
+                data: {
+                  "markdown-editor-target": "editButton",
+                  action: 'click->markdown-editor#toggleEdit'
+                }
+              ) %>
+          <%= render EldritchUi::IconButtonComponent.new(
+                icon_name: 'check-circle',
+                title: 'Save changes',
+                class: 'hidden',
+                data: {
+                  "markdown-editor-target": "saveButton",
+                  action: 'click->markdown-editor#save'
+                }
+              ) %>
+        <% end %>
+        <% if print_url.present? %>
+          <%= render EldritchUi::IconButtonComponent.new(
+                icon_name: 'printer',
+                title: 'Print',
+                href: print_url,
+                data: { turbo_frame: "_top" }
+              ) %>
+        <% end %>
+        <% if has_title_actions? %>
+          <%= title_actions %>
+        <% end %>
+      </div>
+    </header>
+  <% end %>
+  
+  <!-- Reading passage content -->
+  <% if has_image? %>
+    <figure class="<%= image_css_classes %>" data-markdown-editor-target="imageContainer">
+      <%= image_tag image, alt: "Reading passage illustration" %>
+    </figure>
+  <% end %>
+  
+  <!-- Main text content -->
+  <section class="eld-reading-passage__text">
+    <div 
+      id="<%= unique_id %>_content"
+      <%= tag.attributes(content_attributes) %>
+      data-markdown-editor-target="passage">
+      <%= rendered_content %>
+    </div>
+    
+    <% if editable? %>
+      <%= tag.textarea(passage_content, **textarea_attributes) %>
+    <% end %>
+  </section>
+</article> 

@@ -1,0 +1,30 @@
+<div <%= tag.attributes(component_tag_attributes) %>>
+  <%= radio_button_tag name, value, selected, radio_button_attributes.merge(id: radio_button_id) %>
+  
+  <label for="<%= radio_button_id %>" class="eld-answer-choice__label">
+    <div class="<%= letter_badge_classes %>" data-eldritch-ui--answer-choice-target="letter">
+      <%= letter %>
+    </div>
+    
+    <div class="eld-answer-choice__content">
+      <div class="eld-answer-choice__text">
+        <%= text %>
+      </div>
+      
+      <% if show_explanation? %>
+        <div class="<%= explanation_classes %>">
+          <p class="eld-answer-choice__explanation-label">Explanation:</p>
+          <p class="eld-answer-choice__explanation-text"><%= explanation %></p>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="<%= checkmark_classes %>">
+      <%= render EldritchUi::IconComponent.new(
+            name: feedback_icon_name,
+            size: :small,
+            class: feedback_icon_classes
+          ) %>
+    </div>
+  </label>
+</div> 

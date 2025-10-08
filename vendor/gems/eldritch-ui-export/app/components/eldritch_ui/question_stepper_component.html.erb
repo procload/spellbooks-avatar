@@ -1,0 +1,58 @@
+<%= tag.div(**input_attributes.merge("data-controller" => "question-stepper")) do %>
+  <% if label.present? %>
+    <label class="eld-question-stepper__label" for="<%= number_input_id %>">
+      <%= label %>
+      <% if required %>
+        <span class="eld-question-stepper__required" aria-label="required">*</span>
+      <% end %>
+    </label>
+  <% end %>
+
+  <div class="eld-question-stepper__controls">
+    <button
+      type="button"
+      id="<%= decrease_button_id %>"
+      class="eld-question-stepper__button eld-question-stepper__button--decrease"
+      data-action="question-stepper#decrease"
+      data-question-stepper-target="decreaseButton"
+      <%= "disabled" unless can_decrease? %>
+      aria-label="Decrease number of questions"
+    >
+      <span class="eld-question-stepper__button-icon">−</span>
+    </button>
+
+    <input
+      type="number"
+      id="<%= number_input_id %>"
+      name="<%= name %>"
+      value="<%= value %>"
+      min="<%= min %>"
+      <% if max.present? %>max="<%= max %>"<% end %>
+      step="<%= step %>"
+      <%= "required" if required %>
+      <%= "disabled" if disabled %>
+      class="eld-question-stepper__input"
+      data-question-stepper-target="input"
+      data-action="question-stepper#inputChanged"
+      aria-describedby="<%= id %>-hint"
+    />
+
+    <button
+      type="button"
+      id="<%= increase_button_id %>"
+      class="eld-question-stepper__button eld-question-stepper__button--increase"
+      data-action="question-stepper#increase"
+      data-question-stepper-target="increaseButton"
+      <%= "disabled" unless can_increase? %>
+      aria-label="Increase number of questions"
+    >
+      <span class="eld-question-stepper__button-icon">+</span>
+    </button>
+  </div>
+
+  <% if default_hint.present? %>
+    <div id="<%= id %>-hint" class="eld-question-stepper__hint" data-question-stepper-target="hint">
+      <%= default_hint %>
+    </div>
+  <% end %>
+<% end %>

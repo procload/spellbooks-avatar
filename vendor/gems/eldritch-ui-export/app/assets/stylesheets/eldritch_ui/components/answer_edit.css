@@ -1,0 +1,92 @@
+/* Answer Edit Row Component */
+.eld-answer-edit-row {
+  display: flex;
+  align-items: center;
+  gap: var(--eld-semantic-space-component-gap-xl);  
+  transition: all 0.2s ease-in-out;
+}
+
+
+/* Text input section - takes up most of the space */
+.eld-answer-edit-row__text-input {
+  flex: 1;
+  min-width: 0; /* Allows flex item to shrink below its content size */
+  max-width: calc(100% - 40px); /* Reduce width by ~40px for bigger gap */
+}
+
+/* Radio section - left-aligned with compact layout */
+.eld-answer-edit-row__radio-section {
+  display: flex;
+  align-items: center;
+  gap: var(--eld-semantic-space-component-gap-xs);
+  flex-shrink: 0;
+  padding: 0;
+  /* Ensure consistent width to prevent shrinking */
+  min-width: 80px;
+  justify-content: flex-start;
+}
+
+/* Style the RadioComponent within answer edit rows */
+.eld-answer-edit-row__radio-section .eld-radio {
+  /* Remove any default RadioComponent margins/padding */
+  margin: 0;
+  padding: 0;
+  /* Ensure proper flex layout */
+  display: flex;
+  align-items: center;
+  gap: var(--eld-semantic-space-component-gap-xs);
+}
+
+
+.eld-answer-edit-row__radio-section .eld-radio__input {
+  width: var(--eld-semantic-icon-size-xs);
+  height: var(--eld-semantic-icon-size-xs);
+  accent-color: var(--eld-semantic-color-accent);
+  cursor: pointer;
+  /* Ensure radio button stays properly positioned */
+  flex-shrink: 0;
+  /* Prevent layout shifts from focus outlines */
+  outline-offset: 2px;
+  /* Ensure consistent spacing regardless of browser focus styles */
+  margin: 2px;
+}
+
+.eld-answer-edit-row__radio-section .eld-radio__label {
+  font-size: var(--eld-semantic-font-size-body-small);
+  font-weight: var(--eld-primitive-font-weight-medium);
+  color: var(--eld-semantic-color-text-primary);
+  cursor: pointer;
+  white-space: nowrap;
+  user-select: none;
+  /* Ensure the expanded area is clickable */
+  display: inline-block;
+  /* Vertical alignment handled by flex center alignment */
+}
+
+
+/* Visual feedback for radio interactions */
+.eld-answer-edit-row__radio-section:hover .eld-radio__label {
+  color: var(--eld-semantic-color-success); /* Success hover color to match selected state */
+}
+
+.eld-answer-edit-row:has(.eld-radio__input:checked) .eld-radio__label {
+  color: var(--eld-semantic-color-success);
+  font-weight: var(--eld-primitive-font-weight-semibold);
+}
+
+.eld-answer-edit-row:has(.eld-radio__input:checked) .eld-answer-edit-row__radio-section:hover .eld-radio__label {
+  color: var(--eld-semantic-color-success); /* Keep success color when checked, even on hover */
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .eld-answer-edit-row {
+    flex-direction: column;
+    gap: var(--eld-semantic-space-component-gap-sm);
+  }
+  
+  .eld-answer-edit-row__radio-section {
+    margin-top: 0;
+    justify-content: flex-start;
+  }
+} 

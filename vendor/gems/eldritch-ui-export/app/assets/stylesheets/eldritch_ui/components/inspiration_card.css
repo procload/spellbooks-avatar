@@ -1,0 +1,136 @@
+/* Eldritch UI Inspiration Card Component */
+/* Card component for template suggestions using Spellbooks theme tokens and BEM methodology */
+
+.eld-inspiration-card {
+  /* Base card styling */
+  background-color: var(--eld-semantic-color-surface);
+  border: 1px solid var(--eld-semantic-color-border);
+  border-radius: var(--eld-semantic-border-radius-card);
+  box-shadow: var(--eld-semantic-shadow-card);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.eld-inspiration-card:hover {
+  box-shadow: var(--eld-semantic-shadow-card-hover);
+  transform: translateY(-1px);
+}
+
+/* Content Section */
+.eld-inspiration-card__content {
+  padding: var(--eld-semantic-space-component-padding-lg);
+  flex: 1;
+}
+
+/* Header Section */
+.eld-inspiration-card__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: var(--eld-semantic-space-component-gap-md);
+}
+
+.eld-inspiration-card__title-section {
+  flex: 1;
+  min-width: 0; /* Allow text truncation */
+}
+
+.eld-inspiration-card__title {
+  font-size: var(--eld-semantic-font-size-heading-medium);
+  font-weight: var(--eld-primitive-font-weight-semibold);
+  color: var(--eld-semantic-color-text-primary);
+  margin: 0 0 var(--eld-semantic-space-component-gap-xs) 0;
+  line-height: 1.2;
+}
+
+.eld-inspiration-card__subtitle {
+  font-size: var(--eld-semantic-font-size-body-small);
+  font-weight: var(--eld-primitive-font-weight-medium);
+  color: var(--eld-semantic-color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.eld-inspiration-card__icon {
+  flex-shrink: 0;
+  margin-left: var(--eld-semantic-space-component-gap-xs);
+  color: var(--eld-semantic-color-text-secondary);
+}
+
+/* Meta Section */
+.eld-inspiration-card__meta {
+  margin-bottom: var(--eld-semantic-space-component-gap-md);
+}
+
+.eld-inspiration-card__students-count {
+  font-size: var(--eld-semantic-font-size-body-small);
+  color: var(--eld-semantic-color-text-secondary);
+  font-weight: var(--eld-primitive-font-weight-medium);
+}
+
+/* Tags Section */
+.eld-inspiration-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--eld-semantic-space-component-gap-sm);
+  margin-bottom: var(--eld-semantic-space-component-gap-md);
+}
+
+.eld-inspiration-card__tags:last-child {
+  margin-bottom: 0;
+}
+
+/* Actions Section */
+.eld-inspiration-card__actions {
+  padding: var(--eld-semantic-space-component-gap-md) var(--eld-semantic-space-component-padding-lg);
+  background-color: var(--eld-semantic-color-surface-muted);
+  border-top: 1px solid var(--eld-semantic-color-border);
+  margin-top: auto;
+}
+
+/* Responsive Design */
+@media (max-width: 640px) {
+  .eld-inspiration-card__header {
+    flex-direction: column;
+    gap: var(--eld-semantic-space-component-gap-sm);
+  }
+  
+  .eld-inspiration-card__icon {
+    margin-left: 0;
+    align-self: flex-start;
+  }
+  
+  .eld-inspiration-card__content {
+    padding: var(--eld-semantic-space-component-padding-md);
+  }
+  
+  .eld-inspiration-card__actions {
+    padding: var(--eld-semantic-space-component-padding-sm) var(--eld-semantic-space-component-padding-md);
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .eld-inspiration-card {
+    transition: none;
+  }
+  
+  .eld-inspiration-card:hover {
+    transform: none;
+  }
+}
+
+@media (prefers-contrast: high) {
+  .eld-inspiration-card {
+    border-width: 2px;
+    border-color: var(--eld-semantic-color-border);
+  }
+}
+
+/* Focus States */
+.eld-inspiration-card:focus-within {
+  outline: 2px solid var(--eld-semantic-color-accent);
+  outline-offset: 2px;
+} 

@@ -1,0 +1,948 @@
+/* Eldritch UI Profile Settings Layout */
+
+.eld-profile-page,
+.eld-student-page {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: var(--eld-semantic-space-layout-xl);
+}
+
+.eld-profile-hero,
+.eld-student-hero {
+  padding: var(--eld-semantic-space-component-padding-md) 0 0 0;
+}
+
+.eld-profile-hero__content,
+.eld-student-hero__content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--eld-semantic-space-component-gap-md);
+}
+
+.eld-profile-hero__icon,
+.eld-student-hero__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  height: 72px;
+  border-radius: var(--eld-primitive-border-radius-full);
+  background: var(--eld-semantic-color-primary-light);
+  box-shadow: var(--eld-semantic-shadow-card);
+}
+
+.eld-profile-hero__glyph,
+.eld-student-hero__glyph {
+  color: var(--eld-semantic-color-primary);
+}
+
+.eld-profile-hero__title,
+.eld-student-hero__title {
+  margin: 0;
+  font-family: 'Averia Libre', var(--eld-semantic-font-family-heading);
+  font-size: var(--eld-semantic-font-size-heading-large);
+  font-weight: var(--eld-primitive-font-weight-semibold);
+  color: var(--eld-semantic-color-text-primary);
+}
+
+.eld-profile-hero__subtitle,
+.eld-student-hero__subtitle {
+  margin: 0;
+  font-family: 'Averia Libre', var(--eld-semantic-font-family-body);
+  font-size: var(--eld-semantic-font-size-body-medium);
+  color: var(--eld-semantic-color-text-secondary);
+  max-width: 56ch;
+}
+
+.eld-profile-content,
+.eld-student-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--eld-semantic-space-layout-lg);
+}
+
+.eld-profile-main,
+.eld-student-main {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--eld-semantic-space-component-gap-lg);
+}
+
+.eld-profile-card,
+.eld-student-card {
+  padding: var(--eld-semantic-space-component-padding-lg) 0;
+}
+
+.eld-profile-card__alert,
+.eld-student-card__alert {
+  border-radius: var(--eld-semantic-border-radius-card);
+}
+
+.eld-profile-card__alert-title,
+.eld-student-card__alert-title {
+  margin: 0;
+  font-size: var(--eld-semantic-font-size-body-large);
+}
+
+.eld-profile-card__alert-list,
+.eld-student-card__alert-list {
+  margin: 0;
+  padding-left: var(--eld-semantic-space-component-padding-lg);
+  font-family: var(--eld-semantic-font-family-body);
+  font-size: var(--eld-semantic-font-size-body-medium);
+  color: var(--eld-semantic-color-text-primary);
+}
+
+.eld-profile-card__body,
+.eld-student-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--eld-semantic-space-component-gap-lg);
+}
+
+.eld-profile-details-grid,
+.eld-student-details-grid {
+  display: grid;
+  gap: var(--eld-semantic-space-component-gap-lg);
+}
+
+.eld-profile-field,
+.eld-student-field {
+  margin: 0;
+}
+
+.eld-profile-avatar-input {
+  display: flex;
+  flex-direction: column;
+  gap: var(--eld-semantic-space-component-gap-md);
+  align-items: flex-start;
+}
+
+.eld-profile-avatar-input__preview,
+.eld-profile-avatar-input__placeholder {
+  width: 72px;
+  height: 72px;
+  border-radius: var(--eld-primitive-border-radius-full);
+  object-fit: cover;
+  box-shadow: var(--eld-semantic-shadow-card);
+}
+
+.eld-profile-avatar-input__placeholder {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--eld-semantic-color-surface-muted);
+  color: var(--eld-semantic-color-text-secondary);
+}
+
+.eld-profile-avatar-input__placeholder-icon {
+  width: 48px;
+  height: 48px;
+}
+
+.eld-profile-avatar-input__control {
+  display: flex;
+  flex-direction: column;
+  gap: var(--eld-semantic-space-component-gap-xs);
+}
+
+.eld-profile-avatar-input__field {
+  font-family: var(--eld-semantic-font-family-body);
+  font-size: var(--eld-semantic-font-size-body-small);
+}
+
+.eld-profile-avatar-input__hint {
+  margin: 0;
+  font-family: var(--eld-semantic-font-family-body);
+  font-size: var(--eld-semantic-font-size-body-small);
+  color: var(--eld-semantic-color-text-secondary);
+}
+
+.eld-profile-actions,
+.eld-student-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--eld-semantic-space-component-gap-md);
+}
+
+.eld-profile-divider {
+  border: none;
+  height: var(--eld-semantic-border-width-strong);
+  width: 100%;
+  background: var(--eld-semantic-color-border-primary);
+  margin: var(--eld-semantic-space-component-gap-lg) 0 var(--eld-semantic-space-component-gap-md);
+  border-radius: var(--eld-semantic-border-radius-pill);
+}
+
+.eld-profile-rail,
+.eld-student-rail {
+  display: flex;
+  flex-direction: column;
+  gap: var(--eld-semantic-space-component-gap-lg);
+}
+
+.eld-profile-rail__card,
+.eld-student-rail__card {
+  padding: 0;
+}
+
+.eld-profile-rail__card--framed,
+.eld-student-rail__card--framed {
+  background: var(--eld-semantic-color-surface-elevated);
+  border: var(--eld-semantic-border-width-default) solid var(--eld-semantic-color-border-subtle);
+  border-radius: var(--eld-semantic-border-radius-card);
+  box-shadow: var(--eldritch-shadow-subtle);
+  padding: var(--eld-semantic-space-component-padding-lg) var(--eld-semantic-space-component-padding-md);
+}
+
+.eld-profile-rail__card--subscription,
+.eld-student-rail__card--subscription {
+  padding-top: var(--eld-semantic-space-component-padding-lg);
+  padding-bottom: var(--eld-semantic-space-component-padding-lg);
+}
+
+.eld-profile-rail__section,
+.eld-student-rail__section {
+  padding: var(--eld-semantic-space-component-padding-lg) 0;
+  border-top: var(--eld-semantic-border-width-thin) solid var(--eld-semantic-color-border-subtle);
+}
+
+.eld-profile-rail__section:first-of-type,
+.eld-student-rail__section:first-of-type {
+  padding-top: 0;
+  border-top: none;
+}
+
+.eld-profile-rail__title,
+.eld-student-rail__title {
+  margin: 0;
+  font-family: 'Averia Libre', var(--eld-semantic-font-family-heading);
+  font-size: var(--eld-semantic-font-size-heading-small);
+  font-weight: var(--eld-primitive-font-weight-semibold);
+  color: var(--eld-semantic-color-text-primary);
+}
+
+.eld-profile-rail__subtitle,
+.eld-student-rail__subtitle {
+  margin: 0;
+  font-family: 'Averia Libre', var(--eld-semantic-font-family-body);
+  font-size: var(--eld-semantic-font-size-body-small);
+  color: var(--eld-semantic-color-text-secondary);
+}
+
+.eld-profile-rail__action,
+.eld-student-rail__action {
+  display: flex;
+  flex-direction: column;
+  gap: var(--eld-semantic-space-component-gap-md);
+}
+
+.eld-profile-rail__action-title,
+.eld-student-rail__action-title {
+  margin: 0 0 4px 0;
+  font-family: 'Averia Libre', var(--eld-semantic-font-family-heading);
+  font-size: var(--eld-semantic-font-size-body-large);
+  font-weight: var(--eld-primitive-font-weight-semibold);
+  color: var(--eld-semantic-color-text-primary);
+}
+
+.eld-profile-rail__action-copy,
+.eld-student-rail__action-copy {
+  margin: 0;
+  font-family: 'Averia Libre', var(--eld-semantic-font-family-body);
+  font-size: var(--eld-semantic-font-size-body-small);
+  color: var(--eld-semantic-color-text-secondary);
+}
+
+.eld-profile-rail__action-button,
+.eld-student-rail__action-button {
+  align-self: flex-start;
+}
+
+.eld-student-rail__list {
+  margin: 0;
+  padding-left: var(--eld-semantic-space-component-padding-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--eld-semantic-space-component-gap-sm);
+  font-family: 'Averia Libre', var(--eld-semantic-font-family-body);
+  font-size: var(--eld-semantic-font-size-body-small);
+  color: var(--eld-semantic-color-text-secondary);
+}
+
+.eld-student-rail__list li::marker {
+  color: var(--eld-semantic-color-primary);
+}
+
+.eld-profile-subscription__header {
+  margin-bottom: var(--eld-semantic-space-component-gap-sm);
+}
+
+.eld-profile-subscription__title {
+  margin: 0;
+  font-family: 'Averia Libre', var(--eld-semantic-font-family-heading);
+  font-size: var(--eld-semantic-font-size-heading-small);
+  font-weight: var(--eld-primitive-font-weight-semibold);
+  color: var(--eld-semantic-color-text-primary);
+}
+
+.eld-profile-subscription__stats {
+  display: grid;
+  gap: var(--eld-semantic-space-component-gap-md);
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.eld-profile-subscription__stat {
+  display: flex;
+  flex-direction: column;
+  gap: var(--eld-semantic-space-component-gap-xs);
+  padding: var(--eld-semantic-space-component-padding-md);
+  background: var(--eld-semantic-color-surface-muted);
+  border: var(--eld-semantic-border-width-default) solid var(--eld-semantic-color-border-subtle);
+  border-radius: var(--eld-semantic-border-radius-card);
+}
+
+.eld-profile-subscription__stat-label {
+  font-family: 'Averia Libre', var(--eld-semantic-font-family-label);
+  font-size: var(--eld-semantic-font-size-body-small);
+  font-weight: var(--eld-primitive-font-weight-medium);
+  color: var(--eld-semantic-color-text-secondary);
+  text-transform: none;
+}
+
+.eld-profile-subscription__stat-value {
+  font-family: 'Averia Libre', var(--eld-semantic-font-family-heading);
+  font-size: var(--eld-semantic-font-size-body-large);
+  color: var(--eld-semantic-color-text-primary);
+}
+
+.eld-profile-subscription__tier {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--eld-semantic-space-component-padding-xs) var(--eld-semantic-space-component-padding-sm);
+  border-radius: var(--eld-semantic-border-radius-pill);
+  background: var(--eld-semantic-color-primary-light);
+  color: var(--eld-semantic-color-text-primary);
+  font-family: 'Averia Libre', var(--eld-semantic-font-family-heading);
+  font-size: var(--eld-semantic-font-size-body-medium);
+}
+
+.eld-profile-subscription__section {
+  padding-top: var(--eld-semantic-space-component-padding-md);
+  border-top: var(--eld-semantic-border-width-thin) solid var(--eld-semantic-color-border-subtle);
+}
+
+.eld-profile-subscription__section-title {
+  margin: 0;
+  font-family: 'Averia Libre', var(--eld-semantic-font-family-heading);
+  font-size: var(--eld-semantic-font-size-body-large);
+  font-weight: var(--eld-primitive-font-weight-semibold);
+  color: var(--eld-semantic-color-text-primary);
+}
+
+.eld-profile-subscription__section-copy {
+  margin: 0;
+  font-family: 'Averia Libre', var(--eld-semantic-font-family-body);
+  font-size: var(--eld-semantic-font-size-body-small);
+  color: var(--eld-semantic-color-text-secondary);
+}
+
+.eld-profile-upgrades {
+  margin-top: var(--eld-semantic-space-layout-lg);
+  padding: var(--eld-semantic-space-component-padding-xl) 0;
+  border-top: var(--eld-semantic-border-width-thin) solid var(--eld-semantic-color-border-subtle);
+}
+
+.eld-profile-upgrades__header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--eld-semantic-space-component-gap-xs);
+  margin-bottom: var(--eld-semantic-space-component-padding-md);
+}
+
+.eld-profile-upgrades__title {
+  margin: 0;
+  font-family: 'Averia Libre', var(--eld-semantic-font-family-heading);
+  font-size: var(--eld-semantic-font-size-heading-small);
+  font-weight: var(--eld-primitive-font-weight-semibold);
+  color: var(--eld-semantic-color-text-primary);
+}
+
+.eld-profile-upgrades__subtitle {
+  margin: 0;
+  font-family: var(--eld-semantic-font-family-body);
+  font-size: var(--eld-semantic-font-size-body-small);
+  color: var(--eld-semantic-color-text-secondary);
+}
+
+.eld-profile-upgrades__grid {
+  display: grid;
+  gap: var(--eld-semantic-space-component-gap-md);
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.eld-profile-upgrade-card {
+  border: var(--eld-semantic-border-width-strong) solid var(--eld-semantic-color-border-primary);
+  border-radius: var(--eld-semantic-border-radius-card);
+  background: var(--eld-semantic-color-surface-elevated);
+  box-shadow: var(--eld-semantic-shadow-card);
+  padding: var(--eld-semantic-space-component-padding-lg);
+}
+
+.eld-profile-upgrade-card__name {
+  margin: 0;
+  font-family: 'Averia Libre', var(--eld-semantic-font-family-heading);
+  font-size: var(--eld-semantic-font-size-heading-small);
+  font-weight: var(--eld-primitive-font-weight-bold);
+  color: var(--eld-semantic-color-text-primary);
+}
+
+.eld-profile-upgrade-card__description {
+  margin: 0;
+  font-family: var(--eld-semantic-font-family-body);
+  font-size: var(--eld-semantic-font-size-body-small);
+  color: var(--eld-semantic-color-text-secondary);
+}
+
+.eld-profile-upgrade-card__price {
+  margin: 0;
+  font-family: 'Averia Libre', var(--eld-semantic-font-family-heading);
+  font-size: var(--eld-semantic-font-size-body-large);
+  font-weight: var(--eld-primitive-font-weight-semibold);
+  color: var(--eld-semantic-color-text-primary);
+}
+
+.eld-profile-upgrades__one-time {
+  padding: var(--eld-semantic-space-component-padding-lg);
+  background: var(--eld-semantic-color-surface-muted);
+  border-radius: var(--eld-semantic-border-radius-card);
+  border: var(--eld-semantic-border-width-default) solid var(--eld-semantic-color-border-subtle);
+}
+
+.eld-profile-upgrades__one-time-title {
+  margin: 0;
+  font-family: 'Averia Libre', var(--eld-semantic-font-family-heading);
+  font-size: var(--eld-semantic-font-size-body-large);
+  font-weight: var(--eld-primitive-font-weight-semibold);
+  color: var(--eld-semantic-color-text-primary);
+}
+
+.eld-profile-upgrades__one-time-copy {
+  margin: 0;
+  font-family: var(--eld-semantic-font-family-body);
+  font-size: var(--eld-semantic-font-size-body-small);
+  color: var(--eld-semantic-color-text-secondary);
+}
+
+@media (min-width: 640px) {
+  .eld-profile-avatar-input {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+/* Student View Specific Components */
+.eld-student-header {
+  background: white;
+  border-radius: var(--eld-semantic-border-radius-card);
+  box-shadow: var(--eld-semantic-shadow-card);
+  padding: var(--eld-semantic-space-component-padding-lg);
+}
+
+.eld-student-header__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.eld-student-header__title {
+  font-size: var(--eld-semantic-font-size-heading-large);
+  font-weight: var(--eld-primitive-font-weight-bold);
+  color: var(--eld-semantic-color-text-primary);
+  margin: 0;
+}
+
+.eld-student-header__email {
+  color: var(--eld-semantic-color-text-subtle);
+  margin-top: var(--eld-semantic-space-element-gap-xs);
+}
+
+.eld-student-header__actions {
+  display: flex;
+  gap: var(--eld-semantic-space-component-gap-sm);
+}
+
+/* Student Metrics Grid */
+.eld-student-metrics {
+  margin-top: var(--eld-semantic-space-component-padding-lg);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--eld-semantic-space-component-gap-md);
+}
+
+.eld-student-metric {
+  background: var(--eld-semantic-color-surface-subtle);
+  border-radius: var(--eld-semantic-border-radius-card);
+  padding: var(--eld-semantic-space-component-padding-md);
+}
+
+.eld-student-metric--success {
+  background: var(--eld-semantic-color-success-light);
+}
+
+.eld-student-metric--info {
+  background: var(--eld-semantic-color-info-light);
+}
+
+.eld-student-metric--warning {
+  background: var(--eld-semantic-color-warning-light);
+}
+
+.eld-student-metric__label {
+  font-size: var(--eld-semantic-font-size-body-small);
+  font-weight: var(--eld-primitive-font-weight-medium);
+  color: var(--eld-semantic-color-text-subtle);
+}
+
+.eld-student-metric--success .eld-student-metric__label {
+  color: var(--eld-semantic-color-success-dark);
+}
+
+.eld-student-metric--info .eld-student-metric__label {
+  color: var(--eld-semantic-color-info-dark);
+}
+
+.eld-student-metric--warning .eld-student-metric__label {
+  color: var(--eld-semantic-color-warning-dark);
+}
+
+.eld-student-metric__value {
+  margin-top: var(--eld-semantic-space-element-gap-xs);
+  font-size: var(--eld-semantic-font-size-heading-small);
+  font-weight: var(--eld-primitive-font-weight-semibold);
+  color: var(--eld-semantic-color-text-primary);
+}
+
+.eld-student-metric--success .eld-student-metric__value {
+  color: var(--eld-semantic-color-success-dark);
+}
+
+.eld-student-metric--info .eld-student-metric__value {
+  color: var(--eld-semantic-color-info-dark);
+}
+
+.eld-student-metric--warning .eld-student-metric__value {
+  color: var(--eld-semantic-color-warning-dark);
+}
+
+/* Assignment Progress Card */
+.eld-assignment-card {
+  background: white;
+  border-radius: var(--eld-semantic-border-radius-card);
+  box-shadow: var(--eld-semantic-shadow-card);
+  overflow: hidden;
+}
+
+.eld-assignment-card__header {
+  padding: var(--eld-semantic-space-component-padding-md) var(--eld-semantic-space-component-padding-lg);
+  border-bottom: 1px solid var(--eld-semantic-color-border-subtle);
+}
+
+.eld-assignment-card__title {
+  font-size: var(--eld-semantic-font-size-body-large);
+  font-weight: var(--eld-primitive-font-weight-medium);
+  color: var(--eld-semantic-color-text-primary);
+  margin: 0;
+}
+
+.eld-assignment-item {
+  padding: var(--eld-semantic-space-component-padding-md) var(--eld-semantic-space-component-padding-lg);
+  border-bottom: 1px solid var(--eld-semantic-color-border-subtle);
+}
+
+.eld-assignment-item__content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.eld-assignment-item__details {
+  flex: 1;
+}
+
+.eld-assignment-item__title {
+  font-size: var(--eld-semantic-font-size-body-medium);
+  font-weight: var(--eld-primitive-font-weight-medium);
+  color: var(--eld-semantic-color-text-primary);
+  margin: 0;
+}
+
+.eld-assignment-item__meta {
+  font-size: var(--eld-semantic-font-size-body-small);
+  color: var(--eld-semantic-color-text-subtle);
+  margin-top: var(--eld-semantic-space-element-gap-xs);
+}
+
+.eld-assignment-item__progress {
+  margin-top: var(--eld-semantic-space-component-gap-sm);
+  display: flex;
+  align-items: center;
+  gap: var(--eld-semantic-space-component-gap-md);
+}
+
+.eld-assignment-item__progress-bar {
+  flex: 1;
+}
+
+.eld-assignment-item__progress-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--eld-semantic-font-size-body-xs);
+  color: var(--eld-semantic-color-text-subtle);
+  margin-bottom: var(--eld-semantic-space-element-gap-xs);
+}
+
+.eld-assignment-item__progress-track {
+  width: 100%;
+  background: var(--eld-semantic-color-border-subtle);
+  border-radius: var(--eld-primitive-border-radius-full);
+  height: 0.5rem;
+}
+
+.eld-assignment-item__progress-fill {
+  background: var(--eld-semantic-color-primary);
+  height: 0.5rem;
+  border-radius: var(--eld-primitive-border-radius-full);
+  transition: width 0.3s;
+}
+
+/* Status Badges */
+.eld-status-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--eld-semantic-space-element-gap-xs) var(--eld-semantic-space-component-padding-sm);
+  border-radius: var(--eld-primitive-border-radius-full);
+  font-size: var(--eld-semantic-font-size-body-xs);
+  font-weight: var(--eld-primitive-font-weight-medium);
+}
+
+.eld-status-badge--completed {
+  background: var(--eld-semantic-color-success-light);
+  color: var(--eld-semantic-color-success-dark);
+}
+
+.eld-status-badge--in-progress {
+  background: var(--eld-semantic-color-info-light);
+  color: var(--eld-semantic-color-info-dark);
+}
+
+.eld-status-badge--not-started {
+  background: var(--eld-semantic-color-surface-subtle);
+  color: var(--eld-semantic-color-text-subtle);
+}
+
+.eld-status-badge--error {
+  background: var(--eld-semantic-color-error-light);
+  color: var(--eld-semantic-color-error-dark);
+}
+
+/* Student Table */
+.eld-student-table {
+  background: white;
+  border-radius: var(--eld-semantic-border-radius-card);
+  box-shadow: var(--eld-semantic-shadow-card);
+  overflow: hidden;
+}
+
+.eld-student-table__header {
+  background: var(--eld-semantic-color-surface-subtle);
+  padding: var(--eld-semantic-space-component-padding-md) var(--eld-semantic-space-component-padding-lg);
+  border-bottom: 1px solid var(--eld-semantic-color-border-subtle);
+}
+
+.eld-student-table__header-row {
+  display: grid;
+  grid-template-columns: 3fr 2fr 2fr 2fr 1fr 2fr;
+  gap: var(--eld-semantic-space-component-gap-md);
+  font-size: var(--eld-semantic-font-size-body-xs);
+  font-weight: var(--eld-primitive-font-weight-medium);
+  color: var(--eld-semantic-color-text-subtle);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.eld-student-table__body {
+  border-top: 1px solid var(--eld-semantic-color-border-subtle);
+}
+
+.eld-student-table__row {
+  padding: var(--eld-semantic-space-component-padding-md) var(--eld-semantic-space-component-padding-lg);
+  border-bottom: 1px solid var(--eld-semantic-color-border-subtle);
+  transition: background-color 0.2s;
+}
+
+.eld-student-table__row:hover {
+  background-color: var(--eld-semantic-color-surface-subtle);
+}
+
+.eld-student-table__row-content {
+  display: grid;
+  grid-template-columns: 3fr 2fr 2fr 2fr 1fr 2fr;
+  gap: var(--eld-semantic-space-component-gap-md);
+  align-items: center;
+}
+
+.eld-student-table__student-name {
+  font-size: var(--eld-semantic-font-size-body-small);
+  font-weight: var(--eld-primitive-font-weight-medium);
+  color: var(--eld-semantic-color-text-primary);
+}
+
+.eld-student-table__student-email {
+  font-size: var(--eld-semantic-font-size-body-xs);
+  color: var(--eld-semantic-color-text-subtle);
+}
+
+.eld-student-table__row-actions {
+  display: flex;
+  gap: var(--eld-semantic-space-component-gap-sm);
+}
+
+/* Assignment Answers Section */
+.eld-assignment-answers {
+  margin-top: var(--eld-semantic-space-component-padding-md);
+  padding-top: var(--eld-semantic-space-component-padding-md);
+  border-top: 1px solid var(--eld-semantic-color-border-subtle);
+}
+
+.eld-assignment-answers__title {
+  font-size: var(--eld-semantic-font-size-body-small);
+  font-weight: var(--eld-primitive-font-weight-medium);
+  color: var(--eld-semantic-color-text-primary);
+  margin-bottom: var(--eld-semantic-space-component-gap-sm);
+}
+
+.eld-assignment-answers__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--eld-semantic-space-component-gap-sm);
+}
+
+.eld-answer-item {
+  background: var(--eld-semantic-color-surface-subtle);
+  border-radius: var(--eld-semantic-border-radius-card);
+  padding: var(--eld-semantic-space-component-padding-sm);
+}
+
+.eld-answer-item__content {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.eld-answer-item__question {
+  flex: 1;
+}
+
+.eld-answer-item__number {
+  font-size: var(--eld-semantic-font-size-body-small);
+  font-weight: var(--eld-primitive-font-weight-medium);
+  color: var(--eld-semantic-color-text-primary);
+}
+
+.eld-answer-item__text {
+  font-size: var(--eld-semantic-font-size-body-small);
+  color: var(--eld-semantic-color-text-primary);
+  margin-top: var(--eld-semantic-space-element-gap-xs);
+}
+
+/* Action Buttons */
+.eld-action-button {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--eld-semantic-space-element-gap-xs) var(--eld-semantic-space-component-padding-sm);
+  border: 1px solid var(--eld-semantic-color-border-subtle);
+  font-size: var(--eld-semantic-font-size-body-xs);
+  font-weight: var(--eld-primitive-font-weight-medium);
+  border-radius: var(--eld-semantic-border-radius-button);
+  color: var(--eld-semantic-color-text-primary);
+  background: white;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  text-decoration: none;
+}
+
+.eld-action-button:hover {
+  background-color: var(--eld-semantic-color-surface-subtle);
+}
+
+.eld-action-button--primary {
+  border-color: transparent;
+  color: white;
+  background: var(--eld-semantic-color-primary);
+}
+
+.eld-action-button--primary:hover {
+  background: var(--eld-semantic-color-primary-dark);
+}
+
+.eld-action-button--warning {
+  border-color: transparent;
+  color: white;
+  background: var(--eld-semantic-color-warning);
+}
+
+.eld-action-button--warning:hover {
+  background: var(--eld-semantic-color-warning-dark);
+}
+
+/* Assignment Score Display */
+.eld-assignment-score {
+  margin-top: var(--eld-semantic-space-component-gap-xs);
+  font-size: var(--eld-semantic-font-size-body-small);
+}
+
+.eld-assignment-score__label {
+  color: var(--eld-semantic-color-text-subtle);
+}
+
+.eld-assignment-score__value {
+  font-weight: var(--eld-primitive-font-weight-medium);
+}
+
+.eld-assignment-score__value--high {
+  color: var(--eld-semantic-color-success-dark);
+}
+
+.eld-assignment-score__value--medium {
+  color: var(--eld-semantic-color-warning-dark);
+}
+
+.eld-assignment-score__value--low {
+  color: var(--eld-semantic-color-error-dark);
+}
+
+/* Last Activity Text */
+.eld-last-activity {
+  margin-top: var(--eld-semantic-space-element-gap-xs);
+  font-size: var(--eld-semantic-font-size-body-xs);
+  color: var(--eld-semantic-color-text-subtle);
+}
+
+/* Assignment Item Actions */
+.eld-assignment-item__actions {
+  margin-left: var(--eld-semantic-space-component-padding-lg);
+  display: flex;
+  gap: var(--eld-semantic-space-component-gap-xs);
+}
+
+/* Status Icon */
+.eld-status-icon {
+  display: inline-flex;
+  align-items: center;
+}
+
+.eld-status-icon--warning {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: var(--eld-semantic-color-error);
+}
+
+.eld-status-icon--success {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: var(--eld-semantic-color-success);
+}
+
+/* Back Button */
+.eld-back-button {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--eld-semantic-space-component-padding-xs) var(--eld-semantic-space-component-padding-md);
+  border: 1px solid var(--eld-semantic-color-border-subtle);
+  font-size: var(--eld-semantic-font-size-body-small);
+  font-weight: var(--eld-primitive-font-weight-medium);
+  border-radius: var(--eld-semantic-border-radius-button);
+  color: var(--eld-semantic-color-text-primary);
+  background: white;
+  text-decoration: none;
+  transition: background-color 0.2s;
+}
+
+.eld-back-button:hover {
+  background-color: var(--eld-semantic-color-surface-subtle);
+}
+
+/* Assignment Details in Table */
+.eld-assignment-details {
+  margin-top: var(--eld-semantic-space-component-gap-sm);
+  padding-top: var(--eld-semantic-space-component-gap-sm);
+  border-top: 1px solid var(--eld-semantic-color-border-subtle);
+}
+
+.eld-assignment-details__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--eld-semantic-space-component-gap-sm);
+  font-size: var(--eld-semantic-font-size-body-xs);
+}
+
+.eld-assignment-details__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--eld-semantic-space-component-padding-xs);
+  background: var(--eld-semantic-color-surface-subtle);
+  border-radius: var(--eld-semantic-border-radius-button);
+}
+
+.eld-assignment-details__title {
+  color: var(--eld-semantic-color-text-primary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-right: var(--eld-semantic-space-component-gap-xs);
+}
+
+.eld-assignment-details__progress {
+  color: var(--eld-semantic-color-text-subtle);
+  white-space: nowrap;
+}
+
+.eld-assignment-details__more {
+  color: var(--eld-semantic-color-text-subtle);
+  font-style: italic;
+}
+
+@media (min-width: 640px) {
+  .eld-profile-avatar-input {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+@media (min-width: 920px) {
+  .eld-profile-hero__content,
+  .eld-student-hero__content {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .eld-profile-content,
+  .eld-student-content {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .eld-profile-details-grid,
+  .eld-student-details-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .eld-profile-rail,
+  .eld-student-rail {
+    flex: 0 0 320px;
+  }
+}

@@ -1,0 +1,266 @@
+/* Eldritch UI Template Card Component */
+/* One-click assignment template cards for quick start */
+
+.eld-template-card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--eld-semantic-color-background-secondary);
+  border: var(--eld-semantic-border-width-strong) solid var(--eld-semantic-color-border-primary);
+  border-radius: var(--eld-semantic-border-radius-card);
+  box-shadow: var(--eld-semantic-shadow-card);
+  padding: var(--eld-semantic-space-component-padding-lg);
+  transition: all var(--eld-semantic-motion-duration-fast) var(--eld-semantic-motion-easing-standard);
+  cursor: pointer;
+  min-height: 160px;
+  position: relative;
+  overflow: hidden;
+}
+
+.eld-template-card:hover {
+  border-color: var(--eld-semantic-color-border-hover);
+  box-shadow: var(--eld-semantic-shadow-card-hover);
+  transform: translateY(-2px);
+}
+
+.eld-template-card:active {
+  transform: translateY(0);
+  box-shadow: var(--eld-semantic-shadow-card);
+}
+
+.eld-template-card:focus-within {
+  outline: var(--eld-semantic-border-width-focus) solid var(--eld-semantic-color-focus);
+  outline-offset: 2px;
+}
+
+/* Header section */
+.eld-template-card__header {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--eld-semantic-space-component-gap-md);
+  margin-bottom: var(--eld-semantic-space-component-gap-md);
+}
+
+.eld-template-card__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: var(--eld-semantic-color-primary-light);
+  border-radius: var(--eld-semantic-border-radius-button);
+  color: var(--eld-semantic-color-primary);
+  flex-shrink: 0;
+}
+
+.eld-template-card__title-section {
+  flex: 1;
+  min-width: 0; /* Allow text truncation */
+}
+
+.eld-template-card__title {
+  font-family: var(--eld-semantic-font-family-heading);
+  font-size: var(--eld-semantic-font-size-body-large);
+  font-weight: var(--eld-primitive-font-weight-semibold);
+  color: var(--eld-semantic-color-text-primary);
+  margin: 0 0 var(--eld-semantic-space-component-gap-xs) 0;
+  line-height: 1.3;
+}
+
+.eld-template-card__subject-grade {
+  font-family: var(--eld-semantic-font-family-button);
+  font-size: var(--eld-semantic-font-size-body-small);
+  font-weight: var(--eld-primitive-font-weight-medium);
+  color: var(--eld-semantic-color-text-secondary);
+  margin: 0;
+}
+
+/* Content section */
+.eld-template-card__content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--eld-semantic-space-component-gap-sm);
+  margin-bottom: var(--eld-semantic-space-component-gap-md);
+}
+
+.eld-template-card__summary {
+  font-family: var(--eld-semantic-font-family-body);
+  font-size: var(--eld-semantic-font-size-body-medium);
+  color: var(--eld-semantic-color-text-primary);
+  margin: 0;
+}
+
+.eld-template-card__interests {
+  font-family: var(--eld-semantic-font-family-body);
+  font-size: var(--eld-semantic-font-size-body-small);
+  color: var(--eld-semantic-color-text-secondary);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.eld-template-card__interests strong {
+  color: var(--eld-semantic-color-text-primary);
+  font-weight: var(--eld-primitive-font-weight-medium);
+}
+
+/* Footer section */
+.eld-template-card__footer {
+  margin-top: auto;
+}
+
+.eld-template-card__button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--eld-semantic-space-component-padding-sm) var(--eld-semantic-space-component-padding-md);
+  background-color: var(--eld-semantic-color-primary);
+  color: var(--eld-semantic-color-primary-contrast);
+  border: none;
+  border-radius: var(--eld-semantic-border-radius-button);
+  font-family: var(--eld-semantic-font-family-button);
+  font-size: var(--eld-semantic-font-size-body-medium);
+  font-weight: var(--eld-primitive-font-weight-medium);
+  cursor: pointer;
+  transition: background-color var(--eld-semantic-motion-duration-fast) var(--eld-semantic-motion-easing-standard);
+}
+
+.eld-template-card__button:hover {
+  background-color: var(--eld-semantic-color-primary-dark);
+}
+
+.eld-template-card__button:focus {
+  outline: var(--eld-semantic-border-width-focus) solid var(--eld-semantic-color-focus);
+  outline-offset: 2px;
+}
+
+/* Loading state */
+.eld-template-card--loading {
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.eld-template-card--loading .eld-template-card__button {
+  background-color: var(--eld-semantic-color-background-disabled);
+  color: var(--eld-semantic-color-text-disabled);
+  cursor: not-allowed;
+}
+
+/* Used state (when template has been applied) */
+.eld-template-card--used {
+  border-color: var(--eld-semantic-color-success);
+  background-color: var(--eld-semantic-color-success-light);
+}
+
+.eld-template-card--used .eld-template-card__button {
+  background-color: var(--eld-semantic-color-success);
+  color: var(--eld-semantic-color-success-contrast);
+}
+
+.eld-template-card--used .eld-template-card__button:hover {
+  background-color: var(--eld-semantic-color-success-dark);
+}
+
+/* Compact variant for smaller spaces */
+.eld-template-card--compact {
+  padding: var(--eld-semantic-space-component-padding-md);
+  min-height: 120px;
+}
+
+.eld-template-card--compact .eld-template-card__header {
+  margin-bottom: var(--eld-semantic-space-component-gap-sm);
+}
+
+.eld-template-card--compact .eld-template-card__icon {
+  width: 32px;
+  height: 32px;
+}
+
+.eld-template-card--compact .eld-template-card__title {
+  font-size: var(--eld-semantic-font-size-body-medium);
+}
+
+.eld-template-card--compact .eld-template-card__subject-grade {
+  font-size: var(--eld-semantic-font-size-body-xs);
+}
+
+.eld-template-card--compact .eld-template-card__content {
+  margin-bottom: var(--eld-semantic-space-component-gap-sm);
+}
+
+/* Responsive design */
+@media (max-width: 480px) {
+  .eld-template-card {
+    padding: var(--eld-semantic-space-component-padding-md);
+    min-height: 140px;
+  }
+
+  .eld-template-card__header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--eld-semantic-space-component-gap-sm);
+  }
+
+  .eld-template-card__icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .eld-template-card__title {
+    font-size: var(--eld-semantic-font-size-body-medium);
+  }
+
+  .eld-template-card__summary,
+  .eld-template-card__interests {
+    font-size: var(--eld-semantic-font-size-body-small);
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .eld-template-card {
+    border-width: 3px;
+  }
+
+  .eld-template-card:focus-within {
+    outline-width: 3px;
+  }
+
+  .eld-template-card__button:focus {
+    outline-width: 3px;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .eld-template-card,
+  .eld-template-card__button {
+    transition: none;
+  }
+
+  .eld-template-card:hover {
+    transform: none;
+  }
+
+  .eld-template-card:active {
+    transform: none;
+  }
+}
+
+/* Focus ring for keyboard navigation */
+.eld-template-card:focus {
+  outline: var(--eld-semantic-border-width-focus) solid var(--eld-semantic-color-focus);
+  outline-offset: 2px;
+}
+
+/* Animation for template application */
+@keyframes template-applied {
+  0% { transform: scale(1); }
+  50% { transform: scale(0.98); }
+  100% { transform: scale(1); }
+}
+
+.eld-template-card--applying {
+  animation: template-applied 0.3s ease-in-out;
+}

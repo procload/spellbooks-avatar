@@ -1,0 +1,14 @@
+<%# Eldritch UI Radio Component %>
+<%# Renders a styled radio button with proper form integration %>
+
+<div <%= tag.attributes(wrapper_attributes) %>>
+  <input <%= tag.attributes(input_attributes) %> />
+  <span class="eld-radio__custom"></span>
+  <label <%= tag.attributes(label_attributes) %>>
+    <% if content.present? %>
+      <%= content %>
+    <% else %>
+      <%= label.to_s.html_safe %>
+    <% end %>
+  </label>
+</div>

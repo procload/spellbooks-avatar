@@ -1,0 +1,288 @@
+/* Sidebar Component Styles */
+.eld-sidebar {
+  position: relative;
+}
+
+/* Desktop Sidebar */
+.eld-sidebar__desktop {
+  position: fixed;
+  left: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 120px;
+  background-color: var(--eld-semantic-color-surface);
+  border: var(--eld-semantic-border-width-strong) solid var(--eld-semantic-color-border);
+  border-radius: 9999px; /* Completely rounded */
+  box-shadow: var(--eld-semantic-shadow-card);
+  z-index: 9998; /* Very high z-index, just below mobile nav */
+  display: none; /* Hidden by default */
+  flex-direction: column;
+  align-items: center;
+  padding: var(--eld-semantic-space-layout-xl) 0;
+  overflow: hidden;
+}
+
+/* Show desktop sidebar on medium screens and up */
+@media (min-width: 768px) {
+  .eld-sidebar__desktop {
+    display: flex;
+  }
+}
+
+/* Add parchment texture background similar to form container */
+.eld-sidebar__desktop::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('/assets/parchment.png');
+  background-repeat: repeat;
+  background-size: 200px 200px;
+  opacity: 0.1;
+  z-index: -1;
+}
+
+.eld-sidebar__nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  gap: var(--eld-semantic-space-layout-lg);
+  margin: auto 0;
+  position: relative;
+  z-index: 1; /* Ensure nav content is above texture */
+}
+
+.eld-sidebar__nav-item {
+  flex: none;
+  position: relative;
+  z-index: 1; /* Ensure nav items are above texture */
+}
+
+.eld-sidebar__link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px; /* Fixed width for consistent spacing */
+  height: 56px; /* Fixed height for consistent spacing */
+  padding: 0; /* No padding - icons fill the space */
+  color: var(--eld-semantic-color-text-primary);
+  text-decoration: none;
+  border-radius: 50%; /* Make active states circular */
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.1s ease;
+  position: relative;
+}
+
+.eld-sidebar__link:hover {
+  background-color: var(--eld-semantic-color-surface-hover);
+  transform: translateY(-1px);
+}
+
+.eld-sidebar__link--active {
+  /* Remove black circle background - no background color */
+  color: var(--eld-semantic-color-primary);
+}
+
+.eld-sidebar__link--active:hover {
+  background-color: var(--eld-semantic-color-surface-hover);
+}
+
+.eld-sidebar__link--primary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%; 
+  background-color: var(--eld-semantic-color-primary);
+  color: var(--eld-semantic-color-text-on-primary);
+  border: var(--eld-semantic-border-width-default) solid var(--eld-semantic-color-primary);
+  box-shadow: var(--eld-semantic-shadow-button);
+  padding: 0;
+  transition: all 0.2s ease;
+}
+
+.eld-sidebar__link--primary:hover {
+  background-color: var(--eld-semantic-color-primary-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--eld-semantic-shadow-card);
+}
+
+.eld-sidebar__link--primary:active {
+  transform: translateY(0px);
+  box-shadow: var(--eld-semantic-shadow-button-pressed);
+}
+
+.eld-sidebar__icon {
+  width: 56px;
+  height: 56px;
+}
+
+.eld-sidebar__icon--primary {
+  width: var(--eld-semantic-icon-size-small);
+  height: var(--eld-semantic-icon-size-small);
+}
+
+.eld-sidebar__settings {
+  flex: none;
+  margin-top: auto;
+  position: relative;
+  z-index: 1; /* Ensure settings section is above texture */
+  padding-top: var(--eld-semantic-space-component-padding-sm); /* Add top spacing for gear icon only on desktop sidebar */
+}
+
+/* Mobile Sidebar */
+.eld-sidebar__mobile {
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  z-index: 9999; /* Very high z-index to ensure it's always on top */
+  display: block; /* Show by default on mobile */
+}
+
+/* Hide mobile sidebar on medium screens and up when desktop sidebar is shown */
+@media (min-width: 768px) {
+  .eld-sidebar__mobile {
+    display: none;
+  }
+}
+
+.eld-sidebar__mobile-button {
+  background: var(--eld-semantic-color-primary);
+  color: var(--eld-semantic-color-text-on-primary);
+  padding: var(--eld-semantic-space-component-padding-sm);
+  border-radius: 50%;
+  border: var(--eld-semantic-border-width-default) solid var(--eld-semantic-color-primary);
+  box-shadow: var(--eld-semantic-shadow-card);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.eld-sidebar__mobile-button:hover {
+  background: var(--eld-semantic-color-primary-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--eld-semantic-shadow-card);
+}
+
+.eld-sidebar__mobile-button:active {
+  transform: translateY(0px);
+  box-shadow: var(--eld-semantic-shadow-button-pressed);
+}
+
+.eld-sidebar__mobile-icon {
+  width: var(--eld-semantic-icon-size-small);
+  height: var(--eld-semantic-icon-size-small);
+}
+
+.eld-sidebar__mobile-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--eld-semantic-color-overlay);
+  z-index: 30;
+}
+
+.eld-sidebar__mobile-overlay--hidden {
+  display: none;
+}
+
+.eld-sidebar__mobile-menu {
+  position: fixed;
+  bottom: 64px;
+  right: 16px;
+  background: var(--eld-semantic-color-surface);
+  border-radius: var(--eld-semantic-border-radius-card);
+  box-shadow: var(--eld-semantic-shadow-card);
+  padding: var(--eld-semantic-space-component-padding-md);
+  z-index: 40;
+  width: 192px;
+}
+
+.eld-sidebar__mobile-menu--hidden {
+  display: none;
+}
+
+.eld-sidebar__mobile-nav {
+  display: flex;
+  flex-direction: column;
+  gap: var(--eld-semantic-space-component-gap-sm);
+}
+
+.eld-sidebar__mobile-link {
+  display: flex;
+  align-items: center;
+  padding: var(--eld-semantic-space-component-padding-xs);
+  color: var(--eld-semantic-color-text-secondary);
+  text-decoration: none;
+  border-radius: var(--eld-semantic-border-radius-button);
+  transition: background-color 0.2s ease;
+  cursor: pointer;
+}
+
+.eld-sidebar__mobile-link:hover {
+  background: var(--eld-semantic-color-surface-hover);
+}
+
+.eld-sidebar__mobile-link-icon {
+  width: var(--eld-semantic-icon-size-xs);
+  height: var(--eld-semantic-icon-size-xs);
+  margin-right: var(--eld-semantic-space-component-gap-sm);
+}
+
+
+
+/* Main Content Layout */
+.eld-main-content {
+  width: 100%;
+  min-height: 100vh;
+  padding: var(--eld-semantic-space-component-padding-md);
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+  .eld-sidebar__desktop {
+    display: flex;
+  }
+  
+  .eld-sidebar__mobile {
+    display: none;
+  }
+  
+  .eld-main-content {
+    padding: var(--eld-semantic-space-component-padding-lg) var(--eld-semantic-space-component-padding-lg) var(--eld-semantic-space-component-padding-lg) 168px; /* 24px + 120px + 24px = 168px */
+  }
+}
+
+/* Ultra-wide screen adjustments - Center the entire layout */
+@media (min-width: 1600px) {
+  .eld-sidebar__desktop {
+    left: calc(50% - 900px + 24px); /* Center within 1800px max width */
+  }
+  
+  .eld-main-content {
+    max-width: 1800px;
+    margin: 0 auto;
+    padding-left: 168px; /* 24px + 120px + 24px = 168px */
+  }
+}
+
+@media (max-width: 767px) {
+  .eld-sidebar__desktop {
+    display: none;
+  }
+  
+  .eld-sidebar__mobile {
+    display: block;
+  }
+  
+  .eld-main-content {
+    padding: var(--eld-semantic-space-component-padding-md);
+  }
+} 

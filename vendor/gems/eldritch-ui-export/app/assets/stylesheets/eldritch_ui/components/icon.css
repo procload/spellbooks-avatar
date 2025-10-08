@@ -1,0 +1,65 @@
+/* Eldritch UI Icon Component Styles */
+
+.eld-icon {
+  display: inline-block;
+  vertical-align: middle;
+  width: var(--eld-semantic-icon-size-medium);
+  height: var(--eld-semantic-icon-size-medium);
+  flex-shrink: 0;
+}
+
+/* Size modifiers */
+.eld-icon--xs {
+  width: var(--eld-semantic-icon-size-xs);
+  height: var(--eld-semantic-icon-size-xs);
+}
+
+.eld-icon--sm {
+  width: var(--eld-semantic-icon-size-small);
+  height: var(--eld-semantic-icon-size-small);
+}
+
+.eld-icon--md {
+  width: var(--eld-semantic-icon-size-medium);
+  height: var(--eld-semantic-icon-size-medium);
+}
+
+.eld-icon--lg {
+  width: var(--eld-semantic-icon-size-large);
+  height: var(--eld-semantic-icon-size-large);
+}
+
+.eld-icon--xl {
+  width: var(--eld-semantic-icon-size-xl);
+  height: var(--eld-semantic-icon-size-xl);
+}
+
+.eld-icon--2xl {
+  width: var(--eld-semantic-icon-size-2xl);
+  height: var(--eld-semantic-icon-size-2xl);
+}
+
+/* Color modifiers */
+.eld-icon--color-primary {
+  color: var(--eld-semantic-color-primary);
+}
+
+.eld-icon--color-secondary {
+  color: var(--eld-semantic-color-secondary);
+}
+
+.eld-icon--color-success {
+  color: var(--eld-semantic-color-success);
+}
+
+.eld-icon--color-warning {
+  color: var(--eld-semantic-color-warning);
+}
+
+.eld-icon--color-danger {
+  color: var(--eld-semantic-color-error);
+}
+
+.eld-icon--color-muted {
+  color: var(--eld-semantic-color-text-muted);
+}

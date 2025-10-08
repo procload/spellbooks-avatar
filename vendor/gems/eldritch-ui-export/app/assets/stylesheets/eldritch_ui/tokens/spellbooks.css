@@ -1,0 +1,196 @@
+/* Spellbooks Theme Tokens */
+/* The default theme for Spellbooks educational platform, featuring a chunky gold/green component style. */
+
+:root {
+  /* Component-specific tokens for Spellbooks theme */
+  
+  /* Typography - Spellbooks Theme (Rubik default, Averia Libre for form inputs) */
+  --eldritch-font-family-headline: var(--eldritch-font-family-rubik);
+  --eldritch-font-family-label: var(--eldritch-font-family-rubik);
+  --eldritch-font-family-body: var(--eldritch-font-family-rubik);
+  --eldritch-font-family-input: var(--eldritch-font-family-winky-sans);
+  --eldritch-font-family-decorative: var(--eldritch-font-family-winky-rough);
+  
+  /* Label-specific styling tokens */
+  --eldritch-label-font-family: var(--eldritch-font-family-label);
+  --eldritch-label-font-size: var(--eldritch-font-size-label);
+  --eldritch-label-font-weight: var(--eldritch-font-weight-label);
+  
+  /* Button - Primary Style (Blue) */
+  --eldritch-component-button-spellbooks-primary-background-color: var(--eldritch-arcane-blue-700);
+  --eldritch-component-button-spellbooks-primary-background-color-hover: var(--eldritch-arcane-blue-600);
+  --eldritch-component-button-spellbooks-primary-text-color: var(--eldritch-color-primary-blue-text);
+  --eldritch-component-button-spellbooks-primary-border-color: var(--eldritch-color-default-border);
+  --eldritch-component-button-spellbooks-primary-box-shadow: var(--eldritch-shadow-strong-emboss);
+  --eldritch-component-button-spellbooks-primary-box-shadow-active: var(--eldritch-shadow-pressed-effect);
+
+  /* Button - Secondary Style (Cream) */
+  --eldritch-component-button-spellbooks-secondary-background-color: var(--eldritch-color-secondary-cream);
+  --eldritch-component-button-spellbooks-secondary-background-color-hover: #f5e6b8;
+  --eldritch-component-button-spellbooks-secondary-text-color: var(--eldritch-color-secondary-cream-text);
+  --eldritch-component-button-spellbooks-secondary-border-color: var(--eldritch-color-default-border);
+  --eldritch-component-button-spellbooks-secondary-box-shadow: var(--eldritch-shadow-strong-emboss);
+  --eldritch-component-button-spellbooks-secondary-box-shadow-active: var(--eldritch-shadow-pressed-effect);
+
+  /* Button - Dark Style */
+  --eldritch-component-button-spellbooks-dark-background-color: #1a1a1a;
+  --eldritch-component-button-spellbooks-dark-background-color-hover: #2a2a2a;
+  --eldritch-component-button-spellbooks-dark-text-color: #ffffff;
+  --eldritch-component-button-spellbooks-dark-border-color: #1a1a1a;
+  --eldritch-component-button-spellbooks-dark-box-shadow: var(--eldritch-shadow-strong-emboss);
+  --eldritch-component-button-spellbooks-dark-box-shadow-active: var(--eldritch-shadow-pressed-effect);
+
+  /* Button - Warning Style (Orange) */
+  --eldritch-component-button-spellbooks-warning-background-color: var(--eldritch-color-warning-orange);
+  --eldritch-component-button-spellbooks-warning-background-color-hover: #E55F2E;
+  --eldritch-component-button-spellbooks-warning-text-color: var(--eldritch-color-warning-orange-text);
+  --eldritch-component-button-spellbooks-warning-border-color: var(--eldritch-color-default-border);
+  --eldritch-component-button-spellbooks-warning-box-shadow: var(--eldritch-shadow-strong-emboss);
+  --eldritch-component-button-spellbooks-warning-box-shadow-active: var(--eldritch-shadow-pressed-effect);
+
+  /* Button - Shared Properties (Using Rubik fonts) */
+  --eldritch-component-button-spellbooks-font-family: var(--eldritch-font-family-rubik);
+  --eldritch-component-button-spellbooks-font-weight: var(--eldritch-font-weight-medium);
+  --eldritch-component-button-spellbooks-border-radius: var(--eldritch-border-radius-xl);
+  --eldritch-component-button-spellbooks-border-width: var(--eldritch-border-width-lg);
+  --eldritch-component-button-spellbooks-border-width-active: var(--eldritch-border-width-md);
+  --eldritch-component-button-spellbooks-text-transform: none;
+  --eldritch-component-button-spellbooks-line-height: 1.2;
+
+  /* Button - Small Size (More subtle styling) */
+  --eldritch-component-button-spellbooks-small-font-size: var(--eldritch-font-size-small);
+  --eldritch-component-button-spellbooks-small-padding-y: 4px;
+  --eldritch-component-button-spellbooks-small-padding-x: var(--eldritch-padding-small);
+  --eldritch-component-button-spellbooks-small-border-width: var(--eldritch-border-width-md);
+  --eldritch-component-button-spellbooks-small-border-width-active: var(--eldritch-border-width-thin);
+  --eldritch-component-button-spellbooks-small-box-shadow: var(--eldritch-shadow-medium-emboss);
+  --eldritch-component-button-spellbooks-small-box-shadow-active: var(--eldritch-shadow-pressed-effect);
+
+  /* Button - Default Size */
+  --eldritch-component-button-spellbooks-default-font-size: var(--eldritch-font-size-xl);
+  --eldritch-component-button-spellbooks-default-padding-y: var(--eldritch-padding-xxs);
+  --eldritch-component-button-spellbooks-default-padding-x: var(--eldritch-padding-large);
+
+  /* Button - Large Size */
+  --eldritch-component-button-spellbooks-large-font-size: 24px;
+  --eldritch-component-button-spellbooks-large-padding-y: var(--eldritch-padding-small);
+  --eldritch-component-button-spellbooks-large-padding-x: 2rem;
+
+  /* Pill Component - inherits from button but with own size-specific tokens */
+  /* Pill - Small Size (More subtle styling) */
+  --eldritch-component-pill-spellbooks-small-border-width: var(--eldritch-border-width-md);
+  --eldritch-component-pill-spellbooks-small-border-width-active: var(--eldritch-border-width-thin);
+  --eldritch-component-pill-spellbooks-small-box-shadow: var(--eldritch-shadow-medium-emboss);
+  --eldritch-component-pill-spellbooks-small-box-shadow-active: var(--eldritch-shadow-pressed-effect);
+
+  /* Text Input Component */
+  --eldritch-component-text-input-spellbooks-default-background-color: #f0f1f3;
+  --eldritch-component-text-input-spellbooks-default-background-color-focus: #ffffff;
+  --eldritch-component-text-input-spellbooks-default-text-color: #21232c;
+  --eldritch-component-text-input-spellbooks-default-border-color: var(--eldritch-color-default-border);
+  --eldritch-component-text-input-spellbooks-default-font-family: var(--eldritch-font-family-input);
+  --eldritch-component-text-input-spellbooks-default-font-size: var(--eldritch-font-size-xl);
+  --eldritch-component-text-input-spellbooks-default-font-weight: var(--eldritch-font-weight-regular);
+  --eldritch-component-text-input-spellbooks-default-text-transform: none;
+  --eldritch-component-text-input-spellbooks-default-line-height: 32px;
+  --eldritch-component-text-input-spellbooks-default-padding-y: var(--eldritch-padding-xxs);
+  --eldritch-component-text-input-spellbooks-default-padding-x: var(--eldritch-padding-large);
+  --eldritch-component-text-input-spellbooks-default-border-radius: 16px;
+  --eldritch-component-text-input-spellbooks-default-border-width: var(--eldritch-border-width-lg);
+  --eldritch-component-text-input-spellbooks-default-box-shadow: var(--eldritch-shadow-medium-emboss);
+
+  /* Textarea Component */
+  --eldritch-component-textarea-spellbooks-background-color: var(--eldritch-color-input-background);
+  --eldritch-component-textarea-spellbooks-background-color-focus: var(--eldritch-color-white);
+  --eldritch-component-textarea-spellbooks-text-color: var(--eldritch-color-text-on-background);
+  --eldritch-component-textarea-spellbooks-border-color: var(--eldritch-color-default-border);
+  --eldritch-component-textarea-spellbooks-font-family: var(--eldritch-font-family-input);
+  --eldritch-component-textarea-spellbooks-font-size: var(--eldritch-font-size-xl);
+  --eldritch-component-textarea-spellbooks-font-weight: var(--eldritch-font-weight-regular);
+  --eldritch-component-textarea-spellbooks-text-transform: var(--eldritch-text-transform-input);
+  --eldritch-component-textarea-spellbooks-line-height: var(--eldritch-line-height-input);
+  --eldritch-component-textarea-spellbooks-padding-y: var(--eldritch-padding-xxs);
+  --eldritch-component-textarea-spellbooks-padding-x: var(--eldritch-padding-large);
+  --eldritch-component-textarea-spellbooks-border-radius: var(--eldritch-border-radius-lg);
+  --eldritch-component-textarea-spellbooks-border-width: var(--eldritch-border-width-lg);
+  --eldritch-component-textarea-spellbooks-box-shadow: var(--eldritch-shadow-strong-emboss);
+
+  /* Checkbox Component */
+  --eldritch-component-checkbox-spellbooks-default-background-color: #f0f1f3;
+  --eldritch-component-checkbox-spellbooks-default-background-color-checked: var(--eldritch-color-brand-gold-700);
+  --eldritch-component-checkbox-spellbooks-default-border-color: var(--eldritch-color-default-border);
+  --eldritch-component-checkbox-spellbooks-default-border-width: var(--eldritch-border-width-md);
+  --eldritch-component-checkbox-spellbooks-default-border-radius: var(--eldritch-border-radius-medium);
+  --eldritch-component-checkbox-spellbooks-default-box-shadow: var(--eldritch-shadow-weak-emboss);
+  --eldritch-component-checkbox-spellbooks-default-size: 24px;
+
+  /* Radio Component */
+  --eldritch-component-radio-spellbooks-default-background-color: #f0f1f3;
+  --eldritch-component-radio-spellbooks-default-background-color-checked: var(--eldritch-color-brand-gold-700);
+  --eldritch-component-radio-spellbooks-default-border-color: var(--eldritch-color-default-border);
+  --eldritch-component-radio-spellbooks-default-border-color-checked: var(--eldritch-color-brand-gold-700);
+  --eldritch-component-radio-spellbooks-default-border-color-hover: var(--eldritch-color-brand-gold-600);
+  --eldritch-component-radio-spellbooks-default-border-width: var(--eldritch-border-width-md);
+  --eldritch-component-radio-spellbooks-default-border-radius: 50%;
+  --eldritch-component-radio-spellbooks-default-box-shadow: var(--eldritch-shadow-weak-emboss);
+  --eldritch-component-radio-spellbooks-default-size: 24px;
+  --eldritch-component-radio-spellbooks-default-dot-size: 12px;
+  --eldritch-component-radio-spellbooks-default-dot-color: var(--eldritch-color-default-border);
+  --eldritch-component-radio-spellbooks-default-font-family: var(--eldritch-font-family-body);
+  --eldritch-component-radio-spellbooks-default-font-size: var(--eldritch-font-size-medium);
+  --eldritch-component-radio-spellbooks-default-font-weight: var(--eldritch-font-weight-medium);
+  --eldritch-component-radio-spellbooks-default-text-color: var(--eldritch-color-text-on-background);
+  --eldritch-component-radio-spellbooks-default-line-height: 2.25;
+  --eldritch-component-radio-spellbooks-default-legend-font-family: var(--eldritch-font-family-body);
+  --eldritch-component-radio-spellbooks-default-legend-font-size: var(--eldritch-font-size-large);
+  --eldritch-component-radio-spellbooks-default-legend-font-weight: var(--eldritch-font-weight-semibold);
+  --eldritch-component-radio-spellbooks-default-legend-text-color: var(--eldritch-color-text-on-background);
+
+  /* Field Component */
+  --eldritch-component-field-spellbooks-default-gap: var(--eldritch-gap-small);
+  --eldritch-component-field-spellbooks-default-label-font-family: var(--eldritch-font-family-label);
+  --eldritch-component-field-spellbooks-default-label-font-size: var(--eldritch-font-size-xl);
+  --eldritch-component-field-spellbooks-default-label-font-weight: var(--eldritch-font-weight-semibold);
+  --eldritch-component-field-spellbooks-default-label-color: var(--eldritch-color-text-on-background);
+  --eldritch-component-field-spellbooks-default-message-font-family: var(--eldritch-font-family-body);
+  --eldritch-component-field-spellbooks-default-message-font-size: var(--eldritch-font-size-medium);
+  --eldritch-component-field-spellbooks-default-message-font-weight: var(--eldritch-font-weight-medium);
+  --eldritch-component-field-spellbooks-default-error-color: #e04a3d;
+  --eldritch-component-field-spellbooks-default-success-color: #4CAF50;
+  --eldritch-component-field-spellbooks-default-warning-color: #FFC107;
+  --eldritch-component-field-spellbooks-default-info-color: var(--eldritch-color-brand-gold-600);
+
+  /* Assignment Card Component */
+  --eldritch-component-assignment-card-spellbooks-background-color: var(--eldritch-color-input-background);
+  --eldritch-component-assignment-card-spellbooks-border-color: #2a2a2a;
+  --eldritch-component-assignment-card-spellbooks-border-width: var(--eldritch-border-width-lg);
+  --eldritch-component-assignment-card-spellbooks-border-radius: var(--eldritch-border-radius-lg);
+  --eldritch-component-assignment-card-spellbooks-box-shadow: var(--eldritch-shadow-strong-emboss);
+  --eldritch-component-assignment-card-spellbooks-padding: 2rem;
+  --eldritch-component-assignment-card-spellbooks-gap: var(--eldritch-gap-medium);
+  --eldritch-component-assignment-card-spellbooks-title-font-family: var(--eldritch-font-family-headline);
+  --eldritch-component-assignment-card-spellbooks-title-font-size: var(--eldritch-font-size-xl);
+  --eldritch-component-assignment-card-spellbooks-title-font-weight: var(--eldritch-font-weight-bold);
+  --eldritch-component-assignment-card-spellbooks-title-color: var(--eldritch-color-text-on-background);
+  --eldritch-component-assignment-card-spellbooks-meta-font-family: var(--eldritch-font-family-body);
+  --eldritch-component-assignment-card-spellbooks-meta-font-size: var(--eldritch-font-size-small);
+  --eldritch-component-assignment-card-spellbooks-meta-font-weight: var(--eldritch-font-weight-medium);
+  --eldritch-component-assignment-card-spellbooks-meta-color: var(--eldritch-color-default-border);
+  --eldritch-component-assignment-card-spellbooks-separator-color: var(--eldritch-color-);
+
+  /* Link Component */
+  /* Default text-style link */
+  --eldritch-component-link-spellbooks-default-color: var(--eldritch-color-primary-blue);
+  --eldritch-component-link-spellbooks-default-color-hover: #4A8BC2;
+  --eldritch-component-link-spellbooks-default-color-visited: #6B46C1;
+  --eldritch-component-link-spellbooks-default-color-active: #2563EB;
+  --eldritch-component-link-spellbooks-default-text-decoration: underline;
+  --eldritch-component-link-spellbooks-default-text-decoration-hover: none;
+  --eldritch-component-link-spellbooks-default-font-weight: var(--eldritch-font-weight-medium);
+
+  /* Muted link style */
+  --eldritch-component-link-spellbooks-muted-color: var(--eldritch-color-text-on-surface);
+  --eldritch-component-link-spellbooks-muted-color-hover: var(--eldritch-color-text-on-background);
+  --eldritch-component-link-spellbooks-muted-text-decoration: none;
+  --eldritch-component-link-spellbooks-muted-text-decoration-hover: underline;
+}

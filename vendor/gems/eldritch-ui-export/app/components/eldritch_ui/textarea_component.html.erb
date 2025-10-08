@@ -1,0 +1,21 @@
+<div <%= tag.attributes(html_attributes) %>>
+  <% if label.present? %>
+    <%= tag.label(label, **label_attributes) %>
+  <% end %>
+
+  <div class="eld-attached-field__input">
+    <%= tag.textarea(value, **textarea_attributes) %>
+  </div>
+
+  <% if description.present? %>
+    <div id="<%= description_id %>" class="eld-attached-field__description">
+      <%= description %>
+    </div>
+  <% end %>
+
+  <% if error_message.present? %>
+    <div id="<%= error_id %>" class="eld-attached-field__error" role="alert">
+      <%= error_message %>
+    </div>
+  <% end %>
+</div> 

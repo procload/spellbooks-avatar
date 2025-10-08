@@ -1,0 +1,37 @@
+<div <%= tag.attributes(html_attributes) %>>
+  <% if label.present? %>
+    <%= tag.label(label, **label_attributes) %>
+  <% end %>
+
+  <div class="eld-attached-field__input">
+    <%= content_tag :select, select_attributes do %>
+      <% if show_placeholder? %>
+        <%= content_tag :option, placeholder, 
+              value: "", 
+              disabled: true, 
+              selected: value.blank? %>
+      <% end %>
+      
+      <% processed_options.each do |option| %>
+        <%= content_tag :option, option[:label],
+              value: option[:value],
+              disabled: option[:disabled],
+              selected: option[:selected] %>
+      <% end %>
+      
+      <%= content %>
+    <% end %>
+  </div>
+
+  <% if description.present? %>
+    <div id="<%= description_id %>" class="eld-attached-field__description">
+      <%= description %>
+    </div>
+  <% end %>
+
+  <% if error_message.present? %>
+    <div id="<%= error_id %>" class="eld-attached-field__error" role="alert">
+      <%= error_message %>
+    </div>
+  <% end %>
+</div> 

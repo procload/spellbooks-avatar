@@ -1,0 +1,11 @@
+<div <%= tag.attributes(component_tag_attributes) %>>
+  <div class="<%= content_classes %>">
+    <div class="<%= spinner_classes %>"></div>
+    
+    <% if has_message? %>
+      <p class="<%= message_classes %>">
+        <%= message %>
+      </p>
+    <% end %>
+  </div>
+</div> 

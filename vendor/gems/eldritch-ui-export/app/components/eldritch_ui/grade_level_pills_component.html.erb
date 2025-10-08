@@ -1,0 +1,57 @@
+<%= tag.div(**container_attributes) do %>
+  <%= render EldritchUi::FieldComponent.new(
+    label: "Grade Level",
+    required: required
+  ) do %>
+
+    <!-- Hidden input to store the selected value -->
+    <%= hidden_field_tag name, value, id: id %>
+
+    <!-- Grade group pills -->
+    <div class="eld-grade-level-pills__groups" data-grade-level-pills-target="groups" style="display: flex; gap: 8px; flex-wrap: wrap; margin: 10px 0;">
+      <% grade_groups.each do |group| %>
+        <button type="button"
+                class="eld-pill eld-pill--interactive eld-grade-level-pills__group-pill"
+                data-value="<%= group[:value] %>"
+                data-action="click->grade-level-pills#selectGroup"
+                data-grade-level-pills-target="groupPill"
+                <%= "data-selected='true'" if selected?(group[:value]) %>>
+          <%= group[:label] %>
+        </button>
+      <% end %>
+
+      <!-- More button -->
+      <button type="button"
+              class="eld-pill eld-pill--interactive eld-grade-level-pills__more-pill"
+              data-action="click->grade-level-pills#showIndividual"
+              data-grade-level-pills-target="morePill">
+        More...
+      </button>
+    </div>
+
+    <!-- Individual grade pills (hidden by default) -->
+    <div class="eld-grade-level-pills__individual" data-grade-level-pills-target="individual" style="display: none;">
+      <div class="eld-grade-level-pills__back-button">
+        <button type="button"
+                class="eld-pill eld-pill--interactive eld-grade-level-pills__back-pill"
+                data-action="click->grade-level-pills#showGroups">
+          ← Back to groups
+        </button>
+      </div>
+
+      <div class="eld-grade-level-pills__individual-list">
+        <% individual_grades.each do |grade| %>
+          <button type="button"
+                  class="eld-pill eld-pill--interactive eld-grade-level-pills__individual-pill"
+                  data-value="<%= grade %>"
+                  data-action="click->grade-level-pills#selectGrade"
+                  data-grade-level-pills-target="individualPill"
+                  <%= "data-selected='true'" if selected?(grade) %>>
+            <%= grade %>
+          </button>
+        <% end %>
+      </div>
+    </div>
+
+  <% end %>
+<% end %>

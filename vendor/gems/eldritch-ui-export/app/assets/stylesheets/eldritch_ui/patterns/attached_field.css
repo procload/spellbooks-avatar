@@ -1,0 +1,130 @@
+/* Attached Field Pattern - EldritchUi Design System */
+/* Shared styling for form fields with attached label tabs */
+
+/* Base attached field container */
+.eld-attached-field {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--eldritch-font-family-input);
+  position: relative;
+}
+
+/* Attached label tab styling */
+.eld-attached-field__label {
+  display: inline-block;
+  
+  /* Label tab styling - using design system colors */
+  background: var(--eld-semantic-color-secondary);
+  color: var(--eld-semantic-color-text-on-secondary);
+  
+  /* Typography using design tokens */
+  font-family: var(--eld-semantic-font-family-label);
+  font-size: var(--eld-semantic-font-size-label);
+  font-weight: var(--eldritch-label-font-weight);
+  text-transform: uppercase;
+  
+  /* Pill shape with connected bottom */
+  padding: var(--eldritch-padding-xxs) var(--eldritch-padding-medium);
+  border-radius: var(--eldritch-border-radius-lg) var(--eldritch-border-radius-lg) 0 0;
+  
+  /* Border without bottom to connect to input */
+  border: var(--eld-semantic-border-width-strong) solid var(--eld-semantic-color-border-default);
+  border-bottom: none;
+  
+  /* Emboss effect */
+  box-shadow: var(--eldritch-component-button-spellbooks-primary-box-shadow);
+  
+  /* Positioning for attachment */
+  position: relative;
+  z-index: 3;
+}
+
+/* Attached input/select/textarea container */
+.eld-attached-field__input {
+  position: relative;
+  z-index: 2;
+  background: var(--eld-semantic-color-surface);
+  border: var(--eld-semantic-border-width-strong) solid var(--eld-semantic-color-border-default);
+  border-radius: 0 0 var(--eldritch-border-radius-lg) var(--eldritch-border-radius-lg);
+  box-shadow: var(--eldritch-component-button-spellbooks-primary-box-shadow);
+}
+
+/* Required indicator */
+.eld-attached-field--required .eld-attached-field__label::after {
+  content: " *";
+  color: var(--eld-semantic-color-error);
+}
+
+/* Standalone variant - for fields without attached labels */
+.eld-attached-field--standalone .eld-attached-field__input {
+  border-radius: var(--eldritch-border-radius-lg);
+  border: var(--eld-semantic-border-width-strong) solid var(--eld-semantic-color-border-default);
+  box-shadow: var(--eldritch-component-button-spellbooks-primary-box-shadow);
+}
+
+.eld-attached-field--standalone .eld-attached-field__label {
+  display: block;
+  font-family: var(--eld-semantic-font-family-label);
+  font-size: var(--eld-semantic-font-size-label);
+  font-weight: var(--eldritch-label-font-weight);
+  text-transform: uppercase;
+  margin-bottom: var(--eldritch-margin-small);
+  background: none;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  position: static;
+  z-index: auto;
+}
+
+/* Size variants */
+.eld-attached-field--small .eld-attached-field__label {
+  font-size: var(--eldritch-font-size-small);
+  padding: calc(var(--eldritch-padding-xxs) / 2) var(--eldritch-padding-small);
+}
+
+.eld-attached-field--large .eld-attached-field__label {
+  font-size: var(--eldritch-font-size-large);
+  padding: var(--eldritch-padding-xs) var(--eldritch-padding-large);
+}
+
+/* Hover state */
+.eld-attached-field__input:hover:not(.eld-attached-field--disabled) {
+  background: #ffffff;
+}
+
+/* Focus state */
+.eld-attached-field__input:focus-within {
+  background: #ffffff;
+}
+
+/* Active state */
+.eld-attached-field__input:active {
+  background: #ffffff;
+}
+
+/* Disabled state */
+.eld-attached-field--disabled {
+  opacity: 0.6;
+}
+
+.eld-attached-field--disabled .eld-attached-field__label {
+  cursor: not-allowed;
+}
+
+.eld-attached-field--disabled .eld-attached-field__input {
+  background-color: var(--eld-semantic-color-surface);
+  border-color: var(--eldritch-border-color-default);
+  cursor: not-allowed;
+  box-shadow: none;
+  opacity: 0.5;
+}
+
+/* Error state */
+.eld-attached-field--error .eld-attached-field__input {
+  border-color: var(--eld-semantic-color-error);
+}
+
+.eld-attached-field--error .eld-attached-field__input:focus-within {
+  outline-color: var(--eld-semantic-color-error);
+} 

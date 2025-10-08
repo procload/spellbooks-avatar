@@ -1,0 +1,573 @@
+/* Eldritch UI Utilities */
+/* Reusable utility classes for common styling patterns */
+
+/* Debug class to test if CSS is loading */
+.eld-debug-red-border {
+  border: 5px solid red !important;
+}
+
+/* Texture Backgrounds */
+.eld-texture-parchment {
+  background-image: url("/parchment.png");
+  background-repeat: repeat;
+  background-size: auto;
+  background-position: 0 0;
+  position: relative;
+}
+
+/* Subtle texture overlay that can be combined with solid colors */
+.eld-texture-parchment--overlay {
+  background-image: url("/parchment.png");
+  background-repeat: repeat;
+  background-size: auto;
+  background-position: 0 0;
+  background-blend-mode: multiply;
+  position: relative;
+}
+
+/* Light texture variant - reduces opacity for subtle effect */
+.eld-texture-parchment--light {
+  position: relative;
+}
+
+.eld-texture-parchment--light::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("/parchment.png");
+  background-repeat: repeat;
+  background-size: auto;
+  background-position: 0 0;
+  opacity: 0.1;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.eld-texture-parchment--light > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Medium texture variant */
+.eld-texture-parchment--medium {
+  position: relative;
+}
+
+.eld-texture-parchment--medium::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("/parchment.png");
+  background-repeat: repeat;
+  background-size: auto;
+  background-position: 0 0;
+  opacity: 0.3;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.eld-texture-parchment--medium > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Strong texture variant */
+.eld-texture-parchment--strong {
+  position: relative;
+}
+
+.eld-texture-parchment--strong::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("/parchment.png");
+  background-repeat: repeat;
+  background-size: auto;
+  background-position: 0 0;
+  opacity: 0.6;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.eld-texture-parchment--strong > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Utility for ensuring content stays above texture overlays */
+.eld-content-above-texture {
+  position: relative;
+  z-index: 1;
+}
+
+/* Banner styles have been moved to app/assets/stylesheets/eldritch_ui/components/banner.css */
+
+/* Layout Utilities */
+.eld-full-width {
+  width: 100%;
+}
+
+.eld-full-height {
+  height: 100%;
+}
+
+.eld-min-full-height {
+  min-height: 100vh;
+}
+
+.eld-container {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .eld-container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .eld-container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* Flexbox Utilities */
+.eld-flex {
+  display: flex;
+}
+
+.eld-flex-col {
+  flex-direction: column;
+}
+
+.eld-items-center {
+  align-items: center;
+}
+
+.eld-justify-center {
+  justify-content: center;
+}
+
+.eld-justify-between {
+  justify-content: space-between;
+}
+
+/* Spacing Utilities */
+.eld-p-4 {
+  padding: 1rem;
+}
+
+.eld-p-8 {
+  padding: 2rem;
+}
+
+.eld-py-4 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.eld-py-8 {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.eld-py-12 {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.eld-px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.eld-px-8 {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.eld-mt-auto {
+  margin-top: auto;
+}
+
+.eld-ml-2 {
+  margin-left: 0.5rem;
+}
+
+/* Responsive Spacing */
+@media (min-width: 768px) {
+  .eld-md-py-8 {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+  
+  .eld-md-px-8 {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* Background Colors */
+.eld-bg-surface {
+  background-color: var(--eld-semantic-color-surface);
+}
+
+.eld-bg-background {
+  background-color: var(--eld-semantic-color-background);
+}
+
+.eld-bg-neutral-50 {
+  background-color: var(--eld-primitive-color-neutral-50);
+}
+
+/* Text Colors */
+.eld-text-primary {
+  color: var(--eld-semantic-color-text-primary);
+}
+
+.eld-text-secondary {
+  color: var(--eld-semantic-color-text-secondary);
+}
+
+.eld-text-muted {
+  color: var(--eld-semantic-color-text-muted);
+}
+
+/* Typography */
+.eld-text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+.eld-text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.eld-font-semibold {
+  font-weight: 600;
+}
+
+/* Header/Navigation */
+.eld-header {
+  background-color: var(--eld-semantic-color-surface);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+
+.eld-header-height {
+  height: 4rem;
+}
+
+/* Logo sizing */
+.eld-logo-sm {
+  height: 2rem;
+  width: 2rem;
+}
+
+/* Text Center */
+.eld-text-center {
+  text-align: center;
+}
+
+/* Text Sizing */
+.eld-text-4xl {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
+
+/* Font Weight */
+.eld-font-bold {
+  font-weight: 700;
+}
+
+/* Spacing Utilities */
+.eld-space-y-6 > * + * {
+  margin-top: 1.5rem;
+}
+
+.eld-space-x-4 > * + * {
+  margin-left: 1rem;
+}
+
+.eld-mt-8 {
+  margin-top: 2rem;
+}
+
+/* Display Utilities */
+.eld-inline-flex {
+  display: inline-flex;
+}
+
+/* Status Badge Styles */
+.eld-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  padding: 0.125rem 0.5rem;
+  border-radius: 9999px;
+  margin-bottom: 0.5rem;
+}
+
+.eld-status-badge--success {
+  color: var(--eld-semantic-color-success-dark);
+  background-color: var(--eld-semantic-color-success-light);
+}
+
+.eld-status-badge-icon {
+  height: 0.75rem;
+  width: 0.75rem;
+}
+
+/* Link Styling */
+.eld-link {
+  color: var(--eld-semantic-color-text-primary);
+  text-decoration: underline;
+  display: inline-flex;
+  align-items: center;
+}
+
+.eld-link:hover {
+  color: var(--eld-semantic-color-text-secondary);
+}
+
+/* No Wrap */
+.eld-whitespace-nowrap {
+  white-space: nowrap;
+}
+
+/* Animation */
+@keyframes eld-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.eld-animate-spin {
+  animation: eld-spin 1s linear infinite;
+}
+
+/* Size Utilities */
+.eld-h-5 {
+  height: 1.25rem;
+}
+
+.eld-w-5 {
+  width: 1.25rem;
+}
+
+.eld-h-6 {
+  height: 1.5rem;
+}
+
+.eld-w-6 {
+  width: 1.5rem;
+}
+
+/* Opacity */
+.eld-opacity-25 {
+  opacity: 0.25;
+}
+
+.eld-opacity-75 {
+  opacity: 0.75;
+}
+
+/* Display */
+.eld-hidden {
+  display: none;
+}
+
+/* Rounded */
+.eld-rounded-lg {
+  border-radius: 0.5rem;
+}
+
+.eld-rounded-full {
+  border-radius: 9999px;
+}
+
+/* Border */
+.eld-border-b-2 {
+  border-bottom-width: 2px;
+}
+
+/* More Margin Utilities */
+.eld-mt-2 {
+  margin-top: 0.5rem;
+}
+
+.eld-mt-4 {
+  margin-top: 1rem;
+}
+
+/* More Padding Utilities */
+.eld-p-2 {
+  padding: 0.5rem;
+}
+
+.eld-p-6 {
+  padding: 1.5rem;
+}
+
+/* Feedback Colors */
+.eld-feedback-success {
+  background-color: var(--eld-semantic-color-success-light);
+  color: var(--eld-semantic-color-success-dark);
+}
+
+.eld-feedback-error {
+  background-color: var(--eld-semantic-color-error-light);
+  color: var(--eld-semantic-color-error-dark);
+}
+
+/* Font Weight */
+.eld-font-medium {
+  font-weight: 500;
+}
+
+/* Box Shadow */
+.eld-shadow-lg {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Background Surface */
+.eld-bg-white {
+  background-color: var(--eld-semantic-color-surface);
+}
+
+/* More Margin Utilities */
+.eld-mt-6 {
+  margin-top: 1.5rem;
+}
+
+.eld-mb-4 {
+  margin-bottom: 1rem;
+}
+
+.eld-mb-2 {
+  margin-bottom: 0.5rem;
+}
+
+/* Vertical rhythm for QA blocks */
+.eld-qa-block {
+  margin-bottom: 2rem; /* 32px for clear separation */
+}
+
+/* Gap Utilities */
+.eld-gap-2 {
+  gap: 0.5rem;
+}
+
+.eld-gap-3 {
+  gap: 0.75rem;
+}
+
+.eld-gap-4 {
+  gap: 1rem;
+}
+
+.eld-space-x-3 > * + * {
+  margin-left: 0.75rem;
+}
+
+/* Text Size */
+.eld-text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
+/* Position */
+.eld-absolute {
+  position: absolute;
+}
+
+.eld-relative {
+  position: relative;
+}
+
+.eld-inset-0 {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+/* Z-Index */
+.eld-z-10 {
+  z-index: 10;
+}
+
+/* Backdrop */
+.eld-backdrop-blur-sm {
+  backdrop-filter: blur(4px);
+}
+
+/* Background with opacity */
+.eld-bg-black-50 {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Justify and align */
+.eld-justify-end {
+  justify-content: flex-end;
+}
+
+/* Vertical Spacing */
+.eld-space-y-2 > * + * {
+  margin-top: 0.5rem;
+}
+
+.eld-space-y-3 > * + * {
+  margin-top: 0.75rem;
+}
+
+.eld-space-y-4 > * + * {
+  margin-top: 1rem;
+}
+
+.eld-space-y-6 > * + * {
+  margin-top: 1.5rem;
+}
+
+/* Horizontal Spacing */
+.eld-space-x-2 > * + * {
+  margin-left: 0.5rem;
+}
+
+.eld-space-x-4 > * + * {
+  margin-left: 1rem;
+}
+
+/* Question separators */
+.eld-hr-separator {
+  border: none;
+  height: 1px;
+  background-color: var(--eld-semantic-color-border);
+  margin: 2rem 0;
+  opacity: 0.3;
+}
+
+.eld-my-8 {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+} 

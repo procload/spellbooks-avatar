@@ -1,0 +1,26 @@
+<%= tag.div(**container_attributes) do %>
+  <% if title.present? %>
+    <div class="eld-popular-tags__title">
+      <%= title %>
+      <%= render EldritchUi::TooltipComponent.new(
+            text: "Click to add interests that make assignments more engaging for students",
+            position: :top
+          ) %>
+    </div>
+  <% end %>
+
+  <div class="eld-popular-tags__list">
+    <% popular_tags.each do |tag_name| %>
+      <%= render EldritchUi::PillComponent.new(
+        text: tag_name,
+        interactive: true,
+        selected: false,
+        data: {
+          action: "click->popular-tags#selectTag",
+          tag: tag_name
+        },
+        class: "eld-popular-tags__tag"
+      ) %>
+    <% end %>
+  </div>
+<% end %>

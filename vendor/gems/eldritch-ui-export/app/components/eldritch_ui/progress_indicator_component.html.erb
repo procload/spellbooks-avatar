@@ -1,0 +1,29 @@
+<%# Eldritch UI Progress Indicator Component %>
+<%# Displays a horizontal progress bar with step labels %>
+
+<div <%= tag.attributes(component_attributes) %>
+     role="progressbar"
+     aria-valuenow="<%= progress_percentage.round %>"
+     aria-valuemin="0"
+     aria-valuemax="100"
+     aria-label="Progress: <%= progress_percentage.round %>% complete">
+
+  <div class="eld-progress-indicator__container">
+    <%# Animated progress bar %>
+    <div class="eld-progress-indicator__bar"
+         style="width: <%= progress_percentage %>%;"
+         data-eldritch-ui--progress-indicator-target="progressBar">
+    </div>
+
+    <%# Step labels overlay %>
+    <div class="eld-progress-indicator__labels">
+      <% steps.each_with_index do |step_label, index| %>
+        <div class="eld-progress-indicator__label
+                    eld-progress-indicator__label--<%= step_progress_state(index) %>"
+             data-step-index="<%= index %>">
+          <%= step_label %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

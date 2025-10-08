@@ -1,0 +1,16 @@
+/* Eldritch UI Component Library - Propshaft Compatible */
+/* With Propshaft, CSS files are loaded directly by Rails using :all */
+/* No @import statements needed - each CSS file is loaded individually */
+
+/* Eldritch UI Component Library */
+/* Main entry point - colors loaded separately via color-system.css */
+
+/* Global Label Styles */
+.eld-label {
+  display: block;
+  font-family: var(--eldritch-label-font-family);
+  font-size: 14px;
+  font-weight: var(--eldritch-label-font-weight);
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+} 

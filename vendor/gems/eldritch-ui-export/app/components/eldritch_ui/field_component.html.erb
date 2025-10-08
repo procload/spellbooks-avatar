@@ -1,0 +1,21 @@
+<%= content_tag :div, container_attributes do %>
+  <% if label? %>
+    <div class="eld-field__label">
+      <%= label %>
+    </div>
+  <% end %>
+
+  <div class="eld-field__input">
+    <%= input %>
+  </div>
+
+  <% if show_message? %>
+    <div class="<%= message_css_classes %>" id="<%= message_id %>">
+      <% if message? %>
+        <%= message %>
+      <% elsif @message.present? %>
+        <%= @message %>
+      <% end %>
+    </div>
+  <% end %>
+<% end %> 

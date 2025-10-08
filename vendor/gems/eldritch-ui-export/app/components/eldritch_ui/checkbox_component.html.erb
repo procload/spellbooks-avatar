@@ -1,0 +1,26 @@
+<div <%= tag.attributes(html_attributes) %>>
+  <div class="eld-checkbox__control">
+    <%= tag.input(**checkbox_attributes) %>
+    <span class="eld-checkbox__indicator">
+      <svg class="eld-checkbox__check" viewBox="0 0 16 16" aria-hidden="true">
+        <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+      </svg>
+    </span>
+  </div>
+
+  <% if label.present? %>
+    <%= tag.label(label, **label_attributes) %>
+  <% end %>
+
+  <% if description.present? %>
+    <div id="<%= description_id %>" class="eld-checkbox__description">
+      <%= description %>
+    </div>
+  <% end %>
+
+  <% if error_message.present? %>
+    <div id="<%= error_id %>" class="eld-checkbox__error" role="alert">
+      <%= error_message %>
+    </div>
+  <% end %>
+</div> 

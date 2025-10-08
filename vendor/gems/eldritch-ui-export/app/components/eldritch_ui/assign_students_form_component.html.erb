@@ -1,0 +1,164 @@
+<div <%= tag.attributes(component_tag_attributes) %>>
+  <% if show_warning_note? %>
+    <div class="eld-assign-students-form__warning-note">
+      <div class="eld-assign-students-form__warning-icon">
+        <svg class="eld-assign-students-form__warning-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+        </svg>
+      </div>
+      <div class="eld-assign-students-form__warning-content">
+        <h3 class="eld-assign-students-form__warning-title">Note</h3>
+        <p class="eld-assign-students-form__warning-text">
+          Students who have already started this assignment cannot be unassigned. They will remain assigned even if you deselect them.
+        </p>
+      </div>
+    </div>
+  <% end %>
+
+  <%= form_with(
+    url: form_url,
+    method: :post,
+    class: "eld-assign-students-form__form",
+    data: form_controller_attributes
+  ) do |f| %>
+    
+    <div class="eld-assign-students-form__content">
+      <!-- Search and Selection Header -->
+      <div class="eld-assign-students-form__header">
+        <div class="eld-assign-students-form__search-container">
+          <input type="text"
+                 class="eld-assign-students-form__search-input"
+                 placeholder="Search students..."
+                 data-eldritch-ui--assign-students-target="search"
+                 data-action="input->eldritch-ui--assign-students#filter">
+        </div>
+        
+        <div class="eld-assign-students-form__controls">
+          <label class="eld-assign-students-form__select-all-label">
+            <input type="checkbox"
+                   class="eld-assign-students-form__select-all-checkbox"
+                   data-eldritch-ui--assign-students-target="selectAll"
+                   data-action="change->eldritch-ui--assign-students#toggleAll"
+                   <%= 'disabled' if assignment_in_progress? %>>
+            <span class="eld-assign-students-form__select-all-text">Select All</span>
+          </label>
+          
+          <button type="button"
+                  class="eld-assign-students-form__clear-button hidden"
+                  data-eldritch-ui--assign-students-target="clearButton"
+                  data-action="click->eldritch-ui--assign-students#clearSelection">
+            Clear selection
+          </button>
+          
+          <span class="eld-assign-students-form__counter" 
+                data-eldritch-ui--assign-students-target="counter">
+            <%= selected_count %> of <%= students_count %> selected
+          </span>
+        </div>
+      </div>
+
+      <!-- Student List -->
+      <div class="eld-assign-students-form__list-container" 
+           data-eldritch-ui--assign-students-target="list">
+        <% if has_students? %>
+          <% students.each do |student| %>
+            <% has_started = student_has_started?(student) %>
+            <% progress = student_progress(student) %>
+            <% is_selected = student_is_selected?(student) %>
+            <% is_disabled = student_is_disabled?(student) %>
+            
+            <div class="eld-assign-students-form__student-row <%= 'eld-assign-students-form__student-row--started' if has_started %>"
+                 data-eldritch-ui--assign-students-target="student"
+                 data-action="click->eldritch-ui--assign-students#toggleStudent">
+              
+              <div class="eld-assign-students-form__student-content">
+                <!-- Checkbox -->
+                <div class="eld-assign-students-form__checkbox-container">
+                  <%= check_box_tag "student_ids[]",
+                      student.id,
+                      is_selected || has_started,
+                      id: "student_#{student.id}",
+                      class: "eld-assign-students-form__checkbox",
+                      disabled: is_disabled,
+                      data: {
+                        action: "change->eldritch-ui--assign-students#updateSelectedCount change->eldritch-ui--assign-students#submitForm click->eldritch-ui--assign-students#stopPropagation",
+                        "eldritch-ui--assign-students-target": "checkbox"
+                      } %>
+                </div>
+
+                <!-- Student Info -->
+                <div class="eld-assign-students-form__student-info">
+                  <div class="eld-assign-students-form__student-details">
+                    <p class="eld-assign-students-form__student-name">
+                      <%= student_name(student) %>
+                    </p>
+                    <% if student_email(student).present? %>
+                      <p class="eld-assign-students-form__student-email">
+                        <%= student_email(student) %>
+                      </p>
+                    <% end %>
+                    
+                    <% if has_started %>
+                      <div class="eld-assign-students-form__locked-indicator">
+                        <svg class="eld-assign-students-form__lock-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                          <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd" />
+                        </svg>
+                        <span class="eld-assign-students-form__locked-text">
+                          Cannot unassign - student has started this assignment
+                        </span>
+                      </div>
+                    <% end %>
+                  </div>
+
+                  <!-- Progress Info -->
+                  <% if progress %>
+                    <div class="eld-assign-students-form__progress-section">
+                      <div class="eld-assign-students-form__status-container">
+                        <span class="eld-assign-students-form__status-badge <%= progress_status_class(progress[:status]) %>">
+                          <%= progress[:status].to_s.titleize %>
+                        </span>
+                      </div>
+                      
+                      <div class="eld-assign-students-form__progress-container">
+                        <div class="eld-assign-students-form__progress-bar-container">
+                          <div class="eld-assign-students-form__progress-bar">
+                            <div class="eld-assign-students-form__progress-fill" 
+                                 style="width: <%= progress_percentage(progress) %>%"></div>
+                          </div>
+                        </div>
+                        <p class="eld-assign-students-form__progress-text">
+                          <%= progress[:answered_questions] %>/<%= progress[:total_questions] %> questions
+                        </p>
+                      </div>
+                      
+                      <p class="eld-assign-students-form__correct-answers">
+                        <%= progress[:correct_answers] %> correct
+                      </p>
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        <% else %>
+          <div class="eld-assign-students-form__empty-state">
+            <p class="eld-assign-students-form__empty-message">
+              No students available for assignment.
+            </p>
+          </div>
+        <% end %>
+      </div>
+
+      <!-- Form Actions -->
+      <div class="eld-assign-students-form__actions">
+        <a href="<%= cancel_button_url %>" 
+           class="eld-assign-students-form__cancel-button">
+          Cancel
+        </a>
+        <%= f.submit "Save Assignments", 
+            class: "eld-assign-students-form__submit-button",
+            data: { "eldritch-ui--assign-students-target": "submitButton" } %>
+      </div>
+    </div>
+  <% end %>
+</div> 

@@ -1,0 +1,61 @@
+<div <%= tag.attributes(component_tag_attributes) %>>
+  <% if has_students? %>
+    <div class="eld-student-assignments-container__content">
+      <% students.each_with_index do |student, index| %>
+        <div class="eld-student-assignments-container__student-section" 
+             role="region"
+             aria-labelledby="student-<%= student.id %>-heading">
+          
+          <!-- Student Header -->
+          <div class="eld-student-assignments-container__student-header">
+            <h3 class="eld-student-assignments-container__student-name" 
+                id="student-<%= student.id %>-heading">
+              <%= "#{student.first_name} #{student.last_name}".strip %>
+            </h3>
+            <% if student.email_address.present? %>
+              <p class="eld-student-assignments-container__student-email">
+                <%= student.email_address %>
+              </p>
+            <% end %>
+          </div>
+
+          <!-- Student Assignments -->
+          <div class="eld-student-assignments-container__assignments-section">
+            <% student_assignments = assignments_for_student(student) %>
+            <% if student_assignments.any? %>
+              <div class="eld-student-assignments-container__assignments-list"
+                   role="list"
+                   aria-label="Assignments for <%= student.first_name %> <%= student.last_name %>">
+                <% student_assignments.each do |assignment_data| %>
+                  <div class="eld-student-assignments-container__assignment-item" role="listitem">
+                                <%= render EldritchUi::AssignmentItemComponent.new(
+              assignment: assignment_data[:assignment],
+              progress: assignment_data[:progress]
+            ) %>
+                  </div>
+                <% end %>
+              </div>
+            <% else %>
+              <div class="eld-student-assignments-container__empty-assignments">
+                <p class="eld-student-assignments-container__empty-message">
+                  No assignments yet
+                </p>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% elsif show_empty_message? %>
+    <div class="eld-student-assignments-container__empty-state">
+      <div class="eld-student-assignments-container__empty-content">
+        <p class="eld-student-assignments-container__empty-title">
+          No students found
+        </p>
+        <p class="eld-student-assignments-container__empty-description">
+          There are no students to display assignments for.
+        </p>
+      </div>
+    </div>
+  <% end %>
+</div> 

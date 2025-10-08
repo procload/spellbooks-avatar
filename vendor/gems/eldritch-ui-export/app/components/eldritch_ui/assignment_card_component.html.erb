@@ -1,0 +1,50 @@
+<%# Eldritch UI Assignment Card Component %>
+<%# Displays assignment information in a card format with chunky Spellbooks styling %>
+
+<div <%= tag.attributes(wrapper_attributes) %>>
+  <!-- Image Section -->
+  <% if image? %>
+    <div class="eld-assignment-card__image">
+      <%= image %>
+    </div>
+  <% end %>
+  
+  <div class="eld-assignment-card__content">
+    <!-- Title Section -->
+    <div class="eld-assignment-card__title-section">
+      <h3 class="eld-assignment-card__title"><%= title.to_s.html_safe %></h3>
+    </div>
+
+
+
+    <!-- Tags Section -->
+    <% if has_tags? %>
+      <div class="eld-assignment-card__tags-section">
+        <% tags.each do |tag| %>
+          <div class="eld-assignment-card__tag">
+            <%= render EldritchUi::TagComponent.new(text: tag, size: :small) %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+
+    <!-- Metadata Section -->
+    <div class="eld-assignment-card__meta-section">
+      <span class="eld-assignment-card__meta-item"><%= subject.to_s.html_safe %></span>
+      <span class="eld-assignment-card__meta-separator">•</span>
+      <span class="eld-assignment-card__meta-item"><%= grade.to_s.html_safe %></span>
+      <span class="eld-assignment-card__meta-separator">•</span>
+      <span class="eld-assignment-card__meta-item"><%= difficulty.to_s.html_safe %></span>
+      <span class="eld-assignment-card__meta-separator">•</span>
+      <span class="eld-assignment-card__meta-item"><%= question_count_text.html_safe %></span>
+    </div>
+
+  </div>
+
+  <!-- Actions Section -->
+  <% if actions? %>
+    <div class="eld-assignment-card__actions">
+      <%= actions %>
+    </div>
+  <% end %>
+</div>

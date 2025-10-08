@@ -1,0 +1,44 @@
+<div <%= tag.attributes(container_attributes) %>>
+  <% if has_label? %>
+    <label class="<%= label_css_classes %>" for="<%= input_id %>">
+      <%= label %>
+    </label>
+  <% end %>
+
+  <!-- Hidden input for form submission -->
+  <%= tag.input(**hidden_input_attributes) %>
+  
+  <div class="<%= has_label? ? control_wrapper_css_classes : 'eld-token-input' %>">
+    <!-- Input field -->
+    <div class="eld-token-input__input-wrapper">
+      <%= tag.input(**input_attributes.merge("aria-describedby": aria_describedby)) %>
+    </div>
+
+    <!-- Tokens display area - moved below input -->
+    <div class="eld-token-input__tokens" data-eldritch-ui--token-input-target="tokensContainer">
+      <% tokens.each do |token| %>
+        <%= render EldritchUi::TagComponent.new(
+          text: token,
+          dismissible: !disabled && !readonly,
+          value: token,
+          data: {
+            "eldritch-ui--token-input-target": "token",
+            "action": "eldritch-ui:tag:dismiss->eldritch-ui--token-input#removeToken"
+          }
+        ) %>
+      <% end %>
+    </div>
+  </div>
+
+  <% if has_description? %>
+    <div class="eld-attached-field__description" id="<%= description_id %>">
+      <%= description %>
+    </div>
+  <% end %>
+
+  <% if has_error? %>
+    <div class="eld-attached-field__error" id="<%= error_id %>" role="alert">
+      <%= error_message %>
+    </div>
+  <% end %>
+</div> 

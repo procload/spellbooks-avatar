@@ -1,0 +1,199 @@
+/* Eldritch UI Assignment Card Component */
+/* Chunky card styles for displaying assignment information with Spellbooks theme */
+
+.eld-assignment-card {
+  /* Base card styles - chunky Spellbooks styling with parchment texture */
+  /* Background handled by eld-texture-parchment class */
+  border: var(--eld-semantic-border-width-strong) solid var(--eld-semantic-color-border);
+  border-radius: var(--eld-semantic-border-radius-card);
+  box-shadow: var(--eld-semantic-shadow-card);
+  display: flex;
+  flex-direction: column;
+  gap: var(--eld-semantic-space-component-gap-sm);
+  transition: box-shadow 0.2s ease-in-out, transform 0.1s ease-in-out;
+  position: relative;
+  width: 100%;
+  overflow: hidden; /* Ensure image doesn't overflow rounded corners */
+}
+
+/* Ensure content is above texture overlay */
+.eld-assignment-card__image,
+.eld-assignment-card__content {
+  position: relative;
+  z-index: 1;
+}
+
+/* Hover state - enhanced chunky effect */
+.eld-assignment-card:hover {
+  box-shadow: var(--eld-semantic-shadow-card-hover);
+  transform: translateY(-1px);
+}
+
+/* Image Section */
+.eld-assignment-card__image {
+  width: 100%;
+  margin-bottom: var(--eld-semantic-space-component-gap-xs);
+}
+
+.eld-assignment-card__image img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--eld-semantic-border-radius-card) var(--eld-semantic-border-radius-card) 0 0;
+  object-fit: cover;
+}
+
+/* Card Content */
+.eld-assignment-card__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--eld-semantic-space-component-gap-sm);
+  flex: 1;
+  padding: 0 var(--eld-semantic-space-component-padding-md);
+}
+
+/* Title Section */
+.eld-assignment-card__title-section {
+  display: flex;
+  align-items: flex-start;
+}
+
+.eld-assignment-card__title {
+  font-family: var(--eld-semantic-font-family-heading);
+  font-size: var(--eld-semantic-font-size-heading-medium);
+  font-weight: var(--eld-primitive-font-weight-bold);
+  color: var(--eld-semantic-color-text-primary);
+  margin: 0;
+  line-height: 1.3;
+}
+
+/* Metadata Section */
+.eld-assignment-card__meta-section {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.eld-assignment-card__meta-item {
+  font-family: var(--eld-semantic-font-family-label);
+  font-size: var(--eld-semantic-font-size-body-small);
+  font-weight: var(--eld-primitive-font-weight-medium);
+  color: var(--eld-semantic-color-text-secondary);
+  white-space: nowrap;
+  text-transform: uppercase;
+}
+
+.eld-assignment-card__meta-separator {
+  font-family: var(--eld-semantic-font-family-label);
+  font-size: var(--eld-semantic-font-size-body-small);
+  color: var(--eld-semantic-color-text-secondary);
+  font-weight: var(--eld-primitive-font-weight-bold);
+}
+
+/* Tags Section */
+.eld-assignment-card__tags-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--eld-semantic-space-component-gap-sm);
+  margin-bottom: var(--eld-semantic-space-component-gap-md);
+}
+
+.eld-assignment-card__tag .eld-tag {
+  /* Override tag styles for card context */
+  font-size: 0.75rem; /* Slightly smaller in card context */
+}
+
+/* Actions Section */
+.eld-assignment-card__actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: var(--eld-semantic-space-component-gap-sm);
+  margin: auto var(--eld-semantic-space-component-padding-md) 0;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  .eld-assignment-card__content {
+    padding: var(--eld-semantic-space-component-padding-md);
+  }
+
+  .eld-assignment-card__meta-section {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+  }
+
+  .eld-assignment-card__meta-separator {
+    display: none;
+  }
+
+  .eld-assignment-card__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .eld-assignment-card__actions .eld-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Accessibility enhancements */
+@media (prefers-reduced-motion: reduce) {
+  .eld-assignment-card {
+    transition: none;
+  }
+  
+  .eld-assignment-card:hover {
+    transform: none;
+  }
+}
+
+@media (prefers-contrast: high) {
+  .eld-assignment-card {
+    border-width: 3px;
+  }
+  
+  .eld-assignment-card__meta-separator {
+    font-weight: var(--eld-primitive-font-weight-bold);
+  }
+}
+
+/* Grid Layout Support */
+.eld-assignment-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: var(--eld-semantic-space-layout-section);
+  width: 100%;
+}
+
+.eld-assignment-card-grid .eld-assignment-card {
+  height: 100%;
+}
+
+/* List Layout Support */
+.eld-assignment-card-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--eld-semantic-space-component-gap-md);
+}
+
+.eld-assignment-card-list .eld-assignment-card {
+  width: 100%;
+}
+
+/* Focus styles for interactive cards */
+.eld-assignment-card--interactive {
+  cursor: pointer;
+}
+
+.eld-assignment-card--interactive:focus-visible {
+  outline: 2px solid var(--eld-semantic-color-primary);
+  outline-offset: 2px;
+}
+
+.eld-assignment-card--interactive:active {
+  transform: translateY(0px);
+  box-shadow: var(--eld-semantic-shadow-button-pressed);
+}

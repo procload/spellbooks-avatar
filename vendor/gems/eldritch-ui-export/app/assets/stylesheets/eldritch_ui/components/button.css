@@ -1,0 +1,387 @@
+/* Eldritch UI Button Component */
+/* Button styles using Spellbooks theme tokens and BEM methodology */
+
+.eld-btn {
+  /* Base button styles - shared between button and anchor tags */
+  font-family: var(--eld-semantic-font-family-button);
+  font-weight: var(--eld-primitive-font-weight-medium);
+  text-transform: none;
+  line-height: var(--eld-primitive-line-height-normal);
+  border-radius: 50rem;
+  border-style: solid;
+  border-width: var(--eld-semantic-border-width-default);
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out,
+    box-shadow 0.2s ease-in-out, transform 0.1s ease-in-out;
+  position: relative;
+  top: 0;
+  left: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  text-decoration: none;
+  
+  /* Default size and appearance (primary) */
+  font-size: var(--eld-semantic-font-size-body-medium);
+  padding: var(--eld-semantic-space-component-padding-sm)
+    var(--eld-semantic-space-component-padding-md);
+  background-color: var(--eld-semantic-color-primary);
+  color: var(--eld-semantic-color-text-on-primary);
+  border-color: var(--eld-semantic-color-primary);
+  box-shadow: var(--eld-semantic-shadow-button);
+}
+
+/* Focus styles */
+.eld-btn:focus-visible {
+  outline-style: solid;
+  outline-color: var(--eld-semantic-color-primary);
+  outline-width: 2px;
+  outline-offset: 2px;
+}
+
+/* Hover state */
+.eld-btn:hover:not(:disabled):not(.eld-btn--disabled) {
+  background-color: var(--eld-semantic-color-primary-hover);
+}
+
+/* Active state (pressed effect) */
+.eld-btn:active:not(:disabled):not(.eld-btn--disabled) {
+  background-color: var(--eld-semantic-color-primary-hover);
+  box-shadow: var(--eld-semantic-shadow-button-pressed);
+  border-width: var(--eld-semantic-border-width-strong);
+  transform: translateY(2px) translateX(1px);
+}
+
+/* Extra small button active state - most subtle effect */
+.eld-btn--xs:active:not(:disabled):not(.eld-btn--disabled) {
+  box-shadow: var(--eld-semantic-shadow-button-pressed);
+  border-width: var(--eld-semantic-border-width-focus);
+  transform: translateY(0.5px) translateX(0.25px); /* Very subtle movement */
+}
+
+/* Small button active state - more subtle effect */
+.eld-btn--small:active:not(:disabled):not(.eld-btn--disabled) {
+  box-shadow: var(--eld-semantic-shadow-button-pressed);
+  border-width: var(--eld-semantic-border-width-focus);
+  transform: translateY(1px) translateX(0.5px); /* Less dramatic movement */
+}
+
+/* XL button active state - more dramatic effect */
+.eld-btn--xl:active:not(:disabled):not(.eld-btn--disabled) {
+  box-shadow: var(--eld-semantic-shadow-button-pressed);
+  border-width: var(--eld-semantic-border-width-strong);
+  transform: translateY(3px) translateX(1.5px); /* More dramatic movement for large button */
+}
+
+/* Size Variants */
+.eld-btn--xs {
+  font-size: var(--eld-semantic-font-size-body-small);
+  padding: var(--eld-semantic-space-component-padding-xs) var(--eld-semantic-space-component-padding-sm);
+  border-width: var(--eld-semantic-border-width-default);
+  box-shadow: var(--eld-semantic-shadow-button);
+}
+
+.eld-btn--small {
+  font-size: var(--eld-semantic-font-size-small);
+  padding: var(--eld-semantic-space-component-padding-xs) var(--eld-semantic-space-component-padding-sm);
+  border-width: var(--eld-semantic-border-width-default);
+  box-shadow: var(--eld-semantic-shadow-button);
+}
+
+.eld-btn--medium {
+  /* Border radius already set to 50rem in base button */
+}
+
+.eld-btn--large {
+  font-size: var(--eld-semantic-font-size-body-large);
+  padding: var(--eld-semantic-space-component-padding-md)
+    var(--eld-semantic-space-component-padding-lg);
+  /* Border radius already set to 50rem in base button */
+}
+
+.eld-btn--xl {
+  font-size: var(--eld-semantic-font-size-heading-medium);
+  padding: var(--eld-semantic-space-component-padding-lg)
+    var(--eld-semantic-space-component-padding-xl);
+  /* Border radius already set to 50rem in base button */
+}
+
+/* Variant Styles */
+
+/* Secondary variant - Dark Gray with Light Text */
+.eld-btn--secondary {
+  background-color: var(--eld-primitive-color-slate-900);
+  color: var(--eld-primitive-color-slate-50);
+  border-color: var(--eld-primitive-color-slate-900);
+  box-shadow: var(--eld-semantic-shadow-button-secondary);
+}
+
+.eld-btn--secondary:hover:not(:disabled):not(.eld-btn--disabled) {
+  background-color: var(--eld-primitive-color-slate-800);
+}
+
+.eld-btn--secondary:active:not(:disabled):not(.eld-btn--disabled) {
+  background-color: var(--eld-primitive-color-slate-950);
+  box-shadow: var(--eld-semantic-shadow-button-pressed);
+  border-width: var(--eld-semantic-border-width-strong);
+  transform: translateY(2px) translateX(1px);
+}
+
+/* XS secondary button override */
+.eld-btn--secondary.eld-btn--xs:active:not(:disabled):not(.eld-btn--disabled) {
+  box-shadow: var(--eld-semantic-shadow-button-pressed);
+  border-width: var(--eld-semantic-border-width-focus);
+  transform: translateY(0.5px) translateX(0.25px);
+}
+
+/* Small secondary button override */
+.eld-btn--secondary.eld-btn--small:active:not(:disabled):not(.eld-btn--disabled) {
+  box-shadow: var(--eld-semantic-shadow-button-pressed);
+  border-width: var(--eld-semantic-border-width-focus);
+  transform: translateY(1px) translateX(0.5px);
+}
+
+/* Dark variant */
+.eld-btn--dark {
+  background-color: var(--eld-semantic-color-text-primary);
+  color: var(--eld-semantic-color-text-on-primary);
+  border-color: var(--eld-semantic-color-text-primary);
+  box-shadow: var(--eld-semantic-shadow-button);
+}
+
+.eld-btn--dark:hover:not(:disabled):not(.eld-btn--disabled) {
+  background-color: var(--eld-semantic-color-text-secondary);
+}
+
+.eld-btn--dark:active:not(:disabled):not(.eld-btn--disabled) {
+  background-color: var(--eld-semantic-color-text-secondary);
+  box-shadow: var(--eld-semantic-shadow-button-pressed);
+  border-width: var(--eld-semantic-border-width-strong);
+  transform: translateY(2px) translateX(1px);
+}
+
+/* XS dark button override */
+.eld-btn--dark.eld-btn--xs:active:not(:disabled):not(.eld-btn--disabled) {
+  box-shadow: var(--eld-semantic-shadow-button-pressed);
+  border-width: var(--eld-semantic-border-width-focus);
+  transform: translateY(0.5px) translateX(0.25px);
+}
+
+/* Small dark button override */
+.eld-btn--dark.eld-btn--small:active:not(:disabled):not(.eld-btn--disabled) {
+  box-shadow: var(--eld-semantic-shadow-button-pressed);
+  border-width: var(--eld-semantic-border-width-focus);
+  transform: translateY(1px) translateX(0.5px);
+}
+
+/* Outline variant */
+.eld-btn--outline {
+  background-color: transparent;
+  color: var(--eld-semantic-color-primary);
+  border-color: var(--eld-semantic-color-primary);
+  box-shadow: none;
+}
+
+.eld-btn--outline:hover:not(:disabled):not(.eld-btn--disabled) {
+  background-color: var(--eld-semantic-color-primary);
+  color: var(--eld-semantic-color-text-on-primary);
+  transform: none;
+  box-shadow: none;
+}
+
+.eld-btn--outline:active:not(:disabled):not(.eld-btn--disabled) {
+  background-color: var(--eld-semantic-color-primary-hover);
+  color: var(--eld-semantic-color-text-on-primary);
+  transform: none;
+  box-shadow: none;
+}
+
+/* Ghost variant */
+.eld-btn--ghost {
+  background-color: transparent;
+  color: var(--eld-semantic-color-text-on-surface);
+  border-color: transparent;
+  box-shadow: none;
+}
+
+.eld-btn--ghost:hover:not(:disabled):not(.eld-btn--disabled) {
+  background-color: var(--eld-semantic-color-surface);
+  transform: none;
+  box-shadow: none;
+}
+
+.eld-btn--ghost:active:not(:disabled):not(.eld-btn--disabled) {
+  background-color: var(--eld-semantic-color-surface);
+  transform: none;
+  box-shadow: none;
+}
+
+/* Naked variant - completely unstyled except for sizing and focus */
+.eld-btn--naked {
+  background-color: transparent;
+  color: var(--eld-semantic-color-text-on-surface);
+  border-color: transparent;
+  box-shadow: none;
+  border-width: 0;
+  padding: var(--eld-semantic-space-component-padding-sm)
+    var(--eld-semantic-space-component-padding-md);
+}
+
+.eld-btn--naked:hover:not(:disabled):not(.eld-btn--disabled) {
+  background-color: transparent;
+  color: var(--eld-semantic-color-text-on-surface);
+  transform: none;
+  box-shadow: none;
+}
+
+.eld-btn--naked:active:not(:disabled):not(.eld-btn--disabled) {
+  background-color: transparent;
+  color: var(--eld-semantic-color-text-on-surface);
+  transform: none;
+  box-shadow: none;
+}
+
+.eld-btn--naked:focus-visible {
+  outline-style: solid;
+  outline-color: var(--eld-semantic-color-primary);
+  outline-width: 1px;
+  outline-offset: 1px;
+}
+
+/* Warning variant */
+.eld-btn--warning {
+  background-color: var(--eld-semantic-color-warning);
+  color: var(--eld-semantic-color-text-on-warning);
+  border-color: var(--eld-semantic-color-warning);
+  box-shadow: var(--eld-semantic-shadow-button);
+}
+
+.eld-btn--warning:hover:not(:disabled):not(.eld-btn--disabled) {
+  background-color: var(--eld-semantic-color-warning-hover);
+}
+
+.eld-btn--warning:active:not(:disabled):not(.eld-btn--disabled) {
+  background-color: var(--eld-semantic-color-warning-hover);
+  box-shadow: var(--eld-semantic-shadow-button-pressed);
+  border-width: var(--eld-semantic-border-width-strong);
+  transform: translateY(2px) translateX(1px);
+}
+
+/* XS warning button override */
+.eld-btn--warning.eld-btn--xs:active:not(:disabled):not(.eld-btn--disabled) {
+  box-shadow: var(--eld-semantic-shadow-button-pressed);
+  border-width: var(--eld-semantic-border-width-focus);
+  transform: translateY(0.5px) translateX(0.25px);
+}
+
+/* Small warning button override */
+.eld-btn--warning.eld-btn--small:active:not(:disabled):not(.eld-btn--disabled) {
+  box-shadow: var(--eld-semantic-shadow-button-pressed);
+  border-width: var(--eld-semantic-border-width-focus);
+  transform: translateY(1px) translateX(0.5px);
+}
+
+/* Pressed/Toggle State */
+.eld-btn--pressed {
+  /* Give pressed state a "sunken" appearance */
+  background-color: var(--eld-semantic-color-primary-hover);
+  box-shadow: var(--eld-semantic-shadow-button-pressed);
+  border-width: var(--eld-semantic-border-width-strong);
+  transform: translateY(1px) translateX(0.5px);
+}
+
+/* Pressed state for different variants */
+.eld-btn--secondary.eld-btn--pressed {
+  background-color: var(--eld-primitive-color-slate-950);
+  box-shadow: var(--eld-semantic-shadow-button-pressed);
+}
+
+.eld-btn--dark.eld-btn--pressed {
+  background-color: var(--eld-semantic-color-text-secondary);
+  box-shadow: var(--eld-semantic-shadow-button-pressed);
+}
+
+.eld-btn--warning.eld-btn--pressed {
+  background-color: var(--eld-semantic-color-warning-hover);
+  box-shadow: var(--eld-semantic-shadow-button-pressed);
+}
+
+.eld-btn--outline.eld-btn--pressed {
+  background-color: var(--eld-semantic-color-primary);
+  color: var(--eld-semantic-color-text-on-primary);
+  box-shadow: none;
+  transform: none;
+}
+
+.eld-btn--ghost.eld-btn--pressed {
+  background-color: var(--eld-semantic-color-surface);
+  box-shadow: none;
+  transform: none;
+}
+
+.eld-btn--naked.eld-btn--pressed {
+  background-color: transparent;
+  color: var(--eld-semantic-color-text-on-surface);
+  box-shadow: none;
+  transform: none;
+}
+
+/* Disabled State */
+.eld-btn--disabled,
+.eld-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  pointer-events: none;
+  background-color: var(--eld-primitive-color-slate-300);
+  color: var(--eld-primitive-color-slate-500);
+  border-color: var(--eld-primitive-color-slate-300);
+  box-shadow: none;
+  transform: none;
+}
+
+.eld-btn--disabled:hover,
+.eld-btn--disabled:active,
+.eld-btn:disabled:hover,
+.eld-btn:disabled:active {
+  background-color: var(--eld-primitive-color-slate-300);
+  color: var(--eld-primitive-color-slate-500);
+  transform: none;
+  box-shadow: none;
+}
+
+/* Accessibility enhancements */
+@media (prefers-reduced-motion: reduce) {
+  .eld-btn {
+    transition: none;
+  }
+  
+  .eld-btn:hover,
+  .eld-btn:active {
+    transform: none;
+  }
+}
+
+@media (prefers-contrast: high) {
+  .eld-btn {
+    border-width: 2px;
+  }
+  
+  .eld-btn:focus-visible {
+    outline-width: 3px;
+  }
+}
+
+/* Button with icon support */
+.eld-btn__icon {
+  display: inline-flex;
+  align-items: center;
+}
+
+.eld-btn__icon--start {
+  margin-right: 0.5rem;
+}
+
+.eld-btn__icon--end {
+  margin-left: 0.5rem;
+}

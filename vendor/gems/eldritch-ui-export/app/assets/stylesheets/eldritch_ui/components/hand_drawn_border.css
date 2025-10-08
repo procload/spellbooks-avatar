@@ -1,0 +1,116 @@
+/* Hand-drawn border component */
+/* Creates a rough, sketched border effect around elements */
+
+.eld-hand-drawn-border {
+  position: relative;
+  
+  /* Method 1: Border-image approach (default) */
+  border: 3px solid var(--eld-semantic-color-border-primary);
+  border-image: url('/assets/svg/borders/hand-drawn-rough.svg') 30 repeat;
+  border-image-width: 3px;
+  
+  /* CSS custom property for color theming */
+  --eld-semantic-border-hand-drawn-color: var(--eld-semantic-color-border-primary);
+}
+
+/* Method 2: Background overlay approach */
+.eld-hand-drawn-border--background {
+  border: none;
+  padding: var(--eld-semantic-space-component-padding-sm);
+  background-image: url('/assets/svg/borders/hand-drawn-rough.svg');
+  background-repeat: repeat;
+  background-size: 30px 30px;
+  background-position: 0 0;
+}
+
+/* Color variants using design tokens */
+.eld-hand-drawn-border--brown {
+  --eld-semantic-border-hand-drawn-color: var(--eld-semantic-color-border-primary);
+  border-color: var(--eld-semantic-color-border-primary);
+}
+
+.eld-hand-drawn-border--gold {
+  --eld-semantic-border-hand-drawn-color: var(--eld-semantic-color-accent);
+  border-color: var(--eld-semantic-color-accent);
+}
+
+.eld-hand-drawn-border--blue {
+  --eld-semantic-border-hand-drawn-color: var(--eld-semantic-color-primary);
+  border-color: var(--eld-semantic-color-primary);
+}
+
+.eld-hand-drawn-border--red {
+  --eld-semantic-border-hand-drawn-color: var(--eld-semantic-color-error);
+  border-color: var(--eld-semantic-color-error);
+}
+
+/* Thickness variants */
+.eld-hand-drawn-border--thin {
+  border-width: 2px;
+  border-image-width: 2px;
+}
+
+.eld-hand-drawn-border--thick {
+  border-width: 4px;
+  border-image-width: 4px;
+}
+
+/* Background method thickness variants */
+.eld-hand-drawn-border--background.eld-hand-drawn-border--thin {
+  padding: var(--eld-semantic-space-component-padding-xs);
+  background-size: 20px 20px;
+}
+
+.eld-hand-drawn-border--background.eld-hand-drawn-border--thick {
+  padding: var(--eld-semantic-space-component-padding-md);
+  background-size: 40px 40px;
+}
+
+/* Integration classes for common use cases */
+.eld-hand-drawn-border--card {
+  padding: var(--eld-semantic-space-component-padding-lg);
+  margin-bottom: var(--eld-semantic-space-component-gap-md);
+}
+
+.eld-hand-drawn-border--form-field {
+  padding: var(--eld-semantic-space-component-padding-sm);
+  margin-bottom: var(--eld-semantic-space-component-gap-sm);
+}
+
+.eld-hand-drawn-border--button {
+  padding: var(--eld-semantic-space-component-padding-sm) var(--eld-semantic-space-component-padding-md);
+  display: inline-block;
+  transition: transform 0.1s ease;
+}
+
+.eld-hand-drawn-border--button:hover {
+  transform: translateY(-1px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .eld-hand-drawn-border {
+    border-width: 2px;
+    border-image-width: 2px;
+  }
+  
+  .eld-hand-drawn-border--background {
+    padding: var(--eld-semantic-space-component-padding-xs);
+    background-size: 20px 20px;
+  }
+}
+
+/* Accessibility support */
+@media (prefers-reduced-motion: reduce) {
+  .eld-hand-drawn-border--button:hover {
+    transform: none;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .eld-hand-drawn-border {
+    border-color: currentColor;
+    --eld-semantic-border-hand-drawn-color: currentColor;
+  }
+} 

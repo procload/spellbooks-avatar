@@ -1,0 +1,153 @@
+/* Foundation Color Layer */
+/* Generated from W3C Design Tokens (docs/global.json) */
+/* Single source of truth for all color values in the design system */
+
+:root {
+  /* ===== ANCIENT PALETTE ===== */
+  
+  /* Ancient Oak Colors */
+  --eld-foundation-color-ancient-oak-50: #faf9f7;
+  --eld-foundation-color-ancient-oak-100: #f2efeb;
+  --eld-foundation-color-ancient-oak-200: #e4ddd6;
+  --eld-foundation-color-ancient-oak-300: #d0c4b8;
+  --eld-foundation-color-ancient-oak-400: #b8a693;
+  --eld-foundation-color-ancient-oak-500: #a08970;
+  --eld-foundation-color-ancient-oak-600: #8b7360;
+  --eld-foundation-color-ancient-oak-700: #7c5e4b;
+  --eld-foundation-color-ancient-oak-800: #654d3e;
+  --eld-foundation-color-ancient-oak-900: #533f33;
+  --eld-foundation-color-ancient-oak-950: #2b211a;
+
+  /* Ancient Clay Colors */
+  --eld-foundation-color-ancient-clay-50: #fef7f4;
+  --eld-foundation-color-ancient-clay-100: #fdeee7;
+  --eld-foundation-color-ancient-clay-200: #fad9c8;
+  --eld-foundation-color-ancient-clay-300: #f7c2a4;
+  --eld-foundation-color-ancient-clay-400: #f2a378;
+  --eld-foundation-color-ancient-clay-500: #ec844f;
+  --eld-foundation-color-ancient-clay-600: #d97757;
+  --eld-foundation-color-ancient-clay-700: #b85d44;
+  --eld-foundation-color-ancient-clay-800: #934a37;
+  --eld-foundation-color-ancient-clay-900: #783e31;
+  --eld-foundation-color-ancient-clay-950: #412018;
+
+  /* ===== ARCANE PALETTE ===== */
+  
+  /* Arcane Blue Colors */
+  --eld-foundation-color-arcane-blue-50: #f8f9fa;
+  --eld-foundation-color-arcane-blue-100: #e9ecef;
+  --eld-foundation-color-arcane-blue-200: #d3d9df;
+  --eld-foundation-color-arcane-blue-300: #b8c1ca;
+  --eld-foundation-color-arcane-blue-400: #95a5a6;
+  --eld-foundation-color-arcane-blue-500: #7f8c8d;
+  --eld-foundation-color-arcane-blue-600: #5d6d7e;
+  --eld-foundation-color-arcane-blue-700: #34495e;
+  --eld-foundation-color-arcane-blue-800: #2c3e50;
+  --eld-foundation-color-arcane-blue-900: #1a252f;
+  --eld-foundation-color-arcane-blue-950: #0d1117;
+
+  /* ===== CELESTIAL PALETTE ===== */
+  
+  /* Celestial Sky Colors */
+  --eld-foundation-color-celestial-sky-50: #f8fafc;
+  --eld-foundation-color-celestial-sky-100: #f1f5f9;
+  --eld-foundation-color-celestial-sky-200: #e2e8f0;
+  --eld-foundation-color-celestial-sky-300: #cbd5e1;
+  --eld-foundation-color-celestial-sky-400: #94a3b8;
+  --eld-foundation-color-celestial-sky-500: #64748b;
+  --eld-foundation-color-celestial-sky-600: #475569;
+  --eld-foundation-color-celestial-sky-700: #334155;
+  --eld-foundation-color-celestial-sky-800: #1e293b;
+  --eld-foundation-color-celestial-sky-900: #0f172a;
+  --eld-foundation-color-celestial-sky-950: #020617;
+
+  /* ===== MYSTICAL PALETTE ===== */
+  
+  /* Mystical Gold Colors */
+  --eld-foundation-color-mystical-gold-50: #faf8f4;
+  --eld-foundation-color-mystical-gold-100: #f0ece3;
+  --eld-foundation-color-mystical-gold-200: #e3d7c4;
+  --eld-foundation-color-mystical-gold-300: #d1bfa0;
+  --eld-foundation-color-mystical-gold-400: #b8a082;
+  --eld-foundation-color-mystical-gold-500: #9d8569;
+  --eld-foundation-color-mystical-gold-600: #8a7356;
+  --eld-foundation-color-mystical-gold-700: #726048;
+  --eld-foundation-color-mystical-gold-800: #5d4e3c;
+  --eld-foundation-color-mystical-gold-900: #4d4032;
+  --eld-foundation-color-mystical-gold-950: #2b241c;
+
+  /* ===== PARCHMENT PALETTE ===== */
+  
+  /* Parchment Neutral Colors */
+  --eld-foundation-color-parchment-neutral-50: #faf9f5;
+  --eld-foundation-color-parchment-neutral-100: #f0eee6;
+  --eld-foundation-color-parchment-neutral-200: #e8e6dc;
+  --eld-foundation-color-parchment-neutral-300: #d1cfc5;
+  --eld-foundation-color-parchment-neutral-400: #b0aea5;
+  --eld-foundation-color-parchment-neutral-500: #87867f;
+  --eld-foundation-color-parchment-neutral-600: #5e5d59;
+  --eld-foundation-color-parchment-neutral-700: #3d3d3a;
+  --eld-foundation-color-parchment-neutral-800: #141413;
+  --eld-foundation-color-parchment-neutral-900: #0f0f0e;
+  --eld-foundation-color-parchment-neutral-950: #0a0a09;
+
+  /* ===== PHOENIX PALETTE ===== */
+  
+  /* Phoenix Red Colors */
+  --eld-foundation-color-phoenix-red-50: #fdf3f3;
+  --eld-foundation-color-phoenix-red-100: #fde3e3;
+  --eld-foundation-color-phoenix-red-200: #fbcdce;
+  --eld-foundation-color-phoenix-red-300: #f8a9ab;
+  --eld-foundation-color-phoenix-red-400: #f1787a;
+  --eld-foundation-color-phoenix-red-500: #e64d50;
+  --eld-foundation-color-phoenix-red-600: #d5393c;
+  --eld-foundation-color-phoenix-red-700: #b12427;
+  --eld-foundation-color-phoenix-red-800: #932123;
+  --eld-foundation-color-phoenix-red-900: #7a2224;
+  --eld-foundation-color-phoenix-red-950: #420d0e;
+
+  /* ===== SHADOW PALETTE ===== */
+  
+  /* Shadow Slate Colors */
+  --eld-foundation-color-shadow-slate-50: #faf9f5;
+  --eld-foundation-color-shadow-slate-100: #f0eee6;
+  --eld-foundation-color-shadow-slate-200: #e8e6dc;
+  --eld-foundation-color-shadow-slate-300: #d1cfc5;
+  --eld-foundation-color-shadow-slate-400: #b0aea5;
+  --eld-foundation-color-shadow-slate-500: #87867f;
+  --eld-foundation-color-shadow-slate-600: #5e5d59;
+  --eld-foundation-color-shadow-slate-700: #3d3d3a;
+  --eld-foundation-color-shadow-slate-800: #141413;
+  --eld-foundation-color-shadow-slate-900: #0f0f0e;
+  --eld-foundation-color-shadow-slate-950: #0a0a09;
+
+  /* ===== MYSTIC PALETTE ===== */
+  
+  /* Mystic Heather Colors */
+  --eld-foundation-color-mystic-heather-50: #faf9fc;
+  --eld-foundation-color-mystic-heather-100: #f3f1f7;
+  --eld-foundation-color-mystic-heather-200: #e8e4ef;
+  --eld-foundation-color-mystic-heather-300: #d6d0e1;
+  --eld-foundation-color-mystic-heather-400: #b8adc7;
+  --eld-foundation-color-mystic-heather-500: #9c8dad;
+  --eld-foundation-color-mystic-heather-600: #7c6f8c;
+  --eld-foundation-color-mystic-heather-700: #655871;
+  --eld-foundation-color-mystic-heather-800: #544859;
+  --eld-foundation-color-mystic-heather-900: #463d4a;
+  --eld-foundation-color-mystic-heather-950: #2d252f;
+
+  /* ===== NATURE PALETTE ===== */
+
+  /* Enchanted Green Colors */
+  --eld-foundation-color-enchanted-green-50: #f0fdf4;
+  --eld-foundation-color-enchanted-green-100: #dcfce7;
+  --eld-foundation-color-enchanted-green-200: #bbf7d0;
+  --eld-foundation-color-enchanted-green-300: #86efac;
+  --eld-foundation-color-enchanted-green-400: #4ade80;
+  --eld-foundation-color-enchanted-green-500: #22c55e;
+  --eld-foundation-color-enchanted-green-600: #16a34a;
+  --eld-foundation-color-enchanted-green-700: #15803d;
+  --eld-foundation-color-enchanted-green-800: #166534;
+  --eld-foundation-color-enchanted-green-900: #14532d;
+  --eld-foundation-color-enchanted-green-950: #052e16;
+}

@@ -1,0 +1,56 @@
+<%# Eldritch UI Assignment Item Component %>
+<%# Simpler, list-focused version of assignment display for tables, search results, and assignment lists %>
+
+<<%= component_tag %> <%= tag.attributes(component_tag_attributes) %>>
+  <div class="eld-assignment-item__content">
+    <!-- Icon Section (optional) -->
+    <% if has_icon? %>
+      <div class="eld-assignment-item__icon">
+        <%= icon %>
+      </div>
+    <% end %>
+
+    <!-- Main Content Section -->
+    <div class="eld-assignment-item__main">
+      <% if legacy_mode? && has_progress? %>
+        <!-- Legacy mode: Simple title with progress -->
+        <div class="eld-assignment-item__legacy-header">
+          <div class="eld-assignment-item__title-row">
+            <span class="eld-assignment-item__title"><%= title.to_s.html_safe %></span>
+            <span class="eld-assignment-item__progress-text"><%= progress_percentage %>%</span>
+          </div>
+          <div class="eld-assignment-item__progress-bar">
+            <%= render EldritchUi::ProgressBarComponent.new(value: progress_percentage) %>
+          </div>
+        </div>
+      <% else %>
+        <!-- Standard mode: Full metadata -->
+        <!-- Title -->
+        <div class="eld-assignment-item__title">
+          <%= title.to_s.html_safe %>
+        </div>
+
+        <!-- Metadata -->
+        <div class="eld-assignment-item__meta">
+          <%= metadata_text.html_safe %>
+        </div>
+
+        <!-- Tags (if present and not compact) -->
+        <% if has_tags? && size != :compact %>
+          <div class="eld-assignment-item__tags">
+            <% tags.each do |tag_text| %>
+              <%= render EldritchUi::TagComponent.new(text: tag_text.to_s, size: :small) %>
+            <% end %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+
+    <!-- Actions Section (optional) -->
+    <% if has_actions? %>
+      <div class="eld-assignment-item__actions">
+        <%= actions %>
+      </div>
+    <% end %>
+  </div>
+</<%= component_tag %>> 

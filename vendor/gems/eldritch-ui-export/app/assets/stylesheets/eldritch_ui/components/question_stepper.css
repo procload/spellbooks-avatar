@@ -1,0 +1,209 @@
+/* Eldritch UI Question Stepper Component */
+/* Number input with +/- controls and smart suggestions */
+
+.eld-question-stepper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--eld-semantic-space-component-gap-sm);
+}
+
+.eld-question-stepper__label {
+  font-family: var(--eld-semantic-font-family-button);
+  font-size: var(--eld-semantic-font-size-body-medium);
+  font-weight: var(--eld-primitive-font-weight-medium);
+  color: var(--eld-semantic-color-text-primary);
+  margin: 0;
+}
+
+.eld-question-stepper__required {
+  color: var(--eld-semantic-color-error);
+  margin-left: var(--eld-semantic-space-component-gap-xs);
+}
+
+.eld-question-stepper__controls {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  width: fit-content;
+  /* Chunky embossed container to match inputs/buttons */
+  border: var(--eldritch-border-width-lg) solid var(--eld-semantic-color-border-strong);
+  border-radius: var(--eld-semantic-border-radius-input);
+  background-color: var(--eld-semantic-color-surface-hover);
+  box-shadow: var(--eldritch-component-button-spellbooks-primary-box-shadow);
+  overflow: hidden;
+  transition: border-color var(--eld-semantic-motion-duration-fast) var(--eld-semantic-motion-easing-standard);
+}
+
+.eld-question-stepper__controls:focus-within {
+  border-color: var(--eld-semantic-color-focus);
+}
+
+.eld-question-stepper__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: var(--eld-semantic-color-surface);
+  border: none;
+  cursor: pointer;
+  transition: background-color var(--eld-semantic-motion-duration-fast) var(--eld-semantic-motion-easing-standard);
+  user-select: none;
+}
+
+.eld-question-stepper__button:hover:not(:disabled) {
+  background-color: var(--eld-semantic-color-surface-hover);
+}
+
+.eld-question-stepper__button:active:not(:disabled) {
+  background-color: var(--eld-semantic-color-surface-hover);
+}
+
+.eld-question-stepper__button:disabled {
+  background-color: var(--eld-semantic-color-background-disabled);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.eld-question-stepper__button--decrease {
+  border-right: var(--eldritch-border-width-lg) solid var(--eld-semantic-color-border-strong);
+}
+
+.eld-question-stepper__button--increase {
+  border-left: var(--eldritch-border-width-lg) solid var(--eld-semantic-color-border-strong);
+}
+
+.eld-question-stepper__button-icon {
+  font-family: var(--eld-semantic-font-family-button);
+  font-size: var(--eld-semantic-font-size-heading-small);
+  font-weight: var(--eld-primitive-font-weight-bold);
+  color: var(--eld-semantic-color-text-primary);
+  line-height: 1;
+  user-select: none;
+}
+
+.eld-question-stepper__button:disabled .eld-question-stepper__button-icon {
+  color: var(--eld-semantic-color-text-disabled);
+}
+
+.eld-question-stepper__input {
+  width: 80px;
+  height: 40px;
+  padding: var(--eld-semantic-space-component-padding-xs) var(--eld-semantic-space-component-padding-sm);
+  background-color: var(--eld-semantic-color-surface-hover);
+  border: none;
+  font-family: var(--eld-semantic-font-family-button);
+  font-size: var(--eld-semantic-font-size-body-medium);
+  font-weight: var(--eld-primitive-font-weight-medium);
+  color: var(--eld-semantic-color-text-primary);
+  text-align: center;
+  outline: none;
+  -moz-appearance: textfield; /* Hide spinner in Firefox */
+}
+
+/* Hide number input spinners in WebKit browsers */
+.eld-question-stepper__input::-webkit-outer-spin-button,
+.eld-question-stepper__input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.eld-question-stepper__input:disabled {
+  background-color: var(--eld-semantic-color-background-disabled);
+  color: var(--eld-semantic-color-text-disabled);
+  cursor: not-allowed;
+}
+
+.eld-question-stepper__hint {
+  font-family: var(--eld-semantic-font-family-body);
+  font-size: var(--eld-semantic-font-size-body-small);
+  color: var(--eld-semantic-color-text-secondary);
+  font-style: italic;
+  margin: 0;
+  padding-top: var(--eld-semantic-space-component-gap-xs);
+}
+
+.eld-question-stepper__hint--suggestion {
+  color: var(--eld-semantic-color-primary);
+  font-weight: var(--eld-primitive-font-weight-medium);
+}
+
+/* Focus states */
+.eld-question-stepper__button:focus {
+  outline: var(--eld-semantic-border-width-focus) solid var(--eld-semantic-color-focus);
+  outline-offset: -2px;
+  z-index: 1;
+  position: relative;
+}
+
+/* Disabled state for entire component */
+.eld-question-stepper--disabled .eld-question-stepper__controls {
+  border-color: var(--eld-semantic-color-border-disabled);
+  background-color: var(--eld-semantic-color-background-disabled);
+  opacity: 0.6;
+}
+
+.eld-question-stepper--disabled .eld-question-stepper__button {
+  cursor: not-allowed;
+}
+
+.eld-question-stepper--disabled .eld-question-stepper__hint {
+  color: var(--eld-semantic-color-text-disabled);
+}
+
+/* Responsive design */
+@media (max-width: 480px) {
+  .eld-question-stepper__controls {
+    width: 100%;
+    max-width: 200px;
+  }
+
+  .eld-question-stepper__button {
+    width: 44px;
+    height: 44px;
+  }
+
+  .eld-question-stepper__input {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .eld-question-stepper__button-icon {
+    font-size: var(--eld-semantic-font-size-body-large);
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .eld-question-stepper__controls {
+    border-width: 3px;
+  }
+
+  .eld-question-stepper__button--decrease,
+  .eld-question-stepper__button--increase {
+    border-width: 3px;
+  }
+
+  .eld-question-stepper__controls:focus-within {
+    box-shadow: 0 0 0 3px var(--eld-semantic-color-focus);
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .eld-question-stepper__controls,
+  .eld-question-stepper__button {
+    transition: none;
+  }
+}
+
+/* Animation for suggestion updates */
+@keyframes suggestion-pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.7; }
+  100% { opacity: 1; }
+}
+
+.eld-question-stepper__hint--updating {
+  animation: suggestion-pulse 0.3s ease-in-out;
+}

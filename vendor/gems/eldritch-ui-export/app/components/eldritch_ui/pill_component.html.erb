@@ -1,0 +1,10 @@
+<%# Eldritch UI Pill Component %>
+<%# Renders as either a div or anchor tag based on presence of href %>
+
+<%= content_tag element_tag, element_attributes do %>
+  <% if content.present? %>
+    <%= content %>
+  <% else %>
+    <%= text.to_s.html_safe %>
+  <% end %>
+<% end %>

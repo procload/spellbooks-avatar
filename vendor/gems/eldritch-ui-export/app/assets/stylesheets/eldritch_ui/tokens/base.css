@@ -1,0 +1,111 @@
+/* Base Design Tokens - Non-Color CSS Custom Properties */
+/* Typography, spacing, borders, and other non-color design tokens */
+
+/* Base HTML and Body Styling */
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: var(--eldritch-font-family-body);
+  background-color: var(--eld-semantic-color-background);
+  color: var(--eld-semantic-color-text-primary);
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/images/stars.png');
+  background-repeat: repeat;
+  background-attachment: fixed;
+  background-size: auto;
+  opacity: 0.15;
+  pointer-events: none;
+  z-index: -1;
+}
+
+:root {
+  /* Typography */
+  --eldritch-font-family-base: "Rubik", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --eldritch-font-family-winky-sans: "Averia Libre", "Rubik", sans-serif;
+  --eldritch-font-family-winky-rough: "Averia Libre", "Rubik", sans-serif;
+  --eldritch-font-family-rubik: "Rubik", sans-serif;
+  
+  /* Default semantic font assignments (can be overridden by themes) */
+  --eldritch-font-family-headline: var(--eldritch-font-family-winky-sans);
+  --eldritch-font-family-label: var(--eldritch-font-family-winky-sans);
+  --eldritch-font-family-body: var(--eldritch-font-family-winky-sans);
+  --eldritch-font-family-input: var(--eldritch-font-family-winky-sans);
+  
+  /* Font Sizes */
+  --eldritch-font-size-base: 16px;
+  --eldritch-font-size-small: 0.875rem;
+  --eldritch-font-size-medium: 1rem;
+  --eldritch-font-size-large: 1.25rem;
+  --eldritch-font-size-xl: 1.3125rem;
+  --eldritch-font-size-xxl: 2rem;
+  --eldritch-font-size-label: 13px;
+  
+  /* Font Weights */
+  --eldritch-font-weight-light: 300;
+  --eldritch-font-weight-regular: 400;
+  --eldritch-font-weight-medium: 500;
+  --eldritch-font-weight-semibold: 600;
+  --eldritch-font-weight-bold: 700;
+  --eldritch-font-weight-label: 600;
+  
+  /* Text Transform */
+  --eldritch-text-transform-button: uppercase;
+  --eldritch-text-transform-input: none;
+  
+  /* Line Heights */
+  --eldritch-line-height-button: 26px;
+  --eldritch-line-height-input: 32px;
+
+  /* Spacing */
+  --eldritch-spacing-unit: 8px;
+  --eldritch-padding-xs: 0.25rem;
+  --eldritch-padding-xxs: 0.375rem;
+  --eldritch-padding-small: 0.5rem;
+  --eldritch-padding-medium: 1rem;
+  --eldritch-padding-large: 1.5rem;
+  --eldritch-gap-small: 0.5rem;
+  --eldritch-gap-medium: 1rem;
+  --eldritch-gap-large: 1.5rem;
+
+  /* Borders */
+  --eldritch-border-radius-small: 0.25rem;
+  --eldritch-border-radius-medium: 0.5rem;
+  --eldritch-border-radius-lg: 1rem;
+  --eldritch-border-radius-xl: 1.375rem;
+  --eldritch-border-width-thin: 1px;
+  --eldritch-border-width-medium: 2px;
+  --eldritch-border-width-md: 2.5px;
+  --eldritch-border-width-lg: 3.5px;
+
+  /* Shadows (using color placeholders that will be defined in semantic.css) */
+  --eldritch-shadow-small: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  --eldritch-shadow-subtle: 0 1px 2px rgba(0,0,0,0.05), 0 1px 1px rgba(0,0,0,0.06);
+  --eldritch-shadow-medium: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  
+  /* Theme-specific shadows that reference semantic colors */
+  --eldritch-shadow-weak-emboss: 0.5px 1.5px 0 0.5px var(--eldritch-color-primary-dark, #1a2805);
+  --eldritch-shadow-medium-emboss: 1px 2px 0 0.5px var(--eldritch-color-primary-dark, #1a2805);
+  --eldritch-shadow-strong-emboss: 1px 3px 0 1px var(--eldritch-color-primary-dark, #1a2805);
+  --eldritch-shadow-pressed-effect: 0 0 0 0 var(--eldritch-color-primary-dark, #1a2805);
+}

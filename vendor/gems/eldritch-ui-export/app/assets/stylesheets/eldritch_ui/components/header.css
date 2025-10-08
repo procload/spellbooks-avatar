@@ -1,0 +1,215 @@
+/* Header Component Styles */
+
+/* Base header structure */
+.eld-header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background-color: var(--eld-semantic-color-surface);
+  border-bottom: var(--eld-semantic-border-width-default) solid var(--eld-semantic-color-border);
+  z-index: 40; /* Above sidebar but below modals */
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateY(0);
+}
+
+/* Hidden state - slides header up smoothly */
+.eld-header.header-hidden {
+  transform: translateY(-100%);
+}
+
+/* Navigation wrapper */
+.eld-header__nav {
+  width: 100%;
+}
+
+/* Container that matches main content width */
+.eld-header__container {
+  width: 100%;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 1rem; /* Base padding for mobile */
+}
+
+/* Content layout */
+.eld-header__content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px; /* Fixed header height */
+}
+
+/* Logo section - left aligned */
+.eld-header__logo {
+  flex: 0 0 auto;
+}
+
+.eld-header__logo-link {
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  color: var(--eld-semantic-color-text-primary);
+  transition: opacity 0.2s ease;
+}
+
+.eld-header__logo-link:hover {
+  opacity: 0.8;
+}
+
+.eld-header__logo-text {
+  font-family: var(--eld-semantic-font-family-heading);
+  font-size: var(--eld-semantic-font-size-heading-h2);
+  font-weight: var(--eld-semantic-font-weight-bold);
+  color: var(--eld-semantic-color-text-primary);
+}
+
+/* Actions section */
+.eld-header__actions {
+  flex: 1;
+  max-width: 200px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* User dropdown */
+.eld-header__user {
+  position: relative;
+}
+
+.eld-header__user-button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: opacity 0.2s ease;
+}
+
+.eld-header__user-button:hover {
+  opacity: 0.8;
+}
+
+.eld-header__user-button:focus {
+  outline: 2px solid var(--eld-semantic-color-focus-ring);
+  outline-offset: 2px;
+  border-radius: 50%;
+}
+
+/* User avatar with initials */
+.eld-header__avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: var(--eld-semantic-color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.eld-header__avatar-text {
+  font-family: var(--eld-semantic-font-family-heading);
+  font-size: var(--eld-semantic-font-size-body-small);
+  font-weight: var(--eld-semantic-font-weight-semibold);
+  color: var(--eld-semantic-color-text-on-primary);
+  letter-spacing: 0.025em;
+}
+
+/* Dropdown menu */
+.eld-header__dropdown {
+  position: absolute;
+  right: 0;
+  margin-top: var(--eld-semantic-space-component-gap-sm);
+  width: 256px;
+  background-color: var(--eld-semantic-color-surface);
+  border: var(--eld-semantic-border-width-default) solid var(--eld-semantic-color-border);
+  border-radius: var(--eld-semantic-border-radius-card);
+  box-shadow: var(--eld-semantic-shadow-dropdown);
+  overflow: hidden;
+}
+
+.eld-header__dropdown-info {
+  padding: var(--eld-semantic-space-component-padding-md);
+  border-bottom: var(--eld-semantic-border-width-default) solid var(--eld-semantic-color-border);
+  background-color: var(--eld-semantic-color-surface-cream);
+}
+
+.eld-header__dropdown-label {
+  font-size: var(--eld-semantic-font-size-body-small);
+  color: var(--eld-semantic-color-text-secondary);
+  margin: 0;
+  margin-bottom: var(--eld-semantic-space-component-gap-xs);
+}
+
+.eld-header__dropdown-name {
+  font-size: var(--eld-semantic-font-size-body-base);
+  font-weight: var(--eld-semantic-font-weight-semibold);
+  color: var(--eld-semantic-color-text-primary);
+  margin: 0;
+}
+
+.eld-header__dropdown-menu {
+  padding: var(--eld-semantic-space-component-padding-sm) 0;
+}
+
+.eld-header__dropdown-item {
+  display: flex;
+  align-items: center;
+  padding: var(--eld-semantic-space-component-padding-sm) var(--eld-semantic-space-component-padding-md);
+  font-size: var(--eld-semantic-font-size-body-base);
+  color: var(--eld-semantic-color-text-primary);
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.eld-header__dropdown-item:hover {
+  background-color: var(--eld-semantic-color-surface-hover);
+}
+
+.eld-header__dropdown-icon {
+  width: 16px;
+  height: 16px;
+  margin-right: var(--eld-semantic-space-component-gap-sm);
+  color: var(--eld-semantic-color-text-secondary);
+}
+
+/* Responsive adjustments - match main content container */
+@media (min-width: 768px) {
+  .eld-header__container {
+    padding: 0 1.5rem; /* Consistent padding for desktop */
+  }
+}
+
+@media (min-width: 1024px) {
+  .eld-header__container {
+    max-width: 1200px;
+    padding: 0 2rem;
+  }
+}
+
+@media (min-width: 1228px) {
+  .eld-header__container {
+    max-width: 1300px;
+    padding: 0 2rem;
+  }
+}
+
+@media (min-width: 1400px) {
+  .eld-header__container {
+    max-width: 1400px;
+    padding: 0 2rem;
+  }
+}
+
+@media (min-width: 1600px) {
+  .eld-header__container {
+    max-width: 1600px;
+    padding: 0 2rem;
+  }
+}
+
+/* Adjust main content padding to account for sticky header */
+body.with-header .eld-main-content {
+  padding-top: calc(64px + var(--eld-semantic-space-component-padding-md));
+}

@@ -1,0 +1,54 @@
+/* Semantic Spacing Tokens */
+/* Meaningful spacing tokens for different use cases */
+
+:root {
+  /* ===== LAYOUT SPACING ===== */
+  /* For major layout sections, page structure, and large gaps */
+  --eld-semantic-space-layout-xs: var(--eld-foundation-space-8);    /* 16px */
+  --eld-semantic-space-layout-sm: var(--eld-foundation-space-12);   /* 24px */
+  --eld-semantic-space-layout-md: var(--eld-foundation-space-16);   /* 32px */
+  --eld-semantic-space-layout-lg: var(--eld-foundation-space-24);   /* 48px */
+  --eld-semantic-space-layout-xl: var(--eld-foundation-space-32);   /* 64px */
+  --eld-semantic-space-layout-2xl: var(--eld-foundation-space-48);  /* 96px */
+
+  /* ===== COMPONENT SPACING ===== */
+  /* For spacing within and between components */
+  --eld-semantic-space-component-xs: var(--eld-foundation-space-2); /* 4px */
+  --eld-semantic-space-component-sm: var(--eld-foundation-space-4); /* 8px */
+  --eld-semantic-space-component-md: var(--eld-foundation-space-6); /* 12px */
+  --eld-semantic-space-component-lg: var(--eld-foundation-space-8); /* 16px */
+  --eld-semantic-space-component-xl: var(--eld-foundation-space-12); /* 24px */
+
+  /* ===== ELEMENT SPACING ===== */
+  /* For individual element spacing (margins, padding) */
+  --eld-semantic-space-element-xs: var(--eld-foundation-space-1);   /* 2px */
+  --eld-semantic-space-element-sm: var(--eld-foundation-space-2);   /* 4px */
+  --eld-semantic-space-element-md: var(--eld-foundation-space-3);   /* 6px */
+  --eld-semantic-space-element-lg: var(--eld-foundation-space-4);   /* 8px */
+  --eld-semantic-space-element-xl: var(--eld-foundation-space-6);   /* 12px */
+
+  /* ===== TYPOGRAPHY SPACING ===== */
+  /* For text-related spacing (line height, paragraph spacing, etc.) */
+  --eld-semantic-space-typography-xs: var(--eld-foundation-space-1); /* 2px */
+  --eld-semantic-space-typography-sm: var(--eld-foundation-space-2); /* 4px */
+  --eld-semantic-space-typography-md: var(--eld-foundation-space-4); /* 8px */
+  --eld-semantic-space-typography-lg: var(--eld-foundation-space-6); /* 12px */
+  --eld-semantic-space-typography-xl: var(--eld-foundation-space-8); /* 16px */
+
+  /* ===== INTERACTIVE SPACING ===== */
+  /* For interactive elements (buttons, form fields, links) */
+  --eld-semantic-space-interactive-xs: var(--eld-foundation-space-2);  /* 4px */
+  --eld-semantic-space-interactive-sm: var(--eld-foundation-space-3);  /* 6px */
+  --eld-semantic-space-interactive-md: var(--eld-foundation-space-4);  /* 8px */
+  --eld-semantic-space-interactive-lg: var(--eld-foundation-space-6);  /* 12px */
+  --eld-semantic-space-interactive-xl: var(--eld-foundation-space-8);  /* 16px */
+
+  /* ===== COMMON SEMANTIC ALIASES ===== */
+  /* Frequently used spacing patterns with semantic names */
+  --eld-semantic-space-section-gap: var(--eld-semantic-space-layout-lg);        /* Between page sections */
+  --eld-semantic-space-card-padding: var(--eld-semantic-space-component-lg);    /* Inside cards/containers */
+  --eld-semantic-space-button-padding: var(--eld-semantic-space-interactive-md); /* Button internal padding */
+  --eld-semantic-space-form-gap: var(--eld-semantic-space-component-md);        /* Between form elements */
+  --eld-semantic-space-list-gap: var(--eld-semantic-space-component-sm);        /* Between list items */
+  --eld-semantic-space-icon-gap: var(--eld-semantic-space-element-sm);          /* Between icons and text */
+}

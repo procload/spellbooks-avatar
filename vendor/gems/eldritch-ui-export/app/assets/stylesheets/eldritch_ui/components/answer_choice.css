@@ -1,0 +1,273 @@
+/* Answer Choice Component */
+.eld-answer-choice {
+  position: relative;
+  display: block;
+  cursor: pointer;
+}
+
+.eld-answer-choice:focus-within .eld-answer-choice__letter {
+  box-shadow: none;
+}
+
+.eld-answer-choice--selected .eld-answer-choice__letter {
+  box-shadow: none;
+  color: var(--eld-semantic-color-text-on-primary);
+  background: var(--eld-semantic-color-primary);
+}
+
+.eld-answer-choice--disabled {
+  
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Hidden radio input */
+.eld-answer-choice__input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Label contains all visual elements */
+.eld-answer-choice__label {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--eld-semantic-space-component-gap-md);
+  padding: var(--eld-semantic-space-component-padding-md);
+  cursor: pointer;
+  width: 100%;
+}
+
+/* Inline edit layout helper (used by teacher/admin inline editor) */
+.eld-inline-answer-row {
+  display: flex;
+  align-items: center;
+  gap: var(--eld-semantic-space-component-gap-md);
+}
+
+/* Letter badge - using embossed button effect with perfect circular shape */
+.eld-answer-choice__letter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Let padding determine the size instead of fixed width/height */
+  min-width: 1.125rem; /* Minimum size to maintain proportions */
+  min-height: 1.125rem; /* Minimum size to maintain proportions */
+  /* 18px padding on all sides */
+  padding: 1.125rem; /* 18px - matches our font-size token value */
+  /* Ensure perfect circular shape */
+  border-radius: 50%;
+  aspect-ratio: 1;
+  box-sizing: border-box;
+  /* Styling */
+  background: var(--eld-semantic-color-surface);
+  color: var(--eld-semantic-color-text-primary);
+  border: var(--eld-semantic-border-width-focus) solid var(--eld-semantic-color-border-emboss);
+  box-shadow: var(--eld-semantic-shadow-button);
+  font-family: var(--eld-semantic-font-family-button);
+  font-size: var(--eld-semantic-font-size-body-large);
+  font-weight: var(--eld-primitive-font-weight-bold);
+  flex-shrink: 0;
+  transition: all 0.15s ease-in-out;
+  align-self: flex-start; /* Align with the answer text top */
+  margin-top: 0px; /* Align with text baseline */
+  /* Positioning for press effect */
+  position: relative;
+  transform: translateY(0px) translateX(0px);
+}
+
+/* Hover state - slightly less embossed */
+.eld-answer-choice:hover:not(.eld-answer-choice--disabled) .eld-answer-choice__letter {
+  box-shadow: var(--eld-semantic-shadow-button-hover);
+  transform: translateY(-1px) translateX(0px);
+}
+
+/* Active/pressed state - immediate feedback */
+.eld-answer-choice:active:not(.eld-answer-choice--disabled) .eld-answer-choice__letter {
+  box-shadow: var(--eld-semantic-shadow-button-pressed);
+  transform: translateY(2px) translateX(1px);
+  transition: all 0.1s ease-in-out;
+}
+
+/* Selected state border adjustment for thicker border */
+.eld-answer-choice__letter--selected {
+  background: var(--eld-semantic-color-accent);
+  color: var(--eld-semantic-color-primary);
+  box-shadow: var(--eld-semantic-shadow-button-pressed);
+  border-width: var(--eld-semantic-border-width-focus);
+  transform: translateY(2px) translateX(1px);
+}
+
+/* Selected state hover - stays pressed but with subtle feedback */
+.eld-answer-choice--selected:hover:not(.eld-answer-choice--disabled) .eld-answer-choice__letter {
+  box-shadow: var(--eld-semantic-shadow-button-pressed);
+  transform: translateY(1px) translateX(0.5px);
+  background: var(--eld-semantic-color-primary-hover);
+}
+
+/* Feedback states - these should override selection states */
+.eld-answer-choice__letter--correct {
+  background: var(--eld-semantic-color-success) !important;
+  color: var(--eld-semantic-color-text-on-success) !important;
+  box-shadow: var(--eld-semantic-shadow-button-pressed) !important;
+  transform: translateY(2px) translateX(1px) !important;
+}
+
+.eld-answer-choice__letter--incorrect {
+  background: var(--eld-semantic-color-error) !important;
+  color: var(--eld-semantic-color-text-on-error) !important;
+  box-shadow: var(--eld-semantic-shadow-button-pressed) !important;
+  transform: translateY(2px) translateX(1px) !important;
+}
+
+/* Content wrapper for text and explanation */
+.eld-answer-choice__content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--eld-semantic-space-component-gap-sm);
+}
+
+/* Answer text container - this aligns with the letter badge */
+.eld-answer-choice__text {
+  color: var(--eld-semantic-color-text-primary);
+  font-family: var(--eld-semantic-font-family-body);
+  font-size: var(--eld-semantic-font-size-body-large);
+  line-height: 1.5;
+  display: flex;
+  align-items: center;
+  /* Calculate minimum height based on padding + font size + border */
+  min-height: calc(1.125rem + 1.125rem + 1.125rem + 4px); /* padding top + font height + padding bottom + border */
+}
+
+/* Explanation area */
+.eld-answer-choice__explanation {
+  padding: var(--eld-semantic-space-component-padding-sm) var(--eld-semantic-space-component-padding-md);
+  border-radius: var(--eld-semantic-border-radius-card);
+  background: var(--eld-semantic-color-success-surface); /* Light background for explanations */
+  border-left: 4px solid var(--eld-semantic-color-success); /* Accent border */
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+.eld-answer-choice__explanation--visible {
+  opacity: 1;
+  max-height: 200px; /* Reasonable max height */
+}
+
+.eld-answer-choice__explanation-label {
+  font-family: var(--eld-semantic-font-family-heading);
+  font-size: var(--eld-semantic-font-size-body-small);
+  font-weight: var(--eld-primitive-font-weight-bold);
+  color: var(--eld-semantic-color-success);
+  margin: 0 0 6px 0;
+}
+
+.eld-answer-choice__explanation-text {
+  font-family: var(--eld-semantic-font-family-body);
+  font-size: var(--eld-semantic-font-size-body-small);
+  line-height: 1.4;
+  color: var(--eld-semantic-color-text-primary);
+  margin: 0;
+}
+
+/* Checkmark container */
+.eld-answer-choice__checkmark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+  align-self: flex-start; /* Align with the answer text top */
+  /* Match the height of the padded badge */
+  height: calc(1.125rem + 1.125rem + 1.125rem + 4px); /* padding top + font height + padding bottom + border */
+}
+
+.eld-answer-choice__checkmark--visible {
+  opacity: 1;
+}
+
+/* Checkmark icon */
+.eld-answer-choice__checkmark-icon {
+  color: var(--eld-semantic-color-accent);
+}
+
+.eld-answer-choice__checkmark-icon--correct {
+  color: var(--eld-semantic-color-success);
+}
+
+.eld-answer-choice__checkmark-icon--incorrect {
+  color: var(--eld-semantic-color-error);
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .eld-answer-choice__label {
+    gap: var(--eld-semantic-space-component-gap-sm);
+    padding: var(--eld-semantic-space-component-padding-sm);
+  }
+  
+  .eld-answer-choice__letter {
+    /* Smaller padding for mobile (14px instead of 18px) */
+    padding: 0.875rem; /* 14px */
+    min-width: 0.875rem;
+    min-height: 0.875rem;
+    font-size: var(--eld-semantic-font-size-body-medium);
+    border-width: var(--eld-semantic-border-width-default);
+  }
+  
+  /* Mobile hover and press effects (scaled down) */
+  .eld-answer-choice:hover:not(.eld-answer-choice--disabled) .eld-answer-choice__letter {
+    transform: translateY(-0.5px) translateX(0px);
+  }
+  
+  .eld-answer-choice:active:not(.eld-answer-choice--disabled) .eld-answer-choice__letter {
+    transform: translateY(1.5px) translateX(0.5px);
+  }
+  
+  .eld-answer-choice__letter--selected {
+    transform: translateY(1.5px) translateX(0.5px);
+    border-width: var(--eld-semantic-border-width-default);
+  }
+  
+  .eld-answer-choice--selected:hover:not(.eld-answer-choice--disabled) .eld-answer-choice__letter {
+    transform: translateY(1px) translateX(0.25px);
+  }
+  
+  .eld-answer-choice__letter--correct {
+    transform: translateY(1.5px) translateX(0.5px) !important;
+  }
+  
+  .eld-answer-choice__letter--incorrect {
+    transform: translateY(1.5px) translateX(0.5px) !important;
+  }
+  
+  .eld-answer-choice__text {
+    font-size: var(--eld-semantic-font-size-body-medium);
+    /* Recalculate for mobile padding */
+    min-height: calc(0.875rem + 0.875rem + 0.875rem + 2px); /* smaller padding + font + padding + border */
+  }
+
+  .eld-answer-choice__checkmark {
+    /* Match mobile badge height */
+    height: calc(0.875rem + 0.875rem + 0.875rem + 2px);
+  }
+
+  .eld-answer-choice__explanation {
+    padding: var(--eld-semantic-space-component-padding-xs) var(--eld-semantic-space-component-padding-sm);
+  }
+  
+  .eld-answer-choice__explanation-label,
+  .eld-answer-choice__explanation-text {
+    font-size: var(--eld-semantic-font-size-caption);
+  }
+} 

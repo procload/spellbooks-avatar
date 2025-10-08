@@ -1,0 +1,673 @@
+/* Authentication Layout Component */
+/* Styles for login/signup pages with parchment background and embossed effects */
+
+/* Body and viewport styling */
+.eld-auth-body {
+  background: linear-gradient(135deg,
+    var(--eld-semantic-color-surface) 0%,
+    var(--eld-semantic-color-surface-hover) 50%,
+    var(--eld-semantic-color-surface) 100%);
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-family: var(--eld-semantic-font-family-body);
+}
+
+.eld-auth-viewport {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+/* Main authentication container */
+.eld-auth-container {
+  width: 100%;
+  max-width: 64rem; /* 1024px */
+  background: var(--eld-semantic-color-surface-hover);
+  border: var(--eld-semantic-border-width-strong) solid var(--eld-semantic-color-border-default);
+  border-radius: var(--eld-semantic-border-radius-modal);
+  box-shadow: var(--eld-semantic-shadow-card);
+  overflow: hidden;
+  position: relative;
+  /* Enhanced embossed effect for magical container */
+  background-image: 
+    linear-gradient(145deg, 
+      rgba(255,255,255,0.3) 0%, 
+      transparent 50%, 
+      rgba(0,0,0,0.1) 100%);
+}
+
+/* Layout structure */
+.eld-auth-layout {
+  display: flex;
+  position: relative;
+  z-index: 10;
+  min-height: 600px;
+}
+
+/* Auth panels */
+.eld-auth-panel {
+  position: relative;
+}
+
+.eld-auth-panel--left {
+  display: none;
+  width: 50%;
+  background: var(--eld-semantic-color-border-default);
+  color: white;
+  padding: 2rem; /* Reduced padding for more Waylon space */
+  flex-direction: column;
+  justify-content: space-between;
+  background-image:
+    linear-gradient(135deg,
+      var(--eld-semantic-color-primary-dark) 0%,
+      var(--eld-semantic-color-primary) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+@media (min-width: 1024px) {
+  .eld-auth-panel--left {
+    display: flex;
+  }
+}
+
+.eld-auth-panel--right {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding: 0; /* Remove padding to allow full-width banners */
+}
+
+@media (min-width: 1024px) {
+  .eld-auth-panel--right {
+    width: 50%;
+  }
+}
+
+/* Full-width banner area */
+.eld-auth-banner-area {
+  width: 100%;
+  position: relative;
+  z-index: 10;
+}
+
+/* Full-width banner that breaks out of container */
+.eld-auth-full-width-banner {
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  width: 100vw;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* On larger screens, break out of the right panel container */
+@media (min-width: 1024px) {
+  .eld-auth-full-width-banner {
+    /* Calculate the width needed to span the right panel */
+    position: relative;
+    left: -3rem; /* Negative content area padding */
+    width: calc(100% + 6rem); /* Add back both left and right padding */
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+/* Constrained content area with proper padding */
+.eld-auth-content-area {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1rem;
+}
+
+@media (min-width: 1024px) {
+  .eld-auth-content-area {
+    padding: 3rem;
+  }
+}
+
+/* Left panel content */
+.eld-auth-panel__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.eld-auth-panel__header {
+  flex: 1;
+}
+
+.eld-auth-logo {
+  width: 12rem;
+  height: 3rem;
+  color: white;
+  margin-bottom: 2rem;
+}
+
+/* Make logo SVG white on dark background */
+.eld-auth-logo svg {
+  fill: white !important;
+}
+
+.eld-auth-panel__hero {
+  margin-top: 1rem; /* Reduced from 6rem for magazine layout */
+}
+
+.eld-auth-panel__title {
+  font-family: var(--eld-semantic-font-family-heading);
+  font-size: 2.25rem; /* Slightly smaller to make room for Waylon */
+  font-weight: var(--eld-semantic-font-weight-bold);
+  line-height: 1.1;
+  color: var(--eld-primitive-color-blue-200);
+  margin: 0 0 1rem 0; /* Reduced margin */
+}
+
+.eld-auth-panel__subtitle {
+  font-family: var(--eld-semantic-font-family-body);
+  font-size: 1rem; /* Slightly smaller */
+  line-height: 1.5;
+  color: rgba(255,255,255,0.9);
+  margin: 0;
+  font-weight: 400;
+}
+
+/* Features list */
+.eld-auth-panel__features {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.eld-auth-feature {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.eld-auth-feature__icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: var(--eld-primitive-color-blue-200);
+  flex-shrink: 0;
+}
+
+.eld-auth-feature__text {
+  font-family: var(--eld-semantic-font-family-body);
+  color: rgba(255,255,255,0.9);
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+/* Waylon image */
+.eld-auth-waylon {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .eld-auth-waylon {
+    display: block;
+  }
+}
+
+/* Waylon on left panel - SUPER SIZED magazine layout */
+.eld-auth-waylon--left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem 0;
+  order: 2; /* Position between hero and features */
+  flex: 1; /* Take up most available space */
+  position: relative;
+  overflow: hidden;
+  /* Magical spotlight effect behind Waylon */
+  background: radial-gradient(
+    circle at center,
+    rgba(255,255,255,0.05) 0%,
+    rgba(255,255,255,0.02) 30%,
+    transparent 60%
+  );
+}
+
+@media (min-width: 1024px) {
+  .eld-auth-waylon--left {
+    display: flex;
+    margin: 2rem 0 1rem 0;
+  }
+}
+
+.eld-auth-waylon-image {
+  width: 8rem;
+  height: auto;
+  opacity: 0.8;
+  filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));
+  transition: all 0.3s ease;
+}
+
+.eld-auth-waylon-image--large {
+  width: 25rem; /* Much larger! */
+  max-width: 90%;
+  height: auto;
+  opacity: 0.95;
+  /* Removed drop shadow for authentic 1980s feel */
+  transform: scale(1.1); /* Start slightly enlarged */
+  transition: all 0.4s ease;
+  /* Removed animation for authentic static 1980s feel */
+}
+
+.eld-auth-waylon-image--large:hover {
+  opacity: 1;
+  transform: scale(1.15) rotate(3deg);
+  /* Removed drop shadow for authentic 1980s feel */
+}
+
+/* Magical floating animation for Waylon */
+@keyframes waylorFloat {
+  0%, 100% { 
+    transform: scale(1.1) translateY(0) rotate(0deg); 
+  }
+  25% { 
+    transform: scale(1.1) translateY(-5px) rotate(1deg); 
+  }
+  50% { 
+    transform: scale(1.1) translateY(0) rotate(0deg); 
+  }
+  75% { 
+    transform: scale(1.1) translateY(-3px) rotate(-1deg); 
+  }
+}
+
+/* Reorder the left panel content - Magazine style layout */
+.eld-auth-panel__content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 600px;
+}
+
+.eld-auth-panel__header {
+  order: 1;
+  flex: 0 0 auto;
+  margin-bottom: 1rem;
+}
+
+.eld-auth-waylon--left {
+  order: 2;
+  flex: 1; /* Take up the majority of available space */
+  min-height: 300px; /* Ensure minimum size */
+}
+
+.eld-auth-panel__features {
+  order: 3;
+  flex: 0 0 auto;
+  margin-top: auto;
+  padding-top: 1rem;
+}
+
+/* Form container */
+.eld-auth-form-container {
+  width: 100%;
+  max-width: 22.5rem; /* 360px */
+  position: relative;
+  z-index: 20;
+}
+
+.eld-auth-container__texture {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('parchment.png');
+  background-repeat: repeat;
+  background-size: 200px 200px;
+  opacity: 0.08;
+  z-index: 1;
+  pointer-events: none;
+  /* Add subtle texture animation */
+  animation: textureFloat 20s ease-in-out infinite;
+}
+
+@keyframes textureFloat {
+  0%, 100% { transform: translateX(0) translateY(0); }
+  25% { transform: translateX(1px) translateY(-1px); }
+  50% { transform: translateX(-1px) translateY(1px); }
+  75% { transform: translateX(1px) translateY(1px); }
+}
+
+/* Authentication Form Styles */
+.eld-auth-form {
+  width: 100%;
+  max-width: 400px;
+  position: relative;
+  z-index: 20;
+}
+
+/* Form header */
+.eld-auth-form__header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.eld-auth-form__title {
+  font-family: var(--eld-semantic-font-family-heading);
+  font-size: 2.5rem;
+  font-weight: var(--eld-semantic-font-weight-bold);
+  color: var(--eld-semantic-color-primary-dark);
+  margin: 0 0 0.75rem 0;
+  line-height: 1.2;
+}
+
+.eld-auth-form__subtitle {
+  font-family: var(--eld-semantic-font-family-body);
+  font-size: 1.1rem;
+  color: var(--eld-semantic-color-text-secondary);
+  margin: 0;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+/* Form container */
+.eld-auth-form__form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Error handling */
+/* 
+.eld-auth-form__errors {
+  background: var(--eld-primitive-color-neutral-200);
+  border: var(--eld-semantic-border-width-default) solid var(--eld-semantic-color-error);
+  border-radius: var(--eld-semantic-border-radius-card);
+  padding: 1rem;
+  box-shadow: var(--eld-semantic-shadow-card);
+  animation: shake 0.3s ease-in-out;
+}
+*/
+
+/* Success messages */
+/* 
+.eld-auth-form__success {
+  background: var(--eld-primitive-color-neutral-200);
+  border: var(--eld-semantic-border-width-default) solid var(--eld-semantic-color-success, #059669);
+  border-radius: var(--eld-semantic-border-radius-card);
+  padding: 1rem;
+  box-shadow: var(--eld-semantic-shadow-card);
+  margin-bottom: 1.5rem;
+}
+*/
+
+/* Banner utility integration for auth forms */
+.eld-auth-form__banner {
+  margin-bottom: 1.5rem;
+}
+
+/* Legacy error styling - commented out in favor of banner utility */
+/*
+.eld-auth-form__success-text {
+  font-family: var(--eld-semantic-font-family-body);
+  font-size: 0.9rem;
+  color: var(--eld-semantic-color-success, #059669);
+  margin: 0;
+  font-weight: 500;
+}
+
+*/
+
+/* Field containers */
+.eld-auth-form__fields {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* Field group for side-by-side fields */
+.eld-auth-form__field-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+/* Authentication form uses EldritchUi::TextInputComponent */
+/* Override to ensure proper font styling in auth forms */
+.eld-auth-form .eld-text-input input,
+.eld-auth-form .eld-text-input__field {
+  font-family: var(--eld-semantic-font-family-input) !important;
+}
+
+/* Responsive field group */
+@media (max-width: 480px) {
+  .eld-auth-form__field-group {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+}
+
+/* Submit button styling */
+.eld-auth-form__submit {
+  margin-top: 1rem;
+}
+
+.eld-auth-form__submit .eld-btn {
+  width: 100%;
+  justify-content: center;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  font-weight: var(--eld-semantic-font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.eld-auth-form__submit .eld-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    var(--eld-semantic-shadow-button),
+    0 6px 16px rgba(0,0,0,0.15);
+}
+
+.eld-auth-form__submit .eld-btn:active {
+  transform: translateY(0);
+}
+
+/* Divider styling */
+.eld-auth-form__divider {
+  position: relative;
+  margin: 2rem 0 1.5rem 0;
+  text-align: center;
+}
+
+.eld-auth-form__divider-text {
+  font-family: var(--eld-semantic-font-family-body);
+  font-size: 0.9rem;
+  color: var(--eld-semantic-color-text-secondary);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Social signup */
+.eld-auth-form__social {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.eld-auth-form__social .eld-btn {
+  width: 100%;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.875rem 1.5rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.eld-auth-form__social .eld-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 
+    var(--eld-semantic-shadow-button),
+    0 4px 12px rgba(0,0,0,0.1);
+}
+
+.eld-auth-form__google-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.1));
+}
+
+/* Footer */
+.eld-auth-form__footer {
+  text-align: center;
+  margin-top: 2rem;
+  font-family: var(--eld-semantic-font-family-body);
+  font-size: 0.95rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+
+.eld-auth-form__footer-text {
+  color: var(--eld-semantic-color-text-secondary);
+  font-weight: 400;
+  margin-right: 0.5rem;
+}
+
+.eld-auth-form__footer-link {
+  color: var(--eld-semantic-color-primary);
+  text-decoration: none;
+  font-weight: var(--eld-semantic-font-weight-semibold);
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.eld-auth-form__footer-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background: var(--eld-semantic-color-primary);
+  transition: width 0.2s ease;
+}
+
+.eld-auth-form__footer-link:hover {
+  color: var(--eld-semantic-color-primary-hover);
+  transform: translateY(-1px);
+}
+
+.eld-auth-form__footer-link:hover::after {
+  width: 100%;
+}
+
+.eld-auth-form__footer-link:focus {
+  outline: 2px solid var(--eld-semantic-color-primary);
+  outline-offset: 3px;
+  border-radius: var(--eld-semantic-border-radius-button);
+}
+
+/* Sign up section with button */
+.eld-auth-form__footer-signup {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* Responsive design */
+@media (max-width: 480px) {
+  .eld-auth-form {
+    max-width: 100%;
+    padding: 0 0.5rem;
+  }
+  
+  .eld-auth-form__title {
+    font-size: 2rem;
+  }
+  
+  .eld-auth-form__subtitle {
+    font-size: 1rem;
+  }
+
+  .eld-auth-form__form {
+    gap: 1.25rem;
+  }
+
+  .eld-auth-form__fields {
+    gap: 1rem;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  /* 
+  .eld-auth-form__errors {
+    border-width: var(--eld-semantic-border-width-strong);
+  }
+  */
+  
+  .eld-auth-form__footer-link {
+    text-decoration: underline;
+  }
+
+}
+
+/* Focus management for accessibility */
+.eld-auth-form input:focus,
+.eld-auth-form select:focus,
+.eld-auth-form button:focus {
+  outline: 2px solid var(--eld-semantic-color-accent);
+  outline-offset: 2px;
+}
+
+/* Animation for error states */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  75% { transform: translateX(4px); }
+}
+
+/* Loading states */
+.eld-auth-form__submit .eld-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+/* Enhanced visual hierarchy */
+.eld-auth-form__header {
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.eld-auth-form__header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--eld-semantic-color-accent),
+    transparent
+  );
+  border-radius: 2px;
+} 

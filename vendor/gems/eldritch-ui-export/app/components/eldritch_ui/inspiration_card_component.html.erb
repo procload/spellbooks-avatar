@@ -1,0 +1,51 @@
+<%# Eldritch UI Inspiration Card Component %>
+<%# Displays template suggestions for quickly creating new assignments %>
+
+<div <%= tag.attributes(component_tag_attributes) %>>
+  <div class="eld-inspiration-card__content">
+    <!-- Header Section -->
+    <div class="eld-inspiration-card__header">
+      <div class="eld-inspiration-card__title-section">
+        <h3 class="eld-inspiration-card__title"><%= title %></h3>
+        <% if formatted_subtitle.present? %>
+          <div class="eld-inspiration-card__subtitle"><%= formatted_subtitle %></div>
+        <% end %>
+      </div>
+      
+      <% if has_icon? %>
+        <div class="eld-inspiration-card__icon">
+          <%= render EldritchUi::IconComponent.new(name: icon_name, size: :medium) %>
+        </div>
+      <% end %>
+    </div>
+    
+    <!-- Students Count -->
+    <% if has_students_count? %>
+      <div class="eld-inspiration-card__meta">
+        <span class="eld-inspiration-card__students-count">
+          <%= pluralize(formatted_students_count, "student") %>
+        </span>
+      </div>
+    <% end %>
+    
+    <!-- Tags Section -->
+    <% if has_tags? %>
+      <div class="eld-inspiration-card__tags">
+        <% tags.each do |tag_text| %>
+          <%= render EldritchUi::TagComponent.new(text: tag_text) %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+  
+  <!-- Action Section -->
+  <% if has_action? %>
+    <div class="eld-inspiration-card__actions">
+      <% if action %>
+        <%= action %>
+      <% else %>
+        <%= render default_action_button %>
+      <% end %>
+    </div>
+  <% end %>
+</div> 

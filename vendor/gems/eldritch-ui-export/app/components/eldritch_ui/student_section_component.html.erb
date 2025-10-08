@@ -1,0 +1,47 @@
+<div <%= tag.attributes(component_tag_attributes) %>>
+  <!-- Header Section -->
+  <div class="eld-student-section__header">
+    <div class="eld-student-section__student-info">
+      <h3 class="eld-student-section__name">
+        <%= student_name %>
+      </h3>
+      <% if student_email.present? %>
+        <p class="eld-student-section__email">
+          <%= student_email %>
+        </p>
+      <% end %>
+    </div>
+  </div>
+
+  <!-- Assignments Section -->
+  <div class="eld-student-section__content">
+    <% if has_assignments? %>
+      <div class="eld-student-section__assignments">
+        <h4 class="eld-student-section__assignments-title">
+          Assignments
+          <span class="eld-student-section__assignments-count" aria-label="<%= pluralize(assignments_count, 'assignment') %>">
+            (<%= assignments_count %>)
+          </span>
+        </h4>
+        <div class="eld-student-section__assignments-list"
+             role="list"
+             aria-label="Student assignments">
+          <% assignments.each do |assignment_data| %>
+            <div class="eld-student-section__assignment-item" role="listitem">
+              <%= render EldritchUi::AssignmentItemComponent.new(
+                assignment: assignment_data[:assignment],
+                progress: assignment_data[:progress]
+              ) %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% else %>
+      <div class="eld-student-section__empty-state">
+        <p class="eld-student-section__empty-message">
+          No assignments yet
+        </p>
+      </div>
+    <% end %>
+  </div>
+</div> 

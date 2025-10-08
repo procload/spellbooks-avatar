@@ -1,0 +1,44 @@
+<%= content_tag :div, wrapper_attributes do %>
+  <% if has_label? %>
+    <label class="<%= label_css_classes %>" for="<%= field_id %>">
+      <%= label %>
+    </label>
+  <% end %>
+  
+  <div class="<%= has_label? ? control_wrapper_css_classes : 'eld-segmented-control' %>">
+    <div <%= tag.attributes(container_attributes.merge(
+      "aria-describedby": aria_describedby,
+      class: "eld-segmented-control__container"
+    )) %>>
+      <% processed_options.each do |option| %>
+        <%= content_tag :div, option[:label],
+              class: "eld-segmented-control__segment",
+              role: "radio",
+              tabindex: option[:selected] ? "0" : "-1",
+              "aria-checked": option[:selected].to_s,
+              "aria-disabled": option[:disabled].to_s,
+              "data-value": option[:value],
+              "data-action": "click->eldritch-ui--segmented-control#select keydown->eldritch-ui--segmented-control#keydown" %>
+      <% end %>
+    </div>
+    
+    <% if @name %>
+      <%= hidden_field_tag hidden_input_name, hidden_input_value, 
+            data: { 
+              "eldritch-ui--segmented-control-target": "hiddenInput" 
+            } %>
+    <% end %>
+  </div>
+  
+  <% if has_description? %>
+    <div class="eld-attached-field__description" id="<%= description_id %>">
+      <%= description %>
+    </div>
+  <% end %>
+  
+  <% if has_error? %>
+    <div class="eld-attached-field__error" id="<%= error_id %>">
+      <%= error_message %>
+    </div>
+  <% end %>
+<% end %> 

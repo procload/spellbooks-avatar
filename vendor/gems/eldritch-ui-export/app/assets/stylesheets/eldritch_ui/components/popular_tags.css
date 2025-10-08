@@ -1,0 +1,41 @@
+/* Eldritch UI Popular Tags Component */
+/* Clickable interest suggestions using Pill components */
+
+.eld-popular-tags {
+  display: flex;
+  flex-direction: column;
+  gap: var(--eld-semantic-space-component-gap-sm);
+}
+
+.eld-popular-tags__title {
+  display: flex;
+  align-items: center;
+  gap: var(--eld-semantic-space-component-gap-xs);
+  font-family: var(--eld-semantic-font-family-button);
+  font-size: var(--eld-semantic-font-size-body-small);
+  font-weight: var(--eld-primitive-font-weight-medium);
+  color: var(--eld-semantic-color-text-secondary);
+  margin: 0;
+}
+
+.eld-popular-tags__list {
+  display: flex;
+  flex-wrap: wrap;
+  /* Increase vertical spacing between rows while keeping compact horizontal spacing */
+  row-gap: var(--eld-semantic-space-component-gap-sm);
+  column-gap: var(--eld-semantic-space-component-gap-xs);
+}
+
+/* Override pill styles for popular tags to match design */
+.eld-popular-tags__tag.eld-pill {
+  font-size: var(--eld-semantic-font-size-body-xs);
+  color: var(--eld-semantic-color-text-secondary);
+  background-color: var(--eld-semantic-color-background-secondary);
+  border-color: var(--eld-semantic-color-border-secondary);
+}
+
+.eld-popular-tags__tag.eld-pill--interactive:hover {
+  background-color: var(--eld-semantic-color-primary-light);
+  border-color: var(--eld-semantic-color-primary);
+  color: var(--eld-semantic-color-primary);
+}

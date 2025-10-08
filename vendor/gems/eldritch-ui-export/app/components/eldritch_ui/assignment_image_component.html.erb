@@ -1,0 +1,85 @@
+<div <%= tag.attributes(component_tag_attributes) %>>
+  <div class="eld-assignment-image__container">
+    <% case image_status %>
+    <% when 'success' %>
+      <!-- Successful image display -->
+      <div class="eld-assignment-image__image">
+        <%= image_tag image_variant, 
+            class: "eld-assignment-image__img", 
+            alt: assignment.title %>
+      </div>
+    
+    <% when 'generating' %>
+      <!-- Image is being generated -->
+      <div class="eld-assignment-image__placeholder">
+        <%= image_tag placeholder_image_path, 
+            class: "eld-assignment-image__img eld-assignment-image__img--placeholder", 
+            alt: "Assignment image generating..." %>
+        <div class="eld-assignment-image__overlay">
+          <div class="eld-assignment-image__spinner"></div>
+          <span class="eld-assignment-image__overlay-text"><%= image_status_message %></span>
+        </div>
+      </div>
+    
+    <% when 'error' %>
+      <!-- Image generation failed -->
+      <div class="eld-assignment-image__placeholder">
+        <%= image_tag placeholder_image_path, 
+            class: "eld-assignment-image__img eld-assignment-image__img--placeholder eld-assignment-image__img--error", 
+            alt: "Image generation failed" %>
+        <div class="eld-assignment-image__overlay eld-assignment-image__overlay--error">
+          <span class="eld-assignment-image__overlay-text"><%= image_status_message %></span>
+          <% if show_regenerate_button? %>
+            <div class="eld-assignment-image__actions">
+              <%= link_to regenerate_image_assignment_path(assignment),
+                  method: :patch,
+                  class: "eld-button eld-button--secondary eld-button--small",
+                  data: { 
+                    turbo: true,
+                    turbo_method: :patch
+                  } do %>
+                <span>Regenerate Image</span>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    
+    <% when 'unavailable' %>
+      <!-- Image file is missing/corrupted -->
+      <div class="eld-assignment-image__placeholder">
+        <%= image_tag placeholder_image_path, 
+            class: "eld-assignment-image__img eld-assignment-image__img--placeholder", 
+            alt: "Image temporarily unavailable" %>
+        <div class="eld-assignment-image__overlay">
+          <span class="eld-assignment-image__overlay-text"><%= image_status_message %></span>
+          <% if show_regenerate_button? %>
+            <div class="eld-assignment-image__actions">
+              <%= link_to regenerate_image_assignment_path(assignment),
+                  method: :patch,
+                  class: "eld-button eld-button--secondary eld-button--small",
+                  data: { 
+                    turbo: true,
+                    turbo_method: :patch
+                  } do %>
+                <span>Regenerate Image</span>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    
+    <% when 'none' %>
+      <!-- No image and not generating -->
+      <div class="eld-assignment-image__placeholder">
+        <%= image_tag placeholder_image_path, 
+            class: "eld-assignment-image__img eld-assignment-image__img--placeholder", 
+            alt: "No image available" %>
+        <div class="eld-assignment-image__overlay">
+          <span class="eld-assignment-image__overlay-text"><%= image_status_message %></span>
+        </div>
+      </div>
+    
+    <% end %>
+  </div>
+</div> 

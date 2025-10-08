@@ -1,0 +1,111 @@
+/* Color Palette Demo Utilities */
+/* Utility classes for testing and demonstrating color palettes */
+
+.color-demo-palette {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.color-demo-swatch {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--eld-semantic-color-border);
+  min-height: 100px;
+}
+
+.color-demo-swatch-color {
+  width: 60px;
+  height: 60px;
+  border-radius: 0.25rem;
+  margin-bottom: 0.5rem;
+  border: 1px solid rgba(0,0,0,0.1);
+}
+
+.color-demo-swatch-label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-align: center;
+  color: var(--eld-semantic-color-text-secondary);
+}
+
+/* Individual palette demo classes */
+.mystical-gold-50 { background-color: var(--eldritch-mystical-gold-50); }
+.mystical-gold-100 { background-color: var(--eldritch-mystical-gold-100); }
+.mystical-gold-200 { background-color: var(--eldritch-mystical-gold-200); }
+.mystical-gold-300 { background-color: var(--eldritch-mystical-gold-300); }
+.mystical-gold-400 { background-color: var(--eldritch-mystical-gold-400); }
+.mystical-gold-500 { background-color: var(--eldritch-mystical-gold-500); }
+.mystical-gold-600 { background-color: var(--eldritch-mystical-gold-600); }
+.mystical-gold-700 { background-color: var(--eldritch-mystical-gold-700); }
+.mystical-gold-800 { background-color: var(--eldritch-mystical-gold-800); }
+.mystical-gold-900 { background-color: var(--eldritch-mystical-gold-900); }
+.mystical-gold-950 { background-color: var(--eldritch-mystical-gold-950); }
+
+.arcane-blue-50 { background-color: var(--eldritch-arcane-blue-50); }
+.arcane-blue-100 { background-color: var(--eldritch-arcane-blue-100); }
+.arcane-blue-200 { background-color: var(--eldritch-arcane-blue-200); }
+.arcane-blue-300 { background-color: var(--eldritch-arcane-blue-300); }
+.arcane-blue-400 { background-color: var(--eldritch-arcane-blue-400); }
+.arcane-blue-500 { background-color: var(--eldritch-arcane-blue-500); }
+.arcane-blue-600 { background-color: var(--eldritch-arcane-blue-600); }
+.arcane-blue-700 { background-color: var(--eldritch-arcane-blue-700); }
+.arcane-blue-800 { background-color: var(--eldritch-arcane-blue-800); }
+.arcane-blue-900 { background-color: var(--eldritch-arcane-blue-900); }
+.arcane-blue-950 { background-color: var(--eldritch-arcane-blue-950); }
+
+/* Theme demo utilities */
+.theme-demo-section {
+  padding: 2rem;
+  margin: 1rem 0;
+  border-radius: 0.5rem;
+  border: 1px solid var(--eld-semantic-color-border);
+  background-color: var(--eld-semantic-color-surface);
+}
+
+.theme-demo-section h3 {
+  color: var(--eld-semantic-color-text-primary);
+  margin-bottom: 1rem;
+}
+
+.theme-demo-colors {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.semantic-color-demo {
+  padding: 1rem;
+  border-radius: 0.25rem;
+  text-align: center;
+  font-weight: 500;
+}
+
+.semantic-color-demo.primary {
+  background-color: var(--eldritch-color-primary);
+  color: var(--eldritch-color-text-on-primary);
+}
+
+.semantic-color-demo.secondary {
+  background-color: var(--eldritch-color-secondary);
+  color: var(--eldritch-color-text-on-secondary);
+}
+
+.semantic-color-demo.success {
+  background-color: var(--eldritch-color-success);
+  color: var(--eldritch-color-success-text);
+}
+
+.semantic-color-demo.warning {
+  background-color: var(--eldritch-color-warning);
+  color: var(--eldritch-color-warning-text);
+}
+
+.semantic-color-demo.error {
+  background-color: var(--eldritch-color-error);
+  color: var(--eldritch-color-error-text);
+} 

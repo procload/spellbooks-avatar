@@ -1,0 +1,20 @@
+<%# Eldritch UI Tag Component %>
+<%# Inherits from Pill but adds dismissible functionality %>
+
+<%= content_tag element_tag, element_attributes do %>
+  <span class="eld-tag__content">
+    <% if content.present? %>
+      <%= content %>
+    <% else %>
+      <%= text.to_s.html_safe %>
+    <% end %>
+  </span>
+  <% if dismissible %>
+    <button
+      type="button"
+      class="eld-tag__dismiss"
+      aria-label="Remove tag"
+      data-action="click->eldritch-ui--tag#dismiss"
+    >×</button>
+  <% end %>
+<% end %>

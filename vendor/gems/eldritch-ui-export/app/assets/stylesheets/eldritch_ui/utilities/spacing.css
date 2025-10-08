@@ -1,0 +1,224 @@
+/* Spacing Utility Classes */
+/* Utility classes for spacing using semantic design tokens */
+
+/* ===== MARGIN UTILITIES ===== */
+
+/* All sides margin */
+.eld-m-0 { margin: 0; }
+.eld-m-xs { margin: var(--eld-semantic-space-element-xs); }
+.eld-m-sm { margin: var(--eld-semantic-space-element-sm); }
+.eld-m-md { margin: var(--eld-semantic-space-element-md); }
+.eld-m-lg { margin: var(--eld-semantic-space-element-lg); }
+.eld-m-xl { margin: var(--eld-semantic-space-element-xl); }
+
+/* Top margin */
+.eld-mt-0 { margin-top: 0; }
+.eld-mt-xs { margin-top: var(--eld-semantic-space-element-xs); }
+.eld-mt-sm { margin-top: var(--eld-semantic-space-element-sm); }
+.eld-mt-md { margin-top: var(--eld-semantic-space-element-md); }
+.eld-mt-lg { margin-top: var(--eld-semantic-space-element-lg); }
+.eld-mt-xl { margin-top: var(--eld-semantic-space-element-xl); }
+
+/* Right margin */
+.eld-mr-0 { margin-right: 0; }
+.eld-mr-xs { margin-right: var(--eld-semantic-space-element-xs); }
+.eld-mr-sm { margin-right: var(--eld-semantic-space-element-sm); }
+.eld-mr-md { margin-right: var(--eld-semantic-space-element-md); }
+.eld-mr-lg { margin-right: var(--eld-semantic-space-element-lg); }
+.eld-mr-xl { margin-right: var(--eld-semantic-space-element-xl); }
+
+/* Bottom margin */
+.eld-mb-0 { margin-bottom: 0; }
+.eld-mb-xs { margin-bottom: var(--eld-semantic-space-element-xs); }
+.eld-mb-sm { margin-bottom: var(--eld-semantic-space-element-sm); }
+.eld-mb-md { margin-bottom: var(--eld-semantic-space-element-md); }
+.eld-mb-lg { margin-bottom: var(--eld-semantic-space-element-lg); }
+.eld-mb-xl { margin-bottom: var(--eld-semantic-space-element-xl); }
+
+/* Left margin */
+.eld-ml-0 { margin-left: 0; }
+.eld-ml-xs { margin-left: var(--eld-semantic-space-element-xs); }
+.eld-ml-sm { margin-left: var(--eld-semantic-space-element-sm); }
+.eld-ml-md { margin-left: var(--eld-semantic-space-element-md); }
+.eld-ml-lg { margin-left: var(--eld-semantic-space-element-lg); }
+.eld-ml-xl { margin-left: var(--eld-semantic-space-element-xl); }
+
+/* Horizontal margins (left + right) */
+.eld-mx-0 { margin-left: 0; margin-right: 0; }
+.eld-mx-xs { margin-left: var(--eld-semantic-space-element-xs); margin-right: var(--eld-semantic-space-element-xs); }
+.eld-mx-sm { margin-left: var(--eld-semantic-space-element-sm); margin-right: var(--eld-semantic-space-element-sm); }
+.eld-mx-md { margin-left: var(--eld-semantic-space-element-md); margin-right: var(--eld-semantic-space-element-md); }
+.eld-mx-lg { margin-left: var(--eld-semantic-space-element-lg); margin-right: var(--eld-semantic-space-element-lg); }
+.eld-mx-xl { margin-left: var(--eld-semantic-space-element-xl); margin-right: var(--eld-semantic-space-element-xl); }
+.eld-mx-auto { margin-left: auto; margin-right: auto; }
+
+/* Vertical margins (top + bottom) */
+.eld-my-0 { margin-top: 0; margin-bottom: 0; }
+.eld-my-xs { margin-top: var(--eld-semantic-space-element-xs); margin-bottom: var(--eld-semantic-space-element-xs); }
+.eld-my-sm { margin-top: var(--eld-semantic-space-element-sm); margin-bottom: var(--eld-semantic-space-element-sm); }
+.eld-my-md { margin-top: var(--eld-semantic-space-element-md); margin-bottom: var(--eld-semantic-space-element-md); }
+.eld-my-lg { margin-top: var(--eld-semantic-space-element-lg); margin-bottom: var(--eld-semantic-space-element-lg); }
+.eld-my-xl { margin-top: var(--eld-semantic-space-element-xl); margin-bottom: var(--eld-semantic-space-element-xl); }
+
+/* ===== PADDING UTILITIES ===== */
+
+/* All sides padding */
+.eld-p-0 { padding: 0; }
+.eld-p-xs { padding: var(--eld-semantic-space-element-xs); }
+.eld-p-sm { padding: var(--eld-semantic-space-element-sm); }
+.eld-p-md { padding: var(--eld-semantic-space-element-md); }
+.eld-p-lg { padding: var(--eld-semantic-space-element-lg); }
+.eld-p-xl { padding: var(--eld-semantic-space-element-xl); }
+
+/* Top padding */
+.eld-pt-0 { padding-top: 0; }
+.eld-pt-xs { padding-top: var(--eld-semantic-space-element-xs); }
+.eld-pt-sm { padding-top: var(--eld-semantic-space-element-sm); }
+.eld-pt-md { padding-top: var(--eld-semantic-space-element-md); }
+.eld-pt-lg { padding-top: var(--eld-semantic-space-element-lg); }
+.eld-pt-xl { padding-top: var(--eld-semantic-space-element-xl); }
+
+/* Right padding */
+.eld-pr-0 { padding-right: 0; }
+.eld-pr-xs { padding-right: var(--eld-semantic-space-element-xs); }
+.eld-pr-sm { padding-right: var(--eld-semantic-space-element-sm); }
+.eld-pr-md { padding-right: var(--eld-semantic-space-element-md); }
+.eld-pr-lg { padding-right: var(--eld-semantic-space-element-lg); }
+.eld-pr-xl { padding-right: var(--eld-semantic-space-element-xl); }
+
+/* Bottom padding */
+.eld-pb-0 { padding-bottom: 0; }
+.eld-pb-xs { padding-bottom: var(--eld-semantic-space-element-xs); }
+.eld-pb-sm { padding-bottom: var(--eld-semantic-space-element-sm); }
+.eld-pb-md { padding-bottom: var(--eld-semantic-space-element-md); }
+.eld-pb-lg { padding-bottom: var(--eld-semantic-space-element-lg); }
+.eld-pb-xl { padding-bottom: var(--eld-semantic-space-element-xl); }
+
+/* Left padding */
+.eld-pl-0 { padding-left: 0; }
+.eld-pl-xs { padding-left: var(--eld-semantic-space-element-xs); }
+.eld-pl-sm { padding-left: var(--eld-semantic-space-element-sm); }
+.eld-pl-md { padding-left: var(--eld-semantic-space-element-md); }
+.eld-pl-lg { padding-left: var(--eld-semantic-space-element-lg); }
+.eld-pl-xl { padding-left: var(--eld-semantic-space-element-xl); }
+
+/* Horizontal padding (left + right) */
+.eld-px-0 { padding-left: 0; padding-right: 0; }
+.eld-px-xs { padding-left: var(--eld-semantic-space-element-xs); padding-right: var(--eld-semantic-space-element-xs); }
+.eld-px-sm { padding-left: var(--eld-semantic-space-element-sm); padding-right: var(--eld-semantic-space-element-sm); }
+.eld-px-md { padding-left: var(--eld-semantic-space-element-md); padding-right: var(--eld-semantic-space-element-md); }
+.eld-px-lg { padding-left: var(--eld-semantic-space-element-lg); padding-right: var(--eld-semantic-space-element-lg); }
+.eld-px-xl { padding-left: var(--eld-semantic-space-element-xl); padding-right: var(--eld-semantic-space-element-xl); }
+
+/* Vertical padding (top + bottom) */
+.eld-py-0 { padding-top: 0; padding-bottom: 0; }
+.eld-py-xs { padding-top: var(--eld-semantic-space-element-xs); padding-bottom: var(--eld-semantic-space-element-xs); }
+.eld-py-sm { padding-top: var(--eld-semantic-space-element-sm); padding-bottom: var(--eld-semantic-space-element-sm); }
+.eld-py-md { padding-top: var(--eld-semantic-space-element-md); padding-bottom: var(--eld-semantic-space-element-md); }
+.eld-py-lg { padding-top: var(--eld-semantic-space-element-lg); padding-bottom: var(--eld-semantic-space-element-lg); }
+.eld-py-xl { padding-top: var(--eld-semantic-space-element-xl); padding-bottom: var(--eld-semantic-space-element-xl); }
+
+/* ===== GAP UTILITIES (for child element spacing) ===== */
+
+/* Horizontal spacing between child elements */
+.eld-space-x-0 > * + * { margin-left: 0; }
+.eld-space-x-xs > * + * { margin-left: var(--eld-semantic-space-component-xs); }
+.eld-space-x-sm > * + * { margin-left: var(--eld-semantic-space-component-sm); }
+.eld-space-x-md > * + * { margin-left: var(--eld-semantic-space-component-md); }
+.eld-space-x-lg > * + * { margin-left: var(--eld-semantic-space-component-lg); }
+.eld-space-x-xl > * + * { margin-left: var(--eld-semantic-space-component-xl); }
+
+/* Vertical spacing between child elements */
+.eld-space-y-0 > * + * { margin-top: 0; }
+.eld-space-y-xs > * + * { margin-top: var(--eld-semantic-space-component-xs); }
+.eld-space-y-sm > * + * { margin-top: var(--eld-semantic-space-component-sm); }
+.eld-space-y-md > * + * { margin-top: var(--eld-semantic-space-component-md); }
+.eld-space-y-lg > * + * { margin-top: var(--eld-semantic-space-component-lg); }
+.eld-space-y-xl > * + * { margin-top: var(--eld-semantic-space-component-xl); }
+
+/* Layout-based spacing for larger gaps */
+.eld-space-y-layout-md > * + * { margin-top: var(--eld-semantic-space-layout-md); } /* 32px */
+
+/* ===== LAYOUT UTILITIES ===== */
+
+/* Flexbox */
+.eld-flex { display: flex; }
+.eld-inline-flex { display: inline-flex; }
+.eld-flex-row { flex-direction: row; }
+.eld-flex-col { flex-direction: column; }
+.eld-flex-wrap { flex-wrap: wrap; }
+.eld-flex-nowrap { flex-wrap: nowrap; }
+
+/* Flex alignment */
+.eld-items-start { align-items: flex-start; }
+.eld-items-end { align-items: flex-end; }
+.eld-items-center { align-items: center; }
+.eld-items-baseline { align-items: baseline; }
+.eld-items-stretch { align-items: stretch; }
+
+.eld-justify-start { justify-content: flex-start; }
+.eld-justify-end { justify-content: flex-end; }
+.eld-justify-center { justify-content: center; }
+.eld-justify-between { justify-content: space-between; }
+.eld-justify-around { justify-content: space-around; }
+.eld-justify-evenly { justify-content: space-evenly; }
+
+/* Flex grow/shrink */
+.eld-flex-1 { flex: 1 1 0%; }
+.eld-flex-auto { flex: 1 1 auto; }
+.eld-flex-initial { flex: 0 1 auto; }
+.eld-flex-none { flex: none; }
+.eld-flex-grow { flex-grow: 1; }
+.eld-flex-shrink { flex-shrink: 1; }
+
+/* ===== SIZING UTILITIES ===== */
+
+/* Width */
+.eld-w-auto { width: auto; }
+.eld-w-full { width: 100%; }
+.eld-w-xs { width: var(--eld-foundation-space-4); }   /* 8px */
+.eld-w-sm { width: var(--eld-foundation-space-8); }   /* 16px */
+.eld-w-md { width: var(--eld-foundation-space-12); }  /* 24px */
+.eld-w-lg { width: var(--eld-foundation-space-16); }  /* 32px */
+.eld-w-xl { width: var(--eld-foundation-space-20); }  /* 40px */
+.eld-w-2xl { width: var(--eld-foundation-space-24); } /* 48px */
+
+/* Height */
+.eld-h-auto { height: auto; }
+.eld-h-full { height: 100%; }
+.eld-h-xs { height: var(--eld-foundation-space-4); }   /* 8px */
+.eld-h-sm { height: var(--eld-foundation-space-8); }   /* 16px */
+.eld-h-md { height: var(--eld-foundation-space-12); }  /* 24px */
+.eld-h-lg { height: var(--eld-foundation-space-16); }  /* 32px */
+.eld-h-xl { height: var(--eld-foundation-space-20); }  /* 40px */
+.eld-h-2xl { height: var(--eld-foundation-space-24); } /* 48px */
+
+/* ===== POSITIONING UTILITIES ===== */
+
+.eld-relative { position: relative; }
+.eld-absolute { position: absolute; }
+.eld-fixed { position: fixed; }
+.eld-sticky { position: sticky; }
+
+.eld-inset-0 { top: 0; right: 0; bottom: 0; left: 0; }
+.eld-top-0 { top: 0; }
+.eld-right-0 { right: 0; }
+.eld-bottom-0 { bottom: 0; }
+.eld-left-0 { left: 0; }
+
+/* ===== DISPLAY UTILITIES ===== */
+
+.eld-block { display: block; }
+.eld-inline-block { display: inline-block; }
+.eld-inline { display: inline; }
+.eld-hidden { display: none; }
+.eld-grid { display: grid; }
+
+/* ===== Z-INDEX UTILITIES ===== */
+
+.eld-z-0 { z-index: 0; }
+.eld-z-10 { z-index: 10; }
+.eld-z-20 { z-index: 20; }
+.eld-z-30 { z-index: 30; }
+.eld-z-40 { z-index: 40; }
+.eld-z-50 { z-index: 50; }

@@ -1,0 +1,95 @@
+/* Eldritch UI Number Input Component Styles */
+
+.eld-number-input {
+  /* Base number input styles matching text input component */
+  display: inline-block;
+  width: 100%;
+  padding: var(--eld-semantic-space-component-padding-sm) var(--eld-semantic-space-component-padding-md);
+  font-family: var(--eld-semantic-font-family-input);
+  font-size: var(--eld-semantic-font-size-body-medium);
+  font-weight: var(--eld-primitive-font-weight-medium);
+  line-height: var(--eld-primitive-line-height-normal);
+  color: var(--eld-semantic-color-text-primary);
+  background-color: var(--eld-semantic-color-surface);
+  border: var(--eld-semantic-border-width-strong) solid var(--eld-semantic-color-border);
+  border-radius: var(--eld-semantic-border-radius-input);
+  box-shadow: var(--eld-semantic-shadow-input);
+  transition: border-color 0.15s ease;
+  appearance: none;
+}
+
+.eld-number-input:hover:not(:disabled) {
+  background-color: var(--eld-semantic-color-surface-hover);
+}
+
+.eld-number-input:focus {
+  outline: none;
+  background-color: var(--eld-semantic-color-surface-hover);
+}
+
+.eld-number-input:active {
+  background-color: var(--eld-semantic-color-surface-hover);
+}
+
+.eld-number-input::placeholder {
+  color: var(--eld-semantic-color-text-secondary);
+}
+
+/* Disabled state */
+.eld-number-input--disabled,
+.eld-number-input:disabled {
+  background-color: var(--eld-semantic-color-surface);
+  color: var(--eld-semantic-color-text-muted);
+  border-color: var(--eld-semantic-color-border);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Readonly state */
+.eld-number-input--readonly,
+.eld-number-input:read-only {
+  background-color: var(--eld-semantic-color-surface);
+  cursor: default;
+}
+
+/* Error state */
+.eld-number-input--error {
+  border-color: var(--eld-semantic-color-error);
+}
+
+.eld-number-input--error:focus {
+  border-color: var(--eld-semantic-color-error);
+  box-shadow: 0 0 0 2px var(--eld-semantic-color-error-alpha);
+}
+
+/* Size variants */
+.eld-number-input--sm {
+  padding: var(--eld-semantic-space-component-padding-xs) var(--eld-semantic-space-component-padding-sm);
+  font-size: var(--eld-semantic-font-size-body-small);
+}
+
+.eld-number-input--lg {
+  padding: var(--eld-semantic-space-component-padding-md) var(--eld-semantic-space-component-padding-lg);
+  font-size: var(--eld-semantic-font-size-body-large);
+}
+
+/* Custom number input controls styling */
+.eld-number-input::-webkit-outer-spin-button,
+.eld-number-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.eld-number-input[type=number] {
+  -moz-appearance: textfield;
+}
+
+/* Show spinner controls by adding a modifier */
+.eld-number-input--with-controls::-webkit-outer-spin-button,
+.eld-number-input--with-controls::-webkit-inner-spin-button {
+  -webkit-appearance: auto;
+}
+
+.eld-number-input--with-controls[type=number] {
+  -moz-appearance: number-input;
+}

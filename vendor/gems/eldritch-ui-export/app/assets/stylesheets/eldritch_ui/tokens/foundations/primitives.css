@@ -1,0 +1,235 @@
+/* Primitive Color Mappings */
+/* Maps existing palette colors to expected primitive naming conventions */
+
+:root {
+  /* ===== PRIMITIVE COLOR MAPPINGS ===== */
+  
+  /* Blue Colors (Arcane Blue palette) */
+  --eld-primitive-color-blue-50: var(--eld-foundation-color-arcane-blue-50);
+  --eld-primitive-color-blue-100: var(--eld-foundation-color-arcane-blue-100);
+  --eld-primitive-color-blue-200: var(--eld-foundation-color-arcane-blue-200);
+  --eld-primitive-color-blue-300: var(--eld-foundation-color-arcane-blue-300);
+  --eld-primitive-color-blue-400: var(--eld-foundation-color-arcane-blue-400);
+  --eld-primitive-color-blue-500: var(--eld-foundation-color-arcane-blue-500);
+  --eld-primitive-color-blue-600: var(--eld-foundation-color-arcane-blue-600);
+  --eld-primitive-color-blue-700: var(--eld-foundation-color-arcane-blue-700);
+  --eld-primitive-color-blue-800: var(--eld-foundation-color-arcane-blue-800);
+  --eld-primitive-color-blue-900: var(--eld-foundation-color-arcane-blue-900);
+  --eld-primitive-color-blue-950: var(--eld-foundation-color-arcane-blue-950);
+
+  /* Gold Colors (Mystical Gold palette) */
+  --eld-primitive-color-gold-50: var(--eld-foundation-color-mystical-gold-50);
+  --eld-primitive-color-gold-100: var(--eld-foundation-color-mystical-gold-100);
+  --eld-primitive-color-gold-200: var(--eld-foundation-color-mystical-gold-200);
+  --eld-primitive-color-gold-300: var(--eld-foundation-color-mystical-gold-300);
+  --eld-primitive-color-gold-400: var(--eld-foundation-color-mystical-gold-400);
+  --eld-primitive-color-gold-500: var(--eld-foundation-color-mystical-gold-500);
+  --eld-primitive-color-gold-600: var(--eld-foundation-color-mystical-gold-600);
+  --eld-primitive-color-gold-700: var(--eld-foundation-color-mystical-gold-700);
+  --eld-primitive-color-gold-800: var(--eld-foundation-color-mystical-gold-800);
+  --eld-primitive-color-gold-900: var(--eld-foundation-color-mystical-gold-900);
+  --eld-primitive-color-gold-950: var(--eld-foundation-color-mystical-gold-950);
+
+  /* Red Colors (Phoenix Red palette) */
+  --eld-primitive-color-red-50: var(--eld-foundation-color-phoenix-red-50);
+  --eld-primitive-color-red-100: var(--eld-foundation-color-phoenix-red-100);
+  --eld-primitive-color-red-200: var(--eld-foundation-color-phoenix-red-200);
+  --eld-primitive-color-red-300: var(--eld-foundation-color-phoenix-red-300);
+  --eld-primitive-color-red-400: var(--eld-foundation-color-phoenix-red-400);
+  --eld-primitive-color-red-500: var(--eld-foundation-color-phoenix-red-500);
+  --eld-primitive-color-red-600: var(--eld-foundation-color-phoenix-red-600);
+  --eld-primitive-color-red-700: var(--eld-foundation-color-phoenix-red-700);
+  --eld-primitive-color-red-800: var(--eld-foundation-color-phoenix-red-800);
+  --eld-primitive-color-red-900: var(--eld-foundation-color-phoenix-red-900);
+  --eld-primitive-color-red-950: var(--eld-foundation-color-phoenix-red-950);
+
+  /* Clay Colors (Ancient Clay palette - proper terracotta/clay colors) */
+  --eld-primitive-color-clay-50: var(--eld-foundation-color-ancient-clay-50);
+  --eld-primitive-color-clay-100: var(--eld-foundation-color-ancient-clay-100);
+  --eld-primitive-color-clay-200: var(--eld-foundation-color-ancient-clay-200);
+  --eld-primitive-color-clay-300: var(--eld-foundation-color-ancient-clay-300);
+  --eld-primitive-color-clay-400: var(--eld-foundation-color-ancient-clay-400);
+  --eld-primitive-color-clay-500: var(--eld-foundation-color-ancient-clay-500);
+  --eld-primitive-color-clay-600: var(--eld-foundation-color-ancient-clay-600);
+  --eld-primitive-color-clay-700: var(--eld-foundation-color-ancient-clay-700);
+  --eld-primitive-color-clay-800: var(--eld-foundation-color-ancient-clay-800);
+  --eld-primitive-color-clay-900: var(--eld-foundation-color-ancient-clay-900);
+  --eld-primitive-color-clay-950: var(--eld-foundation-color-ancient-clay-950);
+
+  /* Sky Colors (Celestial Sky palette) */
+  --eld-primitive-color-sky-50: var(--eld-foundation-color-celestial-sky-50);
+  --eld-primitive-color-sky-100: var(--eld-foundation-color-celestial-sky-100);
+  --eld-primitive-color-sky-200: var(--eld-foundation-color-celestial-sky-200);
+  --eld-primitive-color-sky-300: var(--eld-foundation-color-celestial-sky-300);
+  --eld-primitive-color-sky-400: var(--eld-foundation-color-celestial-sky-400);
+  --eld-primitive-color-sky-500: var(--eld-foundation-color-celestial-sky-500);
+  --eld-primitive-color-sky-600: var(--eld-foundation-color-celestial-sky-600);
+  --eld-primitive-color-sky-700: var(--eld-foundation-color-celestial-sky-700);
+  --eld-primitive-color-sky-800: var(--eld-foundation-color-celestial-sky-800);
+  --eld-primitive-color-sky-900: var(--eld-foundation-color-celestial-sky-900);
+  --eld-primitive-color-sky-950: var(--eld-foundation-color-celestial-sky-950);
+
+  /* Heather Colors (Mystic Heather palette) */
+  --eld-primitive-color-heather-50: var(--eld-foundation-color-mystic-heather-50);
+  --eld-primitive-color-heather-100: var(--eld-foundation-color-mystic-heather-100);
+  --eld-primitive-color-heather-200: var(--eld-foundation-color-mystic-heather-200);
+  --eld-primitive-color-heather-300: var(--eld-foundation-color-mystic-heather-300);
+  --eld-primitive-color-heather-400: var(--eld-foundation-color-mystic-heather-400);
+  --eld-primitive-color-heather-500: var(--eld-foundation-color-mystic-heather-500);
+  --eld-primitive-color-heather-600: var(--eld-foundation-color-mystic-heather-600);
+  --eld-primitive-color-heather-700: var(--eld-foundation-color-mystic-heather-700);
+  --eld-primitive-color-heather-800: var(--eld-foundation-color-mystic-heather-800);
+  --eld-primitive-color-heather-900: var(--eld-foundation-color-mystic-heather-900);
+  --eld-primitive-color-heather-950: var(--eld-foundation-color-mystic-heather-950);
+
+  /* Neutral Colors (Parchment Neutral palette) */
+  --eld-primitive-color-neutral-50: var(--eld-foundation-color-parchment-neutral-50);
+  --eld-primitive-color-neutral-100: var(--eld-foundation-color-parchment-neutral-100);
+  --eld-primitive-color-neutral-200: var(--eld-foundation-color-parchment-neutral-200);
+  --eld-primitive-color-neutral-300: var(--eld-foundation-color-parchment-neutral-300);
+  --eld-primitive-color-neutral-400: var(--eld-foundation-color-parchment-neutral-400);
+  --eld-primitive-color-neutral-500: var(--eld-foundation-color-parchment-neutral-500);
+  --eld-primitive-color-neutral-600: var(--eld-foundation-color-parchment-neutral-600);
+  --eld-primitive-color-neutral-700: var(--eld-foundation-color-parchment-neutral-700);
+  --eld-primitive-color-neutral-800: var(--eld-foundation-color-parchment-neutral-800);
+  --eld-primitive-color-neutral-900: var(--eld-foundation-color-parchment-neutral-900);
+  --eld-primitive-color-neutral-950: var(--eld-foundation-color-parchment-neutral-950);
+
+  /* Green Colors - RESERVED FOR FUTURE USE */
+  /* Currently no green palette exists in the design system */
+  /* Temporarily mapping to Mystic Heather as placeholder for success states */
+  --eld-primitive-color-green-50: var(--eld-foundation-color-mystic-heather-50);
+  --eld-primitive-color-green-100: var(--eld-foundation-color-mystic-heather-100);
+  --eld-primitive-color-green-200: var(--eld-foundation-color-mystic-heather-200);
+  --eld-primitive-color-green-300: var(--eld-foundation-color-mystic-heather-300);
+  --eld-primitive-color-green-400: var(--eld-foundation-color-mystic-heather-400);
+  --eld-primitive-color-green-500: var(--eld-foundation-color-mystic-heather-500);
+  --eld-primitive-color-green-600: var(--eld-foundation-color-mystic-heather-600);
+  --eld-primitive-color-green-700: var(--eld-foundation-color-mystic-heather-700);
+  --eld-primitive-color-green-800: var(--eld-foundation-color-mystic-heather-800);
+  --eld-primitive-color-green-900: var(--eld-foundation-color-mystic-heather-900);
+  --eld-primitive-color-green-950: var(--eld-foundation-color-mystic-heather-950);
+
+  /* Slate Colors (Shadow Slate palette) */
+  --eld-primitive-color-slate-50: var(--eld-foundation-color-shadow-slate-50);
+  --eld-primitive-color-slate-100: var(--eld-foundation-color-shadow-slate-100);
+  --eld-primitive-color-slate-200: var(--eld-foundation-color-shadow-slate-200);
+  --eld-primitive-color-slate-300: var(--eld-foundation-color-shadow-slate-300);
+  --eld-primitive-color-slate-400: var(--eld-foundation-color-shadow-slate-400);
+  --eld-primitive-color-slate-500: var(--eld-foundation-color-shadow-slate-500);
+  --eld-primitive-color-slate-600: var(--eld-foundation-color-shadow-slate-600);
+  --eld-primitive-color-slate-700: var(--eld-foundation-color-shadow-slate-700);
+  --eld-primitive-color-slate-800: var(--eld-foundation-color-shadow-slate-800);
+  --eld-primitive-color-slate-900: var(--eld-foundation-color-shadow-slate-900);
+  --eld-primitive-color-slate-950: var(--eld-foundation-color-shadow-slate-950);
+
+  /* ===== PRIMITIVE FONT FAMILY MAPPINGS ===== */
+  --eld-primitive-font-family-base: var(--eld-foundation-font-family-base);
+  --eld-primitive-font-family-winky-sans: var(--eld-foundation-font-family-winky-sans);
+  --eld-primitive-font-family-winky-rough: var(--eld-foundation-font-family-winky-rough);
+  --eld-primitive-font-family-corben: var(--eld-foundation-font-family-corben);
+  --eld-primitive-font-family-system: var(--eld-foundation-font-family-system);
+
+  /* ===== PRIMITIVE FONT SIZE MAPPINGS ===== */
+  --eld-primitive-font-size-xs: var(--eld-foundation-font-size-xs);
+  --eld-primitive-font-size-sm: var(--eld-foundation-font-size-sm);
+  --eld-primitive-font-size-base: var(--eld-foundation-font-size-base);
+  --eld-primitive-font-size-lg: var(--eld-foundation-font-size-lg);
+  --eld-primitive-font-size-xl: var(--eld-foundation-font-size-xl);
+  --eld-primitive-font-size-2xl: var(--eld-foundation-font-size-2xl);
+  --eld-primitive-font-size-3xl: var(--eld-foundation-font-size-3xl);
+  --eld-primitive-font-size-4xl: var(--eld-foundation-font-size-4xl);
+
+  /* ===== PRIMITIVE FONT WEIGHT MAPPINGS ===== */
+  --eld-primitive-font-weight-light: var(--eld-foundation-font-weight-light);
+  --eld-primitive-font-weight-normal: var(--eld-foundation-font-weight-normal);
+  --eld-primitive-font-weight-regular: var(--eld-foundation-font-weight-normal); /* Alias for normal */
+  --eld-primitive-font-weight-medium: var(--eld-foundation-font-weight-medium);
+  --eld-primitive-font-weight-semibold: var(--eld-foundation-font-weight-semibold);
+  --eld-primitive-font-weight-bold: var(--eld-foundation-font-weight-bold);
+  --eld-primitive-font-weight-extrabold: var(--eld-foundation-font-weight-extrabold);
+
+  /* ===== PRIMITIVE LINE HEIGHT MAPPINGS ===== */
+  --eld-primitive-line-height-none: 1;
+  --eld-primitive-line-height-tight: 1.25;
+  --eld-primitive-line-height-normal: 1.5;
+  --eld-primitive-line-height-compact: 1.25; /* Alias for tight */
+  --eld-primitive-line-height-relaxed: 1.625;
+  --eld-primitive-line-height-loose: 2;
+
+  /* ===== PRIMITIVE SPACING MAPPINGS ===== */
+  --eld-primitive-space-0: var(--eld-foundation-space-0);
+  --eld-primitive-space-1: var(--eld-foundation-space-1);
+  --eld-primitive-space-2: var(--eld-foundation-space-2);
+  --eld-primitive-space-3: var(--eld-foundation-space-3);
+  --eld-primitive-space-4: var(--eld-foundation-space-4);
+  --eld-primitive-space-5: var(--eld-foundation-space-5);
+  --eld-primitive-space-6: var(--eld-foundation-space-6);
+  --eld-primitive-space-8: var(--eld-foundation-space-8);
+  --eld-primitive-space-10: var(--eld-foundation-space-10);
+  --eld-primitive-space-12: var(--eld-foundation-space-12);
+  --eld-primitive-space-16: var(--eld-foundation-space-16);
+  --eld-primitive-space-20: var(--eld-foundation-space-20);
+  --eld-primitive-space-24: var(--eld-foundation-space-24);
+  --eld-primitive-space-32: var(--eld-foundation-space-32);
+  --eld-primitive-space-40: var(--eld-foundation-space-40);
+  --eld-primitive-space-48: var(--eld-foundation-space-48);
+
+  /* ===== PRIMITIVE BORDER MAPPINGS ===== */
+  --eld-primitive-border-width-0: var(--eld-foundation-border-width-0);
+  --eld-primitive-border-width-1: var(--eld-foundation-border-width-1);
+  --eld-primitive-border-width-2: var(--eld-foundation-border-width-2);
+  --eld-primitive-border-width-4: var(--eld-foundation-border-width-4);
+  --eld-primitive-border-width-8: var(--eld-foundation-border-width-8);
+  --eld-primitive-border-radius-none: var(--eld-foundation-border-radius-none);
+  --eld-primitive-border-radius-xs: var(--eld-foundation-border-radius-xs);
+  --eld-primitive-border-radius-sm: var(--eld-foundation-border-radius-sm);
+  --eld-primitive-border-radius-md: var(--eld-foundation-border-radius-md);
+  --eld-primitive-border-radius-lg: var(--eld-foundation-border-radius-lg);
+  --eld-primitive-border-radius-xl: var(--eld-foundation-border-radius-xl);
+  --eld-primitive-border-radius-2xl: var(--eld-foundation-border-radius-2xl);
+  --eld-primitive-border-radius-3xl: var(--eld-foundation-border-radius-3xl);
+  --eld-primitive-border-radius-full: var(--eld-foundation-border-radius-full);
+
+  /* ===== PRIMITIVE SIZE MAPPINGS ===== */
+  --eld-primitive-size-0: var(--eldritch-size-0);
+  --eld-primitive-size-1: var(--eldritch-size-1);
+  --eld-primitive-size-2: var(--eldritch-size-2);
+  --eld-primitive-size-3: var(--eldritch-size-3);
+  --eld-primitive-size-4: var(--eldritch-size-4);
+  --eld-primitive-size-5: var(--eldritch-size-5);
+  --eld-primitive-size-6: var(--eldritch-size-6);
+  --eld-primitive-size-7: var(--eldritch-size-7);
+  --eld-primitive-size-8: var(--eldritch-size-8);
+  --eld-primitive-size-9: var(--eldritch-size-9);
+  --eld-primitive-size-10: var(--eldritch-size-10);
+  --eld-primitive-size-11: var(--eldritch-size-11);
+  --eld-primitive-size-12: var(--eldritch-size-12);
+  --eld-primitive-size-14: var(--eldritch-size-14);
+  --eld-primitive-size-16: var(--eldritch-size-16);
+  --eld-primitive-size-20: var(--eldritch-size-20);
+  --eld-primitive-size-24: var(--eldritch-size-24);
+  --eld-primitive-size-32: var(--eldritch-size-32);
+  --eld-primitive-size-40: var(--eldritch-size-40);
+  --eld-primitive-size-48: var(--eldritch-size-48);
+
+  /* ===== PRIMITIVE MOTION MAPPINGS ===== */
+  --eld-primitive-duration-instant: var(--eldritch-duration-instant);
+  --eld-primitive-duration-fast: var(--eldritch-duration-fast);
+  --eld-primitive-duration-normal: var(--eldritch-duration-normal);
+  --eld-primitive-duration-slow: var(--eldritch-duration-slow);
+  --eld-primitive-duration-slower: var(--eldritch-duration-slower);
+  --eld-primitive-ease-linear: var(--eldritch-ease-linear);
+  --eld-primitive-ease-in: var(--eldritch-ease-in);
+  --eld-primitive-ease-out: var(--eldritch-ease-out);
+  --eld-primitive-ease-in-out: var(--eldritch-ease-in-out);
+
+  /* ===== PRIMITIVE SHADOW MAPPINGS ===== */
+  --eld-primitive-shadow-none: var(--eldritch-shadow-none);
+  --eld-primitive-shadow-xs: var(--eldritch-shadow-xs);
+  --eld-primitive-shadow-sm: var(--eldritch-shadow-sm);
+  --eld-primitive-shadow-md: var(--eldritch-shadow-md);
+  --eld-primitive-shadow-lg: var(--eldritch-shadow-lg);
+  --eld-primitive-shadow-xl: var(--eldritch-shadow-xl);
+  --eld-primitive-shadow-2xl: var(--eldritch-shadow-2xl);
+}

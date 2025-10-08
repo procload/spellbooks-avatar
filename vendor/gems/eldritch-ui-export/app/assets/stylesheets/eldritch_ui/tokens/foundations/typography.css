@@ -1,0 +1,64 @@
+/* Typography Foundation Tokens */
+/* Font families, sizes, weights, and line heights */
+
+:root {
+  /* ===== TYPOGRAPHY FOUNDATION TOKENS ===== */
+  
+  /* Font Families */
+  --eld-foundation-font-family-base: "Rubik", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --eld-foundation-font-family-winky-sans: "Averia Libre", "Rubik", sans-serif;
+  --eld-foundation-font-family-winky-rough: "Averia Libre", "Rubik", sans-serif;
+  --eld-foundation-font-family-corben: "Corben", serif;
+  --eld-foundation-font-family-system: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  /* Font Sizes */
+  --eld-foundation-font-size-xs: 0.75rem;     /* 12px */
+  --eld-foundation-font-size-sm: 0.875rem;    /* 14px */
+  --eld-foundation-font-size-base: 1rem;      /* 16px */
+  --eld-foundation-font-size-lg: 1.125rem;    /* 18px */
+  --eld-foundation-font-size-xl: 1.25rem;     /* 20px */
+  --eld-foundation-font-size-2xl: 1.5rem;     /* 24px */
+  --eld-foundation-font-size-3xl: 1.875rem;   /* 30px */
+  --eld-foundation-font-size-4xl: 2.25rem;    /* 36px */
+
+  /* Font Weights */
+  --eld-foundation-font-weight-light: 300;
+  --eld-foundation-font-weight-normal: 400;
+  --eld-foundation-font-weight-medium: 500;
+  --eld-foundation-font-weight-semibold: 600;
+  --eld-foundation-font-weight-bold: 700;
+  --eld-foundation-font-weight-extrabold: 800;
+
+  /* Line Heights */
+  --eld-foundation-line-height-none: 1;
+  --eld-foundation-line-height-tight: 1.25;
+  --eld-foundation-line-height-normal: 1.5;
+  --eld-foundation-line-height-relaxed: 1.625;
+  --eld-foundation-line-height-loose: 2;
+  
+  /* Legacy compatibility aliases */
+  --eldritch-font-family-base: var(--eld-foundation-font-family-base);
+  --eldritch-font-family-winky-sans: var(--eld-foundation-font-family-winky-sans);
+  --eldritch-font-family-winky-rough: var(--eld-foundation-font-family-winky-rough);
+  --eldritch-font-family-corben: var(--eld-foundation-font-family-corben);
+  --eldritch-font-family-system: var(--eld-foundation-font-family-system);
+  --eldritch-font-size-xs: var(--eld-foundation-font-size-xs);
+  --eldritch-font-size-sm: var(--eld-foundation-font-size-sm);
+  --eldritch-font-size-base: var(--eld-foundation-font-size-base);
+  --eldritch-font-size-lg: var(--eld-foundation-font-size-lg);
+  --eldritch-font-size-xl: var(--eld-foundation-font-size-xl);
+  --eldritch-font-size-2xl: var(--eld-foundation-font-size-2xl);
+  --eldritch-font-size-3xl: var(--eld-foundation-font-size-3xl);
+  --eldritch-font-size-4xl: var(--eld-foundation-font-size-4xl);
+  --eldritch-font-weight-light: var(--eld-foundation-font-weight-light);
+  --eldritch-font-weight-normal: var(--eld-foundation-font-weight-normal);
+  --eldritch-font-weight-medium: var(--eld-foundation-font-weight-medium);
+  --eldritch-font-weight-semibold: var(--eld-foundation-font-weight-semibold);
+  --eldritch-font-weight-bold: var(--eld-foundation-font-weight-bold);
+  --eldritch-font-weight-extrabold: var(--eld-foundation-font-weight-extrabold);
+  --eldritch-line-height-none: var(--eld-foundation-line-height-none);
+  --eldritch-line-height-tight: var(--eld-foundation-line-height-tight);
+  --eldritch-line-height-normal: var(--eld-foundation-line-height-normal);
+  --eldritch-line-height-relaxed: var(--eld-foundation-line-height-relaxed);
+  --eldritch-line-height-loose: var(--eld-foundation-line-height-loose);
+}

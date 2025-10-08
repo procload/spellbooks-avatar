@@ -1,0 +1,623 @@
+/* Token Input Component - Eldritch UI Design System */
+/* Fantasy-themed token input with multiple magical variations */
+
+.eld-token-input {
+  display: block;
+  position: relative;
+  width: 100%;
+  font-family: var(--eld-semantic-font-family-input);
+}
+
+/* When used with attached field pattern */
+.eld-attached-field .eld-token-input {
+  width: 100%;
+}
+
+/* Disabled state - match TextInput */
+.eld-token-input--disabled {
+  opacity: 0.6;
+}
+
+.eld-token-input--disabled .eld-token-input__label {
+  cursor: not-allowed;
+}
+
+.eld-token-input--disabled .eld-token-input__input-wrapper {
+  background-color: var(--eld-semantic-color-surface);
+  border-color: var(--eld-semantic-color-border);
+  box-shadow: none;
+  opacity: 0.5;
+}
+
+.eld-token-input--disabled .eld-token-input__field {
+  cursor: not-allowed;
+}
+
+/* Readonly state - match TextInput */
+.eld-token-input--readonly .eld-token-input__input-wrapper {
+  background-color: var(--eld-semantic-color-surface);
+}
+
+.eld-token-input--readonly .eld-token-input__field {
+  cursor: default;
+}
+
+/* Error state - match TextInput */
+.eld-token-input--error .eld-token-input__input-wrapper {
+  border-color: var(--eld-semantic-color-error);
+}
+
+.eld-token-input--error .eld-token-input__field:focus {
+  outline-color: var(--eld-semantic-color-error);
+}
+
+/* Legacy label styling - only used when not in attached field pattern */
+.eld-token-input:not(.eld-attached-field .eld-token-input) .eld-token-input__label {
+  position: relative;
+  z-index: 2;
+  display: inline-block;
+  margin-left: var(--eld-semantic-space-component-padding-lg);
+  margin-bottom: 10px;
+  
+  /* Label tab styling - using design system colors */
+  background: var(--eld-semantic-color-surface);
+  color: var(--eld-semantic-color-text-on-surface);
+  
+  /* Typography using new label tokens */
+  font-family: var(--eld-semantic-font-family-label);
+  font-size: var(--eld-semantic-font-size-label);
+  font-weight: var(--eld-primitive-font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  
+  /* Pill shape */
+  padding: var(--eld-semantic-space-component-padding-xs) var(--eld-semantic-space-component-padding-md);
+  border-radius: var(--eld-semantic-border-radius-button);
+  
+  /* Complete border all around like button */
+  border: var(--eld-semantic-border-width-strong) solid var(--eld-semantic-color-primary);
+  
+  /* Chunky emboss effect */
+  box-shadow: var(--eld-semantic-shadow-button);
+}
+
+.eld-token-input:not(.eld-attached-field .eld-token-input).eld-token-input--required .eld-token-input__label::after {
+  content: " *";
+  color: var(--eld-semantic-color-error);
+}
+
+/* Simplified layout - no wrapper styling */
+
+/* Tokens container - positioned below input */
+.eld-token-input__tokens {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--eld-semantic-space-component-gap-md);
+  margin-top: var(--eld-semantic-space-component-gap-md);
+  position: relative;
+  z-index: 1;
+  min-height: 0;
+}
+
+.eld-token-input__tokens:empty {
+  margin-top: 0;
+}
+
+/* Input wrapper and field - matching TextInput exactly */
+.eld-token-input__input-wrapper {
+  position: relative;
+  z-index: 1;
+  background: var(--eld-semantic-color-surface);
+  border: var(--eld-semantic-border-width-strong) solid var(--eld-semantic-color-border);
+  border-radius: var(--eld-semantic-border-radius-input);
+  box-shadow: var(--eld-semantic-shadow-input);
+}
+
+/* Remove top border radius when used with attached field pattern */
+.eld-attached-field .eld-token-input__input-wrapper {
+  border-radius: 0 0 var(--eldritch-border-radius-lg) var(--eldritch-border-radius-lg)
+}
+
+.eld-token-input__field {
+  /* Match TextInput field styling exactly */
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  background: transparent;
+  border: none;
+  padding: var(--eld-semantic-space-component-padding-sm) var(--eld-semantic-space-component-padding-md);
+  font-family: var(--eld-semantic-font-family-input);
+  font-size: var(--eld-semantic-font-size-body-medium);
+  font-weight: var(--eld-primitive-font-weight-medium);
+  line-height: var(--eld-primitive-line-height-normal);
+  color: var(--eld-semantic-color-text-primary);
+  outline: none;
+  box-shadow: none;
+  transition: border-color 0.15s ease;
+  border-radius: var(--eld-semantic-border-radius-card);
+}
+
+.eld-token-input__field::placeholder {
+  color: var(--eld-semantic-color-text-secondary);
+  font-style: italic;
+}
+
+/* Hover state - match TextInput */
+.eld-token-input__input-wrapper:hover:not(.eld-token-input--disabled) {
+  background: var(--eld-semantic-color-surface-hover);
+}
+
+/* Focus state - match TextInput */
+.eld-token-input__input-wrapper:focus-within {
+  background: var(--eld-semantic-color-surface-hover);
+}
+
+/* Active state */
+.eld-token-input__input-wrapper:active {
+  background: var(--eld-semantic-color-surface-hover);
+}
+
+.eld-token-input__field:disabled {
+  cursor: not-allowed;
+  color: var(--eld-semantic-color-text-muted);
+}
+
+.eld-token-input__field:readonly {
+  cursor: default;
+  color: var(--eld-semantic-color-text-muted);
+}
+
+/* Token styling using design system variables */
+.eld-token-input__tokens .eld-tag {
+  /* Dimensions using design tokens */
+  min-width: auto; /* Allow content to determine width */
+  height: 32px;
+  
+  /* Colors using design system variables */
+  background-color: var(--eld-semantic-color-surface);
+  border: var(--eld-semantic-border-width-default) solid var(--eld-semantic-color-border);
+  border-radius: var(--eld-semantic-border-radius-button);
+  box-shadow: var(--eld-semantic-shadow-button);
+  
+  /* Typography using design tokens */
+  font-family: var(--eld-semantic-font-family-label);
+  font-weight: var(--eld-primitive-font-weight-semibold);
+  font-size: var(--eld-semantic-font-size-body-small);
+  line-height: var(--eld-primitive-line-height-compact);
+  color: var(--eld-semantic-color-text-primary);
+  text-align: center;
+  text-transform: none;
+  
+  /* Layout and positioning */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  white-space: nowrap;
+  text-decoration: none;
+  cursor: default;
+  
+  /* Padding using design tokens */
+  padding: var(--eld-semantic-space-component-padding-xs) var(--eld-semantic-space-component-padding-sm);
+}
+
+/* Reserve space for the dismiss “×” so it never overlaps text */
+.eld-token-input__tokens .eld-tag.eld-tag--dismissible {
+  padding-right: calc(
+    var(--eld-semantic-space-component-padding-sm) +
+    var(--eld-semantic-icon-size-xs) +
+    var(--eld-semantic-space-component-padding-xs)
+  );
+}
+
+/* X button styling using design tokens */
+.eld-token-input__tokens .eld-tag .eld-tag__dismiss {
+  position: absolute;
+  top: 50%;
+  right: var(--eld-semantic-space-component-padding-xs);
+  width: var(--eld-semantic-icon-size-xs);
+  height: var(--eld-semantic-icon-size-xs);
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(-50%);
+  font-size: var(--eld-semantic-font-size-caption);
+  font-weight: var(--eld-primitive-font-weight-bold);
+  color: var(--eld-semantic-color-text-secondary);
+  line-height: 1;
+  padding: 0;
+  margin: 0;
+  border-radius: var(--eld-semantic-border-radius-small);
+  transition: background-color var(--eld-semantic-transition-fast);
+}
+
+.eld-token-input__tokens .eld-tag .eld-tag__dismiss:hover {
+  background-color: var(--eld-semantic-color-surface-hover);
+}
+
+/* Removed hover and active states - tags are not clickable, only the dismiss button is */
+
+/* DEPRECATED: Suggestions functionality removed for simplified design */
+/*
+.eld-token-input__suggestions {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  margin-top: var(--eldritch-gap-small);
+  background-color: var(--eld-semantic-color-white);
+  border: var(--eldritch-border-width-md) solid var(--eld-semantic-color-border-default);
+  border-radius: var(--eldritch-border-radius-medium);
+  box-shadow: var(--eldritch-shadow-medium-emboss);
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.eld-token-input__suggestions[hidden] {
+  display: none;
+}
+
+.eld-token-input__suggestions-list {
+  padding: var(--eldritch-gap-small);
+}
+
+.eld-token-input__suggestion-item {
+  display: block;
+  width: 100%;
+  padding: var(--eldritch-padding-small) var(--eldritch-padding-medium);
+  margin-bottom: 2px;
+  background-color: transparent;
+  border: none;
+  border-radius: var(--eldritch-border-radius-small);
+  font-family: var(--eldritch-font-family-rubik);
+  font-size: var(--eldritch-font-size-small);
+  font-weight: var(--eldritch-font-weight-regular);
+  color: var(--eld-semantic-color-text-on-background);
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.eld-token-input__suggestion-item:hover:not(:disabled) {
+  background-color: var(--eld-semantic-color-primary);
+  color: var(--eld-semantic-color-text-on-primary);
+  transform: translateY(-1px);
+  box-shadow: var(--eldritch-shadow-weak-emboss);
+}
+
+.eld-token-input__suggestion-item:focus {
+  outline: none;
+  background-color: var(--eld-semantic-color-primary-hover);
+  color: var(--eld-semantic-color-text-on-primary);
+}
+
+.eld-token-input__suggestion-item[aria-selected="true"] {
+  background-color: var(--eld-semantic-color-primary);
+  color: var(--eld-semantic-color-text-on-primary);
+}
+
+.eld-token-input__suggestion-item:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  color: var(--eld-semantic-color-text-on-surface);
+}
+
+.eld-token-input__suggestion-item:last-child {
+  margin-bottom: 0;
+}
+
+/* Popular tokens section */
+.eld-token-input__popular-section {
+  margin-top: var(--eldritch-gap-medium);
+  padding: var(--eldritch-padding-small) var(--eldritch-padding-medium);
+  border-top: var(--eldritch-border-width-thin) solid var(--eld-semantic-color-surface);
+}
+
+.eld-token-input__popular-label {
+  margin: 0 0 var(--eldritch-gap-small) 0;
+  font-family: var(--eldritch-font-family-label);
+  font-size: var(--eldritch-font-size-small);
+  font-weight: var(--eldritch-font-weight-medium);
+  color: var(--eld-semantic-color-text-on-surface);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.eld-token-input__popular-tokens {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--eldritch-gap-small);
+}
+
+.eld-token-input__popular-token {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--eld-semantic-color-surface);
+  border: var(--eldritch-border-width-thin) solid var(--eld-semantic-color-border-default);
+  border-radius: var(--eldritch-border-radius-medium);
+  font-family: var(--eldritch-font-family-body);
+  font-size: var(--eldritch-font-size-small);
+  font-weight: var(--eldritch-font-weight-medium);
+  color: var(--eld-semantic-color-text-on-surface);
+  padding: var(--eldritch-padding-xxs) var(--eldritch-padding-small);
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.eld-token-input__popular-token:hover:not(:disabled) {
+  background-color: var(--eld-semantic-color-primary);
+  border-color: var(--eld-semantic-color-primary);
+  color: var(--eld-semantic-color-text-on-primary);
+  transform: translateY(-1px);
+}
+
+.eld-token-input__popular-token:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.eld-token-input__popular-token:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background-color: var(--eld-semantic-color-surface);
+  color: var(--eld-semantic-color-text-on-surface);
+}
+*/
+
+/* Description */
+.eld-token-input__description {
+  margin-top: var(--eld-semantic-space-component-gap-small);
+  font-family: var(--eld-semantic-font-family-body);
+  font-size: var(--eld-semantic-font-size-body-small);
+  font-weight: var(--eld-primitive-font-weight-regular);
+  color: var(--eld-semantic-color-text-on-surface);
+  line-height: var(--eld-primitive-line-height-normal);
+}
+
+/* Error message */
+.eld-token-input__error {
+  margin-top: var(--eld-semantic-space-component-gap-small);
+  font-family: var(--eld-semantic-font-family-body);
+  font-size: var(--eld-semantic-font-size-body-small);
+  font-weight: var(--eld-primitive-font-weight-medium);
+  color: var(--eld-semantic-color-error);
+  line-height: var(--eld-primitive-line-height-normal);
+}
+
+/* Removed old variations - now using master styling above */
+
+/* === VARIATION 3: AGED PARCHMENT STONE === */
+/* Even lighter with warm ivory tones */
+.eld-token-input--aged-parchment .eld-token-input__wrapper {
+  background:
+    linear-gradient(135deg, var(--eldritch-parchment-neutral-50) 0%, var(--eldritch-parchment-neutral-100) 50%, var(--eldritch-parchment-neutral-200) 100%),
+    url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000' fill-opacity='0.015'%3E%3Cpolygon points='10 0 20 10 10 20 0 10'/%3E%3C/g%3E%3C/svg%3E");
+  border: var(--eld-semantic-border-width-strong) solid var(--eld-semantic-color-border-strong);
+  border-radius: var(--eld-semantic-border-radius-small);
+  box-shadow:
+    var(--eld-semantic-shadow-strong-emboss),
+    inset 0 2px 6px rgba(200, 184, 150, 0.1);
+  color: var(--eld-semantic-color-text-primary);
+}
+
+.eld-token-input--aged-parchment .eld-token-input__field {
+  background: var(--eld-semantic-color-input-background);
+  border: 1px solid var(--eld-semantic-color-border);
+  border-radius: var(--eld-semantic-border-radius-small);
+  padding: var(--eld-semantic-space-component-padding-small);
+  color: var(--eld-semantic-color-text-primary);
+}
+
+.eld-token-input--aged-parchment .eld-token-input__field::placeholder {
+  color: rgba(107, 93, 66, 0.5);
+}
+
+.eld-token-input--aged-parchment .eld-token-input__tokens .eld-tag {
+  background: linear-gradient(135deg, var(--eldritch-parchment-neutral-200) 0%, var(--eldritch-parchment-neutral-300) 100%);
+  color: var(--eld-semantic-color-text-primary);
+  border: 2px solid var(--eld-semantic-color-border-strong);
+  border-radius: var(--eld-semantic-border-radius-small);
+  box-shadow:
+    var(--eld-semantic-shadow-strong-emboss),
+    inset 0 1px 2px rgba(255, 255, 255, 0.4);
+  font-weight: var(--eld-primitive-font-weight-bold);
+  position: relative;
+}
+
+/* === VARIATION 4: CREAM MANUSCRIPT === */
+/* Very light cream with subtle texture */
+.eld-token-input--cream-manuscript .eld-token-input__wrapper {
+  background:
+    linear-gradient(135deg, var(--eldritch-parchment-neutral-50) 0%, var(--eldritch-parchment-neutral-100) 50%, var(--eldritch-parchment-neutral-150) 100%),
+    url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000' fill-opacity='0.01'%3E%3Cpolygon points='10 0 20 10 10 20 0 10'/%3E%3C/g%3E%3C/svg%3E");
+  border: var(--eld-semantic-border-width-strong) solid var(--eld-semantic-color-border);
+  border-radius: var(--eld-semantic-border-radius-small);
+  box-shadow:
+    var(--eld-semantic-shadow-strong-emboss),
+    inset 0 2px 4px rgba(212, 196, 168, 0.08);
+  color: var(--eld-semantic-color-text-secondary);
+}
+
+.eld-token-input--cream-manuscript .eld-token-input__field {
+  background: var(--eld-semantic-color-input-background);
+  border: 1px solid var(--eld-semantic-color-border);
+  border-radius: var(--eld-semantic-border-radius-small);
+  padding: var(--eld-semantic-space-component-padding-small);
+  color: var(--eld-semantic-color-text-secondary);
+}
+
+.eld-token-input--cream-manuscript .eld-token-input__field::placeholder {
+  color: rgba(122, 107, 82, 0.4);
+}
+
+.eld-token-input--cream-manuscript .eld-token-input__tokens .eld-tag {
+  background: linear-gradient(135deg, var(--eldritch-parchment-neutral-200) 0%, var(--eldritch-parchment-neutral-300) 100%);
+  color: var(--eld-semantic-color-text-secondary);
+  border: 2px solid var(--eld-semantic-color-border);
+  border-radius: var(--eld-semantic-border-radius-small);
+  box-shadow:
+    var(--eld-semantic-shadow-strong-emboss),
+    inset 0 1px 2px rgba(255, 255, 255, 0.5);
+  font-weight: var(--eld-primitive-font-weight-bold);
+  position: relative;
+}
+
+/* === VARIATION 5: CLASSIC RUNE STONE (ORIGINAL DARK) === */
+/* The original chunky dark stone for comparison */
+.eld-token-input--rune-stone .eld-token-input__wrapper {
+  background:
+    linear-gradient(135deg, #8d7053 0%, #6b5d42 50%, #4a4034 100%),
+    url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000' fill-opacity='0.03'%3E%3Cpolygon points='10 0 20 10 10 20 0 10'/%3E%3C/g%3E%3C/svg%3E");
+  border: var(--eld-semantic-border-width-strong) solid #3a3024;
+  border-radius: var(--eld-semantic-border-radius-small);
+  box-shadow:
+    var(--eld-semantic-shadow-strong-emboss),
+    inset 0 2px 10px rgba(0, 0, 0, 0.3);
+  color: var(--eld-semantic-color-brand-gold-600);
+}
+
+.eld-token-input--rune-stone .eld-token-input__field {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(213, 162, 31, 0.3);
+  border-radius: var(--eld-semantic-border-radius-small);
+  padding: var(--eld-semantic-space-component-padding-small);
+  color: var(--eld-semantic-color-brand-gold-600);
+}
+
+.eld-token-input--rune-stone .eld-token-input__field::placeholder {
+  color: rgba(213, 162, 31, 0.6);
+}
+
+.eld-token-input--rune-stone .eld-token-input__tokens .eld-tag {
+  background: linear-gradient(135deg, #5a4f3a 0%, #4a3f2a 100%);
+  color: var(--eld-semantic-color-brand-gold-600);
+  border: 2px solid #3a3024;
+  border-radius: var(--eld-semantic-border-radius-small);
+  box-shadow:
+    var(--eld-semantic-shadow-strong-emboss),
+    inset 0 1px 2px rgba(213, 162, 31, 0.2);
+  font-weight: var(--eld-primitive-font-weight-bold);
+  position: relative;
+}
+
+.eld-token-input--rune-stone .eld-token-input__tokens .eld-tag::before {
+  content: '⚡';
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  font-size: 8px;
+  color: var(--eld-semantic-color-brand-gold-600);
+}
+
+/* === VARIATION 6: INSTALLATION INSTRUCTIONS === */
+/* Step-by-step setup guide with clean lines */
+.eld-token-input--install-guide .eld-token-input__wrapper {
+  background: linear-gradient(135deg, #fdfdfd 0%, #f8f8f8 100%);
+  border: var(--eld-semantic-border-width-strong) solid #555555;
+  border-radius: var(--eld-semantic-border-radius-small);
+  box-shadow:
+    var(--eld-semantic-shadow-strong-emboss),
+    inset 0 1px 1px rgba(0, 0, 0, 0.05);
+  position: relative;
+}
+
+.eld-token-input--install-guide .eld-token-input__wrapper::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: var(--eld-semantic-space-component-padding-md);
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, #dddddd, transparent);
+}
+
+.eld-token-input--install-guide .eld-token-input__field {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid #cccccc;
+  border-radius: var(--eld-semantic-border-radius-small);
+  padding: var(--eld-semantic-space-component-padding-small);
+  color: #333333;
+  margin-left: calc(var(--eld-semantic-space-component-padding-md) + var(--eld-semantic-space-component-padding-small));
+}
+
+.eld-token-input--install-guide .eld-token-input__tokens {
+  margin-left: calc(var(--eld-semantic-space-component-padding-md) + var(--eld-semantic-space-component-padding-small));
+}
+
+.eld-token-input--install-guide .eld-token-input__tokens .eld-tag {
+  background: linear-gradient(135deg, #f5f5f5 0%, #eeeeee 100%);
+  color: #333333;
+  border: 2px solid #999999;
+  border-radius: var(--eld-semantic-border-radius-small);
+  box-shadow: var(--eld-semantic-shadow-medium-emboss);
+  font-weight: var(--eld-primitive-font-weight-medium);
+}
+
+/* Loading state */
+.eld-token-input--loading .eld-token-input__field {
+  background-image: url("data:image/svg+xml,%3csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3e%3cg fill='none' fill-rule='evenodd'%3e%3cg transform='translate(1 1)' stroke='%23D5A21F' stroke-width='2'%3e%3ccircle stroke-opacity='.5' cx='9' cy='9' r='9'/%3e%3cpath d='m18 9c0-4.97-4.03-9-9-9'%3e%3canimateTransform attributeName='transform' type='rotate' from='0 9 9' to='360 9 9' dur='1s' repeatCount='indefinite'/%3e%3c/path%3e%3c/g%3e%3c/g%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right var(--eld-semantic-space-component-padding-small) center;
+  background-size: 1rem 1rem;
+  padding-right: calc(var(--eld-semantic-space-component-padding-small) + 1.5rem);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .eld-token-input__tokens {
+    gap: calc(var(--eld-semantic-space-component-gap-small) / 2);
+  }
+
+  .eld-token-input__popular-tokens {
+    gap: calc(var(--eld-semantic-space-component-gap-small) / 2);
+  }
+
+  .eld-token-input__field {
+    font-size: var(--eld-semantic-font-size-body-small);
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .eld-token-input__wrapper {
+    border-width: var(--eld-semantic-border-width-strong);
+  }
+
+  .eld-token-input__suggestion-item:focus,
+  .eld-token-input__popular-token:focus {
+    outline: 2px solid;
+    outline-offset: 2px;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+
+  .eld-token-input__wrapper,
+  .eld-token-input__suggestion-item,
+  .eld-token-input__popular-token {
+    transition: none;
+  }
+
+  .eld-token-input--loading .eld-token-input__field {
+    background-image: none;
+  }
+
+  .eld-token-input--potion-cauldron .eld-token-input__tokens .eld-tag {
+    animation: none;
+  }
+}
+
+/* Focus management for accessibility */
+.eld-token-input:focus-within .eld-token-input__wrapper {
+  border-color: var(--eld-semantic-color-primary);
+}
+
+/* Ensure suggestions don't interfere with layout */
+.eld-token-input__suggestions {
+  pointer-events: auto;
+}

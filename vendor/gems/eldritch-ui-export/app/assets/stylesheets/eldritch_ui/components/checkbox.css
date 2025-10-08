@@ -1,0 +1,188 @@
+/* Checkbox Component - EldritchUi Design System */
+
+.eld-checkbox {
+  display: flex;
+  flex-direction: column;
+  gap: var(--eld-semantic-space-component-gap-sm);
+  font-family: var(--eld-semantic-font-family-body);
+}
+
+/* Control container with input and custom indicator */
+.eld-checkbox__control {
+  display: flex;
+  align-items: center;
+  gap: var(--eld-semantic-space-component-gap-sm);
+  position: relative;
+}
+
+/* Hide native checkbox but keep accessible */
+.eld-checkbox__input {
+  position: absolute;
+  opacity: 0;
+  width: 1.25rem;
+  height: 1.25rem;
+  margin: 0;
+  cursor: pointer;
+}
+
+.eld-checkbox__input:disabled {
+  cursor: not-allowed;
+}
+
+/* Custom checkbox indicator */
+.eld-checkbox__indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.25rem;
+  height: 1.25rem;
+  border: var(--eld-semantic-border-width-default) solid var(--eld-semantic-color-border);
+  border-radius: var(--eld-semantic-border-radius-input);
+  background-color: var(--eld-semantic-color-surface);
+  transition: all 0.2s ease;
+  pointer-events: none;
+  
+  /* Chunky Spellbooks styling */
+  box-shadow: var(--eld-semantic-shadow-input);
+}
+
+/* Checkmark icon */
+.eld-checkbox__check {
+  width: 0.75rem;
+  height: 0.75rem;
+  fill: var(--eld-semantic-color-text-on-primary);
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all 0.2s ease;
+}
+
+/* Label styling */
+.eld-checkbox__label {
+  color: var(--eld-semantic-color-text-primary);
+  font-family: var(--eld-semantic-font-family-input);
+  font-size: var(--eld-semantic-font-size-body-medium);
+  font-weight: var(--eld-primitive-font-weight-medium);
+  cursor: pointer;
+  user-select: none;
+  order: -1; /* Place label before control */
+}
+
+/* Description text */
+.eld-checkbox__description {
+  color: var(--eld-semantic-color-text-secondary);
+  font-size: var(--eld-semantic-font-size-body-small);
+  line-height: 1.4;
+}
+
+/* Error message */
+.eld-checkbox__error {
+  color: var(--eld-semantic-color-error);
+  font-size: var(--eld-semantic-font-size-body-small);
+  font-weight: var(--eld-primitive-font-weight-medium);
+}
+
+/* Checked state */
+.eld-checkbox__input:checked + .eld-checkbox__indicator {
+  background-color: var(--eld-semantic-color-primary);
+  border-color: var(--eld-semantic-color-border);
+  box-shadow: var(--eld-semantic-shadow-input);
+}
+
+.eld-checkbox__input:checked + .eld-checkbox__indicator .eld-checkbox__check {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Focus state */
+.eld-checkbox__input:focus + .eld-checkbox__indicator {
+  outline: 2px solid var(--eld-semantic-color-primary);
+  outline-offset: 2px;
+}
+
+/* Hover state */
+.eld-checkbox__input:hover:not(:disabled) + .eld-checkbox__indicator {
+  border-color: var(--eld-semantic-color-primary);
+  transform: translateY(-1px);
+}
+
+/* Active/pressed state */
+.eld-checkbox__input:active:not(:disabled) + .eld-checkbox__indicator {
+  transform: translateY(1px) translateX(0.5px);
+  box-shadow: var(--eld-semantic-shadow-button-pressed);
+}
+
+/* Disabled state */
+.eld-checkbox--disabled {
+  opacity: 0.6;
+}
+
+.eld-checkbox--disabled .eld-checkbox__label {
+  cursor: not-allowed;
+}
+
+.eld-checkbox--disabled .eld-checkbox__indicator {
+  background-color: var(--eld-semantic-color-surface);
+  border-color: var(--eld-semantic-color-border);
+  box-shadow: none;
+}
+
+/* Error state */
+.eld-checkbox--error .eld-checkbox__indicator {
+  border-color: var(--eld-semantic-color-error);
+}
+
+.eld-checkbox--error .eld-checkbox__input:focus + .eld-checkbox__indicator {
+  outline-color: var(--eld-semantic-color-error);
+}
+
+/* Size variants */
+.eld-checkbox--small .eld-checkbox__input,
+.eld-checkbox--small .eld-checkbox__indicator {
+  width: 1rem;
+  height: 1rem;
+}
+
+.eld-checkbox--small .eld-checkbox__check {
+  width: 0.625rem;
+  height: 0.625rem;
+}
+
+.eld-checkbox--small .eld-checkbox__label {
+  font-size: var(--eld-semantic-font-size-body-small);
+}
+
+.eld-checkbox--large .eld-checkbox__input,
+.eld-checkbox--large .eld-checkbox__indicator {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.eld-checkbox--large .eld-checkbox__check {
+  width: 1rem;
+  height: 1rem;
+}
+
+.eld-checkbox--large .eld-checkbox__label {
+  font-size: var(--eld-semantic-font-size-body-medium);
+}
+
+/* Required indicator */
+.eld-checkbox--required .eld-checkbox__label::after {
+  content: " *";
+  color: var(--eld-semantic-color-error);
+}
+
+/* Inline layout variant */
+.eld-checkbox--inline {
+  flex-direction: row;
+  align-items: center;
+}
+
+.eld-checkbox--inline .eld-checkbox__label {
+  order: 0;
+}
+
+.eld-checkbox--inline .eld-checkbox__description,
+.eld-checkbox--inline .eld-checkbox__error {
+  margin-left: 1.75rem; /* Align with checkbox */
+} 

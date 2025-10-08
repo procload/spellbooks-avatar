@@ -1,0 +1,18 @@
+/* Mystical Gold Palette */
+/* Sophisticated muted golds inspired by Anthropic's refined aesthetic */
+/* References foundation layer for single source of truth */
+
+:root {
+  /* Mystical Gold - 50 to 950 scale - much more muted and sophisticated */
+  --eldritch-mystical-gold-50: var(--eld-foundation-color-mystical-gold-50);
+  --eldritch-mystical-gold-100: var(--eld-foundation-color-mystical-gold-100);
+  --eldritch-mystical-gold-200: var(--eld-foundation-color-mystical-gold-200);
+  --eldritch-mystical-gold-300: var(--eld-foundation-color-mystical-gold-300);
+  --eldritch-mystical-gold-400: var(--eld-foundation-color-mystical-gold-400);
+  --eldritch-mystical-gold-500: var(--eld-foundation-color-mystical-gold-500);
+  --eldritch-mystical-gold-600: var(--eld-foundation-color-mystical-gold-600);
+  --eldritch-mystical-gold-700: var(--eld-foundation-color-mystical-gold-700);
+  --eldritch-mystical-gold-800: var(--eld-foundation-color-mystical-gold-800);
+  --eldritch-mystical-gold-900: var(--eld-foundation-color-mystical-gold-900);
+  --eldritch-mystical-gold-950: var(--eld-foundation-color-mystical-gold-950);
+} 

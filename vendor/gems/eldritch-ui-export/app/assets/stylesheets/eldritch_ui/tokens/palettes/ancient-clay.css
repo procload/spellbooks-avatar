@@ -1,0 +1,18 @@
+/* Ancient Clay Palette */
+/* Warm terracotta and clay colors for success states, earthen magic, and natural elements */
+/* References foundation layer for single source of truth */
+
+:root {
+  /* Ancient Clay - 50 to 950 scale - warm terracotta tones */
+  --eldritch-ancient-clay-50: var(--eld-foundation-color-ancient-clay-50);
+  --eldritch-ancient-clay-100: var(--eld-foundation-color-ancient-clay-100);
+  --eldritch-ancient-clay-200: var(--eld-foundation-color-ancient-clay-200);
+  --eldritch-ancient-clay-300: var(--eld-foundation-color-ancient-clay-300);
+  --eldritch-ancient-clay-400: var(--eld-foundation-color-ancient-clay-400);
+  --eldritch-ancient-clay-500: var(--eld-foundation-color-ancient-clay-500);
+  --eldritch-ancient-clay-600: var(--eld-foundation-color-ancient-clay-600);
+  --eldritch-ancient-clay-700: var(--eld-foundation-color-ancient-clay-700);
+  --eldritch-ancient-clay-800: var(--eld-foundation-color-ancient-clay-800);
+  --eldritch-ancient-clay-900: var(--eld-foundation-color-ancient-clay-900);
+  --eldritch-ancient-clay-950: var(--eld-foundation-color-ancient-clay-950);
+}

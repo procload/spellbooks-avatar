@@ -1,0 +1,20 @@
+<%= tag.span(class: "eld-tooltip-container", **trigger_attributes) do %>
+  <!-- Trigger element -->
+  <% if has_custom_trigger? %>
+    <span class="<%= default_trigger_classes %>">
+      <%= trigger_content %>
+    </span>
+  <% else %>
+    <button type="button" class="<%= default_trigger_classes %> eld-tooltip-trigger--icon" aria-label="Show more information">
+      <%= render EldritchUi::IconComponent.new(name: default_trigger_icon, size: "sm") %>
+    </button>
+  <% end %>
+
+  <!-- Tooltip content -->
+  <%= tag.div(**tooltip_attributes.merge("data-tooltip-target" => "tooltip")) do %>
+    <div class="eld-tooltip__content">
+      <%= text %>
+    </div>
+    <div class="eld-tooltip__arrow" data-tooltip-target="arrow"></div>
+  <% end %>
+<% end %>

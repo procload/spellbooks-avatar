@@ -1,0 +1,106 @@
+<div style="max-width: 500px; margin: 0 auto;">
+  <%= form_with url: "#", local: true, style: "display: flex; flex-direction: column; gap: 1.5rem;" do |form| %>
+    
+    <%= render EldritchUi::FieldComponent.new(required: true) do |field| %>
+      <% field.with_label do %>
+        <%= form.label :name, "Full Name" %>
+      <% end %>
+      <% field.with_input do %>
+        <%= render EldritchUi::TextInputComponent.new(
+              name: "user[name]",
+              placeholder: "Enter your full name..."
+            ) %>
+      <% end %>
+    <% end %>
+
+    <%= render EldritchUi::FieldComponent.new(
+          required: true,
+          status: :error,
+          message: "Please enter a valid email address."
+        ) do |field| %>
+      <% field.with_label do %>
+        <%= form.label :email, "Email Address" %>
+      <% end %>
+      <% field.with_input do %>
+        <%= render EldritchUi::TextInputComponent.new(
+              name: "user[email]",
+              type: "email",
+              placeholder: "Enter your email..."
+            ) %>
+      <% end %>
+    <% end %>
+
+    <%= render EldritchUi::FieldComponent.new do |field| %>
+      <% field.with_label do %>
+        <%= form.label :country, "Country" %>
+      <% end %>
+      <% field.with_input do %>
+        <%= render EldritchUi::SelectComponent.new(
+              name: "user[country]",
+              options: [
+                { value: "us", label: "United States" },
+                { value: "ca", label: "Canada" },
+                { value: "uk", label: "United Kingdom" },
+                { value: "de", label: "Germany" },
+                { value: "fr", label: "France" }
+              ],
+              placeholder: "Choose your country..."
+            ) %>
+      <% end %>
+    <% end %>
+
+    <%= render EldritchUi::FieldComponent.new(
+          status: :success,
+          message: "This username is available!"
+        ) do |field| %>
+      <% field.with_label do %>
+        <%= form.label :username, "Username" %>
+      <% end %>
+      <% field.with_input do %>
+        <%= render EldritchUi::TextInputComponent.new(
+              name: "user[username]",
+              value: "awesome_user",
+              placeholder: "Choose a username..."
+            ) %>
+      <% end %>
+    <% end %>
+
+    <%= render EldritchUi::FieldComponent.new do |field| %>
+      <% field.with_label do %>
+        <%= form.label :bio, "Bio" %>
+      <% end %>
+      <% field.with_input do %>
+        <%= render EldritchUi::TextareaComponent.new(
+              name: "user[bio]",
+              placeholder: "Tell us about yourself...",
+              rows: 4
+            ) %>
+      <% end %>
+    <% end %>
+
+    <%= render EldritchUi::FieldComponent.new(
+          status: :warning,
+          message: "Make sure this password is strong and unique."
+        ) do |field| %>
+      <% field.with_label do %>
+        <%= form.label :password, "Password" %>
+      <% end %>
+      <% field.with_input do %>
+        <%= render EldritchUi::TextInputComponent.new(
+              name: "user[password]",
+              type: "password",
+              placeholder: "Enter a secure password..."
+            ) %>
+      <% end %>
+    <% end %>
+
+    <div style="margin-top: 1rem;">
+      <%= render EldritchUi::ButtonComponent.new(
+            label: "Create Account",
+            type: "submit",
+            variant: :primary,
+            size: :large
+          ) %>
+    </div>
+  <% end %>
+</div> 

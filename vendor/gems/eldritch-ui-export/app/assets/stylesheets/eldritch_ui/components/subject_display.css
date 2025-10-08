@@ -1,0 +1,48 @@
+/* Eldritch UI Subject Display Component */
+/* Simple display for MVP subject selection */
+
+.eld-subject-display {
+  display: flex;
+  flex-direction: column;
+  gap: var(--eld-semantic-space-component-gap-xs);
+  padding: var(--eld-semantic-space-component-padding-md);
+  background-color: var(--eld-semantic-color-background-secondary);
+  border: var(--eld-semantic-border-width-strong) solid var(--eld-semantic-color-border-primary);
+  border-radius: var(--eld-semantic-border-radius-card);
+  box-shadow: var(--eld-semantic-shadow-card);
+}
+
+.eld-subject-display__text {
+  font-family: var(--eld-semantic-font-family-button);
+  font-size: var(--eld-semantic-font-size-body-medium);
+  font-weight: var(--eld-primitive-font-weight-semibold);
+  color: var(--eld-semantic-color-text-primary);
+}
+
+.eld-subject-display__note {
+  font-family: var(--eld-semantic-font-family-body);
+  font-size: var(--eld-semantic-font-size-body-small);
+  color: var(--eld-semantic-color-text-secondary);
+  font-style: italic;
+}
+
+/* Focus state for accessibility */
+.eld-subject-display:focus-within {
+  outline: var(--eld-semantic-border-width-focus) solid var(--eld-semantic-color-focus);
+  outline-offset: 2px;
+}
+
+/* Responsive design */
+@media (max-width: 480px) {
+  .eld-subject-display {
+    padding: var(--eld-semantic-space-component-padding-sm);
+  }
+
+  .eld-subject-display__text {
+    font-size: var(--eld-semantic-font-size-body-small);
+  }
+
+  .eld-subject-display__note {
+    font-size: var(--eld-semantic-font-size-body-xs);
+  }
+}

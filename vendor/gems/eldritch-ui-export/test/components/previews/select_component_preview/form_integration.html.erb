@@ -1,0 +1,52 @@
+<div style="max-width: 400px; margin: 0 auto;">
+  <%= form_with url: "#", local: true, style: "display: flex; flex-direction: column; gap: 1rem;" do |form| %>
+    <div>
+      <%= form.label :country, "Country *", style: "display: block; margin-bottom: 0.5rem; font-weight: 600;" %>
+      <%= render EldritchUi::SelectComponent.new(
+            options: [
+              { value: "us", label: "United States" },
+              { value: "ca", label: "Canada" },
+              { value: "uk", label: "United Kingdom" },
+              { value: "de", label: "Germany" },
+              { value: "fr", label: "France" }
+            ],
+            name: "user[country]",
+            required: true,
+            placeholder: "Select your country..."
+          ) %>
+    </div>
+    
+    <div>
+      <%= form.label :skills, "Programming Skills", style: "display: block; margin-bottom: 0.5rem; font-weight: 600;" %>
+      <%= render EldritchUi::SelectComponent.new(
+            options: [
+              { value: "javascript", label: "JavaScript" },
+              { value: "typescript", label: "TypeScript" },
+              { value: "python", label: "Python" },
+              { value: "ruby", label: "Ruby" },
+              { value: "golang", label: "Go" }
+            ],
+            name: "user[skills]",
+            multiple: true
+          ) %>
+    </div>
+    
+    <div>
+      <%= form.label :experience, "Experience Level", style: "display: block; margin-bottom: 0.5rem; font-weight: 600;" %>
+      <%= render EldritchUi::SelectComponent.new(
+            options: [
+              { value: "junior", label: "Junior (0-2 years)" },
+              { value: "mid", label: "Mid-level (2-5 years)" },
+              { value: "senior", label: "Senior (5+ years)" },
+              { value: "lead", label: "Lead/Principal" }
+            ],
+            name: "user[experience]",
+            size: :small,
+            placeholder: "Select experience level..."
+          ) %>
+    </div>
+    
+    <%= form.submit "Submit Form", 
+          style: "padding: 0.75rem 1.5rem; background: #D5A21F; border: 3px solid #1a2504; border-radius: 16px; cursor: pointer; font-weight: 600; color: #1a2504; margin-top: 1rem;" %>
+  <% end %>
+</div> 

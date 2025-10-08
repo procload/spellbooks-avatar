@@ -1,0 +1,16 @@
+<div <%= tag.attributes(**wrapper_attributes) %>>
+  <% if show_value %>
+    <div class="eld-range-input__header">
+      <span class="eld-range-input__value" data-eldritch-ui--range-input-target="valueDisplay"><%= current_value %></span>
+    </div>
+  <% end %>
+  
+  <input <%= tag.attributes(**input_attributes) %> />
+  
+  <div class="eld-range-input__track">
+    <div class="eld-range-input__labels">
+      <span class="eld-range-input__label--min"><%= min %></span>
+      <span class="eld-range-input__label--max"><%= max %></span>
+    </div>
+  </div>
+</div>

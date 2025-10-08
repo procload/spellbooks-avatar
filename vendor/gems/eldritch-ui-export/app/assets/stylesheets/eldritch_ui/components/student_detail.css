@@ -1,0 +1,156 @@
+/* Student Detail Component Styles */
+
+.eld-student-detail {
+  background-color: var(--eld-semantic-color-surface);
+  box-shadow: var(--eld-semantic-shadow-card);
+  border-radius: var(--eld-semantic-border-radius-card);
+  overflow: hidden;
+}
+
+/* Header Section */
+
+.eld-student-detail__header {
+  padding: var(--eld-semantic-space-component-padding-lg) var(--eld-semantic-space-component-padding-xl);
+  border-bottom: var(--eld-semantic-border-width-default) solid var(--eld-semantic-color-border);
+}
+
+.eld-student-detail__student-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--eld-semantic-space-component-gap-md);
+}
+
+.eld-student-detail__identity {
+  flex: 1;
+  min-width: 0; /* Allows text truncation */
+}
+
+.eld-student-detail__name {
+  font-size: var(--eld-semantic-font-size-heading-small);
+  font-weight: var(--eld-primitive-font-weight-semibold);
+  line-height: 1.4;
+  color: var(--eld-semantic-color-text-primary);
+  margin: 0 0 var(--eld-semantic-space-component-gap-xs) 0;
+  word-wrap: break-word;
+}
+
+.eld-student-detail__email {
+  font-size: var(--eld-semantic-font-size-body-small);
+  line-height: 1.4;
+  color: var(--eld-semantic-color-text-secondary);
+  margin: 0;
+  word-wrap: break-word;
+}
+
+/* Actions */
+
+.eld-student-detail__actions {
+  flex-shrink: 0;
+}
+
+.eld-student-detail__edit-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--eld-primitive-size-8);
+  height: var(--eld-primitive-size-8);
+  border-radius: var(--eld-semantic-border-radius-button);
+  color: var(--eld-semantic-color-secondary);
+  text-decoration: none;
+  transition: all var(--eld-semantic-duration-interaction) ease-in-out;
+}
+
+.eld-student-detail__edit-link:hover,
+.eld-student-detail__edit-link:focus {
+  color: var(--eld-semantic-color-secondary-active);
+  background-color: var(--eld-semantic-color-secondary-light);
+  outline: none;
+}
+
+.eld-student-detail__edit-link:focus-visible {
+  outline: 2px solid var(--eld-semantic-color-secondary);
+  outline-offset: 2px;
+}
+
+.eld-student-detail__edit-icon {
+  width: var(--eld-semantic-size-icon-md);
+  height: var(--eld-semantic-size-icon-md);
+}
+
+/* Content Section */
+
+.eld-student-detail__content {
+  padding: var(--eld-semantic-space-component-padding-lg) var(--eld-semantic-space-component-padding-xl);
+}
+
+/* Assignments */
+
+.eld-student-detail__assignments {
+  /* Assignments container */
+}
+
+.eld-student-detail__assignments-title {
+  font-size: var(--eld-semantic-font-size-body-small);
+  font-weight: var(--eld-primitive-font-weight-semibold);
+  color: var(--eld-semantic-color-text-primary);
+  margin: 0 0 var(--eld-semantic-space-component-gap-md) 0;
+  display: flex;
+  align-items: center;
+  gap: var(--eld-semantic-space-component-gap-sm);
+}
+
+.eld-student-detail__assignments-count {
+  font-size: var(--eld-semantic-font-size-caption);
+  font-weight: var(--eld-primitive-font-weight-normal);
+  color: var(--eld-semantic-color-text-secondary);
+}
+
+.eld-student-detail__assignments-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--eld-semantic-space-component-gap-sm);
+}
+
+.eld-student-detail__assignment-item {
+  /* Individual assignment item wrapper */
+}
+
+/* Empty State */
+
+.eld-student-detail__empty-state {
+  text-align: center;
+  padding: var(--eld-semantic-space-component-padding-xl) var(--eld-semantic-space-component-padding-md);
+}
+
+.eld-student-detail__empty-message {
+  font-size: var(--eld-semantic-font-size-body-small);
+  color: var(--eld-semantic-color-text-secondary);
+  margin: 0;
+  font-style: italic;
+}
+
+/* Responsive Design */
+
+@media (max-width: 640px) {
+  .eld-student-detail__header,
+  .eld-student-detail__content {
+    padding: var(--eld-semantic-space-component-padding-md) var(--eld-semantic-space-component-padding-lg);
+  }
+
+  .eld-student-detail__student-info {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--eld-semantic-space-component-gap-sm);
+  }
+
+  .eld-student-detail__actions {
+    align-self: flex-end;
+  }
+
+  .eld-student-detail__name {
+    font-size: var(--eld-semantic-font-size-body-large);
+  }
+}
+
+/* Theming handled through semantic token system */ 

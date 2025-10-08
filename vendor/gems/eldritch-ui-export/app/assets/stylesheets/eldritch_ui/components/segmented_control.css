@@ -1,0 +1,180 @@
+/* Segmented Control Component - Figma Design Match */
+/* Container styling to match Figma specifications */
+
+/* Base segmented control - intelligent sizing */
+.eld-segmented-control {
+  display: inline-block;
+  font-family: var(--eld-semantic-font-family-button);
+  /* Make the component adapt to content width */
+  min-width: fit-content;
+  max-width: 100%; /* Don't exceed container */
+  width: auto; /* Intelligent sizing - not full width by default */
+}
+
+/* When used with attached field pattern */
+.eld-attached-field .eld-segmented-control {
+  width: 100%; /* Fill the wrapper when inside attached field */
+}
+
+/* Attached field wrapper should also size intelligently */
+.eld-attached-field .eld-attached-field__wrapper {
+  min-width: fit-content;
+  max-width: 100%;
+  width: auto; /* Don't force full width */
+}
+
+/* But allow full width when explicitly requested */
+.eld-segmented-control--full-width {
+  width: 100%;
+}
+
+.eld-attached-field .eld-segmented-control--full-width .eld-attached-field__wrapper {
+  width: 100%;
+}
+
+.eld-segmented-control__container {
+  display: flex;
+  position: relative;
+  /* Figma container styling */
+  background-color: var(--eld-semantic-color-surface);
+  border: var(--eld-semantic-border-width-strong) solid var(--eld-semantic-color-border);
+  border-radius: var(--eld-semantic-border-radius-card);
+  box-shadow: var(--eld-semantic-shadow-button);
+  /* Figma dimensions - flexible width, adjusted height for better padding */
+  
+  padding: var(--eld-semantic-space-component-padding-xs);
+  /* Remove overflow hidden to allow border radius on segments to show */
+  /* Ensure proper width calculation */
+  width: 100%; /* Fill parent (which is intelligently sized) */
+  min-width: 200px; /* Minimum reasonable width */
+}
+
+/* Remove top border radius when used with attached field pattern - but keep bottom */
+.eld-attached-field .eld-segmented-control__container {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  /* Keep bottom border radius intact */
+}
+
+/* No separate selection indicator needed - segments style themselves */
+
+.eld-segmented-control__segment {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+  background: transparent;
+  border: none;
+  outline: none;
+  /* Ensure border radius is always applied and visible */
+  border-radius: var(--eld-semantic-border-radius-small);
+  margin: var(--eld-semantic-space-component-padding-xs);
+  
+  /* Add proper padding for content - more vertical padding for better height */
+  padding: var(--eld-semantic-space-component-padding-sm) var(--eld-semantic-space-component-padding-md);
+  
+  
+  /* Figma typography */
+  font-family: var(--eld-semantic-font-family-button);
+  font-weight: var(--eld-primitive-font-weight-semibold);
+  font-size: var(--eld-semantic-font-size-body-large);
+  line-height: var(--eld-primitive-line-height-tight);
+  color: var(--eld-semantic-color-text-primary);
+  text-align: center;
+  white-space: nowrap;
+  
+  /* Smooth transitions for background and text color */
+  transition: background-color 0.2s ease-in-out, 
+              color 0.2s ease-in-out;
+}
+
+/* Selected segment styling - primary background with contrasting text - MAINTAIN BORDER RADIUS */
+.eld-segmented-control__segment--selected,
+.eld-segmented-control__segment[aria-checked="true"] {
+  background-color: var(--eld-semantic-color-primary);
+  color: var(--eld-semantic-color-text-on-primary);
+  /* Explicitly maintain border radius when selected */
+  border-radius: var(--eld-semantic-border-radius-small);
+}
+
+/* Focus state - subtle outline that doesn't interfere with design */
+.eld-segmented-control__segment:focus {
+  outline: none;
+}
+
+.eld-segmented-control__segment:focus-visible {
+  outline: 1px solid var(--eld-semantic-color-primary);
+  outline-offset: 2px;
+  z-index: 3;
+  /* Maintain border radius on focus */
+  border-radius: var(--eld-semantic-border-radius-small);
+}
+
+/* Disabled segment */
+.eld-segmented-control__segment[aria-disabled="true"] {
+  cursor: not-allowed;
+  opacity: 0.5;
+  color: var(--eld-semantic-color-text-muted);
+  /* Maintain border radius when disabled */
+  border-radius: var(--eld-semantic-border-radius-small);
+}
+
+/* Hover state for non-selected, non-disabled segments */
+.eld-segmented-control__segment:not([aria-disabled="true"]):not([aria-checked="true"]):not(.eld-segmented-control__segment--selected):hover {
+  color: var(--eld-semantic-color-text-secondary);
+  /* Maintain border radius on hover */
+  border-radius: var(--eld-semantic-border-radius-small);
+}
+
+/* Component state modifiers */
+.eld-segmented-control--disabled .eld-segmented-control__container {
+  opacity: 0.6;
+  cursor: not-allowed;
+  /* Maintain border radius when disabled */
+  border-radius: var(--eld-semantic-border-radius-button);
+}
+
+.eld-segmented-control--disabled .eld-segmented-control__segment {
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Size variants using design tokens */
+.eld-segmented-control--small .eld-segmented-control__container {
+  height: 32px;
+  padding: var(--eld-semantic-space-component-padding-xs);
+  border-radius: var(--eld-semantic-border-radius-button);
+}
+
+.eld-segmented-control--small .eld-segmented-control__segment {
+  font-size: var(--eld-semantic-font-size-body-small);
+  border-radius: var(--eld-semantic-border-radius-small);
+}
+
+.eld-segmented-control--large .eld-segmented-control__container {
+  height: 64px;
+  padding: var(--eld-semantic-space-component-padding-sm);
+  border-radius: var(--eld-semantic-border-radius-button);
+}
+
+.eld-segmented-control--large .eld-segmented-control__segment {
+  font-size: var(--eld-semantic-font-size-heading-small);
+  border-radius: var(--eld-semantic-border-radius-small);
+}
+
+/* Responsive design using design tokens */
+@media (max-width: 480px) {
+  .eld-segmented-control__container {
+    height: 40px;
+    padding: var(--eld-semantic-space-component-padding-xs);
+    border-radius: var(--eld-semantic-border-radius-button);
+  }
+  
+  .eld-segmented-control__segment {
+    font-size: var(--eld-semantic-font-size-body-medium);
+    border-radius: var(--eld-semantic-border-radius-small);
+  }
+} 

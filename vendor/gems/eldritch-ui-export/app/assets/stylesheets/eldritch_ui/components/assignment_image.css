@@ -1,0 +1,141 @@
+/* Eldritch UI Assignment Image Component */
+/* Handles different states of assignment images with error feedback */
+
+.eld-assignment-image {
+  position: relative;
+  width: 100%;
+}
+
+.eld-assignment-image__container {
+  position: relative;
+  width: 100%;
+  border-radius: var(--eld-semantic-border-radius-card);
+  overflow: hidden;
+  background-color: var(--eld-semantic-color-surface-muted);
+}
+
+/* Successful image display */
+.eld-assignment-image__image {
+  width: 100%;
+  height: 100%;
+}
+
+.eld-assignment-image__img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--eld-semantic-border-radius-card);
+}
+
+/* Placeholder and error states */
+.eld-assignment-image__placeholder {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--eld-semantic-color-surface);
+}
+
+.eld-assignment-image__img--placeholder {
+  width: 100%;
+  height: auto;
+  opacity: 0.6;
+  display: block;
+  border-radius: var(--eld-semantic-border-radius-card);
+}
+
+.eld-assignment-image__img--error {
+  opacity: 0.4;
+}
+
+/* Floating parchment overlay */
+.eld-assignment-image__overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+  max-width: 280px;
+  padding: var(--eld-semantic-space-component-padding-md);
+  background-color: var(--eld-semantic-color-surface);
+  border: var(--eld-semantic-border-width-strong) solid var(--eld-semantic-color-primary);
+  border-radius: var(--eld-semantic-border-radius-card);
+  box-shadow: var(--eld-semantic-shadow-card);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--eld-semantic-space-component-gap-sm);
+  text-align: center;
+  z-index: 2;
+}
+
+.eld-assignment-image__overlay--error {
+  background-color: var(--eld-semantic-color-warning-surface);
+  border-color: var(--eld-semantic-color-warning);
+}
+
+.eld-assignment-image__overlay-text {
+  font-family: var(--eld-semantic-font-family-body);
+  font-size: var(--eld-semantic-font-size-body-medium);
+  color: var(--eld-semantic-color-text-primary);
+  font-weight: var(--eld-primitive-font-weight-medium);
+  line-height: 1.4;
+  margin: 0;
+}
+
+.eld-assignment-image__overlay--error .eld-assignment-image__overlay-text {
+  color: var(--eld-semantic-color-warning);
+}
+
+/* Spinner animation */
+.eld-assignment-image__spinner {
+  width: var(--eld-semantic-icon-size-xs);
+  height: var(--eld-semantic-icon-size-xs);
+  border: 2px solid var(--eld-semantic-color-border-muted);
+  border-top: 2px solid var(--eld-semantic-color-primary);
+  border-radius: 50%;
+  animation: eld-spin 1s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes eld-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Actions */
+.eld-assignment-image__actions {
+  margin-top: var(--eld-semantic-space-component-gap-xs);
+  display: flex;
+  justify-content: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .eld-assignment-image__overlay {
+    width: 85%;
+    padding: var(--eld-semantic-space-component-padding-sm);
+  }
+
+  .eld-assignment-image__overlay-text {
+    font-size: var(--eld-semantic-font-size-body-small);
+  }
+
+  .eld-assignment-image__spinner {
+    width: calc(var(--eld-semantic-icon-size-xs) * 0.9);
+    height: calc(var(--eld-semantic-icon-size-xs) * 0.9);
+  }
+}
+
+/* Hover states for interactive elements */
+.eld-assignment-image__actions .eld-button:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--eld-semantic-shadow-button);
+}
+
+/* Focus states for accessibility */
+.eld-assignment-image__actions .eld-button:focus {
+  outline: 2px solid var(--eld-semantic-color-primary);
+  outline-offset: 2px;
+} 

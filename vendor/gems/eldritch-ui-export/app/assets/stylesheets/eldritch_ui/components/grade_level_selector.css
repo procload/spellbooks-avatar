@@ -1,0 +1,266 @@
+/* Eldritch UI Grade Level Selector Component */
+/* Grouped segmented control for grade levels with expandable view */
+
+.eld-grade-level-selector {
+  display: flex;
+  flex-direction: column;
+  gap: var(--eld-semantic-space-component-gap-md);
+}
+
+.eld-grade-level-selector__label {
+  font-family: var(--eld-semantic-font-family-button);
+  font-size: var(--eld-semantic-font-size-body-medium);
+  font-weight: var(--eld-primitive-font-weight-medium);
+  color: var(--eld-semantic-color-text-primary);
+  margin: 0;
+}
+
+.eld-grade-level-selector__required {
+  color: var(--eld-semantic-color-error);
+  margin-left: var(--eld-semantic-space-component-gap-xs);
+}
+
+.eld-grade-level-selector__controls {
+  position: relative;
+}
+
+/* Group buttons (default view) */
+.eld-grade-level-selector__groups {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--eld-semantic-space-component-gap-sm);
+  align-items: center;
+  opacity: 1;
+  transition: opacity var(--eld-semantic-motion-duration-standard) var(--eld-semantic-motion-easing-standard);
+}
+
+.eld-grade-level-selector__groups--hidden {
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.eld-grade-level-selector__group-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--eld-semantic-space-component-padding-sm) var(--eld-semantic-space-component-padding-md);
+  background-color: var(--eld-semantic-color-background-secondary);
+  border: var(--eld-semantic-border-width-strong) solid var(--eld-semantic-color-border-primary);
+  border-radius: var(--eld-semantic-border-radius-button);
+  font-family: var(--eld-semantic-font-family-button);
+  font-size: var(--eld-semantic-font-size-body-medium);
+  font-weight: var(--eld-primitive-font-weight-medium);
+  color: var(--eld-semantic-color-text-primary);
+  cursor: pointer;
+  transition: all var(--eld-semantic-motion-duration-fast) var(--eld-semantic-motion-easing-standard);
+  min-width: 60px;
+}
+
+.eld-grade-level-selector__group-button:hover {
+  background-color: var(--eld-semantic-color-background-hover);
+  border-color: var(--eld-semantic-color-border-hover);
+}
+
+.eld-grade-level-selector__group-button--selected {
+  background-color: var(--eld-semantic-color-primary);
+  border-color: var(--eld-semantic-color-primary);
+  color: var(--eld-semantic-color-primary-contrast);
+}
+
+.eld-grade-level-selector__more-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--eld-semantic-space-component-padding-sm) var(--eld-semantic-space-component-padding-md);
+  background-color: transparent;
+  border: var(--eld-semantic-border-width-strong) solid var(--eld-semantic-color-border-secondary);
+  border-radius: var(--eld-semantic-border-radius-button);
+  font-family: var(--eld-semantic-font-family-button);
+  font-size: var(--eld-semantic-font-size-body-medium);
+  font-weight: var(--eld-primitive-font-weight-medium);
+  color: var(--eld-semantic-color-text-secondary);
+  cursor: pointer;
+  transition: all var(--eld-semantic-motion-duration-fast) var(--eld-semantic-motion-easing-standard);
+}
+
+.eld-grade-level-selector__more-button:hover {
+  background-color: var(--eld-semantic-color-background-hover);
+  border-color: var(--eld-semantic-color-border-primary);
+  color: var(--eld-semantic-color-text-primary);
+}
+
+/* Expanded view */
+.eld-grade-level-selector__expanded {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+  transition: all var(--eld-semantic-motion-duration-standard) var(--eld-semantic-motion-easing-standard);
+}
+
+.eld-grade-level-selector__expanded--visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.eld-grade-level-selector__expanded-header {
+  margin-bottom: var(--eld-semantic-space-component-gap-md);
+}
+
+.eld-grade-level-selector__back-button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--eld-semantic-space-component-gap-xs);
+  padding: var(--eld-semantic-space-component-padding-xs) var(--eld-semantic-space-component-padding-sm);
+  background-color: transparent;
+  border: none;
+  font-family: var(--eld-semantic-font-family-button);
+  font-size: var(--eld-semantic-font-size-body-small);
+  font-weight: var(--eld-primitive-font-weight-medium);
+  color: var(--eld-semantic-color-text-secondary);
+  cursor: pointer;
+  transition: color var(--eld-semantic-motion-duration-fast) var(--eld-semantic-motion-easing-standard);
+}
+
+.eld-grade-level-selector__back-button:hover {
+  color: var(--eld-semantic-color-text-primary);
+}
+
+.eld-grade-level-selector__individual-grades {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: var(--eld-semantic-space-component-gap-sm);
+}
+
+.eld-grade-level-selector__grade-option {
+  position: relative;
+  cursor: pointer;
+  display: block;
+  margin: 0;
+}
+
+.eld-grade-level-selector__input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+.eld-grade-level-selector__grade-text {
+  display: block;
+  padding: var(--eld-semantic-space-component-padding-sm) var(--eld-semantic-space-component-padding-md);
+  background-color: var(--eld-semantic-color-background-secondary);
+  border: var(--eld-semantic-border-width-strong) solid var(--eld-semantic-color-border-primary);
+  border-radius: var(--eld-semantic-border-radius-button);
+  font-family: var(--eld-semantic-font-family-button);
+  font-size: var(--eld-semantic-font-size-body-small);
+  font-weight: var(--eld-primitive-font-weight-medium);
+  color: var(--eld-semantic-color-text-primary);
+  text-align: center;
+  transition: all var(--eld-semantic-motion-duration-fast) var(--eld-semantic-motion-easing-standard);
+}
+
+/* Hover states */
+.eld-grade-level-selector__grade-option:hover .eld-grade-level-selector__grade-text {
+  background-color: var(--eld-semantic-color-background-hover);
+  border-color: var(--eld-semantic-color-border-hover);
+}
+
+/* Checked states */
+.eld-grade-level-selector__input:checked + .eld-grade-level-selector__grade-text {
+  background-color: var(--eld-semantic-color-primary);
+  border-color: var(--eld-semantic-color-primary);
+  color: var(--eld-semantic-color-primary-contrast);
+  font-weight: var(--eld-primitive-font-weight-semibold);
+}
+
+/* Focus states */
+.eld-grade-level-selector__input:focus + .eld-grade-level-selector__grade-text {
+  outline: var(--eld-semantic-border-width-focus) solid var(--eld-semantic-color-focus);
+  outline-offset: 2px;
+}
+
+.eld-grade-level-selector__group-button:focus,
+.eld-grade-level-selector__more-button:focus,
+.eld-grade-level-selector__back-button:focus {
+  outline: var(--eld-semantic-border-width-focus) solid var(--eld-semantic-color-focus);
+  outline-offset: 2px;
+}
+
+/* Disabled states */
+.eld-grade-level-selector--disabled .eld-grade-level-selector__group-button,
+.eld-grade-level-selector--disabled .eld-grade-level-selector__more-button,
+.eld-grade-level-selector--disabled .eld-grade-level-selector__back-button {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.eld-grade-level-selector--disabled .eld-grade-level-selector__grade-option {
+  cursor: not-allowed;
+}
+
+.eld-grade-level-selector--disabled .eld-grade-level-selector__grade-text {
+  background-color: var(--eld-semantic-color-background-disabled);
+  border-color: var(--eld-semantic-color-border-disabled);
+  color: var(--eld-semantic-color-text-disabled);
+  opacity: 0.6;
+}
+
+/* Responsive design */
+@media (max-width: 480px) {
+  .eld-grade-level-selector__groups {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .eld-grade-level-selector__group-button,
+  .eld-grade-level-selector__more-button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .eld-grade-level-selector__individual-grades {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--eld-semantic-space-component-gap-xs);
+  }
+
+  .eld-grade-level-selector__grade-text {
+    padding: var(--eld-semantic-space-component-padding-xs) var(--eld-semantic-space-component-padding-sm);
+    font-size: var(--eld-semantic-font-size-body-xs);
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .eld-grade-level-selector__group-button,
+  .eld-grade-level-selector__more-button,
+  .eld-grade-level-selector__grade-text {
+    border-width: 3px;
+  }
+
+  .eld-grade-level-selector__group-button--selected,
+  .eld-grade-level-selector__input:checked + .eld-grade-level-selector__grade-text {
+    border-width: 4px;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .eld-grade-level-selector__groups,
+  .eld-grade-level-selector__expanded,
+  .eld-grade-level-selector__group-button,
+  .eld-grade-level-selector__more-button,
+  .eld-grade-level-selector__back-button,
+  .eld-grade-level-selector__grade-text {
+    transition: none;
+  }
+
+  .eld-grade-level-selector__expanded {
+    transform: none;
+  }
+}

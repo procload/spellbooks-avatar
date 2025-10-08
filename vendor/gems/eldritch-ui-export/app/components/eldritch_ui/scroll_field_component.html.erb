@@ -1,0 +1,23 @@
+<div <%= tag.attributes(container_attributes) %>>
+  <!-- Label tab attached to the scroll -->
+  <div class="eld-scroll-field__label-tab">
+    <%= label_text %>
+  </div>
+  
+  <!-- Parchment scroll container -->
+  <div class="eld-scroll-field__scroll">
+    <div class="eld-scroll-field__content">
+      <% if editable %>
+        <% if single_line %>
+          <%= tag.input(**input_attributes) %>
+        <% else %>
+          <%= tag.textarea(text, **textarea_attributes) %>
+        <% end %>
+      <% else %>
+        <div id="<%= content_id %>" class="eld-scroll-field__text">
+          <%= text %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div> 

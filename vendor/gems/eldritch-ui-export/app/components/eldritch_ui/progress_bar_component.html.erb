@@ -1,0 +1,14 @@
+<%# Eldritch UI Progress Bar Component %>
+<%# Displays progress with a visual progress bar %>
+
+<div <%= tag.attributes(component_attributes) %>>
+  <% if label.present? %>
+    <div class="eld-progress-bar__label">
+      <%= label %> (<%= progress_percentage %>%)
+    </div>
+  <% end %>
+  
+  <div class="eld-progress-bar__track">
+    <div <%= tag.attributes(progress_bar_attributes) %>></div>
+  </div>
+</div> 

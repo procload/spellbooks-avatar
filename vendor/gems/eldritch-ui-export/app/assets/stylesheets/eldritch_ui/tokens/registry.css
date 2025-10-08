@@ -1,0 +1,31 @@
+/* Design Token Registry - Master Import File */
+/* Import order is critical for proper token resolution */
+
+/* ===== TIER 1: PRIMITIVE TOKENS ===== */
+/* Base values - no dependencies on other tokens */
+@import "foundations/primitives.css";
+
+/* ===== TIER 2: SEMANTIC TOKENS ===== */
+/* Usage-based tokens that reference primitives */
+@import "semantic/component.css";
+
+/* ===== TIER 3: LEGACY COMPATIBILITY ===== */
+/* Backward compatibility aliases */
+@import "legacy/compatibility.css";
+
+/* ===== THEME OVERRIDES ===== */
+/* Theme-specific overrides (optional - loaded separately by themes) */
+/* These are not imported here to allow selective theme loading */
+
+/*
+Usage:
+  1. Import this file once in your main stylesheet
+  2. Optionally import specific theme files after this
+  3. All legacy tokens will continue to work
+  4. New components can use modern semantic tokens
+  5. Gradually migrate from legacy to semantic tokens
+
+Example import order in application.css:
+  @import "eldritch_ui/tokens/registry.css";
+  @import "eldritch_ui/tokens/themes/spellbooks-light.css";
+*/

@@ -1,0 +1,73 @@
+<%= tag.div(**input_attributes) do %>
+  <% if label.present? %>
+    <label class="eld-grade-level-selector__label">
+      <%= label %>
+      <% if required %>
+        <span class="eld-grade-level-selector__required" aria-label="required">*</span>
+      <% end %>
+    </label>
+  <% end %>
+
+  <div class="eld-grade-level-selector__controls" role="radiogroup" aria-labelledby="<%= id %>-label">
+    <!-- Group-based selector (default view) -->
+    <div class="eld-grade-level-selector__groups <%= 'eld-grade-level-selector__groups--hidden' if show_expanded_view? %>">
+      <% grade_groups.each do |group| %>
+        <button
+          type="button"
+          class="eld-grade-level-selector__group-button <%= 'eld-grade-level-selector__group-button--selected' if is_group_selected?(group) %>"
+          data-grade-group="<%= group[:values].join(',') %>"
+          data-grade-level-target="groupButton"
+          data-action="grade-level#selectGroup"
+          <%= "disabled" if disabled %>
+        >
+          <%= group[:label] %>
+        </button>
+      <% end %>
+
+      <button
+        type="button"
+        class="eld-grade-level-selector__more-button"
+        data-action="grade-level#showExpanded"
+        data-grade-level-target="moreButton"
+        <%= "disabled" if disabled %>
+      >
+        More...
+      </button>
+    </div>
+
+    <!-- Expanded individual grade selector -->
+    <div class="eld-grade-level-selector__expanded <%= 'eld-grade-level-selector__expanded--visible' if show_expanded_view? %>"
+         data-grade-level-target="expandedView">
+      <div class="eld-grade-level-selector__expanded-header">
+        <button
+          type="button"
+          class="eld-grade-level-selector__back-button"
+          data-action="grade-level#showGroups"
+          data-grade-level-target="backButton"
+          <%= "disabled" if disabled %>
+        >
+          ← Back to groups
+        </button>
+      </div>
+
+      <div class="eld-grade-level-selector__individual-grades">
+        <% all_individual_grades.each do |grade| %>
+          <label class="eld-grade-level-selector__grade-option" for="<%= radio_id(grade[:value]) %>">
+            <input
+              type="radio"
+              id="<%= radio_id(grade[:value]) %>"
+              name="<%= name %>"
+              value="<%= grade[:value] %>"
+              <%= "checked" if is_selected?(grade[:value]) %>
+              <%= "disabled" if disabled %>
+              class="eld-grade-level-selector__input"
+              data-action="grade-level#selectGrade"
+              <%= "required" if required %>
+            />
+            <span class="eld-grade-level-selector__grade-text"><%= grade[:label] %></span>
+          </label>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,18 @@
+/* Shadow Slate Palette */
+/* Anthropic-inspired sophisticated grays for perfect text readability */
+/* References foundation layer for single source of truth */
+
+:root {
+  /* Shadow Slate - 50 to 950 scale - matches Anthropic's exact color values */
+  --eldritch-shadow-slate-50: var(--eld-foundation-color-shadow-slate-50);
+  --eldritch-shadow-slate-100: var(--eld-foundation-color-shadow-slate-100);
+  --eldritch-shadow-slate-200: var(--eld-foundation-color-shadow-slate-200);
+  --eldritch-shadow-slate-300: var(--eld-foundation-color-shadow-slate-300);
+  --eldritch-shadow-slate-400: var(--eld-foundation-color-shadow-slate-400);
+  --eldritch-shadow-slate-500: var(--eld-foundation-color-shadow-slate-500);
+  --eldritch-shadow-slate-600: var(--eld-foundation-color-shadow-slate-600);
+  --eldritch-shadow-slate-700: var(--eld-foundation-color-shadow-slate-700);
+  --eldritch-shadow-slate-800: var(--eld-foundation-color-shadow-slate-800);
+  --eldritch-shadow-slate-900: var(--eld-foundation-color-shadow-slate-900);
+  --eldritch-shadow-slate-950: var(--eld-foundation-color-shadow-slate-950);
+} 

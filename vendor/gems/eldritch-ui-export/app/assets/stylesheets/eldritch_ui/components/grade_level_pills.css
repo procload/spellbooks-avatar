@@ -1,0 +1,126 @@
+/* Eldritch UI Grade Level Pills Component */
+/* Interactive pill-based grade level selection */
+
+.eld-grade-level-pills {
+  display: flex;
+  flex-direction: column;
+  gap: var(--eld-semantic-space-component-gap-md);
+}
+
+.eld-grade-level-pills__groups {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--eld-semantic-space-component-gap-sm);
+  align-items: center;
+}
+
+.eld-grade-level-pills__individual {
+  display: flex;
+  flex-direction: column;
+  gap: var(--eld-semantic-space-component-gap-md);
+}
+
+.eld-grade-level-pills__back-button {
+  display: flex;
+}
+
+.eld-grade-level-pills__individual-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--eld-semantic-space-component-gap-sm);
+}
+
+/* Pill variants for different types */
+.eld-grade-level-pills__group-pill {
+  cursor: pointer;
+  transition: all var(--eld-semantic-motion-duration-fast) var(--eld-semantic-motion-easing-standard);
+}
+
+.eld-grade-level-pills__more-pill {
+  cursor: pointer;
+  color: var(--eld-semantic-color-text-secondary);
+  border-color: var(--eld-semantic-color-border-secondary);
+  transition: all var(--eld-semantic-motion-duration-fast) var(--eld-semantic-motion-easing-standard);
+}
+
+.eld-grade-level-pills__more-pill:hover {
+  color: var(--eld-semantic-color-primary);
+  border-color: var(--eld-semantic-color-primary);
+  background-color: var(--eld-semantic-color-primary-light);
+}
+
+.eld-grade-level-pills__back-pill {
+  cursor: pointer;
+  color: var(--eld-semantic-color-text-secondary);
+  border-color: var(--eld-semantic-color-border-secondary);
+  transition: all var(--eld-semantic-motion-duration-fast) var(--eld-semantic-motion-easing-standard);
+}
+
+.eld-grade-level-pills__back-pill:hover {
+  color: var(--eld-semantic-color-primary);
+  border-color: var(--eld-semantic-color-primary);
+  background-color: var(--eld-semantic-color-primary-light);
+}
+
+.eld-grade-level-pills__individual-pill {
+  cursor: pointer;
+  transition: all var(--eld-semantic-motion-duration-fast) var(--eld-semantic-motion-easing-standard);
+}
+
+/* Selected state styling */
+.eld-grade-level-pills .eld-pill--selected {
+  background-color: var(--eld-semantic-color-primary);
+  border-color: var(--eld-semantic-color-primary);
+  color: var(--eld-semantic-color-primary-text);
+}
+
+/* Hover states */
+.eld-grade-level-pills__group-pill:hover:not(.eld-pill--selected),
+.eld-grade-level-pills__individual-pill:hover:not(.eld-pill--selected) {
+  background-color: var(--eld-semantic-color-primary-light);
+  border-color: var(--eld-semantic-color-primary);
+  color: var(--eld-semantic-color-primary);
+}
+
+/* Focus states */
+.eld-grade-level-pills .eld-pill:focus {
+  outline: var(--eld-semantic-border-width-focus) solid var(--eld-semantic-color-focus);
+  outline-offset: 2px;
+}
+
+/* Animation for view transitions */
+.eld-grade-level-pills__groups,
+.eld-grade-level-pills__individual {
+  transition: opacity var(--eld-semantic-motion-duration-fast) var(--eld-semantic-motion-easing-standard);
+}
+
+/* Responsive design */
+@media (max-width: 480px) {
+  .eld-grade-level-pills__groups,
+  .eld-grade-level-pills__individual-list {
+    gap: var(--eld-semantic-space-component-gap-xs);
+  }
+
+  .eld-grade-level-pills {
+    gap: var(--eld-semantic-space-component-gap-sm);
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .eld-grade-level-pills .eld-pill--selected {
+    border-width: 3px;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .eld-grade-level-pills__group-pill,
+  .eld-grade-level-pills__individual-pill,
+  .eld-grade-level-pills__more-pill,
+  .eld-grade-level-pills__back-pill,
+  .eld-grade-level-pills__groups,
+  .eld-grade-level-pills__individual {
+    transition: none;
+  }
+}

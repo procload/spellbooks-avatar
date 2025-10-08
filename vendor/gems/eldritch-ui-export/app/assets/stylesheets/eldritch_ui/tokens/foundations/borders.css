@@ -1,0 +1,40 @@
+/* Border Foundation Tokens */
+/* Border widths, radius, and styles */
+
+:root {
+  /* ===== BORDER FOUNDATION TOKENS ===== */
+  
+  /* Border Widths */
+  --eld-foundation-border-width-0: 0;
+  --eld-foundation-border-width-1: 1px;
+  --eld-foundation-border-width-2: 2px;
+  --eld-foundation-border-width-4: 4px;
+  --eld-foundation-border-width-8: 8px;
+
+  /* Border Radius */
+  --eld-foundation-border-radius-none: 0;
+  --eld-foundation-border-radius-xs: 0.125rem;   /* 2px */
+  --eld-foundation-border-radius-sm: 0.25rem;    /* 4px */
+  --eld-foundation-border-radius-md: 0.375rem;   /* 6px */
+  --eld-foundation-border-radius-lg: 0.5rem;     /* 8px */
+  --eld-foundation-border-radius-xl: 0.75rem;    /* 12px */
+  --eld-foundation-border-radius-2xl: 1rem;      /* 16px */
+  --eld-foundation-border-radius-3xl: 1.5rem;    /* 24px */
+  --eld-foundation-border-radius-full: 9999px;
+  
+  /* Legacy compatibility aliases */
+  --eldritch-border-width-0: var(--eld-foundation-border-width-0);
+  --eldritch-border-width-1: var(--eld-foundation-border-width-1);
+  --eldritch-border-width-2: var(--eld-foundation-border-width-2);
+  --eldritch-border-width-4: var(--eld-foundation-border-width-4);
+  --eldritch-border-width-8: var(--eld-foundation-border-width-8);
+  --eldritch-border-radius-none: var(--eld-foundation-border-radius-none);
+  --eldritch-border-radius-xs: var(--eld-foundation-border-radius-xs);
+  --eldritch-border-radius-sm: var(--eld-foundation-border-radius-sm);
+  --eldritch-border-radius-md: var(--eld-foundation-border-radius-md);
+  --eldritch-border-radius-lg: var(--eld-foundation-border-radius-lg);
+  --eldritch-border-radius-xl: var(--eld-foundation-border-radius-xl);
+  --eldritch-border-radius-2xl: var(--eld-foundation-border-radius-2xl);
+  --eldritch-border-radius-3xl: var(--eld-foundation-border-radius-3xl);
+  --eldritch-border-radius-full: var(--eld-foundation-border-radius-full);
+}

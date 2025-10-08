@@ -1,0 +1,210 @@
+/* Semantic Color Mappings */
+/* Maps palette colors to semantic usage patterns for components */
+
+:root {
+  /* Primary Colors (Arcane Blue - Deep Navy) */
+  --eld-semantic-color-primary: var(--eldritch-arcane-blue-700);
+  --eld-semantic-color-primary-hover: var(--eldritch-arcane-blue-600);
+  --eld-semantic-color-primary-active: var(--eldritch-arcane-blue-800);
+  --eld-semantic-color-primary-text: var(--eldritch-arcane-blue-50);
+  --eld-semantic-color-primary-light: var(--eldritch-arcane-blue-100);
+  --eld-semantic-color-primary-dark: var(--eldritch-arcane-blue-900);
+
+  /* Secondary Colors (Mystical Gold) */
+  --eld-semantic-color-secondary: var(--eldritch-mystical-gold-600);
+  --eld-semantic-color-secondary-hover: var(--eldritch-mystical-gold-500);
+  --eld-semantic-color-secondary-active: var(--eldritch-mystical-gold-700);
+  --eld-semantic-color-secondary-text: var(--eldritch-mystical-gold-50);
+  --eld-semantic-color-secondary-light: var(--eldritch-mystical-gold-100);
+  --eld-semantic-color-secondary-dark: var(--eldritch-mystical-gold-800);
+
+  /* Success Colors (Enchanted Green) */
+  --eld-semantic-color-success: var(--eldritch-enchanted-green-600);
+  --eld-semantic-color-success-hover: var(--eldritch-enchanted-green-500);
+  --eld-semantic-color-success-active: var(--eldritch-enchanted-green-700);
+  --eld-semantic-color-success-text: var(--eldritch-enchanted-green-50);
+  --eld-semantic-color-success-light: var(--eldritch-enchanted-green-100);
+  --eld-semantic-color-success-dark: var(--eldritch-enchanted-green-800);
+
+  /* Warning/Error Colors (Phoenix Red) */
+  --eld-semantic-color-warning: var(--eldritch-phoenix-red-500);
+  --eld-semantic-color-warning-hover: var(--eldritch-phoenix-red-400);
+  --eld-semantic-color-warning-text: var(--eldritch-phoenix-red-50);
+  --eld-semantic-color-warning-light: var(--eldritch-phoenix-red-100);
+  --eld-semantic-color-warning-dark: var(--eldritch-phoenix-red-800);
+  --eld-semantic-color-warning-300: var(--eldritch-phoenix-red-300);
+  --eld-semantic-color-warning-800: var(--eldritch-phoenix-red-800);
+  
+  --eld-semantic-color-error: var(--eldritch-phoenix-red-600);
+  --eld-semantic-color-error-hover: var(--eldritch-phoenix-red-500);
+  --eld-semantic-color-error-text: var(--eldritch-phoenix-red-50);
+  --eld-semantic-color-error-light: var(--eldritch-phoenix-red-100);
+  --eld-semantic-color-error-dark: var(--eldritch-phoenix-red-800);
+
+  /* Neutral Colors (Parchment) */
+  --eld-semantic-color-background: var(--eldritch-parchment-neutral-100);
+  --eld-semantic-color-surface: var(--eldritch-parchment-neutral-100);
+  --eld-semantic-color-surface-hover: var(--eldritch-parchment-neutral-200);
+  --eld-semantic-color-surface-cream: var(--eldritch-parchment-neutral-200);
+  --eld-semantic-color-input-background: var(--eldritch-parchment-neutral-100);
+  --eld-semantic-color-border: var(--eldritch-parchment-neutral-300);
+  --eld-semantic-color-border-strong: var(--eldritch-parchment-neutral-600);
+
+  /* Neutral Scale (Shadow Slate) */
+  --eld-semantic-color-neutral-50: var(--eldritch-shadow-slate-50);
+  --eld-semantic-color-neutral-100: var(--eldritch-shadow-slate-100);
+  --eld-semantic-color-neutral-200: var(--eldritch-shadow-slate-200);
+  --eld-semantic-color-neutral-300: var(--eldritch-shadow-slate-300);
+  --eld-semantic-color-neutral-400: var(--eldritch-shadow-slate-400);
+  --eld-semantic-color-neutral-500: var(--eldritch-shadow-slate-500);
+  --eld-semantic-color-neutral-600: var(--eldritch-shadow-slate-600);
+  --eld-semantic-color-neutral-700: var(--eldritch-shadow-slate-700);
+  --eld-semantic-color-neutral-800: var(--eldritch-shadow-slate-800);
+  --eld-semantic-color-neutral-900: var(--eldritch-shadow-slate-900);
+
+  /* Text Colors - Updated for better contrast with new palette */
+  --eld-semantic-color-text-primary: var(--eldritch-shadow-slate-900);    /* #0f0f0e - Dark text */
+  --eld-semantic-color-text-secondary: var(--eldritch-shadow-slate-700);  /* #3d3d3a - Medium text */ 
+  --eld-semantic-color-text-muted: var(--eldritch-shadow-slate-600);      /* #5e5d59 - Lighter text */
+  --eld-semantic-color-text-on-primary: var(--eldritch-parchment-neutral-50);
+  --eld-semantic-color-text-on-secondary: var(--eldritch-parchment-neutral-50);
+  --eld-semantic-color-text-on-background: var(--eldritch-shadow-slate-900);
+  --eld-semantic-color-text-on-surface: var(--eldritch-shadow-slate-800);
+
+  /* Form Label Colors */
+  --eld-semantic-color-label-background: var(--eldritch-parchment-neutral-400);
+  --eld-semantic-color-label-text: var(--eldritch-parchment-neutral-800);
+
+  /* Info Colors (Celestial Sky - Muted Blues) */
+  --eld-semantic-color-info: var(--eldritch-celestial-sky-600);
+  --eld-semantic-color-info-hover: var(--eldritch-celestial-sky-500);
+  --eld-semantic-color-info-active: var(--eldritch-celestial-sky-700);
+  --eld-semantic-color-info-text: var(--eldritch-celestial-sky-50);
+  --eld-semantic-color-info-light: var(--eldritch-celestial-sky-100);
+  --eld-semantic-color-info-dark: var(--eldritch-celestial-sky-800);
+
+  /* Accent Colors (Mystic Heather - Purple-Gray) */
+  --eld-semantic-color-accent: var(--eldritch-mystic-heather-600);
+  --eld-semantic-color-accent-hover: var(--eldritch-mystic-heather-500);
+  --eld-semantic-color-accent-active: var(--eldritch-mystic-heather-700);
+  --eld-semantic-color-accent-text: var(--eldritch-mystic-heather-50);
+  --eld-semantic-color-accent-light: var(--eldritch-mystic-heather-100);
+  --eld-semantic-color-accent-dark: var(--eldritch-mystic-heather-800);
+
+  /* Chart and Data Visualization Colors */
+  --eld-semantic-color-chart-primary: var(--eldritch-arcane-blue-600);
+  --eld-semantic-color-chart-secondary: var(--eldritch-ancient-clay-600);
+  --eld-semantic-color-chart-tertiary: var(--eldritch-celestial-sky-500);
+  --eld-semantic-color-chart-quaternary: var(--eldritch-mystic-heather-500);
+  --eld-semantic-color-chart-quinary: var(--eldritch-mystical-gold-500);
+
+  /* Tooltip Colors */
+  --eld-semantic-color-background-tooltip: var(--eldritch-shadow-slate-800);
+  --eld-semantic-color-text-tooltip: var(--eldritch-parchment-neutral-50);
+  --eld-semantic-color-border-tooltip: var(--eldritch-shadow-slate-700);
+
+  /* Focus and Interaction States */
+  --eld-semantic-color-focus: var(--eldritch-arcane-blue-600);
+  --eld-semantic-color-focus-ring: var(--eldritch-arcane-blue-300);
+
+  /* Link Colors */
+  --eld-semantic-color-link: var(--eldritch-arcane-blue-700);
+  --eld-semantic-color-link-hover: var(--eldritch-arcane-blue-600);
+  --eld-semantic-color-link-visited: var(--eldritch-mystic-heather-700);
+  --eld-semantic-color-link-active: var(--eldritch-arcane-blue-800);
+
+  /* Badge and Pill Colors */
+  --eld-semantic-color-badge-primary: var(--eldritch-arcane-blue-100);
+  --eld-semantic-color-badge-primary-text: var(--eldritch-arcane-blue-800);
+  --eld-semantic-color-badge-success: var(--eldritch-enchanted-green-100);
+  --eld-semantic-color-badge-success-text: var(--eldritch-enchanted-green-800);
+  --eld-semantic-color-badge-info: var(--eldritch-celestial-sky-100);
+  --eld-semantic-color-badge-info-text: var(--eldritch-celestial-sky-800);
+  --eld-semantic-color-badge-accent: var(--eldritch-mystic-heather-100);
+  --eld-semantic-color-badge-accent-text: var(--eldritch-mystic-heather-800);
+
+  /* Legacy Compatibility Aliases for Backward Compatibility */
+  /* Primary and Secondary Colors */
+  --eldritch-color-primary: var(--eld-semantic-color-primary);
+  --eldritch-color-primary-hover: var(--eld-semantic-color-primary-hover);
+  --eldritch-color-primary-active: var(--eld-semantic-color-primary-active);
+  --eldritch-color-primary-text: var(--eld-semantic-color-primary-text);
+  --eldritch-color-primary-light: var(--eld-semantic-color-primary-light);
+  --eldritch-color-primary-dark: var(--eld-semantic-color-primary-dark);
+  --eldritch-color-secondary: var(--eld-semantic-color-secondary);
+  --eldritch-color-secondary-hover: var(--eld-semantic-color-secondary-hover);
+  --eldritch-color-secondary-active: var(--eld-semantic-color-secondary-active);
+  --eldritch-color-secondary-text: var(--eld-semantic-color-secondary-text);
+  --eldritch-color-secondary-light: var(--eld-semantic-color-secondary-light);
+  --eldritch-color-secondary-dark: var(--eld-semantic-color-secondary-dark);
+  
+  /* State Colors */
+  --eldritch-color-success: var(--eld-semantic-color-success);
+  --eldritch-color-success-hover: var(--eld-semantic-color-success-hover);
+  --eldritch-color-success-active: var(--eld-semantic-color-success-active);
+  --eldritch-color-success-text: var(--eld-semantic-color-success-text);
+  --eldritch-color-success-light: var(--eld-semantic-color-success-light);
+  --eldritch-color-success-dark: var(--eld-semantic-color-success-dark);
+  --eldritch-color-warning: var(--eld-semantic-color-warning);
+  --eldritch-color-warning-hover: var(--eld-semantic-color-warning-hover);
+  --eldritch-color-warning-text: var(--eld-semantic-color-warning-text);
+  --eldritch-color-warning-light: var(--eld-semantic-color-warning-light);
+  --eldritch-color-warning-dark: var(--eld-semantic-color-warning-dark);
+  --eldritch-color-warning-300: var(--eld-semantic-color-warning-300);
+  --eldritch-color-warning-800: var(--eld-semantic-color-warning-800);
+  --eldritch-color-error: var(--eld-semantic-color-error);
+  --eldritch-color-error-hover: var(--eld-semantic-color-error-hover);
+  --eldritch-color-error-text: var(--eld-semantic-color-error-text);
+  --eldritch-color-error-light: var(--eld-semantic-color-error-light);
+  --eldritch-color-error-dark: var(--eld-semantic-color-error-dark);
+  --eldritch-color-info: var(--eld-semantic-color-info);
+  --eldritch-color-info-hover: var(--eld-semantic-color-info-hover);
+  --eldritch-color-info-active: var(--eld-semantic-color-info-active);
+  --eldritch-color-info-text: var(--eld-semantic-color-info-text);
+  --eldritch-color-info-light: var(--eld-semantic-color-info-light);
+  --eldritch-color-info-dark: var(--eld-semantic-color-info-dark);
+  
+  /* Surface and Background Colors */
+  --eldritch-color-background: var(--eld-semantic-color-background);
+  --eldritch-color-surface: var(--eld-semantic-color-surface);
+  --eldritch-color-surface-hover: var(--eld-semantic-color-surface-hover);
+  --eldritch-color-surface-cream: var(--eld-semantic-color-surface-cream);
+  --eldritch-color-input-background: var(--eld-semantic-color-input-background);
+  --eldritch-color-border: var(--eld-semantic-color-border);
+  --eldritch-color-border-strong: var(--eld-semantic-color-border-strong);
+  
+  /* Text Colors */
+  --eldritch-color-text-primary: var(--eld-semantic-color-text-primary);
+  --eldritch-color-text-secondary: var(--eld-semantic-color-text-secondary);
+  --eldritch-color-text-muted: var(--eld-semantic-color-text-muted);
+  --eldritch-color-text-on-primary: var(--eld-semantic-color-text-on-primary);
+  --eldritch-color-text-on-secondary: var(--eld-semantic-color-text-on-secondary);
+  --eldritch-color-text-on-background: var(--eld-semantic-color-text-on-background);
+  --eldritch-color-text-on-surface: var(--eld-semantic-color-text-on-surface);
+  
+  /* Form Colors */
+  --eldritch-color-label-background: var(--eld-semantic-color-label-background);
+  --eldritch-color-label-text: var(--eld-semantic-color-label-text);
+  
+  /* Legacy Brand Aliases */
+  --eldritch-color-white: var(--eldritch-parchment-neutral-50);
+  --eldritch-color-primary-blue: var(--eld-semantic-color-primary);
+  --eldritch-color-primary-blue-text: var(--eld-semantic-color-primary-text);
+  --eldritch-color-secondary-cream: var(--eldritch-parchment-neutral-200);
+  --eldritch-color-secondary-cream-text: var(--eldritch-parchment-neutral-950);
+  --eldritch-color-warning-orange: var(--eld-semantic-color-warning);
+  --eldritch-color-warning-orange-text: var(--eld-semantic-color-warning-text);
+  --eldritch-color-brand-gold-700: var(--eldritch-mystical-gold-700);
+  --eldritch-color-brand-gold-600: var(--eldritch-mystical-gold-600);
+  --eldritch-color-brand-clay-500: var(--eldritch-ancient-clay-500);
+  --eldritch-color-brand-clay-600: var(--eldritch-ancient-clay-600);
+  --eldritch-color-brand-clay-900: var(--eldritch-ancient-clay-900);
+  --eldritch-color-brand-clay-950: var(--eldritch-ancient-clay-950);
+  --eldritch-color-default-border: var(--eldritch-shadow-slate-700);
+  
+  /* New palette aliases for easier migration */
+  --eldritch-color-celestial-primary: var(--eldritch-celestial-sky-500);
+  --eldritch-color-celestial-light: var(--eldritch-celestial-sky-100);
+  --eldritch-color-heather-primary: var(--eldritch-mystic-heather-500);
+  --eldritch-color-heather-light: var(--eldritch-mystic-heather-100);
+} 

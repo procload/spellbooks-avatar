@@ -1,0 +1,44 @@
+<%= tag.div(**card_attributes) do %>
+  <div class="eld-template-card__header">
+    <% if show_icon %>
+      <div class="eld-template-card__icon">
+        <%= render EldritchUi::IconComponent.new(name: template_icon, size: "md") %>
+      </div>
+    <% end %>
+    <div class="eld-template-card__title-section">
+      <h3 class="eld-template-card__title"><%= title %></h3>
+      <div class="eld-template-card__subject-grade">
+        <%= subject %> • <%= grade_display %>
+      </div>
+    </div>
+  </div>
+
+  <div class="eld-template-card__content">
+    <div class="eld-template-card__summary">
+      <%= template_summary %>
+    </div>
+
+    <% if has_interests? %>
+      <div class="eld-template-card__interests">
+        <strong class="eld-template-card__interests-label">Interests:</strong>
+        <div class="eld-template-card__interests-tags">
+          <% interests.first(3).each do |interest| %>
+            <%= render EldritchUi::TagComponent.new(text: interest, variant: :secondary) %>
+          <% end %>
+          <% if interests.length > 3 %>
+            <%= render EldritchUi::TagComponent.new(text: "+#{interests.length - 3} more", variant: :outline) %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="eld-template-card__footer">
+    <%= render EldritchUi::ButtonComponent.new(
+      label: 'Use Template',
+      variant: :primary,
+      size: :small,
+      data: { action: 'template-card#useTemplate' }
+    ) %>
+  </div>
+<% end %>

@@ -1,0 +1,18 @@
+/* Spellbooks Light Theme */
+/* Default light theme - semantic colors are already mapped appropriately in semantic.css */
+
+:root,
+[data-theme="light"],
+[data-theme="spellbooks-light"] {
+  /* Light theme uses the default semantic mappings */
+  /* No overrides needed - base semantic.css provides light theme defaults */
+  
+  /* Theme-specific adjustments for light mode */
+  --eldritch-color-background: var(--eldritch-parchment-neutral-50);
+  --eldritch-color-surface: var(--eldritch-parchment-neutral-100);
+  --eldritch-color-input-background: var(--eldritch-parchment-neutral-100);
+  
+  /* Ensure good contrast for text */
+  --eldritch-color-text-on-background: var(--eldritch-shadow-slate-900);
+  --eldritch-color-text-on-surface: var(--eldritch-shadow-slate-800);
+} 

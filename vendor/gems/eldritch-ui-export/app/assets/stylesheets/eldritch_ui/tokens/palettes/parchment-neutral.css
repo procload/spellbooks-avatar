@@ -1,0 +1,18 @@
+/* Anthropic-Inspired Neutral Palette */
+/* Sophisticated gray-toned ivories and clouds for modern, refined backgrounds */
+/* References foundation layer for single source of truth */
+
+:root {
+  /* Parchment Neutral - 50 to 950 scale (now Anthropic-inspired) */
+  --eldritch-parchment-neutral-50: var(--eld-foundation-color-parchment-neutral-50);
+  --eldritch-parchment-neutral-100: var(--eld-foundation-color-parchment-neutral-100);
+  --eldritch-parchment-neutral-200: var(--eld-foundation-color-parchment-neutral-200);
+  --eldritch-parchment-neutral-300: var(--eld-foundation-color-parchment-neutral-300);
+  --eldritch-parchment-neutral-400: var(--eld-foundation-color-parchment-neutral-400);
+  --eldritch-parchment-neutral-500: var(--eld-foundation-color-parchment-neutral-500);
+  --eldritch-parchment-neutral-600: var(--eld-foundation-color-parchment-neutral-600);
+  --eldritch-parchment-neutral-700: var(--eld-foundation-color-parchment-neutral-700);
+  --eldritch-parchment-neutral-800: var(--eld-foundation-color-parchment-neutral-800);
+  --eldritch-parchment-neutral-900: var(--eld-foundation-color-parchment-neutral-900);
+  --eldritch-parchment-neutral-950: var(--eld-foundation-color-parchment-neutral-950);
+} 

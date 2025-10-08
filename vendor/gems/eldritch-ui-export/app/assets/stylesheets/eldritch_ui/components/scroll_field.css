@@ -1,0 +1,218 @@
+/* Scroll Field Component - Parchment Scroll Design */
+/* Recreates the aged parchment scroll appearance from the mockup */
+
+.eld-scroll-field {
+  position: relative;
+  display: block;
+  width: 100%;
+  font-family: var(--eld-semantic-font-family-input);
+}
+
+/* Label Tab - Dark pill attached to the scroll */
+.eld-scroll-field__label-tab {
+  position: relative;
+  z-index: 2;
+  display: inline-block;
+  margin-left: var(--eld-semantic-space-component-padding-lg);
+  top: 10px;
+  
+  /* Label tab styling - using design system colors */
+  background: var(--eld-semantic-color-primary);
+  color: var(--eld-semantic-color-text-on-primary);
+  
+  /* Typography */
+  font-family: var(--eld-semantic-font-family-label);
+  font-size: var(--eld-semantic-font-size-label);
+  font-weight: var(--eld-primitive-font-weight-medium);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  
+  /* Pill shape */
+  padding: var(--eld-semantic-space-component-padding-xs) var(--eld-semantic-space-component-padding-md);
+  border-radius: var(--eld-semantic-border-radius-card);
+  
+  /* Complete border all around like button */
+  border: var(--eld-semantic-border-width-default) solid var(--eld-semantic-color-primary);
+  
+  /* Chunky emboss effect */
+  box-shadow: var(--eld-semantic-shadow-button);
+}
+
+/* Parchment Scroll Container */
+.eld-scroll-field__scroll {
+  position: relative;
+  z-index: 1;
+  
+  /* Parchment background with aged texture */
+  background: 
+    linear-gradient(135deg, #f8f5e8 0%, #f5f2e4 25%, #f2efdb 50%, #efebd2 75%, #ece8c9 100%),
+    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c8b896' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  
+  /* Thick dark border matching mockup */
+  border: var(--eld-semantic-border-width-strong) solid var(--eld-semantic-color-primary);
+  border-radius: var(--eld-semantic-border-radius-card);
+  
+  /* Chunky shadow effects */
+  box-shadow: 
+    var(--eld-semantic-shadow-card),
+    inset 0 2px 6px rgba(200, 184, 150, 0.08),
+    inset 0 0 20px rgba(200, 184, 150, 0.05);
+  
+  /* Subtle texture and aging effects */
+  position: relative;
+  overflow: hidden;
+}
+
+/* Add subtle paper texture overlay */
+.eld-scroll-field__scroll::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 1px,
+      rgba(200, 184, 150, 0.01) 1px,
+      rgba(200, 184, 150, 0.01) 2px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 1px,
+      rgba(200, 184, 150, 0.01) 1px,
+      rgba(200, 184, 150, 0.01) 2px
+    );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Content container */
+.eld-scroll-field__content {
+  position: relative;
+  z-index: 2;
+  padding: var(--eld-semantic-space-component-padding-lg);
+  min-height: 8rem;
+}
+
+/* Text content styling */
+.eld-scroll-field__text {
+  /* Typography matching mockup */
+  font-family: var(--eld-semantic-font-family-input);
+  font-size: var(--eld-semantic-font-size-body-medium);
+  font-weight: var(--eld-primitive-font-weight-regular);
+  line-height: 1.6;
+  color: var(--eld-semantic-color-text-primary);
+  
+  /* Clean text without shadows for modern aesthetic */
+  
+  /* Ensure proper spacing */
+  margin: 0;
+  
+  /* Handle long content gracefully */
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Input styling for single-line editable mode */
+.eld-scroll-field__input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  padding: 0;
+  
+  /* Typography matching the display text */
+  font-family: var(--eld-semantic-font-family-input);
+  font-size: var(--eld-semantic-font-size-body-medium);
+  font-weight: var(--eld-primitive-font-weight-regular);
+  line-height: 1.6;
+  color: var(--eld-semantic-color-text-primary);
+  
+  /* Remove default styling */
+  outline: none;
+  box-shadow: none;
+  transition: all 0.2s ease;
+}
+
+.eld-scroll-field__input::placeholder {
+  color: var(--eld-semantic-color-text-muted);
+  font-style: italic;
+}
+
+.eld-scroll-field__input:focus {
+  /* No additional styling needed - inherits parchment background */
+}
+
+/* Textarea styling for multi-line editable mode */
+.eld-scroll-field__textarea {
+  width: 100%;
+  min-height: 6rem;
+  background: transparent;
+  border: none;
+  padding: 0;
+  resize: vertical;
+  
+  /* Typography matching the display text */
+  font-family: var(--eld-semantic-font-family-input);
+  font-size: var(--eld-semantic-font-size-body-medium);
+  font-weight: var(--eld-primitive-font-weight-regular);
+  line-height: 1.6;
+  color: var(--eld-semantic-color-text-primary);
+  
+  /* Remove default styling */
+  outline: none;
+  box-shadow: none;
+  transition: all 0.2s ease;
+}
+
+.eld-scroll-field__textarea::placeholder {
+  color: var(--eld-semantic-color-text-muted);
+  font-style: italic;
+}
+
+.eld-scroll-field__textarea:focus {
+  /* No additional styling needed - inherits parchment background */
+}
+
+/* Responsive design */
+@media (max-width: 640px) {
+  .eld-scroll-field__label-tab {
+    margin-left: var(--eld-semantic-space-component-padding-md);
+    font-size: 0.75rem;
+    padding: 0.25rem var(--eld-semantic-space-component-padding-sm);
+  }
+  
+  .eld-scroll-field__content {
+    padding: var(--eld-semantic-space-component-padding-md);
+  }
+  
+  .eld-scroll-field__text,
+  .eld-scroll-field__textarea {
+    font-size: var(--eld-semantic-font-size-body-small);
+  }
+}
+
+/* Accessibility enhancements */
+@media (prefers-reduced-motion: reduce) {
+  .eld-scroll-field__textarea {
+    transition: none;
+  }
+}
+
+@media (prefers-contrast: high) {
+  .eld-scroll-field__scroll {
+    border-width: 4px;
+    border-color: var(--eld-semantic-color-text-primary);
+  }
+  
+  .eld-scroll-field__label-tab {
+    border-color: var(--eld-semantic-color-text-primary);
+  }
+  
+  .eld-scroll-field__text {
+    color: var(--eld-semantic-color-text-primary);
+  }
+} 

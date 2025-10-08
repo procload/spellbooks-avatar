@@ -1,0 +1,42 @@
+/* Spellbooks Dark Theme */
+/* Dark theme overrides for mysterious, shadowy spellbook interfaces */
+
+[data-theme="dark"],
+[data-theme="spellbooks-dark"] {
+  /* Dark Background & Surfaces */
+  --eldritch-color-background: var(--eldritch-shadow-slate-900);
+  --eldritch-color-surface: var(--eldritch-shadow-slate-800);
+  --eldritch-color-surface-hover: var(--eldritch-shadow-slate-700);
+  --eldritch-color-input-background: var(--eldritch-shadow-slate-800);
+
+  /* Dark Borders */
+  --eldritch-color-border: var(--eldritch-shadow-slate-600);
+  --eldritch-color-border-strong: var(--eldritch-shadow-slate-400);
+
+  /* Dark Text Colors */
+  --eldritch-color-text-primary: var(--eldritch-parchment-neutral-100);
+  --eldritch-color-text-secondary: var(--eldritch-parchment-neutral-200);
+  --eldritch-color-text-muted: var(--eldritch-parchment-neutral-400);
+  --eldritch-color-text-on-background: var(--eldritch-parchment-neutral-100);
+  --eldritch-color-text-on-surface: var(--eldritch-parchment-neutral-200);
+
+  /* Adjusted Primary Colors for Dark Mode */
+  --eldritch-color-primary: var(--eldritch-mystical-gold-500);
+  --eldritch-color-primary-hover: var(--eldritch-mystical-gold-400);
+  --eldritch-color-primary-text: var(--eldritch-shadow-slate-900);
+  --eldritch-color-primary-light: var(--eldritch-mystical-gold-900);
+
+  /* Adjusted Secondary Colors for Dark Mode */
+  --eldritch-color-secondary: var(--eldritch-arcane-blue-500);
+  --eldritch-color-secondary-hover: var(--eldritch-arcane-blue-400);
+  --eldritch-color-secondary-light: var(--eldritch-arcane-blue-900);
+
+  /* Adjusted Success Colors for Dark Mode */
+  --eldritch-color-success: var(--eldritch-ancient-clay-500);
+  --eldritch-color-success-hover: var(--eldritch-ancient-clay-400);
+  --eldritch-color-success-light: var(--eldritch-ancient-clay-900);
+
+  /* Warning/Error stay vibrant in dark mode */
+  --eldritch-color-warning: var(--eldritch-phoenix-red-500);
+  --eldritch-color-error: var(--eldritch-phoenix-red-500);
+} 

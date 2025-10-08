@@ -1,0 +1,18 @@
+/* Ancient Oak Palette */
+/* Muted browns and earth tones for natural magic, wooden elements, and desaturated neutral alternatives */
+/* References foundation layer for single source of truth */
+
+:root {
+  /* Ancient Oak - 50 to 950 scale centered on #7C5E4B */
+  --eldritch-ancient-oak-50: var(--eld-foundation-color-ancient-oak-50);
+  --eldritch-ancient-oak-100: var(--eld-foundation-color-ancient-oak-100);
+  --eldritch-ancient-oak-200: var(--eld-foundation-color-ancient-oak-200);
+  --eldritch-ancient-oak-300: var(--eld-foundation-color-ancient-oak-300);
+  --eldritch-ancient-oak-400: var(--eld-foundation-color-ancient-oak-400);
+  --eldritch-ancient-oak-500: var(--eld-foundation-color-ancient-oak-500);
+  --eldritch-ancient-oak-600: var(--eld-foundation-color-ancient-oak-600);
+  --eldritch-ancient-oak-700: var(--eld-foundation-color-ancient-oak-700);
+  --eldritch-ancient-oak-800: var(--eld-foundation-color-ancient-oak-800);
+  --eldritch-ancient-oak-900: var(--eld-foundation-color-ancient-oak-900);
+  --eldritch-ancient-oak-950: var(--eld-foundation-color-ancient-oak-950);
+} 
